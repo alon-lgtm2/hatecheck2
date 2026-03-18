@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ExternalLink, ChevronRight } from "lucide-react";
 
 export async function generateMetadata({
   params,
@@ -63,20 +62,19 @@ export default async function StandardsPage({
   const t = await getTranslations({ locale, namespace: "standards" });
 
   return (
-    <div className="pt-[88px]">
-      {/* Hero */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-[#DDE4EE] bg-[#F8FAFB]">
-        <div className="max-w-7xl mx-auto">
+    <div className="pt-[73px]">
+      {/* Page Header */}
+      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+        <div className="max-w-[1400px] mx-auto">
           <div className="max-w-3xl">
-            <div className="w-10 h-[2px] bg-[#1A52C8] mb-4" />
-            <p className="gov-label mb-3">METHODOLOGY</p>
+            <p className="swiss-label mb-4">METHODOLOGY</p>
             <h1
-              className="text-5xl md:text-6xl font-heading font-bold text-[#0C1B2E] mb-5"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="font-bold text-[#0A1628] mb-6"
+              style={{ fontSize: "clamp(36px, 5vw, 64px)", lineHeight: 1.1 }}
             >
               {t("title")}
             </h1>
-            <p className="text-lg text-[#2B3F57] leading-relaxed max-w-3xl">
+            <p className="text-[17px] text-[#374151] leading-relaxed max-w-3xl">
               {t("subtitle")}
             </p>
           </div>
@@ -84,13 +82,13 @@ export default async function StandardsPage({
       </section>
 
       {/* Intro */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-[#DDE4EE] bg-[#EFF3F8]">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl">
-            <p className="text-[#2B3F57] leading-relaxed mb-4">
+      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="max-w-3xl space-y-5">
+            <p className="text-[15px] text-[#374151] leading-relaxed">
               HateCheck does not rely on a single definition of antisemitism or hate speech. Each of the primary international frameworks has strengths and limitations. Rather than choosing one and discarding others, our methodology applies all applicable frameworks in a layered approach — surfacing the most defensible classification for each piece of content.
             </p>
-            <p className="text-[#2B3F57] leading-relaxed">
+            <p className="text-[15px] text-[#374151] leading-relaxed">
               For Dutch-specific cases, we apply the Dutch Penal Code frameworks on top of the international standards to assess criminal liability thresholds. This layered approach produces Tier 4 and Tier 5 classifications for content that not only meets antisemitism definitions but may also constitute criminal speech under Dutch law.
             </p>
           </div>
@@ -98,54 +96,34 @@ export default async function StandardsPage({
       </section>
 
       {/* IHRA */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-[#DDE4EE] bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            <div className="lg:col-span-1">
-              <span
-                className="inline-block px-3 py-1.5 rounded-sm text-xs font-heading tracking-widest mb-4"
-                style={{
-                  backgroundColor: "rgba(26, 82, 200, 0.1)",
-                  border: "1px solid rgba(26, 82, 200, 0.3)",
-                  color: "#1A52C8",
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  letterSpacing: "0.15em",
-                }}
-              >
-                {t("ihra.badge").toUpperCase()}
-              </span>
-              <h2
-                className="text-3xl font-heading font-bold text-[#0C1B2E] mb-3"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-              >
-                {t("ihra.title")}
-              </h2>
-              <p className="text-sm text-[#8099B3] mb-4">
-                International Holocaust Remembrance Alliance — Adopted 2016. Endorsed by 35+ countries including the Netherlands.
-              </p>
-              <a
-                href="https://www.holocaustremembrance.com/resources/working-definitions-charters/working-definition-antisemitism"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-[#1A52C8] hover:text-[#1440A3] transition-colors"
-              >
-                Official Source <ExternalLink size={12} />
-              </a>
-            </div>
-            <div className="lg:col-span-2 space-y-4">
-              <div className="p-5 rounded-sm border border-[#C6D2E0] bg-white shadow-gov">
-                <h3 className="text-sm font-heading font-semibold text-[#0C1B2E] mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                  Core Definition
-                </h3>
-                <p className="text-sm text-[#2B3F57] leading-relaxed italic">
+      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="border border-[#E5E7EB] p-12 mb-0">
+            <p className="swiss-label mb-3">{t("ihra.badge").toUpperCase()}</p>
+            <h2 className="text-[32px] font-bold text-[#0A1628] mb-3">
+              {t("ihra.title")}
+            </h2>
+            <p className="text-[13px] text-[#9CA3AF] mb-6">
+              International Holocaust Remembrance Alliance — Adopted 2016. Endorsed by 35+ countries including the Netherlands.
+            </p>
+            <a
+              href="https://www.holocaustremembrance.com/resources/working-definitions-charters/working-definition-antisemitism"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[13px] text-[#0A1628] underline underline-offset-4 hover:text-[#374151] transition-colors"
+            >
+              Official Source
+            </a>
+            <div className="mt-10 space-y-8">
+              <div className="border-b border-[#E5E7EB] pb-8">
+                <h3 className="text-[16px] font-bold text-[#0A1628] mb-3">Core Definition</h3>
+                <p className="text-[15px] text-[#374151] leading-relaxed italic">
                   &ldquo;Antisemitism is a certain perception of Jews, which may be expressed as hatred toward Jews. Rhetorical and physical manifestations of antisemitism are directed toward Jewish or non-Jewish individuals and/or their property, toward Jewish community institutions and religious facilities.&rdquo;
                 </p>
               </div>
-              <div className="p-5 rounded-sm border border-[#C6D2E0] bg-white shadow-gov">
-                <h3 className="text-sm font-heading font-semibold text-[#0C1B2E] mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                  Contemporary Examples (11 Total)
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div>
+                <h3 className="text-[16px] font-bold text-[#0A1628] mb-4">Contemporary Examples (11 Total)</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
                     "Calling for harm to Jews",
                     "Making mendacious, dehumanizing allegations about Jews",
@@ -159,11 +137,8 @@ export default async function StandardsPage({
                     "Dehumanizing stereotypes",
                     "Targeting Jewish community institutions",
                   ].map((ex, i) => (
-                    <div key={i} className="flex items-start gap-2 text-xs text-[#2B3F57]">
-                      <span
-                        className="font-mono text-[#1A52C8] flex-shrink-0"
-                        style={{ fontFamily: "'JetBrains Mono', monospace" }}
-                      >
+                    <div key={i} className="text-[13px] text-[#374151]">
+                      <span className="text-[#9CA3AF] mr-2">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       {ex}
@@ -171,71 +146,63 @@ export default async function StandardsPage({
                   ))}
                 </div>
               </div>
+              <div className="border-t border-[#E5E7EB] pt-8">
+                <p className="swiss-label mb-2">ROLE IN HATECHECK</p>
+                <p className="text-[15px] text-[#374151] leading-relaxed">
+                  IHRA serves as the primary framework for all cases not directly related to Israel. Its broad adoption makes it the most institutionally recognized baseline for classification.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Nexus Document */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-[#DDE4EE] bg-[#EFF3F8]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            <div className="lg:col-span-1">
-              <span
-                className="inline-block px-3 py-1.5 rounded-sm text-xs font-heading tracking-widest mb-4"
-                style={{
-                  backgroundColor: "rgba(8, 145, 178, 0.1)",
-                  border: "1px solid rgba(8, 145, 178, 0.3)",
-                  color: "#0891B2",
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  letterSpacing: "0.15em",
-                }}
-              >
-                {t("nexus.badge").toUpperCase()}
-              </span>
-              <h2
-                className="text-3xl font-heading font-bold text-[#0C1B2E] mb-3"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-              >
-                {t("nexus.title")}
-              </h2>
-              <p className="text-sm text-[#8099B3] mb-4">
-                Nexus Task Force — 2021. Focuses specifically on Israel-Palestine discourse and the antisemitism boundary.
-              </p>
-              <a
-                href="https://israelandantisemitism.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-[#0891B2] hover:text-[#0C7FA0] transition-colors"
-              >
-                Official Source <ExternalLink size={12} />
-              </a>
-            </div>
-            <div className="lg:col-span-2 space-y-4">
-              <div className="p-5 rounded-sm border border-[#C6D2E0] bg-white shadow-gov">
-                <h3 className="text-sm font-heading font-semibold text-[#0C1B2E] mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                  The Two-Part Nexus Test
-                </h3>
-                <p className="text-sm text-[#2B3F57] leading-relaxed mb-3">
+      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="border border-[#E5E7EB] p-12">
+            <p className="swiss-label mb-3">{t("nexus.badge").toUpperCase()}</p>
+            <h2 className="text-[32px] font-bold text-[#0A1628] mb-3">
+              {t("nexus.title")}
+            </h2>
+            <p className="text-[13px] text-[#9CA3AF] mb-6">
+              Nexus Task Force — 2021. Focuses specifically on Israel-Palestine discourse and the antisemitism boundary.
+            </p>
+            <a
+              href="https://israelandantisemitism.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[13px] text-[#0A1628] underline underline-offset-4 hover:text-[#374151] transition-colors"
+            >
+              Official Source
+            </a>
+            <div className="mt-10 space-y-8">
+              <div className="border-b border-[#E5E7EB] pb-8">
+                <h3 className="text-[16px] font-bold text-[#0A1628] mb-3">The Two-Part Nexus Test</h3>
+                <p className="text-[15px] text-[#374151] leading-relaxed mb-4">
                   Speech about Israel is antisemitic when it:
                 </p>
-                <div className="space-y-2">
-                  <div className="flex items-start gap-2.5 text-sm text-[#2B3F57]">
-                    <span className="text-[#0891B2] flex-shrink-0">A.</span>
+                <div className="space-y-3">
+                  <div className="text-[15px] text-[#374151]">
+                    <span className="text-[#9CA3AF] mr-2">A.</span>
                     Targets Israel <em>because it is Jewish</em> — i.e., applies standards not required of other states due to Jewish identity
                   </div>
-                  <div className="flex items-start gap-2.5 text-sm text-[#2B3F57]">
-                    <span className="text-[#0891B2] flex-shrink-0">B.</span>
+                  <div className="text-[15px] text-[#374151]">
+                    <span className="text-[#9CA3AF] mr-2">B.</span>
                     Applies classic antisemitic tropes (conspiracy, dual loyalty, dehumanization) to Israeli or Jewish conduct
                   </div>
                 </div>
               </div>
-              <div className="p-5 rounded-sm border border-[#C6D2E0] bg-white shadow-gov">
-                <h3 className="text-sm font-heading font-semibold text-[#0C1B2E] mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                  Explicitly Protected Speech
-                </h3>
-                <p className="text-sm text-[#2B3F57] leading-relaxed">
+              <div className="border-b border-[#E5E7EB] pb-8">
+                <h3 className="text-[16px] font-bold text-[#0A1628] mb-3">Explicitly Protected Speech</h3>
+                <p className="text-[15px] text-[#374151] leading-relaxed">
                   The Nexus Document explicitly states that criticism of Israeli government policies, support for Palestinian rights, and opposition to occupation are not antisemitic — even when strongly stated. The &ldquo;because it is Jewish&rdquo; test separates political discourse from hatred.
+                </p>
+              </div>
+              <div>
+                <p className="swiss-label mb-2">ROLE IN HATECHECK</p>
+                <p className="text-[15px] text-[#374151] leading-relaxed">
+                  Nexus analysis is applied specifically to cases where the Israel-antisemitism boundary is contested, providing a structured test for distinguishing political criticism from antisemitic speech.
                 </p>
               </div>
             </div>
@@ -244,46 +211,28 @@ export default async function StandardsPage({
       </section>
 
       {/* JDA */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-[#DDE4EE] bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            <div className="lg:col-span-1">
-              <span
-                className="inline-block px-3 py-1.5 rounded-sm text-xs font-heading tracking-widest mb-4"
-                style={{
-                  backgroundColor: "rgba(124, 58, 237, 0.1)",
-                  border: "1px solid rgba(124, 58, 237, 0.3)",
-                  color: "#7C3AED",
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  letterSpacing: "0.15em",
-                }}
-              >
-                {t("jda.badge").toUpperCase()}
-              </span>
-              <h2
-                className="text-3xl font-heading font-bold text-[#0C1B2E] mb-3"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-              >
-                {t("jda.title")}
-              </h2>
-              <p className="text-sm text-[#8099B3] mb-4">
-                Jerusalem Declaration — 2021. Developed by 200+ international scholars. Provides academic rigor and Israel-specific nuance.
-              </p>
-              <a
-                href="https://jerusalemdeclaration.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-[#7C3AED] hover:text-[#6D28D9] transition-colors"
-              >
-                Official Source <ExternalLink size={12} />
-              </a>
-            </div>
-            <div className="lg:col-span-2 space-y-4">
-              <div className="p-5 rounded-sm border border-[#C6D2E0] bg-white shadow-gov">
-                <h3 className="text-sm font-heading font-semibold text-[#0C1B2E] mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                  What is Antisemitic (JDA)
-                </h3>
-                <ul className="space-y-1">
+      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="border border-[#E5E7EB] p-12">
+            <p className="swiss-label mb-3">{t("jda.badge").toUpperCase()}</p>
+            <h2 className="text-[32px] font-bold text-[#0A1628] mb-3">
+              {t("jda.title")}
+            </h2>
+            <p className="text-[13px] text-[#9CA3AF] mb-6">
+              Jerusalem Declaration — 2021. Developed by 200+ international scholars. Provides academic rigor and Israel-specific nuance.
+            </p>
+            <a
+              href="https://jerusalemdeclaration.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[13px] text-[#0A1628] underline underline-offset-4 hover:text-[#374151] transition-colors"
+            >
+              Official Source
+            </a>
+            <div className="mt-10 space-y-8">
+              <div className="border-b border-[#E5E7EB] pb-8">
+                <h3 className="text-[16px] font-bold text-[#0A1628] mb-3">What is Antisemitic (JDA)</h3>
+                <ul className="space-y-2">
                   {[
                     "Calling for harm to Jews or treating them as less than human",
                     "Conspiracy theories (Jewish control of media, finance, government)",
@@ -291,30 +240,32 @@ export default async function StandardsPage({
                     "Discriminatory double standards applied to Jews",
                     "Attributing Israeli conduct to Jewish identity globally",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs text-[#2B3F57]">
-                      <span className="text-[#7C3AED] flex-shrink-0 mt-0.5">▸</span>
+                    <li key={i} className="text-[14px] text-[#374151]">
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="p-5 rounded-sm border border-[#C6D2E0] bg-white shadow-gov">
-                <h3 className="text-sm font-heading font-semibold text-[#0C1B2E] mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                  What is Not Antisemitic (JDA)
-                </h3>
-                <ul className="space-y-1">
+              <div className="border-b border-[#E5E7EB] pb-8">
+                <h3 className="text-[16px] font-bold text-[#0A1628] mb-3">What is Not Antisemitic (JDA)</h3>
+                <ul className="space-y-2">
                   {[
                     "Criticism of Israeli policies comparable to criticism of other states",
-                    "Holding that Israel&apos;s founding involved ethnic displacement",
+                    "Holding that Israel's founding involved ethnic displacement",
                     "Boycott, divestment, sanctions (BDS) advocacy",
                     "Comparing Israeli policies to other historical examples (context-dependent)",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs text-[#2B3F57]">
-                      <span className="text-[#16A34A] flex-shrink-0 mt-0.5">▸</span>
-                      <span dangerouslySetInnerHTML={{ __html: item }} />
+                    <li key={i} className="text-[14px] text-[#374151]">
+                      {item}
                     </li>
                   ))}
                 </ul>
+              </div>
+              <div>
+                <p className="swiss-label mb-2">ROLE IN HATECHECK</p>
+                <p className="text-[15px] text-[#374151] leading-relaxed">
+                  JDA guidance is applied as a secondary check for Israel-related content, providing more granular boundaries for grey-zone cases that IHRA alone cannot resolve.
+                </p>
               </div>
             </div>
           </div>
@@ -322,146 +273,96 @@ export default async function StandardsPage({
       </section>
 
       {/* Dutch Penal Code */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-[#DDE4EE] bg-[#EFF3F8]">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-10">
-            <span
-              className="inline-block px-3 py-1.5 rounded-sm text-xs font-heading tracking-widest mb-4"
-              style={{
-                backgroundColor: "rgba(217, 119, 6, 0.1)",
-                border: "1px solid rgba(217, 119, 6, 0.3)",
-                color: "#D97706",
-                fontFamily: "'Barlow Condensed', sans-serif",
-                letterSpacing: "0.15em",
-              }}
-            >
-              {t("dutch.badge").toUpperCase()}
-            </span>
-            <h2
-              className="text-3xl md:text-4xl font-heading font-bold text-[#0C1B2E] mb-3"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-            >
+      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="border border-[#E5E7EB] p-12">
+            <p className="swiss-label mb-3">{t("dutch.badge").toUpperCase()}</p>
+            <h2 className="text-[32px] font-bold text-[#0A1628] mb-3">
               {t("dutch.title")}
             </h2>
-            <p className="text-[#2B3F57] max-w-2xl">
+            <p className="text-[15px] text-[#374151] mb-10 max-w-2xl leading-relaxed">
               The Netherlands&apos; criminal provisions governing hate speech are concentrated in Articles 137c-e of the Wetboek van Strafrecht (WvSr). These are the legal thresholds that determine Tier 4 and 5 classifications.
             </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#DDE4EE] border border-[#DDE4EE] rounded-sm overflow-hidden">
-            {dutchArticles.map((article) => (
-              <div
-                key={article.code}
-                className="p-6 bg-white hover:bg-[#F8FAFB] transition-colors"
-              >
-                <div className="flex items-center gap-2 mb-4">
-                  <span
-                    className="text-lg font-mono font-semibold"
-                    style={{ color: "#D97706", fontFamily: "'JetBrains Mono', monospace" }}
-                  >
-                    {article.code}
-                  </span>
-                </div>
-                <h3
-                  className="text-lg font-heading font-semibold text-[#0C1B2E] mb-2"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            <div className="space-y-10">
+              {dutchArticles.map((article) => (
+                <div
+                  key={article.code}
+                  className="border-b border-[#E5E7EB] pb-10 last:border-b-0 last:pb-0"
                 >
-                  {article.title}
-                </h3>
-                <p className="text-sm text-[#2B3F57] mb-4 leading-relaxed">
-                  {article.description}
-                </p>
-                <ul className="space-y-1.5">
-                  {article.elements.map((el, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs text-[#8099B3]">
-                      <span className="text-[#D97706] flex-shrink-0 mt-0.5">▸</span>
-                      {el}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+                  <p className="swiss-label mb-2">{article.code.toUpperCase()}</p>
+                  <h3 className="text-[18px] font-bold text-[#0A1628] mb-3">
+                    {article.title}
+                  </h3>
+                  <p className="text-[15px] text-[#374151] mb-4 leading-relaxed">
+                    {article.description}
+                  </p>
+                  <ul className="space-y-1">
+                    {article.elements.map((el, i) => (
+                      <li key={i} className="text-[13px] text-[#9CA3AF]">
+                        {el}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 pt-8 border-t border-[#E5E7EB]">
+              <p className="swiss-label mb-2">ROLE IN HATECHECK</p>
+              <p className="text-[15px] text-[#374151] leading-relaxed">
+                Dutch law is applied on top of international standards to assess criminal liability thresholds, producing Tier 4 and Tier 5 classifications for content that may constitute criminal speech.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* How They Work Together */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-[#DDE4EE] bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-10">
-            <h2
-              className="text-3xl md:text-4xl font-heading font-bold text-[#0C1B2E] mb-3"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-            >
+      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="mb-16">
+            <p className="swiss-label mb-4">INTEGRATED METHODOLOGY</p>
+            <h2 className="text-[36px] font-bold text-[#0A1628] mb-4">
               How They Work Together
             </h2>
-            <p className="text-[#2B3F57] max-w-2xl">
+            <p className="text-[15px] text-[#374151] max-w-2xl leading-relaxed">
               The layered methodology integrates all frameworks at the appropriate analytical stage.
             </p>
           </div>
 
-          <div className="relative">
-            {/* Layers */}
+          <div className="space-y-10">
             {[
               {
                 label: "Layer 1: International Definitions",
-                frameworks: ["IHRA", "JDA", "NEXUS"],
-                desc: "Applied first to determine whether content meets any antisemitism threshold",
-                color: "#1A52C8",
+                frameworks: "IHRA, JDA, NEXUS",
+                desc: "Applied first to determine whether content meets any antisemitism threshold.",
               },
               {
                 label: "Layer 2: Context Analysis",
-                frameworks: ["Satire Check", "Intent Signals", "Audience Context"],
-                desc: "Contextual modifiers that can affect tier assignment in borderline cases",
-                color: "#0891B2",
+                frameworks: "Satire Check, Intent Signals, Audience Context",
+                desc: "Contextual modifiers that can affect tier assignment in borderline cases.",
               },
               {
                 label: "Layer 3: Dutch Legal Assessment",
-                frameworks: ["Art. 137c", "Art. 137d", "Art. 137e"],
-                desc: "Applied to determine criminal law applicability for Tier 4/5 assignments",
-                color: "#D97706",
+                frameworks: "Art. 137c, Art. 137d, Art. 137e",
+                desc: "Applied to determine criminal law applicability for Tier 4/5 assignments.",
               },
               {
                 label: "Layer 4: Tier Assignment",
-                frameworks: ["Tier 1", "Tier 2", "Tier 3", "Tier 4", "Tier 5"],
-                desc: "Final classification produced with full reasoning chain",
-                color: "#16A34A",
+                frameworks: "Tier 1, Tier 2, Tier 3, Tier 4, Tier 5",
+                desc: "Final classification produced with full reasoning chain.",
               },
             ].map((layer, i) => (
               <div
                 key={i}
-                className="relative pl-8 pb-8 last:pb-0"
-                style={{ borderLeft: `2px solid ${layer.color}30` }}
+                className="border-b border-[#E5E7EB] pb-10 last:border-b-0 last:pb-0"
               >
-                <div
-                  className="absolute left-0 top-0 w-4 h-4 rounded-full -translate-x-2"
-                  style={{ backgroundColor: layer.color }}
-                />
-                <div className="ml-4">
-                  <h3
-                    className="text-base font-heading font-semibold mb-2"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif", color: layer.color }}
-                  >
-                    {layer.label}
-                  </h3>
-                  <div className="flex flex-wrap gap-2 mb-2">
-                    {layer.frameworks.map((fw) => (
-                      <span
-                        key={fw}
-                        className="text-xs font-mono px-2 py-0.5 rounded-sm"
-                        style={{
-                          backgroundColor: `${layer.color}15`,
-                          border: `1px solid ${layer.color}30`,
-                          color: layer.color,
-                          fontFamily: "'JetBrains Mono', monospace",
-                        }}
-                      >
-                        {fw}
-                      </span>
-                    ))}
-                  </div>
-                  <p className="text-sm text-[#8099B3]">{layer.desc}</p>
-                </div>
+                <h3 className="text-[18px] font-bold text-[#0A1628] mb-2">
+                  {layer.label}
+                </h3>
+                <p className="swiss-label mb-2">{layer.frameworks}</p>
+                <p className="text-[15px] text-[#374151] leading-relaxed">{layer.desc}</p>
               </div>
             ))}
           </div>
@@ -469,23 +370,19 @@ export default async function StandardsPage({
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#EFF3F8]">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2
-            className="text-3xl md:text-4xl font-heading font-bold text-[#0C1B2E] mb-5"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-          >
+      <section className="py-[120px] px-16 bg-white">
+        <div className="max-w-[1400px] mx-auto text-center">
+          <h2 className="text-[36px] font-bold text-[#0A1628] mb-4">
             See the Standards in Practice
           </h2>
-          <p className="text-[#2B3F57] mb-8">
+          <p className="text-[15px] text-[#374151] mb-10">
             Review our anonymized case studies to see how these frameworks are applied.
           </p>
           <Link
             href={`/${locale}/reports`}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#1A52C8] hover:bg-[#1440A3] text-white rounded-sm font-heading tracking-wider text-sm transition-all shadow-gov"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.12em" }}
+            className="text-[15px] text-[#0A1628] underline underline-offset-4 hover:text-[#374151] transition-colors"
           >
-            VIEW CASE STUDIES <ChevronRight size={14} />
+            View case studies
           </Link>
         </div>
       </section>

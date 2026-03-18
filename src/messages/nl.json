@@ -34,48 +34,60 @@
       "stat4Label": "Europese Landen"
     },
     "problem": {
-      "title": "De Uitdaging",
-      "subtitle": "Antisemitisme en haatboodschappen nemen toe in Europa. Traditionele monitoringmethoden kunnen het tempo niet bijhouden.",
-      "card1Title": "Schaal & Volume",
-      "card1Desc": "Dagelijks vinden duizenden incidenten plaats op sociale media, nieuwssites en berichtenplatforms — ver boven de capaciteit voor handmatige beoordeling.",
-      "card2Title": "Ambiguïteit & Context",
-      "card2Desc": "Veel haatboodschappen verbergen zich achter satire, gecodeerde taal en aannemelijke ontkenning, waardoor classificatie moeilijk en inconsistent is.",
-      "card3Title": "Jurisdictionele Lacunes",
-      "card3Desc": "Verschillende rechtskaders in EU-lidstaten creëren verwarring over wat criminele uitlatingen zijn versus beschermde meningsuiting.",
-      "card4Title": "Onderrapportage",
-      "card4Desc": "Gemeenschappen missen toegankelijke tools om incidenten te documenteren, classificeren en rapporteren op een manier die actioneerbaar is voor autoriteiten."
+      "label": "Het Probleem",
+      "col1Title": "Schaal & Volume",
+      "col1Desc": "Dagelijks vinden duizenden incidenten plaats op sociale media, nieuwssites en berichtenplatforms — ver boven de capaciteit voor handmatige beoordeling. Het volume maakt handmatige monitoring onmogelijk.",
+      "col2Title": "Ambiguïteit & Context",
+      "col2Desc": "Veel haatboodschappen verbergen zich achter satire, gecodeerde taal en aannemelijke ontkenning. Classificatie is moeilijk, inconsistent en verschilt per rechtsgebied.",
+      "col3Title": "Onderrapportage",
+      "col3Desc": "Gemeenschappen missen toegankelijke tools om incidenten te documenteren, classificeren en rapporteren op een manier die actioneerbaar is voor autoriteiten."
     },
     "howItWorks": {
-      "title": "Hoe HateCheck Werkt",
-      "subtitle": "Een systematische, op bewijs gebaseerde aanpak voor het verzamelen en classificeren van inlichtingen."
+      "label": "Methodologie",
+      "step1Title": "Bronintake",
+      "step1Desc": "URL's, tekst, afbeeldingen of live feeds ingediend voor analyse op meer dan 20 platforms en formaten.",
+      "step2Title": "Verifiëren & Focussen",
+      "step2Desc": "Inhoud wordt geverifieerd op authenticiteit en relevantie voordat het de analysepijplijn ingaat.",
+      "step3Title": "Protocolanalyse",
+      "step3Desc": "Multi-model AI past semantische, contextuele en visuele analyse toe op basis van vastgestelde kaders.",
+      "step4Title": "Classificatie",
+      "step4Desc": "Vijfniveau-ernstbeoordeling op basis van IHRA, JDA, Nexus en Nederlandse wettelijke normen.",
+      "step5Title": "Handhavingsactie",
+      "step5Desc": "Genereert verwijzingspakketten, rapporten en documentatie voor autoriteiten en organisaties."
     },
-    "tierOverview": {
-      "title": "De HateCheck Index",
-      "subtitle": "Een vijfniveauclassificatiesysteem gebaseerd op internationale normen en Nederlands recht — van duidelijk toelaatbare uitlatingen tot urgente criminele risico's.",
-      "tier1Label": "Niet Antisemitisch",
-      "tier2Label": "Context Nodig",
-      "tier3Label": "Antisemitisch",
-      "tier4Label": "Mogelijk Crimineel",
-      "tier5Label": "Urgent Risico",
+    "tiers": {
+      "label": "Classificatiesysteem",
+      "colTier": "Niveau",
+      "colClassification": "Classificatie",
+      "colDescription": "Beschrijving",
+      "colResponse": "Respons",
+      "tier1Class": "Niet Antisemitisch",
       "tier1Desc": "Inhoud die de drempel voor antisemitisme onder geen enkele toepasselijke norm bereikt.",
+      "tier1Response": "Geen actie vereist. Archiveren voor referentie.",
+      "tier2Class": "Context Nodig",
       "tier2Desc": "Grensgevallen die mogelijk antisemitisch zijn afhankelijk van context, intentie en publiek.",
+      "tier2Response": "Markeren voor menselijke beoordeling en contextuele analyse.",
+      "tier3Class": "Antisemitisch",
       "tier3Desc": "Inhoud die kwalificeert als antisemitisch onder IHRA/JDA-definities maar geen strafrechterlijke drempel overschrijdt.",
+      "tier3Response": "Documenteren, melden bij platform, monitoringinstanties informeren.",
+      "tier4Class": "Mogelijk Crimineel",
       "tier4Desc": "Inhoud die mogelijk de Nederlandse Strafwet artikelen 137c, 137d of 137e schendt.",
-      "tier5Desc": "Onmiddellijke dreigingsindicatoren die urgente doorverwijzing naar rechtshandhaving vereisen."
+      "tier4Response": "Formele doorverwijzing naar rechtshandhaving met bewijspakket.",
+      "tier5Class": "Urgent Risico",
+      "tier5Desc": "Onmiddellijke dreigingsindicatoren die urgente doorverwijzing naar rechtshandhaving vereisen.",
+      "tier5Response": "Noodverwijzing. Doelwitten en autoriteiten onmiddellijk informeren."
     },
     "credibility": {
-      "title": "Gebaseerd op Internationale Normen",
-      "subtitle": "Onze classificatiemethodologie integreert wereldwijd erkende definities en Nederlandse rechtskaders."
+      "label": "Normen & Kaders",
+      "description": "Gebaseerd op gevestigde internationale kaders en Nederlandse wettelijke normen."
     },
     "quote": {
       "text": "Als er een grondbeginselen is waaraan de Eerste Amendement ten grondslag ligt, is het dat de overheid de uitdrukking van een idee niet mag verbieden simpelweg omdat de samenleving het idee aanstootgevend of onacceptabel vindt.",
       "attribution": "Rechter Louis D. Brandeis — minderheidsmening in Whitney v. California (1927)"
     },
     "cta": {
-      "title": "Klaar om uw gemeenschap te beschermen?",
-      "subtitle": "Sluit u aan bij organisaties in Nederland en Europa die HateCheck gebruiken om haatboodschappen te monitoren, classificeren en beantwoorden.",
-      "primary": "Demo Aanvragen",
-      "secondary": "Meer Informatie"
+      "label": "Volgende Stap",
+      "text": "Geïnteresseerd? Neem contact op"
     }
   },
   "product": {

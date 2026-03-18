@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 type FormStatus = "idle" | "sending" | "success" | "error";
@@ -47,16 +46,16 @@ export default function ContactForm() {
   };
 
   const inputClass =
-    "w-full px-4 py-3 rounded-sm bg-white border border-[#C6D2E0] text-[#0C1B2E] placeholder-[#8099B3] text-sm focus:outline-none focus:border-[#1A52C8] focus:ring-1 focus:ring-[#1A52C8]/30 transition-colors";
+    "w-full py-3 bg-transparent border-0 border-b border-[#E5E7EB] text-[15px] text-[#0A1628] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0A1628] transition-colors";
 
   const labelClass =
-    "block text-xs font-heading tracking-widest text-[#2B3F57] mb-2";
+    "swiss-label block mb-3";
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <form onSubmit={handleSubmit} className="space-y-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
         <div>
-          <label htmlFor="name" className={labelClass} style={{ fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.12em" }}>
+          <label htmlFor="name" className={labelClass}>
             {t("nameLabel").toUpperCase()} *
           </label>
           <input
@@ -68,10 +67,11 @@ export default function ContactForm() {
             onChange={handleChange}
             className={inputClass}
             placeholder="Jan de Vries"
+            style={{ borderRadius: 0 }}
           />
         </div>
         <div>
-          <label htmlFor="email" className={labelClass} style={{ fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.12em" }}>
+          <label htmlFor="email" className={labelClass}>
             {t("emailLabel").toUpperCase()} *
           </label>
           <input
@@ -83,13 +83,14 @@ export default function ContactForm() {
             onChange={handleChange}
             className={inputClass}
             placeholder="jan@example.nl"
+            style={{ borderRadius: 0 }}
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
         <div>
-          <label htmlFor="organization" className={labelClass} style={{ fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.12em" }}>
+          <label htmlFor="organization" className={labelClass}>
             {t("orgLabel").toUpperCase()}
           </label>
           <input
@@ -100,10 +101,11 @@ export default function ContactForm() {
             onChange={handleChange}
             className={inputClass}
             placeholder="Organization name"
+            style={{ borderRadius: 0 }}
           />
         </div>
         <div>
-          <label htmlFor="role" className={labelClass} style={{ fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.12em" }}>
+          <label htmlFor="role" className={labelClass}>
             {t("roleLabel").toUpperCase()}
           </label>
           <input
@@ -114,12 +116,13 @@ export default function ContactForm() {
             onChange={handleChange}
             className={inputClass}
             placeholder="Director / Researcher / etc."
+            style={{ borderRadius: 0 }}
           />
         </div>
       </div>
 
       <div>
-        <label htmlFor="subject" className={labelClass} style={{ fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.12em" }}>
+        <label htmlFor="subject" className={labelClass}>
           {t("subjectLabel").toUpperCase()} *
         </label>
         <select
@@ -129,7 +132,7 @@ export default function ContactForm() {
           value={formData.subject}
           onChange={handleChange}
           className={inputClass}
-          style={{ cursor: "pointer" }}
+          style={{ cursor: "pointer", borderRadius: 0 }}
         >
           <option value="" disabled>Select a subject...</option>
           <option value="demo">Request a Demo</option>
@@ -142,7 +145,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className={labelClass} style={{ fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.12em" }}>
+        <label htmlFor="message" className={labelClass}>
           {t("messageLabel").toUpperCase()} *
         </label>
         <textarea
@@ -154,32 +157,28 @@ export default function ContactForm() {
           onChange={handleChange}
           className={inputClass}
           placeholder="Describe your inquiry..."
-          style={{ resize: "vertical" }}
+          style={{ resize: "vertical", borderRadius: 0 }}
         />
       </div>
 
       {/* Status Messages */}
       {status === "success" && (
-        <div className="flex items-center gap-3 p-4 rounded-sm bg-[#16A34A]/10 border border-[#16A34A]/30 text-[#16A34A]">
-          <CheckCircle size={16} />
-          <span className="text-sm">{t("success")}</span>
+        <div className="border-b border-[#E5E7EB] pb-4">
+          <p className="text-[15px] text-[#374151]">{t("success")}</p>
         </div>
       )}
       {status === "error" && (
-        <div className="flex items-center gap-3 p-4 rounded-sm bg-[#DC2626]/10 border border-[#DC2626]/30 text-[#DC2626]">
-          <AlertCircle size={16} />
-          <span className="text-sm">{t("error")}</span>
+        <div className="border-b border-[#E5E7EB] pb-4">
+          <p className="text-[15px] text-[#374151]">{t("error")}</p>
         </div>
       )}
 
       <button
         type="submit"
         disabled={status === "sending"}
-        className="flex items-center gap-2 px-8 py-3 bg-[#1A52C8] hover:bg-[#1440A3] disabled:bg-[#C6D2E0] text-white rounded-sm font-heading tracking-wider text-sm transition-colors shadow-gov"
-        style={{ fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.1em" }}
+        className="text-[15px] text-[#0A1628] underline underline-offset-4 hover:text-[#374151] disabled:text-[#9CA3AF] transition-colors cursor-pointer bg-transparent border-none p-0"
       >
-        <Send size={14} />
-        {status === "sending" ? t("sending").toUpperCase() : t("submit").toUpperCase()}
+        {status === "sending" ? t("sending") : "Send Message →"}
       </button>
     </form>
   );

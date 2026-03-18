@@ -1,7 +1,8 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { reports } from "@/lib/reports";
-import ReportCard from "@/components/ui/ReportCard";
+import { tierConfig } from "@/lib/reports";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -20,44 +21,69 @@ export default async function ReportsPage({
   const t = await getTranslations({ locale, namespace: "reports" });
 
   return (
-    <div className="pt-[88px]">
-      {/* Hero */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-[#DDE4EE] bg-[#F8FAFB]">
-        <div className="max-w-7xl mx-auto">
+    <div className="pt-[73px]">
+      {/* Page Header */}
+      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+        <div className="max-w-[1400px] mx-auto">
           <div className="max-w-3xl">
-            <div className="w-10 h-[2px] bg-[#1A52C8] mb-4" />
-            <p className="gov-label mb-3">CASE STUDIES</p>
+            <p className="swiss-label mb-4">CASE STUDIES</p>
             <h1
-              className="text-5xl md:text-6xl font-heading font-bold text-[#0C1B2E] mb-5"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="font-bold text-[#0A1628] mb-6"
+              style={{ fontSize: "clamp(36px, 5vw, 64px)", lineHeight: 1.1 }}
             >
               {t("title")}
             </h1>
-            <p className="text-lg text-[#2B3F57] leading-relaxed mb-4">
+            <p className="text-[17px] text-[#374151] leading-relaxed mb-6">
               {t("subtitle")}
             </p>
-            <div
-              className="inline-flex items-center gap-2 text-xs px-3 py-2 rounded-sm"
-              style={{
-                backgroundColor: "rgba(26, 82, 200, 0.08)",
-                border: "1px solid rgba(26, 82, 200, 0.2)",
-                color: "#2B3F57",
-              }}
-            >
-              <span className="text-[#1A52C8]">ℹ</span>
+            <p className="text-[13px] text-[#9CA3AF]">
               All reports are fully anonymized. No identifying information about individuals or specific organizations is included.
-            </div>
+            </p>
           </div>
         </div>
       </section>
 
       {/* Reports Grid */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#EFF3F8]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {reports.map((report) => (
-              <ReportCard key={report.id} report={report} locale={locale} />
-            ))}
+      <section className="py-[120px] px-16 bg-white">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+            {reports.map((report) => {
+              const config = tierConfig[report.tier];
+              return (
+                <Link
+                  key={report.id}
+                  href={`/${locale}/reports/${report.id}`}
+                  className="block border border-[#E5E7EB] p-8 hover:bg-[#FAFAFA] transition-colors -ml-px -mt-px"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="swiss-label">
+                      TIER {report.tier} — {config.label.toUpperCase()}
+                    </span>
+                    <span className="text-[13px] text-[#9CA3AF]">
+                      {report.id}
+                    </span>
+                  </div>
+                  <h3 className="text-[18px] font-bold text-[#0A1628] mb-3 leading-tight">
+                    {report.title}
+                  </h3>
+                  <p className="text-[15px] text-[#374151] leading-relaxed mb-6">
+                    {report.excerpt}
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <span className="text-[13px] text-[#9CA3AF]">
+                      {new Date(report.date).toLocaleDateString("en-GB", {
+                        day: "numeric",
+                        month: "short",
+                        year: "numeric",
+                      })}
+                    </span>
+                    <span className="text-[13px] text-[#9CA3AF]">
+                      {report.platform}
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

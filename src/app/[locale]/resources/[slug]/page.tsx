@@ -2,7 +2,6 @@ import { getArticleBySlug, articles } from "@/lib/articles";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Clock, Calendar } from "lucide-react";
 
 export async function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -22,14 +21,6 @@ export async function generateMetadata({
   };
 }
 
-const categoryColors: Record<string, string> = {
-  Standards: "#1A52C8",
-  Technology: "#0891B2",
-  Legal: "#7C3AED",
-  Analysis: "#D97706",
-  Guides: "#16A34A",
-};
-
 export default async function ArticlePage({
   params,
 }: {
@@ -40,151 +31,163 @@ export default async function ArticlePage({
 
   if (!article) notFound();
 
-  const color = categoryColors[article.category] || "#1A52C8";
-
   // Convert markdown-like content to paragraphs
   const paragraphs = article.content.split("\n\n").filter(Boolean);
 
+  // Get related articles (same category, excluding current)
+  const related = articles
+    .filter((a) => a.category === article.category && a.slug !== article.slug)
+    .slice(0, 3);
+
   return (
-    <div className="pt-[88px] bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Back */}
-        <Link
-          href={`/${locale}/resources`}
-          className="inline-flex items-center gap-2 text-sm text-[#8099B3] hover:text-[#2B3F57] mb-8 transition-colors"
-        >
-          <ArrowLeft size={14} />
-          Back to Resources
-        </Link>
+    <div className="pt-[73px] bg-white">
+      <div className="max-w-[1400px] mx-auto px-16 py-[120px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[680px_1fr] gap-24">
+          {/* Main content */}
+          <div>
+            {/* Back */}
+            <Link
+              href={`/${locale}/resources`}
+              className="text-[13px] text-[#9CA3AF] hover:text-[#374151] mb-12 inline-block transition-colors"
+            >
+              Back to Resources
+            </Link>
 
-        {/* Category badge */}
-        <div className="mb-5">
-          <span
-            className="text-xs px-2 py-1 rounded-sm font-heading tracking-widest"
-            style={{
-              color: color,
-              backgroundColor: `${color}15`,
-              border: `1px solid ${color}30`,
-              fontFamily: "'Barlow Condensed', sans-serif",
-              letterSpacing: "0.12em",
-              fontSize: "0.65rem",
-            }}
-          >
-            {article.category.toUpperCase()}
-          </span>
-        </div>
-
-        {/* Title */}
-        <h1
-          className="text-4xl md:text-5xl font-heading font-bold text-[#0C1B2E] mb-5 leading-tight"
-          style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-        >
-          {article.title}
-        </h1>
-
-        {/* Meta */}
-        <div className="flex items-center gap-5 mb-8 pb-8 border-b border-[#C6D2E0]">
-          <div className="flex items-center gap-1.5 text-sm text-[#8099B3]">
-            <Calendar size={13} />
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.8rem" }}>
-              {new Date(article.date).toLocaleDateString("en-GB", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
-            </span>
-          </div>
-          <div className="flex items-center gap-1.5 text-sm text-[#8099B3]">
-            <Clock size={13} />
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.8rem" }}>
-              {article.readTime}
-            </span>
-          </div>
-        </div>
-
-        {/* Excerpt */}
-        <p
-          className="text-lg text-[#2B3F57] mb-10 leading-relaxed"
-          style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300 }}
-        >
-          {article.excerpt}
-        </p>
-
-        {/* Content */}
-        <div className="prose-custom space-y-6">
-          {paragraphs.map((p, i) => {
-            if (p.startsWith("## ")) {
-              return (
-                <h2
-                  key={i}
-                  className="text-2xl font-heading font-bold text-[#0C1B2E] mt-10 mb-4"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-                >
-                  {p.replace("## ", "")}
-                </h2>
-              );
-            }
-            if (p.startsWith("**") && p.endsWith("**")) {
-              return (
-                <h3
-                  key={i}
-                  className="text-lg font-heading font-semibold text-[#1A52C8] mt-6 mb-2"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-                >
-                  {p.replace(/\*\*/g, "")}
-                </h3>
-              );
-            }
-            if (p.startsWith("1. ") || p.startsWith("- ")) {
-              const items = p.split("\n").filter(Boolean);
-              return (
-                <ul key={i} className="space-y-2 pl-4">
-                  {items.map((item, j) => (
-                    <li key={j} className="flex items-start gap-2 text-[#2B3F57]">
-                      <span className="text-[#1A52C8] flex-shrink-0 mt-0.5">▸</span>
-                      {item.replace(/^[0-9]+\.\s|-\s/, "")}
-                    </li>
-                  ))}
-                </ul>
-              );
-            }
-            return (
-              <p key={i} className="text-[#2B3F57] leading-relaxed">
-                {p}
-              </p>
-            );
-          })}
-        </div>
-
-        {/* Tags */}
-        <div className="mt-12 pt-8 border-t border-[#C6D2E0]">
-          <div className="flex flex-wrap gap-2">
-            {article.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs px-3 py-1 rounded-sm"
-                style={{
-                  backgroundColor: "rgba(26, 82, 200, 0.08)",
-                  border: "1px solid rgba(26, 82, 200, 0.15)",
-                  color: "#8099B3",
-                  fontFamily: "'JetBrains Mono', monospace",
-                }}
-              >
-                {tag}
+            {/* Category */}
+            <div className="mb-6">
+              <span className="swiss-label">
+                {article.category.toUpperCase()}
               </span>
-            ))}
-          </div>
-        </div>
+            </div>
 
-        {/* Back link */}
-        <div className="mt-12">
-          <Link
-            href={`/${locale}/resources`}
-            className="inline-flex items-center gap-2 text-sm text-[#1A52C8] hover:text-[#1440A3] transition-colors"
-          >
-            <ArrowLeft size={14} />
-            Back to all resources
-          </Link>
+            {/* Title */}
+            <h1
+              className="font-bold text-[#0A1628] mb-6 leading-tight"
+              style={{ fontSize: "clamp(28px, 4vw, 48px)", lineHeight: 1.15 }}
+            >
+              {article.title}
+            </h1>
+
+            {/* Meta */}
+            <div className="flex items-center gap-6 mb-10 pb-10 border-b border-[#E5E7EB]">
+              <span className="text-[13px] text-[#9CA3AF]">
+                {new Date(article.date).toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </span>
+              <span className="text-[13px] text-[#9CA3AF]">
+                {article.readTime}
+              </span>
+            </div>
+
+            {/* Excerpt */}
+            <p className="text-[18px] text-[#374151] mb-12 leading-relaxed">
+              {article.excerpt}
+            </p>
+
+            {/* Content */}
+            <div className="space-y-6">
+              {paragraphs.map((p, i) => {
+                if (p.startsWith("## ")) {
+                  return (
+                    <h2
+                      key={i}
+                      className="text-[24px] font-bold text-[#0A1628] mt-16 mb-4"
+                    >
+                      {p.replace("## ", "")}
+                    </h2>
+                  );
+                }
+                if (p.startsWith("**") && p.endsWith("**")) {
+                  return (
+                    <h3
+                      key={i}
+                      className="text-[18px] font-bold text-[#0A1628] mt-8 mb-2"
+                    >
+                      {p.replace(/\*\*/g, "")}
+                    </h3>
+                  );
+                }
+                if (p.startsWith("1. ") || p.startsWith("- ")) {
+                  const items = p.split("\n").filter(Boolean);
+                  return (
+                    <ul key={i} className="space-y-2 pl-0">
+                      {items.map((item, j) => (
+                        <li key={j} className="text-[15px] text-[#374151] leading-[1.8]">
+                          {item.replace(/^[0-9]+\.\s|-\s/, "")}
+                        </li>
+                      ))}
+                    </ul>
+                  );
+                }
+                return (
+                  <p key={i} className="text-[15px] text-[#374151] leading-[1.8]">
+                    {p}
+                  </p>
+                );
+              })}
+            </div>
+
+            {/* Tags */}
+            <div className="mt-16 pt-10 border-t border-[#E5E7EB]">
+              <div className="flex flex-wrap gap-3">
+                {article.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="swiss-label"
+                  >
+                    {tag.toUpperCase()}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Back link */}
+            <div className="mt-16">
+              <Link
+                href={`/${locale}/resources`}
+                className="text-[15px] text-[#0A1628] underline underline-offset-4 hover:text-[#374151] transition-colors"
+              >
+                Back to all resources
+              </Link>
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <div className="hidden lg:block">
+            <div className="sticky top-[120px]">
+              {related.length > 0 && (
+                <div>
+                  <p className="swiss-label mb-6">RELATED ARTICLES</p>
+                  <div className="space-y-8">
+                    {related.map((r) => (
+                      <Link
+                        key={r.slug}
+                        href={`/${locale}/resources/${r.slug}`}
+                        className="block border-b border-[#E5E7EB] pb-8 hover:opacity-70 transition-opacity"
+                      >
+                        <span className="swiss-label mb-2 block">
+                          {new Date(r.date).toLocaleDateString("en-GB", {
+                            day: "numeric",
+                            month: "short",
+                            year: "numeric",
+                          }).toUpperCase()}
+                        </span>
+                        <h4 className="text-[16px] font-bold text-[#0A1628] mb-2 leading-tight">
+                          {r.title}
+                        </h4>
+                        <p className="text-[13px] text-[#374151] leading-relaxed">
+                          {r.excerpt.slice(0, 120)}...
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
