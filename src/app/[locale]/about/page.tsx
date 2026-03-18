@@ -85,19 +85,19 @@ export default async function AboutPage({
   const t = await getTranslations({ locale, namespace: "about" });
 
   return (
-    <div className="pt-[73px]">
+    <div className="pt-32">
       {/* Page Header */}
-      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+      <section className="pt-40 pb-16 px-16">
         <div className="max-w-[1400px] mx-auto">
           <div className="max-w-3xl">
-            <p className="swiss-label mb-4">ABOUT</p>
+            <p className="section-label mb-4">ABOUT</p>
             <h1
-              className="font-bold text-[#0A1628] mb-6"
-              style={{ fontSize: "clamp(36px, 5vw, 64px)", lineHeight: 1.1 }}
+              className="font-bold text-white mb-6"
+              style={{ fontSize: "48px", lineHeight: 1.1 }}
             >
               {t("title")}
             </h1>
-            <p className="text-[17px] text-[#374151] leading-relaxed">
+            <p className="text-[17px] text-[rgba(255,255,255,0.65)] leading-relaxed">
               {t("subtitle")}
             </p>
           </div>
@@ -105,20 +105,20 @@ export default async function AboutPage({
       </section>
 
       {/* Mission */}
-      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+      <section className="py-24 px-16">
         <div className="max-w-[1400px] mx-auto">
-          <p className="swiss-label mb-4">MISSION</p>
-          <h2 className="text-[36px] font-bold text-[#0A1628] mb-10">
+          <p className="section-label mb-4">MISSION</p>
+          <h2 className="text-[36px] font-bold text-white mb-10">
             {t("mission")}
           </h2>
           <div className="max-w-3xl space-y-5">
-            <p className="text-[15px] text-[#374151] leading-relaxed">
+            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
               HateCheck exists to make antisemitism and hate speech detection rigorous, consistent, and actionable. We believe that communities, institutions, and authorities deserve better tools than keyword filters and gut feelings.
             </p>
-            <p className="text-[15px] text-[#374151] leading-relaxed">
+            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
               Our mission is to provide a trusted, evidence-based classification system that integrates international standards and Dutch law — enabling organizations to respond to hate speech with confidence, documentation, and legal defensibility.
             </p>
-            <p className="text-[15px] text-[#374151] leading-relaxed">
+            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
               We operate as a not-for-profit initiative because we believe that commercial incentives are incompatible with the precision this work requires.
             </p>
           </div>
@@ -126,23 +126,23 @@ export default async function AboutPage({
       </section>
 
       {/* Origin Story */}
-      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+      <section className="py-24 px-16">
         <div className="max-w-[1400px] mx-auto">
-          <p className="swiss-label mb-4">ORIGIN</p>
-          <h2 className="text-[36px] font-bold text-[#0A1628] mb-10">
+          <p className="section-label mb-4">ORIGIN</p>
+          <h2 className="text-[36px] font-bold text-white mb-10">
             {t("origin")}
           </h2>
           <div className="max-w-3xl space-y-5">
-            <p className="text-[15px] text-[#374151] leading-relaxed">
+            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
               HateCheck was born from a documented failure. In 2023, a series of antisemitic incidents in Amsterdam — incidents that were minimized, misclassified, or ignored by the platforms on which they occurred — illustrated the gap between what organizations knew was happening and what they could prove, document, and act upon.
             </p>
-            <p className="text-[15px] text-[#374151] leading-relaxed">
+            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
               The pattern was clear: without a consistent, authoritative classification methodology, organizations were reporting the same incidents differently, platforms were applying inconsistent standards, and authorities lacked the structured documentation needed to justify enforcement action.
             </p>
-            <p className="text-[15px] text-[#374151] leading-relaxed">
+            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
               HateCheck was designed to address this directly — not by replacing human judgment, but by providing the infrastructure that makes human judgment consistent, documented, and legally defensible.
             </p>
-            <p className="text-[15px] text-[#374151] leading-relaxed">
+            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
               We launched in beta in early 2024 in partnership with three Dutch Jewish community organizations. Their real-world feedback shaped every aspect of the platform&apos;s design — from the five-tier classification system to the report output formats.
             </p>
           </div>
@@ -150,25 +150,27 @@ export default async function AboutPage({
       </section>
 
       {/* Vision / Roadmap */}
-      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+      <section className="py-24 px-16">
         <div className="max-w-[1400px] mx-auto">
-          <p className="swiss-label mb-4">VISION</p>
-          <h2 className="text-[36px] font-bold text-[#0A1628] mb-10">
+          <p className="section-label mb-4">VISION</p>
+          <h2 className="text-[36px] font-bold text-white mb-10">
             {t("roadmap")}
           </h2>
-          <div className="max-w-3xl space-y-10">
+          {/* Horizontal timeline */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {phases.map((phase, i) => (
-              <div key={i} className="border-b border-[#E5E7EB] pb-10 last:border-b-0 last:pb-0">
-                <div className="flex items-baseline gap-4 mb-4">
-                  <p className="swiss-label">{phase.phase}</p>
-                  <span className="text-[13px] text-[#9CA3AF]">{phase.status}</span>
+              <div key={i} className="glass-card p-8 relative">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="w-3 h-3 rounded-full bg-[#2563EB]" />
+                  <p className="section-label">{phase.phase}</p>
+                  <span className="text-[13px] text-[rgba(255,255,255,0.4)]">{phase.status}</span>
                 </div>
-                <h3 className="text-[20px] font-bold text-[#0A1628] mb-4">
+                <h3 className="text-[20px] font-bold text-white mb-4">
                   {phase.title}
                 </h3>
                 <ul className="space-y-2">
                   {phase.items.map((item, j) => (
-                    <li key={j} className="text-[15px] text-[#374151]">
+                    <li key={j} className="text-[15px] text-[rgba(255,255,255,0.65)]">
                       {item}
                     </li>
                   ))}
@@ -180,19 +182,19 @@ export default async function AboutPage({
       </section>
 
       {/* Values */}
-      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+      <section className="py-24 px-16">
         <div className="max-w-[1400px] mx-auto">
-          <p className="swiss-label mb-4">VALUES</p>
-          <h2 className="text-[36px] font-bold text-[#0A1628] mb-16">
+          <p className="section-label mb-4">VALUES</p>
+          <h2 className="text-[36px] font-bold text-white mb-16">
             {t("values")}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {values.map((v, i) => (
-              <div key={i} className="border-b border-[#E5E7EB] pb-8">
-                <h3 className="text-[18px] font-bold text-[#0A1628] mb-2">
+              <div key={i} className="glass-card p-8">
+                <h3 className="text-[18px] font-bold text-white mb-2">
                   {v.title}
                 </h3>
-                <p className="text-[15px] text-[#374151] leading-relaxed">{v.desc}</p>
+                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>
@@ -200,20 +202,20 @@ export default async function AboutPage({
       </section>
 
       {/* Not-for-Profit */}
-      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+      <section className="py-24 px-16">
         <div className="max-w-[1400px] mx-auto">
-          <p className="swiss-label mb-4">STRUCTURE</p>
-          <h2 className="text-[36px] font-bold text-[#0A1628] mb-10">
+          <p className="section-label mb-4">STRUCTURE</p>
+          <h2 className="text-[36px] font-bold text-white mb-10">
             {t("notForProfit")}
           </h2>
           <div className="max-w-3xl space-y-5">
-            <p className="text-[15px] text-[#374151] leading-relaxed">
+            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
               HateCheck operates as a not-for-profit initiative. This is not incidental — it is fundamental to our credibility and methodology.
             </p>
-            <p className="text-[15px] text-[#374151] leading-relaxed">
+            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
               Commercial content moderation platforms have a structural incentive to over-classify: more flags mean more apparent value. We reject this incentive. Our only metric is whether our classifications are accurate, defensible, and useful to the communities and organizations we serve.
             </p>
-            <p className="text-[15px] text-[#374151] leading-relaxed">
+            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
               We are funded through grants from Jewish community foundations, civil society organizations, and research institutions. All platform access for community organizations is provided at cost or free of charge.
             </p>
           </div>
@@ -221,17 +223,17 @@ export default async function AboutPage({
       </section>
 
       {/* CTA */}
-      <section className="py-[120px] px-16 bg-white">
+      <section className="py-24 px-16">
         <div className="max-w-[1400px] mx-auto text-center">
-          <h2 className="text-[36px] font-bold text-[#0A1628] mb-4">
+          <h2 className="text-[36px] font-bold text-white mb-4">
             Work With Us
           </h2>
-          <p className="text-[15px] text-[#374151] mb-10">
+          <p className="text-[15px] text-[rgba(255,255,255,0.65)] mb-10">
             Partner organizations, researchers, and funders — we want to hear from you.
           </p>
           <Link
             href={`/${locale}/contact`}
-            className="text-[15px] text-[#0A1628] underline underline-offset-4 hover:text-[#374151] transition-colors"
+            className="btn-primary"
           >
             Get in touch
           </Link>

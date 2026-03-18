@@ -46,10 +46,10 @@ export default function ContactForm() {
   };
 
   const inputClass =
-    "w-full py-3 bg-transparent border-0 border-b border-[#E5E7EB] text-[15px] text-[#0A1628] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0A1628] transition-colors";
+    "w-full py-3 px-4 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-lg text-[15px] text-white placeholder-[rgba(255,255,255,0.3)] focus:outline-none focus:border-[#2563EB] transition-colors";
 
   const labelClass =
-    "swiss-label block mb-3";
+    "text-[11px] font-semibold uppercase tracking-[0.2em] text-[rgba(255,255,255,0.4)] block mb-3";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-10">
@@ -67,7 +67,6 @@ export default function ContactForm() {
             onChange={handleChange}
             className={inputClass}
             placeholder="Jan de Vries"
-            style={{ borderRadius: 0 }}
           />
         </div>
         <div>
@@ -83,7 +82,6 @@ export default function ContactForm() {
             onChange={handleChange}
             className={inputClass}
             placeholder="jan@example.nl"
-            style={{ borderRadius: 0 }}
           />
         </div>
       </div>
@@ -101,7 +99,6 @@ export default function ContactForm() {
             onChange={handleChange}
             className={inputClass}
             placeholder="Organization name"
-            style={{ borderRadius: 0 }}
           />
         </div>
         <div>
@@ -116,7 +113,6 @@ export default function ContactForm() {
             onChange={handleChange}
             className={inputClass}
             placeholder="Director / Researcher / etc."
-            style={{ borderRadius: 0 }}
           />
         </div>
       </div>
@@ -132,7 +128,7 @@ export default function ContactForm() {
           value={formData.subject}
           onChange={handleChange}
           className={inputClass}
-          style={{ cursor: "pointer", borderRadius: 0 }}
+          style={{ cursor: "pointer" }}
         >
           <option value="" disabled>Select a subject...</option>
           <option value="demo">Request a Demo</option>
@@ -157,28 +153,28 @@ export default function ContactForm() {
           onChange={handleChange}
           className={inputClass}
           placeholder="Describe your inquiry..."
-          style={{ resize: "vertical", borderRadius: 0 }}
+          style={{ resize: "vertical" }}
         />
       </div>
 
       {/* Status Messages */}
       {status === "success" && (
-        <div className="border-b border-[#E5E7EB] pb-4">
-          <p className="text-[15px] text-[#374151]">{t("success")}</p>
+        <div className="glass-card p-4">
+          <p className="text-[15px] text-[#10B981]">{t("success")}</p>
         </div>
       )}
       {status === "error" && (
-        <div className="border-b border-[#E5E7EB] pb-4">
-          <p className="text-[15px] text-[#374151]">{t("error")}</p>
+        <div className="glass-card p-4">
+          <p className="text-[15px] text-[#EF4444]">{t("error")}</p>
         </div>
       )}
 
       <button
         type="submit"
         disabled={status === "sending"}
-        className="text-[15px] text-[#0A1628] underline underline-offset-4 hover:text-[#374151] disabled:text-[#9CA3AF] transition-colors cursor-pointer bg-transparent border-none p-0"
+        className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {status === "sending" ? t("sending") : "Send Message →"}
+        {status === "sending" ? t("sending") : "Send Message"}
       </button>
     </form>
   );

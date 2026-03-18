@@ -49,19 +49,19 @@ export default async function OrganizationsPage({
   const t = await getTranslations({ locale, namespace: "organizations" });
 
   return (
-    <div className="pt-[73px]">
+    <div className="pt-32">
       {/* Page Header */}
-      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+      <section className="pt-40 pb-16 px-16">
         <div className="max-w-[1400px] mx-auto">
           <div className="max-w-3xl">
-            <p className="swiss-label mb-4">ORGANISATIONS</p>
+            <p className="section-label mb-4">ORGANISATIONS</p>
             <h1
-              className="font-bold text-[#0A1628] mb-6"
-              style={{ fontSize: "clamp(36px, 5vw, 64px)", lineHeight: 1.1 }}
+              className="font-bold text-white mb-6"
+              style={{ fontSize: "48px", lineHeight: 1.1 }}
             >
               {t("title")}
             </h1>
-            <p className="text-[17px] text-[#374151] leading-relaxed">
+            <p className="text-[17px] text-[rgba(255,255,255,0.65)] leading-relaxed">
               {t("subtitle")}
             </p>
           </div>
@@ -69,17 +69,17 @@ export default async function OrganizationsPage({
       </section>
 
       {/* Why Organizations Use HateCheck */}
-      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+      <section className="py-24 px-16">
         <div className="max-w-[1400px] mx-auto">
-          <p className="swiss-label mb-4">OVERVIEW</p>
-          <h2 className="text-[36px] font-bold text-[#0A1628] mb-10">
+          <p className="section-label mb-4">OVERVIEW</p>
+          <h2 className="text-[36px] font-bold text-white mb-10">
             {t("why")}
           </h2>
           <div className="max-w-3xl space-y-5">
-            <p className="text-[15px] text-[#374151] leading-relaxed">
+            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
               Organizations dealing with antisemitism face a common set of challenges: how to respond to incidents consistently across staff, how to document cases in formats that work for police and platforms, and how to produce credible aggregate data for funders and policymakers.
             </p>
-            <p className="text-[15px] text-[#374151] leading-relaxed">
+            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
               HateCheck provides the classification infrastructure that makes all of this possible — without requiring each organization to develop its own methodology from scratch.
             </p>
           </div>
@@ -87,22 +87,22 @@ export default async function OrganizationsPage({
       </section>
 
       {/* Use Cases */}
-      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+      <section className="py-24 px-16">
         <div className="max-w-[1400px] mx-auto">
-          <p className="swiss-label mb-4">USE CASES</p>
-          <h2 className="text-[36px] font-bold text-[#0A1628] mb-16">
+          <p className="section-label mb-4">USE CASES</p>
+          <h2 className="text-[36px] font-bold text-white mb-16">
             {t("useCases")}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {useCases.map((uc, i) => (
-              <div key={i} className="border-b border-[#E5E7EB] pb-10">
-                <h3 className="text-[20px] font-bold text-[#0A1628] mb-3">
+              <div key={i} className="glass-card p-8">
+                <h3 className="text-[20px] font-bold text-white mb-3">
                   {uc.title}
                 </h3>
-                <p className="text-[15px] text-[#374151] mb-5 leading-relaxed">{uc.desc}</p>
+                <p className="text-[15px] text-[rgba(255,255,255,0.65)] mb-5 leading-relaxed">{uc.desc}</p>
                 <ul className="space-y-1">
                   {uc.uses.map((use, j) => (
-                    <li key={j} className="text-[13px] text-[#9CA3AF]">
+                    <li key={j} className="text-[13px] text-[rgba(255,255,255,0.4)]">
                       {use}
                     </li>
                   ))}
@@ -114,16 +114,16 @@ export default async function OrganizationsPage({
       </section>
 
       {/* Data & Security */}
-      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+      <section className="py-24 px-16">
         <div className="max-w-[1400px] mx-auto">
-          <p className="swiss-label mb-4">SECURITY</p>
-          <h2 className="text-[36px] font-bold text-[#0A1628] mb-10">
+          <p className="section-label mb-4">SECURITY</p>
+          <h2 className="text-[36px] font-bold text-white mb-10">
             {t("security")}
           </h2>
           <div className="max-w-3xl space-y-4">
             {features.map((f, i) => (
-              <div key={i} className="border-b border-[#E5E7EB] pb-4">
-                <p className="text-[15px] text-[#374151] leading-relaxed">{f}</p>
+              <div key={i} className="glass-card p-6">
+                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">{f}</p>
               </div>
             ))}
           </div>
@@ -131,17 +131,17 @@ export default async function OrganizationsPage({
       </section>
 
       {/* CTA */}
-      <section className="py-[120px] px-16 bg-white">
+      <section className="py-24 px-16">
         <div className="max-w-[1400px] mx-auto text-center">
-          <h2 className="text-[36px] font-bold text-[#0A1628] mb-4">
+          <h2 className="text-[36px] font-bold text-white mb-4">
             {t("cta")}
           </h2>
-          <p className="text-[15px] text-[#374151] mb-10 max-w-xl mx-auto">
+          <p className="text-[15px] text-[rgba(255,255,255,0.65)] mb-10 max-w-xl mx-auto">
             See how HateCheck can support your organization&apos;s work. We offer tailored demos for different use cases.
           </p>
           <Link
             href={`/${locale}/contact`}
-            className="text-[15px] text-[#0A1628] underline underline-offset-4 hover:text-[#374151] transition-colors"
+            className="btn-primary"
           >
             Request a demo
           </Link>

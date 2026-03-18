@@ -1,19 +1,29 @@
-/* ── Swiss Precision Design System ── */
-/* Pure restraint. Typography-only hierarchy. Zero decoration. */
+/* ── HateCheck — Dark Navy Gradient Theme ── */
+/* Inspired by Stellar (HTML5 UP) · Adapted for institutional intelligence platform */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --navy:   #0A1628;
-  --body:   #374151;
-  --muted:  #9CA3AF;
-  --border: #E5E7EB;
-  --white:  #FFFFFF;
-  --hover:  #FAFAFA;
+  --navy:       #0A1628;
+  --navy-light: #111D31;
+  --navy-mid:   #162340;
+  --blue:       #2563EB;
+  --blue-light: #3B82F6;
+  --blue-glow:  rgba(37, 99, 235, 0.3);
+  --white:      #FFFFFF;
+  --white-90:   rgba(255,255,255,0.9);
+  --white-65:   rgba(255,255,255,0.65);
+  --white-40:   rgba(255,255,255,0.4);
+  --white-20:   rgba(255,255,255,0.2);
+  --white-10:   rgba(255,255,255,0.1);
+  --white-05:   rgba(255,255,255,0.05);
+  --amber:      #F59E0B;
+  --red:        #EF4444;
+  --green:      #10B981;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -25,67 +35,201 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.75;
-  color: var(--body);
-  background: var(--white);
+  font-family: 'Source Sans 3', 'Source Sans Pro', -apple-system, sans-serif;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--white-65);
+  background-color: var(--navy);
+  background-image:
+    linear-gradient(45deg, #0A1628 0%, #111D31 40%, #162340 70%, #0F1B2E 100%);
+  background-attachment: fixed;
   min-height: 100vh;
 }
 
 /* ── Typography ── */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
   font-weight: 700;
-  color: var(--navy);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  color: var(--white);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 a {
-  color: var(--navy);
+  color: var(--white);
   text-decoration: none;
+  transition: color 0.2s, border-color 0.2s;
 }
+
+a:hover { color: var(--blue-light); }
 
 ::selection {
-  background: rgba(10, 22, 40, 0.08);
-  color: var(--navy);
+  background: rgba(37, 99, 235, 0.3);
+  color: var(--white);
 }
 
-/* ── Swiss Label — the only utility class ── */
-.swiss-label {
-  font-size: 10px;
-  font-weight: 500;
+/* ── Section label ── */
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--muted);
+  letter-spacing: 0.25em;
+  color: var(--blue-light);
 }
 
-/* ── Reveal animation ── */
+/* ── Buttons ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+.btn-primary:hover {
+  background: var(--blue-light);
+  box-shadow: 0 4px 24px var(--blue-glow);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--white-20);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-outline:hover {
+  border-color: var(--white-40);
+  background: var(--white-05);
+  color: var(--white);
+}
+
+/* ── Cards ── */
+.glass-card {
+  background: var(--white-05);
+  border: 1px solid var(--white-10);
+  border-radius: 8px;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.glass-card:hover {
+  border-color: var(--white-20);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.3);
+}
+
+/* ── Screenshot frame ── */
+.screenshot-frame {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+/* ── Spotlight (Stellar-style text+image) ── */
+.spotlight {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+.spotlight .content { flex: 1; }
+.spotlight .image { flex: 1; }
+.spotlight.reverse { flex-direction: row-reverse; }
+
+@media (max-width: 900px) {
+  .spotlight, .spotlight.reverse {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+/* ── Stats bar ── */
+.stat-item {
+  text-align: center;
+  padding: 24px 16px;
+}
+.stat-value {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--white-40);
+}
+
+/* ── Tier colors ── */
+.tier-1 { color: #10B981; }
+.tier-2 { color: #F59E0B; }
+.tier-3 { color: #F97316; }
+.tier-4 { color: #EF4444; }
+.tier-5 { color: #991B1B; }
+.tier-bg-1 { background: #10B981; }
+.tier-bg-2 { background: #F59E0B; }
+.tier-bg-3 { background: #F97316; }
+.tier-bg-4 { background: #EF4444; }
+.tier-bg-5 { background: #991B1B; }
+
+/* ── Animations ── */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
-.animate-reveal {
-  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
+.animate-fade-in-up { animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
 .animate-delay-100 { animation-delay: 0.1s; opacity: 0; }
 .animate-delay-200 { animation-delay: 0.2s; opacity: 0; }
 .animate-delay-300 { animation-delay: 0.3s; opacity: 0; }
 .animate-delay-400 { animation-delay: 0.4s; opacity: 0; }
 .animate-delay-500 { animation-delay: 0.5s; opacity: 0; }
+.animate-delay-600 { animation-delay: 0.6s; opacity: 0; }
 
-/* ── Scrollbar — minimal ── */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #D1D5DB; }
-::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--white-20); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--white-40); }
+
+/* ── Focus ── */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
 
 /* ── Print ── */
 @media print {
-  body { background: white; }
-  .no-print { display: none !important; }
+  body { background: white; color: #0A1628; font-size: 12px; }
+  .no-print, header, footer, nav { display: none !important; }
+  h1, h2, h3 { color: #0A1628; }
+  a { color: #0A1628; }
 }

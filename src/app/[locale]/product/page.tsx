@@ -113,20 +113,20 @@ export default async function ProductPage({
   const { locale } = await params;
 
   return (
-    <div className="pt-[73px]">
+    <div className="pt-32">
 
       {/* Page Header */}
-      <section className="py-[120px] px-16 border-b border-[#E5E7EB] bg-white">
+      <section className="pt-40 pb-16 px-16">
         <div className="max-w-[1400px] mx-auto">
           <div className="max-w-3xl">
-            <p className="swiss-label mb-4">PLATFORM</p>
+            <p className="section-label mb-4">PLATFORM</p>
             <h1
-              className="font-bold text-[#0A1628] mb-6"
-              style={{ fontSize: "clamp(36px, 5vw, 64px)", lineHeight: 1.1 }}
+              className="font-bold text-white mb-6"
+              style={{ fontSize: "48px", lineHeight: 1.1 }}
             >
               The Investigation Workflow
             </h1>
-            <p className="text-[17px] text-[#374151] leading-relaxed max-w-2xl">
+            <p className="text-[17px] text-[rgba(255,255,255,0.65)] leading-relaxed max-w-2xl">
               HateCheck compresses the full chain from &ldquo;that feels wrong&rdquo; to &ldquo;something is
               being done about it&rdquo; into a single guided workflow — backed by AI, grounded in recognised
               international standards, and calibrated to Dutch legal thresholds.
@@ -136,13 +136,13 @@ export default async function ProductPage({
       </section>
 
       {/* 5-Step Pipeline with Real Screenshots */}
-      <section className="bg-white border-b border-[#E5E7EB]">
+      <section>
         <div className="max-w-[1400px] mx-auto">
 
           {/* Section header */}
-          <div className="px-16 pt-[120px] pb-16 border-b border-[#E5E7EB]">
-            <p className="swiss-label mb-4">5-STEP INVESTIGATION PIPELINE</p>
-            <h2 className="text-[36px] font-bold text-[#0A1628]">
+          <div className="px-16 pt-24 pb-16 border-b border-white/10">
+            <p className="section-label mb-4">5-STEP INVESTIGATION PIPELINE</p>
+            <h2 className="text-[36px] font-bold text-white">
               From Source to Action
             </h2>
           </div>
@@ -151,38 +151,28 @@ export default async function ProductPage({
           {screenshotSteps.map((step, index) => (
             <div
               key={step.number}
-              className="grid grid-cols-1 lg:grid-cols-[120px_1fr_1fr] border-b border-[#E5E7EB]"
+              className={`spotlight ${index % 2 !== 0 ? "reverse" : ""} py-20 px-16 border-b border-white/10`}
             >
-              {/* Number column */}
-              <div className="hidden lg:flex items-start justify-center pt-16 border-r border-[#E5E7EB]">
-                <span className="text-[48px] font-bold text-[#0A1628]">
-                  {step.number}
-                </span>
-              </div>
-
               {/* Text side */}
-              <div
-                className={`p-16 flex flex-col justify-center bg-white ${
-                  index % 2 !== 0 ? "lg:order-3" : "lg:order-2"
-                }`}
-              >
-                <p className="swiss-label mb-3">{step.label}</p>
-                <h3 className="text-[28px] font-bold text-[#0A1628] mb-4">
+              <div className="content glass-card p-10">
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="w-12 h-12 rounded-full bg-[#2563EB] flex items-center justify-center text-white font-bold text-lg">
+                    {step.number}
+                  </span>
+                  <p className="section-label">{step.label}</p>
+                </div>
+                <h3 className="text-[28px] font-bold text-white mb-4">
                   {step.title}
                 </h3>
-                <p className="text-[15px] text-[#374151] leading-relaxed mb-6">{step.description}</p>
-                <p className="text-[13px] text-[#9CA3AF] leading-relaxed">
+                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed mb-6">{step.description}</p>
+                <p className="text-[13px] text-[rgba(255,255,255,0.4)] leading-relaxed">
                   {step.caption}
                 </p>
               </div>
 
               {/* Screenshot side */}
-              <div
-                className={`flex items-center justify-center p-12 bg-white border-l border-[#E5E7EB] ${
-                  index % 2 !== 0 ? "lg:order-2" : "lg:order-3"
-                }`}
-              >
-                <div className="relative w-full max-w-[520px] border border-[#E5E7EB]">
+              <div className="image">
+                <div className="screenshot-frame">
                   <Image
                     src={step.image}
                     alt={step.alt}
@@ -199,20 +189,20 @@ export default async function ProductPage({
       </section>
 
       {/* Intelligence Gathering screenshot */}
-      <section className="py-[120px] px-16 bg-white border-b border-[#E5E7EB]">
+      <section className="py-24 px-16">
         <div className="max-w-[1400px] mx-auto">
           <div className="mb-12">
-            <p className="swiss-label mb-4">INTELLIGENCE GATHERING</p>
-            <h2 className="text-[36px] font-bold text-[#0A1628] mb-4">
+            <p className="section-label mb-4">INTELLIGENCE GATHERING</p>
+            <h2 className="text-[36px] font-bold text-white mb-4">
               Real-Time OSINT Scanning
             </h2>
-            <p className="text-[15px] text-[#374151] max-w-2xl leading-relaxed">
+            <p className="text-[15px] text-[rgba(255,255,255,0.65)] max-w-2xl leading-relaxed">
               When a URL is submitted, a terminal-style panel shows live scanning activity — domain
               authority verification, entity extraction, Dutch source cross-referencing, and legal
               protocol loading.
             </p>
           </div>
-          <div className="border border-[#E5E7EB] max-w-3xl">
+          <div className="screenshot-frame max-w-3xl">
             <Image
               src="/images/screenshot5.png"
               alt="Real-time OSINT scanning panel — terminal-style activity display"
@@ -222,28 +212,28 @@ export default async function ProductPage({
               quality={90}
             />
           </div>
-          <p className="text-[13px] text-[#9CA3AF] mt-4 max-w-xl">
+          <p className="text-[13px] text-[rgba(255,255,255,0.4)] mt-4 max-w-xl">
             The scanning interface signals both Dutch Legal Standards compliance and AI model sophistication.
           </p>
         </div>
       </section>
 
       {/* Design Principles */}
-      <section className="py-[120px] px-16 bg-white border-b border-[#E5E7EB]">
+      <section className="py-24 px-16">
         <div className="max-w-[1400px] mx-auto">
           <div className="mb-16">
-            <p className="swiss-label mb-4">DESIGN PRINCIPLES</p>
-            <h2 className="text-[36px] font-bold text-[#0A1628]">
+            <p className="section-label mb-4">DESIGN PRINCIPLES</p>
+            <h2 className="text-[36px] font-bold text-white">
               What Sets HateCheck Apart
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {principles.map((p, i) => (
-              <div key={i} className="border-b border-[#E5E7EB] pb-8">
-                <h3 className="text-[18px] font-bold text-[#0A1628] mb-2">
+              <div key={i} className="glass-card p-8">
+                <h3 className="text-[18px] font-bold text-white mb-2">
                   {p.label}
                 </h3>
-                <p className="text-[15px] text-[#374151] leading-relaxed">{p.detail}</p>
+                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">{p.detail}</p>
               </div>
             ))}
           </div>
@@ -251,24 +241,24 @@ export default async function ProductPage({
       </section>
 
       {/* Platform Modules */}
-      <section className="py-[120px] px-16 bg-white border-b border-[#E5E7EB]">
+      <section className="py-24 px-16">
         <div className="max-w-[1400px] mx-auto">
           <div className="mb-16">
-            <p className="swiss-label mb-4">PLATFORM MODULES</p>
-            <h2 className="text-[36px] font-bold text-[#0A1628] mb-4">
+            <p className="section-label mb-4">PLATFORM MODULES</p>
+            <h2 className="text-[36px] font-bold text-white mb-4">
               Beyond Classification
             </h2>
-            <p className="text-[15px] text-[#374151] max-w-2xl leading-relaxed">
+            <p className="text-[15px] text-[rgba(255,255,255,0.65)] max-w-2xl leading-relaxed">
               HateCheck is a complete intelligence platform — not just a classifier.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {moduleFeatures.map((f, i) => (
-              <div key={i} className="border-b border-[#E5E7EB] pb-8">
-                <h3 className="text-[18px] font-bold text-[#0A1628] mb-2">
+              <div key={i} className="glass-card p-8">
+                <h3 className="text-[18px] font-bold text-white mb-2">
                   {f.title}
                 </h3>
-                <p className="text-[15px] text-[#374151] leading-relaxed">{f.description}</p>
+                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">{f.description}</p>
               </div>
             ))}
           </div>
@@ -276,10 +266,10 @@ export default async function ProductPage({
       </section>
 
       {/* Legal Disclaimer */}
-      <div className="px-16 py-8 bg-white border-b border-[#E5E7EB]">
+      <div className="px-16 py-8 border-t border-white/10">
         <div className="max-w-[1400px] mx-auto">
-          <p className="text-[13px] text-[#9CA3AF] leading-relaxed max-w-3xl">
-            <strong className="text-[#374151] font-medium">Disclaimer:</strong> HateCheck provides general information
+          <p className="text-[13px] text-[rgba(255,255,255,0.4)] leading-relaxed max-w-3xl">
+            <strong className="text-[rgba(255,255,255,0.65)] font-medium">Disclaimer:</strong> HateCheck provides general information
             and is not a substitute for legal advice. Classification results reflect AI analysis against
             published standards and should be reviewed by qualified professionals before any legal action.
           </p>
@@ -287,21 +277,23 @@ export default async function ProductPage({
       </div>
 
       {/* CTA */}
-      <section className="py-[120px] px-16 bg-white">
+      <section className="py-24 px-16">
         <div className="max-w-[1400px] mx-auto text-center">
-          <p className="swiss-label mb-4">NEXT STEPS</p>
-          <h2 className="text-[36px] font-bold text-[#0A1628] mb-4">
+          <p className="section-label mb-4">NEXT STEPS</p>
+          <h2 className="text-[36px] font-bold text-white mb-4">
             Request a Demonstration
           </h2>
-          <p className="text-[15px] text-[#374151] mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-[15px] text-[rgba(255,255,255,0.65)] mb-10 max-w-xl mx-auto leading-relaxed">
             Contact us to discuss how HateCheck can serve your organisation — or access the live platform directly.
           </p>
-          <Link
-            href={`/${locale}/contact`}
-            className="text-[15px] text-[#0A1628] underline underline-offset-4 hover:text-[#374151] transition-colors"
-          >
-            Get in touch
-          </Link>
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <Link href={`/${locale}/contact`} className="btn-primary">
+              Get in touch
+            </Link>
+            <Link href={`/${locale}/organizations`} className="btn-outline">
+              For organisations
+            </Link>
+          </div>
         </div>
       </section>
 

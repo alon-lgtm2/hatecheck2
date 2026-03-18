@@ -1,50 +1,57 @@
-"use client";
+/**
+ * Reusable sub-page header component.
+ * Used by product, standards, about, contact, etc. pages.
+ * The homepage builds its own hero inline.
+ */
 
-import Link from "next/link";
-import { useLocale, useTranslations } from "next-intl";
+interface PageHeaderProps {
+  label: string;
+  title: string;
+  subtitle: string;
+}
 
-export default function Hero() {
-  const t = useTranslations("home.hero");
-  const locale = useLocale();
-
+export default function PageHeader({ label, title, subtitle }: PageHeaderProps) {
   return (
-    <section className="bg-white">
+    <section
+      style={{
+        paddingTop: "160px",
+        paddingBottom: "80px",
+        paddingLeft: "24px",
+        paddingRight: "24px",
+        textAlign: "center",
+      }}
+    >
       <div
-        className="max-w-[1400px] mx-auto pt-[240px] pb-[160px] px-6 md:px-8 lg:px-16"
+        style={{
+          maxWidth: "800px",
+          margin: "0 auto",
+        }}
       >
-        <h1
-          className="text-[#0A1628] mb-10"
-          style={{
-            fontSize: "clamp(48px, 8vw, 140px)",
-            lineHeight: 0.95,
-            fontWeight: 700,
-            letterSpacing: "-0.03em",
-          }}
-        >
-          Detect.<br />
-          Classify.<br />
-          Act.
-        </h1>
-
-        <p
-          className="text-[#374151] max-w-[480px] mb-10"
-          style={{ fontSize: "18px", lineHeight: 1.7 }}
-        >
-          {t("subtitle")}
+        <p className="section-label" style={{ marginBottom: "16px" }}>
+          {label}
         </p>
-
-        <Link
-          href={`/${locale}/product`}
-          className="text-[#0A1628] hover:text-[#374151] transition-colors"
+        <h1
           style={{
-            fontSize: "15px",
-            fontWeight: 500,
-            textDecoration: "underline",
-            textUnderlineOffset: "6px",
+            fontSize: "clamp(32px, 5vw, 48px)",
+            fontWeight: 700,
+            color: "#FFFFFF",
+            lineHeight: 1.2,
+            marginBottom: "20px",
           }}
         >
-          {t("cta1")} &rarr;
-        </Link>
+          {title}
+        </h1>
+        <p
+          style={{
+            fontSize: "17px",
+            color: "rgba(255,255,255,0.65)",
+            lineHeight: 1.7,
+            maxWidth: "640px",
+            margin: "0 auto",
+          }}
+        >
+          {subtitle}
+        </p>
       </div>
     </section>
   );

@@ -40,61 +40,61 @@ export default async function ArticlePage({
     .slice(0, 3);
 
   return (
-    <div className="pt-[73px] bg-white">
-      <div className="max-w-[1400px] mx-auto px-16 py-[120px]">
+    <div className="pt-32">
+      <div className="max-w-[1400px] mx-auto px-16 py-24">
         <div className="grid grid-cols-1 lg:grid-cols-[680px_1fr] gap-24">
           {/* Main content */}
           <div>
             {/* Back */}
             <Link
               href={`/${locale}/resources`}
-              className="text-[13px] text-[#9CA3AF] hover:text-[#374151] mb-12 inline-block transition-colors"
+              className="text-[13px] text-[rgba(255,255,255,0.4)] hover:text-[#3B82F6] mb-12 inline-block transition-colors"
             >
               Back to Resources
             </Link>
 
             {/* Category */}
             <div className="mb-6">
-              <span className="swiss-label">
+              <span className="section-label">
                 {article.category.toUpperCase()}
               </span>
             </div>
 
             {/* Title */}
             <h1
-              className="font-bold text-[#0A1628] mb-6 leading-tight"
+              className="font-bold text-white mb-6 leading-tight"
               style={{ fontSize: "clamp(28px, 4vw, 48px)", lineHeight: 1.15 }}
             >
               {article.title}
             </h1>
 
             {/* Meta */}
-            <div className="flex items-center gap-6 mb-10 pb-10 border-b border-[#E5E7EB]">
-              <span className="text-[13px] text-[#9CA3AF]">
+            <div className="flex items-center gap-6 mb-10 pb-10 border-b border-white/10">
+              <span className="text-[13px] text-[rgba(255,255,255,0.4)]">
                 {new Date(article.date).toLocaleDateString("en-GB", {
                   day: "numeric",
                   month: "long",
                   year: "numeric",
                 })}
               </span>
-              <span className="text-[13px] text-[#9CA3AF]">
+              <span className="text-[13px] text-[rgba(255,255,255,0.4)]">
                 {article.readTime}
               </span>
             </div>
 
             {/* Excerpt */}
-            <p className="text-[18px] text-[#374151] mb-12 leading-relaxed">
+            <p className="text-[18px] text-[rgba(255,255,255,0.75)] mb-12 leading-relaxed">
               {article.excerpt}
             </p>
 
             {/* Content */}
-            <div className="space-y-6">
+            <div className="space-y-6 max-w-3xl" style={{ lineHeight: 1.9 }}>
               {paragraphs.map((p, i) => {
                 if (p.startsWith("## ")) {
                   return (
                     <h2
                       key={i}
-                      className="text-[24px] font-bold text-[#0A1628] mt-16 mb-4"
+                      className="text-[24px] font-bold text-white mt-16 mb-4"
                     >
                       {p.replace("## ", "")}
                     </h2>
@@ -104,7 +104,7 @@ export default async function ArticlePage({
                   return (
                     <h3
                       key={i}
-                      className="text-[18px] font-bold text-[#0A1628] mt-8 mb-2"
+                      className="text-[18px] font-bold text-white mt-8 mb-2"
                     >
                       {p.replace(/\*\*/g, "")}
                     </h3>
@@ -115,7 +115,7 @@ export default async function ArticlePage({
                   return (
                     <ul key={i} className="space-y-2 pl-0">
                       {items.map((item, j) => (
-                        <li key={j} className="text-[15px] text-[#374151] leading-[1.8]">
+                        <li key={j} className="text-[15px] text-[rgba(255,255,255,0.75)] leading-[1.8]">
                           {item.replace(/^[0-9]+\.\s|-\s/, "")}
                         </li>
                       ))}
@@ -123,7 +123,7 @@ export default async function ArticlePage({
                   );
                 }
                 return (
-                  <p key={i} className="text-[15px] text-[#374151] leading-[1.8]">
+                  <p key={i} className="text-[15px] text-[rgba(255,255,255,0.75)] leading-[1.8]">
                     {p}
                   </p>
                 );
@@ -131,12 +131,12 @@ export default async function ArticlePage({
             </div>
 
             {/* Tags */}
-            <div className="mt-16 pt-10 border-t border-[#E5E7EB]">
+            <div className="mt-16 pt-10 border-t border-white/10">
               <div className="flex flex-wrap gap-3">
                 {article.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="swiss-label"
+                    className="section-label"
                   >
                     {tag.toUpperCase()}
                   </span>
@@ -148,7 +148,7 @@ export default async function ArticlePage({
             <div className="mt-16">
               <Link
                 href={`/${locale}/resources`}
-                className="text-[15px] text-[#0A1628] underline underline-offset-4 hover:text-[#374151] transition-colors"
+                className="text-[15px] text-white hover:text-[#3B82F6] transition-colors"
               >
                 Back to all resources
               </Link>
@@ -159,26 +159,26 @@ export default async function ArticlePage({
           <div className="hidden lg:block">
             <div className="sticky top-[120px]">
               {related.length > 0 && (
-                <div>
-                  <p className="swiss-label mb-6">RELATED ARTICLES</p>
+                <div className="glass-card p-8">
+                  <p className="section-label mb-6">RELATED ARTICLES</p>
                   <div className="space-y-8">
                     {related.map((r) => (
                       <Link
                         key={r.slug}
                         href={`/${locale}/resources/${r.slug}`}
-                        className="block border-b border-[#E5E7EB] pb-8 hover:opacity-70 transition-opacity"
+                        className="block border-b border-white/10 pb-8 last:border-b-0 last:pb-0 hover:opacity-70 transition-opacity"
                       >
-                        <span className="swiss-label mb-2 block">
+                        <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[rgba(255,255,255,0.4)] mb-2 block">
                           {new Date(r.date).toLocaleDateString("en-GB", {
                             day: "numeric",
                             month: "short",
                             year: "numeric",
                           }).toUpperCase()}
                         </span>
-                        <h4 className="text-[16px] font-bold text-[#0A1628] mb-2 leading-tight">
+                        <h4 className="text-[16px] font-bold text-white mb-2 leading-tight">
                           {r.title}
                         </h4>
-                        <p className="text-[13px] text-[#374151] leading-relaxed">
+                        <p className="text-[13px] text-[rgba(255,255,255,0.65)] leading-relaxed">
                           {r.excerpt.slice(0, 120)}...
                         </p>
                       </Link>
