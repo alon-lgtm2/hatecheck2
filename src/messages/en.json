@@ -1,0 +1,161 @@
+{
+  "nav": {
+    "home": "Home",
+    "product": "Product",
+    "standards": "Standards",
+    "organizations": "Organizations",
+    "resources": "Resources",
+    "reports": "Reports",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "footer": {
+    "tagline": "Verify. Classify. Protect.",
+    "quickLinks": "Quick Links",
+    "platform": "Platform",
+    "legal": "Legal",
+    "contactUs": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© 2025 HateCheck. A not-for-profit initiative",
+    "location": "Netherlands",
+    "description": "HateCheck is an AI-powered intelligence platform that detects and classifies antisemitism and hate speech across the Netherlands and Europe."
+  },
+  "home": {
+    "hero": {
+      "badge": "AI-Powered Intelligence Platform",
+      "title": "Detect. Classify. Act.",
+      "subtitle": "HateCheck is Europe's leading intelligence platform for detecting, classifying, and responding to antisemitism and online hate speech — built on IHRA standards, Dutch law, and cutting-edge AI.",
+      "cta1": "Explore the Platform",
+      "cta2": "Get in Touch",
+      "stat1Label": "Detection Accuracy",
+      "stat2Label": "Incidents Analyzed",
+      "stat3Label": "Languages Supported",
+      "stat4Label": "European Countries"
+    },
+    "problem": {
+      "title": "The Challenge We Face",
+      "subtitle": "Antisemitism and hate speech are rising across Europe. Traditional monitoring methods are failing to keep pace.",
+      "card1Title": "Scale & Volume",
+      "card1Desc": "Thousands of incidents occur daily across social media, news sites, and messaging platforms — far beyond manual review capacity.",
+      "card2Title": "Ambiguity & Context",
+      "card2Desc": "Much hate speech hides behind satire, coded language, and plausible deniability, making classification difficult and inconsistent.",
+      "card3Title": "Jurisdictional Gaps",
+      "card3Desc": "Different legal frameworks across EU member states create confusion about what constitutes criminal speech vs. protected expression.",
+      "card4Title": "Underreporting",
+      "card4Desc": "Communities lack accessible tools to document, classify, and report incidents in ways that are actionable for authorities and organizations."
+    },
+    "howItWorks": {
+      "title": "How HateCheck Works",
+      "subtitle": "A systematic, evidence-based approach to intelligence gathering and classification."
+    },
+    "tierOverview": {
+      "title": "The HateCheck Index",
+      "subtitle": "A five-tier classification system grounded in international standards and Dutch law — from clearly permissible speech to urgent criminal risk.",
+      "tier1Label": "Not Antisemitic",
+      "tier2Label": "Context Needed",
+      "tier3Label": "Antisemitic",
+      "tier4Label": "Potentially Criminal",
+      "tier5Label": "Urgent Risk",
+      "tier1Desc": "Content that does not meet the threshold for antisemitism under any applicable standard.",
+      "tier2Desc": "Borderline content that may be antisemitic depending on context, intent, and audience.",
+      "tier3Desc": "Content that qualifies as antisemitic under IHRA/JDA definitions but does not cross criminal thresholds.",
+      "tier4Desc": "Content potentially violating Dutch Penal Code Articles 137c, 137d, or 137e.",
+      "tier5Desc": "Immediate threat indicators requiring urgent referral to law enforcement."
+    },
+    "credibility": {
+      "title": "Grounded in International Standards",
+      "subtitle": "Our classification methodology integrates globally recognized definitions and Dutch legal frameworks."
+    },
+    "quote": {
+      "text": "If there is a bedrock principle underlying the First Amendment, it is that government may not prohibit the expression of an idea simply because society finds the idea offensive or disagreeable.",
+      "attribution": "Justice Louis D. Brandeis — dissent in Whitney v. California (1927)"
+    },
+    "cta": {
+      "title": "Ready to Protect Your Community?",
+      "subtitle": "Join organizations across the Netherlands and Europe that use HateCheck to monitor, classify, and respond to hate speech.",
+      "primary": "Request a Demo",
+      "secondary": "Learn More"
+    }
+  },
+  "product": {
+    "title": "The HateCheck Platform",
+    "subtitle": "A comprehensive intelligence system for detecting, classifying, and acting on antisemitism and hate speech.",
+    "step1Title": "Content Ingestion",
+    "step1Desc": "Submit URLs, text, images, or connect data streams. Supports 20+ platforms and formats.",
+    "step2Title": "AI Analysis",
+    "step2Desc": "Multi-model AI analyzes content for antisemitic tropes, coded language, and explicit hatred.",
+    "step3Title": "Legal Mapping",
+    "step3Desc": "Automatic mapping to IHRA, JDA, Nexus, and Dutch Penal Code (137c, 137d, 137e).",
+    "step4Title": "Tier Classification",
+    "step4Desc": "Assigns one of 5 tiers based on severity, context, and legal framework applicability.",
+    "step5Title": "Action Engine",
+    "step5Desc": "Generates referral packages, reports, documentation for authorities and organizations."
+  },
+  "standards": {
+    "title": "Legal & Definitional Standards",
+    "subtitle": "HateCheck's classification methodology is grounded in internationally recognized definitions and Dutch law.",
+    "ihra": {
+      "title": "IHRA Working Definition",
+      "badge": "International Standard"
+    },
+    "nexus": {
+      "title": "The Nexus Document",
+      "badge": "Criticism vs. Antisemitism"
+    },
+    "jda": {
+      "title": "Jerusalem Declaration on Antisemitism",
+      "badge": "Academic Framework"
+    },
+    "dutch": {
+      "title": "Dutch Penal Code",
+      "badge": "Legal Framework"
+    }
+  },
+  "about": {
+    "title": "About HateCheck",
+    "subtitle": "We built HateCheck because the problem demanded a serious response.",
+    "mission": "Our Mission",
+    "origin": "Origin Story",
+    "values": "Our Values",
+    "roadmap": "Roadmap",
+    "notForProfit": "Not-for-Profit Commitment"
+  },
+  "organizations": {
+    "title": "For Organizations",
+    "subtitle": "HateCheck empowers institutions to detect, classify, and respond to hate speech at scale.",
+    "why": "Why Organizations Use HateCheck",
+    "useCases": "Use Cases",
+    "security": "Data & Security",
+    "cta": "Request a Demo"
+  },
+  "resources": {
+    "title": "Resources & Research",
+    "subtitle": "Analysis, guides, and research on antisemitism, hate speech, and digital intelligence.",
+    "readMore": "Read Article",
+    "allArticles": "All Articles",
+    "filter": "Filter by category"
+  },
+  "reports": {
+    "title": "Incident Reports",
+    "subtitle": "Anonymized case studies demonstrating HateCheck classification in action.",
+    "viewReport": "View Full Report",
+    "tier": "Tier",
+    "date": "Date",
+    "platform": "Platform"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Contact us for demos, partnerships, research inquiries, or general questions.",
+    "nameLabel": "Full Name",
+    "emailLabel": "Email Address",
+    "orgLabel": "Organization",
+    "roleLabel": "Role / Title",
+    "subjectLabel": "Subject",
+    "messageLabel": "Message",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent successfully. We'll be in touch shortly.",
+    "error": "An error occurred. Please try again."
+  }
+}

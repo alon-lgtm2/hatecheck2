@@ -1,0 +1,138 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design Tokens — Conservative Governmental Light Theme ── */
+:root {
+  --bg-primary:    #F8FAFB;   /* off-white — institutional paper */
+  --bg-secondary:  #EFF3F8;   /* light panel */
+  --bg-tertiary:   #E4EAF2;   /* input/hover backgrounds */
+  --border-subtle: #DDE4EE;   /* between-section rules */
+  --border-mid:    #C6D2E0;   /* card borders */
+  --border-strong: #9AAFC4;   /* active/focus borders */
+  --accent:        #1A52C8;   /* institutional deep blue */
+  --accent-hover:  #1440A3;   /* darker on hover */
+  --accent-light:  #2563EB;   /* standard blue accent */
+  --text-primary:  #0C1B2E;   /* near-black navy */
+  --text-body:     #2B3F57;   /* main body text */
+  --text-secondary:#4D6680;   /* secondary / captions */
+  --text-muted:    #8099B3;   /* placeholders / labels */
+  --tier-1:        #15803D;
+  --tier-2:        #B45309;
+  --tier-3:        #C2410C;
+  --tier-4:        #B91C1C;
+  --tier-5:        #7F1D1D;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-body);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #EFF3F8; }
+::-webkit-scrollbar-thumb { background: #C6D2E0; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ── Selection ── */
+::selection {
+  background: rgba(26, 82, 200, 0.12);
+  color: var(--text-primary);
+}
+
+/* ── Typography base ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── Government-style section label ── */
+.gov-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+}
+
+/* ── Rule divider ── */
+.rule-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border-subtle);
+}
+
+.rule-accent {
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: 1rem;
+}
+
+/* ── Card styles ── */
+.gov-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-mid);
+  border-radius: 3px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.gov-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 16px rgba(26, 82, 200, 0.1);
+}
+
+/* ── Animations ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+
+.animate-delay-100 { animation-delay: 0.1s; opacity: 0; }
+.animate-delay-200 { animation-delay: 0.2s; opacity: 0; }
+.animate-delay-300 { animation-delay: 0.3s; opacity: 0; }
+.animate-delay-400 { animation-delay: 0.4s; opacity: 0; }
+.animate-delay-500 { animation-delay: 0.5s; opacity: 0; }
+.animate-delay-600 { animation-delay: 0.6s; opacity: 0; }
+
+/* ── Print styles ── */
+@media print {
+  body { background: white; color: black; }
+  .no-print { display: none !important; }
+  .print-break { page-break-before: always; }
+}
