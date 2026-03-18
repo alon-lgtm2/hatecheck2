@@ -66,7 +66,7 @@ function NavLink({ href, label }: { href: string; label: string }) {
         textTransform: "uppercase",
         color: isActive ? "#0A1628" : "#9CA3AF",
         textDecoration: "none",
-        padding: "0 16px",
+        padding: "0 10px",
         transition: "color 0.15s",
       }}
       onMouseEnter={(e) => {
@@ -136,6 +136,9 @@ export default function Header() {
     home: t("home"),
     product: t("product"),
     standards: t("standards"),
+    organizations: t("organizations"),
+    resources: t("resources"),
+    reports: t("reports"),
     about: t("about"),
     contact: t("contact"),
   };

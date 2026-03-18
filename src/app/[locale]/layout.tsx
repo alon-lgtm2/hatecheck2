@@ -26,6 +26,21 @@ export async function generateMetadata({
         nl: "/nl",
       },
     },
+    openGraph: {
+      type: "website",
+      locale: "en_NL",
+      url: "https://hatecheck.nl",
+      siteName: "HateCheck",
+      title: "HateCheck — AI-Powered Antisemitism Detection Platform",
+      description:
+        "Detect, classify, and respond to antisemitism with AI-powered intelligence grounded in IHRA standards and Dutch law.",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "HateCheck — AI-Powered Antisemitism Detection Platform",
+      description:
+        "Detect, classify, and respond to antisemitism with AI-powered intelligence grounded in IHRA standards and Dutch law.",
+    },
   };
 }
 
@@ -50,6 +65,23 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "HateCheck",
+            url: "https://hatecheck.nl",
+            description:
+              "AI-powered intelligence platform for detecting and classifying antisemitism and hate speech.",
+            email: "info@israelis.nl",
+            foundingDate: "2024",
+            areaServed: "Europe",
+            nonprofitStatus: "NonprofitType",
+          }),
+        }}
+      />
       <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-1">{children}</main>

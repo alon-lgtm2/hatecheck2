@@ -15,6 +15,9 @@ export function useNavItems(): NavItem[] {
     { key: "home", href: `/${locale}` },
     { key: "product", href: `/${locale}/product` },
     { key: "standards", href: `/${locale}/standards` },
+    { key: "organizations", href: `/${locale}/organizations` },
+    { key: "resources", href: `/${locale}/resources` },
+    { key: "reports", href: `/${locale}/reports` },
     { key: "about", href: `/${locale}/about` },
     { key: "contact", href: `/${locale}/contact` },
   ];

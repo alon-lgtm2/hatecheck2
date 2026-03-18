@@ -331,6 +331,28 @@ export default async function StandardsPage({
             </p>
           </div>
 
+          {/* Visual flow diagram */}
+          <div className="mb-16 border border-[#E5E7EB] p-10">
+            <div className="flex items-center justify-between max-w-3xl mx-auto">
+              {[
+                { label: "IHRA", sub: "Primary Definition" },
+                { label: "NEXUS", sub: "Israel-Specific Test" },
+                { label: "JDA", sub: "Academic Nuance" },
+                { label: "DUTCH LAW", sub: "Criminal Threshold" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center">
+                  <div className="text-center">
+                    <p className="text-[16px] font-bold text-[#0A1628] tracking-tight">{item.label}</p>
+                    <p className="text-[10px] text-[#9CA3AF] uppercase tracking-[0.15em] mt-1">{item.sub}</p>
+                  </div>
+                  {i < 3 && (
+                    <span className="mx-6 text-[20px] text-[#9CA3AF] select-none" aria-hidden="true">&rarr;</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="space-y-10">
             {[
               {
@@ -366,6 +388,15 @@ export default async function StandardsPage({
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Disclaimer */}
+      <section className="px-16 pb-0 bg-white">
+        <div className="max-w-[1400px] mx-auto">
+          <p className="text-[13px] text-[#9CA3AF] leading-relaxed max-w-3xl" style={{ borderTop: "1px solid #E5E7EB", paddingTop: "32px", marginTop: "32px" }}>
+            <strong className="text-[#374151] font-medium">Disclaimer:</strong> HateCheck provides general information and is not a substitute for legal advice. Classification results reflect AI analysis against published standards and should be reviewed by qualified professionals before any legal action.
+          </p>
         </div>
       </section>
 
