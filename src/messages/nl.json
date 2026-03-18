@@ -1,0 +1,173 @@
+{
+  "nav": {
+    "home": "Home",
+    "product": "Platform",
+    "standards": "Normen",
+    "organizations": "Organisaties",
+    "resources": "Bronnen",
+    "reports": "Rapporten",
+    "about": "Over ons",
+    "contact": "Contact"
+  },
+  "footer": {
+    "tagline": "Verifieer. Classificeer. Bescherm.",
+    "quickLinks": "Snelle Links",
+    "platform": "Platform",
+    "legal": "Juridisch",
+    "contactUs": "Contact",
+    "privacy": "Privacybeleid",
+    "terms": "Gebruiksvoorwaarden",
+    "copyright": "© 2025 HateCheck. Een non-profit initiatief",
+    "location": "Nederland",
+    "description": "HateCheck is een AI-gedreven intelligentieplatform dat antisemitisme en haatboodschappen detecteert en classificeert in Nederland en Europa."
+  },
+  "home": {
+    "hero": {
+      "badge": "AI-Gedreven Intelligentieplatform",
+      "title": "Detecteer. Classificeer. Handel.",
+      "subtitle": "HateCheck is Europa's toonaangevend intelligentieplatform voor het detecteren, classificeren en aanpakken van antisemitisme en online haatboodschappen — gebouwd op IHRA-normen, Nederlands recht en geavanceerde AI.",
+      "cta1": "Verken het Platform",
+      "cta2": "Neem Contact Op",
+      "stat1Label": "Detectienauwkeurigheid",
+      "stat2Label": "Geanalyseerde Incidenten",
+      "stat3Label": "Ondersteunde Talen",
+      "stat4Label": "Europese Landen"
+    },
+    "problem": {
+      "label": "Het Probleem",
+      "col1Title": "Schaal & Volume",
+      "col1Desc": "Dagelijks vinden duizenden incidenten plaats op sociale media, nieuwssites en berichtenplatforms — ver boven de capaciteit voor handmatige beoordeling. Het volume maakt handmatige monitoring onmogelijk.",
+      "col2Title": "Ambiguïteit & Context",
+      "col2Desc": "Veel haatboodschappen verbergen zich achter satire, gecodeerde taal en aannemelijke ontkenning. Classificatie is moeilijk, inconsistent en verschilt per rechtsgebied.",
+      "col3Title": "Onderrapportage",
+      "col3Desc": "Gemeenschappen missen toegankelijke tools om incidenten te documenteren, classificeren en rapporteren op een manier die actioneerbaar is voor autoriteiten."
+    },
+    "howItWorks": {
+      "label": "Methodologie",
+      "step1Title": "Bronintake",
+      "step1Desc": "URL's, tekst, afbeeldingen of live feeds ingediend voor analyse op meer dan 20 platforms en formaten.",
+      "step2Title": "Verifiëren & Focussen",
+      "step2Desc": "Inhoud wordt geverifieerd op authenticiteit en relevantie voordat het de analysepijplijn ingaat.",
+      "step3Title": "Protocolanalyse",
+      "step3Desc": "Multi-model AI past semantische, contextuele en visuele analyse toe op basis van vastgestelde kaders.",
+      "step4Title": "Classificatie",
+      "step4Desc": "Vijfniveau-ernstbeoordeling op basis van IHRA, JDA, Nexus en Nederlandse wettelijke normen.",
+      "step5Title": "Handhavingsactie",
+      "step5Desc": "Genereert verwijzingspakketten, rapporten en documentatie voor autoriteiten en organisaties."
+    },
+    "tiers": {
+      "label": "Classificatiesysteem",
+      "colTier": "Niveau",
+      "colClassification": "Classificatie",
+      "colDescription": "Beschrijving",
+      "colResponse": "Respons",
+      "tier1Class": "Niet Antisemitisch",
+      "tier1Desc": "Inhoud die de drempel voor antisemitisme onder geen enkele toepasselijke norm bereikt.",
+      "tier1Response": "Geen actie vereist. Archiveren voor referentie.",
+      "tier2Class": "Context Nodig",
+      "tier2Desc": "Grensgevallen die mogelijk antisemitisch zijn afhankelijk van context, intentie en publiek.",
+      "tier2Response": "Markeren voor menselijke beoordeling en contextuele analyse.",
+      "tier3Class": "Antisemitisch",
+      "tier3Desc": "Inhoud die kwalificeert als antisemitisch onder IHRA/JDA-definities maar geen strafrechterlijke drempel overschrijdt.",
+      "tier3Response": "Documenteren, melden bij platform, monitoringinstanties informeren.",
+      "tier4Class": "Mogelijk Crimineel",
+      "tier4Desc": "Inhoud die mogelijk de Nederlandse Strafwet artikelen 137c, 137d of 137e schendt.",
+      "tier4Response": "Formele doorverwijzing naar rechtshandhaving met bewijspakket.",
+      "tier5Class": "Urgent Risico",
+      "tier5Desc": "Onmiddellijke dreigingsindicatoren die urgente doorverwijzing naar rechtshandhaving vereisen.",
+      "tier5Response": "Noodverwijzing. Doelwitten en autoriteiten onmiddellijk informeren."
+    },
+    "credibility": {
+      "label": "Normen & Kaders",
+      "description": "Gebaseerd op gevestigde internationale kaders en Nederlandse wettelijke normen."
+    },
+    "quote": {
+      "text": "Als er een grondbeginselen is waaraan de Eerste Amendement ten grondslag ligt, is het dat de overheid de uitdrukking van een idee niet mag verbieden simpelweg omdat de samenleving het idee aanstootgevend of onacceptabel vindt.",
+      "attribution": "Rechter Louis D. Brandeis — minderheidsmening in Whitney v. California (1927)"
+    },
+    "cta": {
+      "label": "Volgende Stap",
+      "text": "Geïnteresseerd? Neem contact op"
+    }
+  },
+  "product": {
+    "title": "Het HateCheck Platform",
+    "subtitle": "Een uitgebreid intelligentiesysteem voor het detecteren, classificeren en handelen bij antisemitisme en haatboodschappen.",
+    "step1Title": "Inhoud Invoer",
+    "step1Desc": "Dien URL's, tekst, afbeeldingen in of verbind datastromen. Ondersteunt 20+ platforms en formaten.",
+    "step2Title": "AI Analyse",
+    "step2Desc": "Multi-model AI analyseert inhoud op antisemitische tropen, gecodeerde taal en expliciete haat.",
+    "step3Title": "Juridische Mapping",
+    "step3Desc": "Automatische mapping naar IHRA, JDA, Nexus en Nederlandse Strafwet (137c, 137d, 137e).",
+    "step4Title": "Niveau Classificatie",
+    "step4Desc": "Kent een van 5 niveaus toe op basis van ernst, context en toepasbaarheid van het rechtskader.",
+    "step5Title": "Actie Motor",
+    "step5Desc": "Genereert verwijzingspakketten, rapporten en documentatie voor autoriteiten en organisaties."
+  },
+  "standards": {
+    "title": "Juridische & Definitienormen",
+    "subtitle": "De classificatiemethodologie van HateCheck is gebaseerd op internationaal erkende definities en Nederlands recht.",
+    "ihra": {
+      "title": "IHRA Werkdefinitie",
+      "badge": "Internationale Norm"
+    },
+    "nexus": {
+      "title": "Het Nexus Document",
+      "badge": "Kritiek vs. Antisemitisme"
+    },
+    "jda": {
+      "title": "Jeruzalem Verklaring over Antisemitisme",
+      "badge": "Academisch Kader"
+    },
+    "dutch": {
+      "title": "Nederlands Strafwetboek",
+      "badge": "Juridisch Kader"
+    }
+  },
+  "about": {
+    "title": "Over HateCheck",
+    "subtitle": "We hebben HateCheck gebouwd omdat het probleem een serieuze reactie vereiste.",
+    "mission": "Onze Missie",
+    "origin": "Ontstaansgeschiedenis",
+    "values": "Onze Waarden",
+    "roadmap": "Routekaart",
+    "notForProfit": "Non-Profit Toewijding"
+  },
+  "organizations": {
+    "title": "Voor Organisaties",
+    "subtitle": "HateCheck stelt instellingen in staat om haatboodschappen op schaal te detecteren, classificeren en beantwoorden.",
+    "why": "Waarom Organisaties HateCheck Gebruiken",
+    "useCases": "Gebruiksscenario's",
+    "security": "Data & Beveiliging",
+    "cta": "Demo Aanvragen"
+  },
+  "resources": {
+    "title": "Bronnen & Onderzoek",
+    "subtitle": "Analyses, gidsen en onderzoek naar antisemitisme, haatboodschappen en digitale inlichtingen.",
+    "readMore": "Lees Artikel",
+    "allArticles": "Alle Artikelen",
+    "filter": "Filteren op categorie"
+  },
+  "reports": {
+    "title": "Incidentrapporten",
+    "subtitle": "Geanonimiseerde casestudies die HateCheck-classificatie in actie tonen.",
+    "viewReport": "Volledig Rapport Bekijken",
+    "tier": "Niveau",
+    "date": "Datum",
+    "platform": "Platform"
+  },
+  "contact": {
+    "title": "Neem Contact Op",
+    "subtitle": "Neem contact met ons op voor demo's, partnerschappen, onderzoeksvragen of algemene vragen.",
+    "nameLabel": "Volledige Naam",
+    "emailLabel": "E-mailadres",
+    "orgLabel": "Organisatie",
+    "roleLabel": "Functie / Titel",
+    "subjectLabel": "Onderwerp",
+    "messageLabel": "Bericht",
+    "submit": "Bericht Versturen",
+    "sending": "Verzenden...",
+    "success": "Bericht succesvol verzonden. We nemen spoedig contact met u op.",
+    "error": "Er is een fout opgetreden. Probeer het opnieuw."
+  }
+}
