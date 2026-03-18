@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HateCheck — Design 5: Nordic Authority</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        /* ======================================
+           RESET & BASE
+           ====================================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #F7F7F5;
+            --white: #FFFFFF;
+            --text-primary: #1A1A1A;
+            --text-body: #4A4A4A;
+            --text-muted: #8A8A8A;
+            --accent: #00534C;
+            --accent-light: #E8F0EF;
+            --accent-hover: #003D38;
+            --coral: #D35233;
+            --coral-light: #FDF0ED;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+            --radius: 8px;
+            --transition: 0.3s ease;
+            --section-gap: 100px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.65;
+            color: var(--text-body);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        img, svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        /* ======================================
+           LAYOUT
+           ====================================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .section {
+            padding: var(--section-gap) 0;
+        }
+
+        .section--white {
+            background: var(--white);
+        }
+
+        .section--grey {
+            background: var(--bg);
+        }
+
+        .section--teal {
+            background: var(--accent);
+        }
+
+        /* ======================================
+           SCROLL REVEAL
+           ====================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* ======================================
+           TOP ACCENT BAR
+           ====================================== */
+        .top-bar {
+            height: 3px;
+            background: var(--accent);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+        }
+
+        /* ======================================
+           NAVBAR
+           ====================================== */
+        .navbar {
+            position: fixed;
+            top: 3px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow var(--transition);
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .navbar__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .navbar__brand {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar__brand svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .navbar__right {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .navbar__links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .navbar__links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-body);
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .navbar__links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width var(--transition);
+        }
+
+        .navbar__links a:hover {
+            color: var(--accent);
+        }
+
+        .navbar__links a:hover::after {
+            width: 100%;
+        }
+
+        .navbar__lang {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            border-left: 1px solid #E5E5E3;
+            padding-left: 20px;
+        }
+
+        .navbar__lang span {
+            cursor: pointer;
+            transition: color var(--transition);
+        }
+
+        .navbar__lang span.active {
+            color: var(--accent);
+        }
+
+        .navbar__lang span:hover {
+            color: var(--accent);
+        }
+
+        .navbar__lang .divider {
+            margin: 0 6px;
+            color: #D5D5D3;
+        }
+
+        /* ======================================
+           HERO
+           ====================================== */
+        .hero {
+            padding-top: 172px;
+            padding-bottom: var(--section-gap);
+            background: var(--white);
+            overflow: hidden;
+        }
+
+        .hero__inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero__content {
+            max-width: 540px;
+        }
+
+        .hero__label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 28px;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+
+        .hero__label svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.12;
+            letter-spacing: -1px;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-body);
+            margin-bottom: 40px;
+            max-width: 480px;
+        }
+
+        .hero__actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero__graphic {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .hero__graphic svg {
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+        }
+
+        /* ======================================
+           BUTTONS
+           ====================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 14px 28px;
+            border-radius: var(--radius);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all var(--transition);
+            white-space: nowrap;
+        }
+
+        .btn--primary {
+            background: var(--accent);
+            color: var(--white);
+            border-color: var(--accent);
+        }
+
+        .btn--primary:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 83, 76, 0.2);
+        }
+
+        .btn--outline {
+            background: transparent;
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .btn--outline:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+        }
+
+        .btn--white {
+            background: var(--white);
+            color: var(--accent);
+            border-color: var(--white);
+        }
+
+        .btn--white:hover {
+            background: var(--bg);
+            border-color: var(--bg);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .btn--white-outline {
+            background: transparent;
+            color: var(--white);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        .btn--white-outline:hover {
+            border-color: var(--white);
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-1px);
+        }
+
+        .btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ======================================
+           SECTION HEADERS
+           ====================================== */
+        .section-header {
+            margin-bottom: 56px;
+        }
+
+        .section-header__label {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 560px;
+        }
+
+        /* ======================================
+           CHALLENGE CARDS
+           ====================================== */
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .challenge-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 36px;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .challenge-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .challenge-card__icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .challenge-card__icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--accent);
+        }
+
+        .challenge-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .challenge-card p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-body);
+        }
+
+        /* ======================================
+           PROCESS / STEPS
+           ====================================== */
+        .process {
+            position: relative;
+        }
+
+        .process__track {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .process__track::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 48px;
+            right: 48px;
+            height: 2px;
+            background: #E0E0DE;
+        }
+
+        .process__step {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 0 12px;
+        }
+
+        .process__number {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            transition: all var(--transition);
+        }
+
+        .process__step:hover .process__number {
+            transform: scale(1.1);
+            box-shadow: 0 4px 16px rgba(0, 83, 76, 0.25);
+        }
+
+        .process__step h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .process__step p {
+            font-size: 14px;
+            color: var(--text-muted);
+            max-width: 180px;
+            line-height: 1.5;
+        }
+
+        /* ======================================
+           TIER SYSTEM
+           ====================================== */
+        .tiers {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .tier-card {
+            display: grid;
+            grid-template-columns: 60px 180px 1fr;
+            align-items: center;
+            gap: 24px;
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.04);
+            border-left: 4px solid;
+            transition: all var(--transition);
+        }
+
+        .tier-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(4px);
+        }
+
+        .tier-card--1 { border-left-color: #2D8B4E; }
+        .tier-card--2 { border-left-color: #D4A843; }
+        .tier-card--3 { border-left-color: #D47B2A; }
+        .tier-card--4 { border-left-color: #C93B3B; }
+        .tier-card--5 { border-left-color: #7A1F1F; }
+
+        .tier-card__number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .tier-card--1 .tier-card__number { color: #2D8B4E; }
+        .tier-card--2 .tier-card__number { color: #D4A843; }
+        .tier-card--3 .tier-card__number { color: #D47B2A; }
+        .tier-card--4 .tier-card__number { color: #C93B3B; }
+        .tier-card--5 .tier-card__number { color: #7A1F1F; }
+
+        .tier-card__name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .tier-card__desc {
+            font-size: 15px;
+            color: var(--text-body);
+            line-height: 1.55;
+        }
+
+        /* ======================================
+           FRAMEWORKS
+           ====================================== */
+        .frameworks-row {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .framework-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            transition: all var(--transition);
+        }
+
+        .framework-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .framework-item__icon {
+            width: 64px;
+            height: 64px;
+            background: var(--white);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .framework-item__icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--accent);
+        }
+
+        .framework-item span {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-body);
+            text-align: center;
+        }
+
+        /* ======================================
+           CTA SECTION
+           ====================================== */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            color: var(--white);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 40px;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .cta-section__actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ======================================
+           FOOTER
+           ====================================== */
+        .footer {
+            background: var(--white);
+            padding: 48px 0;
+            border-top: 1px solid #EDEDEB;
+        }
+
+        .footer__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer__text {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .footer__links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer__links a {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .footer__links a:hover {
+            color: var(--accent);
+        }
+
+        /* ======================================
+           RESPONSIVE
+           ====================================== */
+        @media (max-width: 960px) {
+            .hero__inner {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .hero__graphic {
+                justify-content: center;
+            }
+
+            .hero__graphic svg {
+                max-width: 360px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .challenge-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process__track {
+                flex-direction: column;
+                gap: 32px;
+                align-items: flex-start;
+            }
+
+            .process__track::before {
+                top: 0;
+                bottom: 0;
+                left: 23px;
+                right: auto;
+                width: 2px;
+                height: auto;
+            }
+
+            .process__step {
+                flex-direction: row;
+                text-align: left;
+                gap: 20px;
+                padding: 0;
+            }
+
+            .process__number {
+                flex-shrink: 0;
+                margin-bottom: 0;
+            }
+
+            .tier-card {
+                grid-template-columns: 50px 1fr;
+                gap: 16px;
+            }
+
+            .tier-card__name {
+                grid-column: 1 / -1;
+                display: none;
+            }
+
+            .tier-card__desc::before {
+                content: attr(data-name) " — ";
+                font-weight: 700;
+                color: var(--text-primary);
+            }
+
+            .frameworks-row {
+                gap: 32px;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+
+            :root {
+                --section-gap: 64px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar__links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .footer__inner {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- TOP ACCENT BAR -->
+<div class="top-bar"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+    <div class="container navbar__inner">
+        <a href="#" class="navbar__brand">
+            <svg viewBox="0 0 28 28" fill="none">
+                <rect x="2" y="2" width="24" height="24" rx="6" fill="#00534C"/>
+                <path d="M8 9.5h4.5v9H8v-3.5h2.5v-2H8V9.5z" fill="#fff"/>
+                <path d="M15.5 9.5H20v3.5h-2.5v2H20v3.5h-4.5v-9z" fill="#fff" opacity="0.7"/>
+            </svg>
+            HateCheck
+        </a>
+        <div class="navbar__right">
+            <ul class="navbar__links">
+                <li><a href="#challenge">Challenge</a></li>
+                <li><a href="#process">How It Works</a></li>
+                <li><a href="#tiers">Tier System</a></li>
+                <li><a href="#frameworks">Frameworks</a></li>
+            </ul>
+            <div class="navbar__lang">
+                <span class="active">EN</span>
+                <span class="divider">|</span>
+                <span>NL</span>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container hero__inner">
+        <div class="hero__content">
+            <div class="hero__label reveal">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 1v2M8 13v2M3.05 3.05l1.41 1.41M11.54 11.54l1.41 1.41M1 8h2M13 8h2M3.05 12.95l1.41-1.41M11.54 4.46l1.41-1.41"/>
+                </svg>
+                Structured Intelligence Platform
+            </div>
+            <h1 class="reveal reveal-delay-1">Protecting communities through structured intelligence</h1>
+            <p class="reveal reveal-delay-2">A comprehensive framework for identifying, categorising, and responding to hate speech incidents with precision, transparency, and care.</p>
+            <div class="hero__actions reveal reveal-delay-3">
+                <a href="#process" class="btn btn--primary">
+                    Explore Platform
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                </a>
+                <a href="#cta" class="btn btn--outline">Contact Us</a>
+            </div>
+        </div>
+        <div class="hero__graphic reveal reveal-delay-2">
+            <svg viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background shapes -->
+                <rect x="120" y="40" width="240" height="240" rx="24" fill="#E8F0EF" />
+                <rect x="180" y="100" width="240" height="240" rx="24" fill="#00534C" opacity="0.08"/>
+                <!-- Shield shape -->
+                <path d="M240 80 C240 80 320 110 320 110 C320 110 320 220 320 220 C320 280 240 320 240 320 C240 320 160 280 160 220 C160 220 160 110 160 110 C160 110 240 80 240 80Z" fill="#00534C" opacity="0.12"/>
+                <path d="M240 110 C240 110 300 132 300 132 C300 132 300 215 300 215 C300 260 240 290 240 290 C240 290 180 260 180 215 C180 215 180 132 180 132 C180 132 240 110 240 110Z" fill="#00534C" opacity="0.15"/>
+                <!-- Inner elements -->
+                <circle cx="240" cy="190" r="36" fill="#00534C" opacity="0.2"/>
+                <circle cx="240" cy="190" r="20" fill="#00534C" opacity="0.3"/>
+                <!-- Check mark -->
+                <path d="M228 190 L236 198 L254 180" stroke="#00534C" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Dots pattern -->
+                <circle cx="100" cy="100" r="4" fill="#00534C" opacity="0.15"/>
+                <circle cx="100" cy="130" r="4" fill="#00534C" opacity="0.12"/>
+                <circle cx="100" cy="160" r="4" fill="#00534C" opacity="0.09"/>
+                <circle cx="380" cy="240" r="4" fill="#00534C" opacity="0.15"/>
+                <circle cx="380" cy="270" r="4" fill="#00534C" opacity="0.12"/>
+                <circle cx="380" cy="300" r="4" fill="#00534C" opacity="0.09"/>
+                <!-- Accent lines -->
+                <line x1="80" y1="200" x2="130" y2="200" stroke="#00534C" stroke-width="2" opacity="0.1"/>
+                <line x1="350" y1="140" x2="400" y2="140" stroke="#00534C" stroke-width="2" opacity="0.1"/>
+                <!-- Small squares -->
+                <rect x="360" y="80" width="16" height="16" rx="3" fill="#00534C" opacity="0.08"/>
+                <rect x="375" y="95" width="16" height="16" rx="3" fill="#00534C" opacity="0.06"/>
+                <rect x="80" y="260" width="16" height="16" rx="3" fill="#00534C" opacity="0.08"/>
+            </svg>
+        </div>
+    </div>
+</section>
+
+<!-- THE CHALLENGE -->
+<section class="section section--grey" id="challenge">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-header__label">Understanding the problem</span>
+            <h2>The Challenge</h2>
+            <p>Hate speech monitoring today is fragmented, inconsistent, and often too slow. Communities deserve better.</p>
+        </div>
+        <div class="challenge-grid">
+            <div class="challenge-card reveal reveal-delay-1">
+                <div class="challenge-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                </div>
+                <h3>Fragmented reporting</h3>
+                <p>Incidents are reported through dozens of disconnected channels, making it impossible to see the full picture or respond quickly.</p>
+            </div>
+            <div class="challenge-card reveal reveal-delay-2">
+                <div class="challenge-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+                    </svg>
+                </div>
+                <h3>Subjective classification</h3>
+                <p>Without a structured framework, incident severity varies wildly between observers, undermining consistency and trust.</p>
+            </div>
+            <div class="challenge-card reveal reveal-delay-3">
+                <div class="challenge-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </div>
+                <h3>Delayed response</h3>
+                <p>Without real-time structured data, response teams lack the situational awareness to intervene when it matters most.</p>
+            </div>
+            <div class="challenge-card reveal reveal-delay-4">
+                <div class="challenge-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+                    </svg>
+                </div>
+                <h3>Community disconnect</h3>
+                <p>Affected communities rarely see the outcomes of their reports, eroding trust in the systems meant to protect them.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section--white" id="process">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-header__label">Our approach</span>
+            <h2>How HateCheck Works</h2>
+            <p>Five clear steps from incident to resolution, built on transparency and rigour.</p>
+        </div>
+        <div class="process reveal">
+            <div class="process__track">
+                <div class="process__step reveal reveal-delay-1">
+                    <div class="process__number">1</div>
+                    <h4>Report</h4>
+                    <p>Incidents are submitted through verified community channels</p>
+                </div>
+                <div class="process__step reveal reveal-delay-2">
+                    <div class="process__number">2</div>
+                    <h4>Validate</h4>
+                    <p>Each report is verified against our structured framework</p>
+                </div>
+                <div class="process__step reveal reveal-delay-3">
+                    <div class="process__number">3</div>
+                    <h4>Classify</h4>
+                    <p>Incidents receive a severity tier from our 5-level system</p>
+                </div>
+                <div class="process__step reveal reveal-delay-4">
+                    <div class="process__number">4</div>
+                    <h4>Respond</h4>
+                    <p>Appropriate stakeholders are notified based on severity</p>
+                </div>
+                <div class="process__step reveal reveal-delay-5">
+                    <div class="process__number">5</div>
+                    <h4>Monitor</h4>
+                    <p>Ongoing tracking ensures resolution and pattern detection</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TIER SYSTEM -->
+<section class="section section--grey" id="tiers">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-header__label">Classification framework</span>
+            <h2>Severity Tier System</h2>
+            <p>A structured five-tier system ensuring proportionate, consistent response to every incident.</p>
+        </div>
+        <div class="tiers">
+            <div class="tier-card tier-card--1 reveal reveal-delay-1">
+                <div class="tier-card__number">01</div>
+                <div class="tier-card__name">Concerning Speech</div>
+                <div class="tier-card__desc" data-name="Concerning Speech">Biased language or microaggressions that don't directly target individuals but contribute to a hostile environment over time.</div>
+            </div>
+            <div class="tier-card tier-card--2 reveal reveal-delay-2">
+                <div class="tier-card__number">02</div>
+                <div class="tier-card__name">Targeted Hostility</div>
+                <div class="tier-card__desc" data-name="Targeted Hostility">Deliberate derogatory language aimed at specific groups or individuals based on protected characteristics.</div>
+            </div>
+            <div class="tier-card tier-card--3 reveal reveal-delay-3">
+                <div class="tier-card__number">03</div>
+                <div class="tier-card__name">Coordinated Harassment</div>
+                <div class="tier-card__desc" data-name="Coordinated Harassment">Organised campaigns of hate involving multiple actors or sustained targeting across platforms and communities.</div>
+            </div>
+            <div class="tier-card tier-card--4 reveal reveal-delay-4">
+                <div class="tier-card__number">04</div>
+                <div class="tier-card__name">Incitement</div>
+                <div class="tier-card__desc" data-name="Incitement">Language that explicitly calls for discrimination, exclusion, or violence against protected groups.</div>
+            </div>
+            <div class="tier-card tier-card--5 reveal reveal-delay-5">
+                <div class="tier-card__number">05</div>
+                <div class="tier-card__name">Imminent Threat</div>
+                <div class="tier-card__desc" data-name="Imminent Threat">Direct, credible threats of physical violence or actions that pose immediate danger to individuals or communities.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRUSTED FRAMEWORKS -->
+<section class="section section--white" id="frameworks">
+    <div class="container">
+        <div class="section-header reveal" style="text-align:center;">
+            <span class="section-header__label">Built on established standards</span>
+            <h2 style="margin-left:auto;margin-right:auto;">Trusted Frameworks</h2>
+            <p style="margin-left:auto;margin-right:auto;">Our methodology is grounded in internationally recognised legal and academic frameworks.</p>
+        </div>
+        <div class="frameworks-row reveal">
+            <div class="framework-item reveal-delay-1">
+                <div class="framework-item__icon">
+                    <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="14" cy="14" r="11"/><path d="M14 3C14 3 8 10 8 14s2.69 8 6 8 6-4 6-8-6-11-6-11z"/><line x1="3" y1="14" x2="25" y2="14"/>
+                    </svg>
+                </div>
+                <span>IHRA Definition</span>
+            </div>
+            <div class="framework-item reveal-delay-2">
+                <div class="framework-item__icon">
+                    <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 7h20M4 7v14a2 2 0 002 2h16a2 2 0 002-2V7M10 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/><line x1="14" y1="12" x2="14" y2="18"/><line x1="11" y1="15" x2="17" y2="15"/>
+                    </svg>
+                </div>
+                <span>Nexus Framework</span>
+            </div>
+            <div class="framework-item reveal-delay-3">
+                <div class="framework-item__icon">
+                    <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 3l10 5.5v11L14 25 4 19.5v-11L14 3z"/><line x1="14" y1="3" x2="14" y2="25"/><line x1="4" y1="8.5" x2="24" y2="8.5"/>
+                    </svg>
+                </div>
+                <span>Jerusalem Declaration</span>
+            </div>
+            <div class="framework-item reveal-delay-4">
+                <div class="framework-item__icon">
+                    <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 22h20"/><rect x="6" y="10" width="16" height="12" rx="1"/><path d="M10 10V7a4 4 0 018 0v3"/><circle cx="14" cy="16" r="2"/>
+                    </svg>
+                </div>
+                <span>Dutch Penal Code</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section section--teal cta-section" id="cta">
+    <div class="container">
+        <h2 class="reveal">Ready to build safer communities?</h2>
+        <p class="reveal reveal-delay-1">Join the growing network of organisations using structured intelligence to combat hate speech effectively and transparently.</p>
+        <div class="cta-section__actions reveal reveal-delay-2">
+            <a href="#" class="btn btn--white">
+                Get Started
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </a>
+            <a href="#" class="btn btn--white-outline">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container footer__inner">
+        <div class="footer__text">&copy; 2026 HateCheck. All rights reserved.</div>
+        <div class="footer__links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+    // ==========================================
+    // Scroll Reveal with IntersectionObserver
+    // ==========================================
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+
+    // ==========================================
+    // Navbar scroll effect
+    // ==========================================
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+        const scroll = window.scrollY;
+        if (scroll > 10) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        lastScroll = scroll;
+    }, { passive: true });
+
+    // ==========================================
+    // Smooth scroll for anchor links
+    // ==========================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                const offset = 90;
+                const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        });
+    });
+
+    // ==========================================
+    // Language toggle
+    // ==========================================
+    document.querySelectorAll('.navbar__lang span:not(.divider)').forEach(el => {
+        el.addEventListener('click', function() {
+            document.querySelectorAll('.navbar__lang span:not(.divider)').forEach(s => s.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+</script>
+
+</body>
+</html>

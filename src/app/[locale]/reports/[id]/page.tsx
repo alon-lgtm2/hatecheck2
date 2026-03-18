@@ -144,11 +144,6 @@ export default async function ReportDetailPage({
           </ReportSection>
         </div>
 
-        {/* Disclaimer */}
-        <p className="text-[13px] text-[#9CA3AF] leading-relaxed max-w-3xl" style={{ borderTop: "1px solid #E5E7EB", paddingTop: "32px", marginTop: "32px" }}>
-          <strong className="text-[#374151] font-medium">Disclaimer:</strong> HateCheck provides general information and is not a substitute for legal advice. Classification results reflect AI analysis against published standards and should be reviewed by qualified professionals before any legal action.
-        </p>
-
         {/* Back link */}
         <div className="mt-16 pt-10 border-t border-[#E5E7EB]">
           <Link

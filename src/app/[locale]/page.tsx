@@ -36,29 +36,6 @@ export default async function HomePage({
       <TierOverview />
       <CredibilityBar />
 
-      {/* Quote Section */}
-      <section
-        className="py-[120px] px-6 md:px-8 lg:px-16 bg-white"
-        style={{ borderTop: "1px solid #E5E7EB" }}
-      >
-        <div className="max-w-[800px] mx-auto text-center">
-          <p
-            style={{
-              fontSize: "20px",
-              fontStyle: "italic",
-              color: "#374151",
-              lineHeight: 1.6,
-              marginBottom: "24px",
-            }}
-          >
-            &ldquo;{t("quote.text")}&rdquo;
-          </p>
-          <p className="swiss-label" style={{ fontStyle: "normal" }}>
-            {t("quote.attribution")}
-          </p>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section
         className="py-16 md:py-20 lg:py-[160px] px-6 md:px-8 lg:px-16 bg-white"
@@ -78,9 +55,6 @@ export default async function HomePage({
           >
             {t("cta.text")} &rarr;
           </Link>
-          <p className="text-[11px] text-[#9CA3AF] mt-10 max-w-xl mx-auto leading-relaxed">
-            HateCheck provides general information and is not a substitute for legal advice.
-          </p>
         </div>
       </section>
     </>

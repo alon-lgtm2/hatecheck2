@@ -38,7 +38,6 @@ const features = [
   "GDPR Compliant — Full compliance with EU General Data Protection Regulation. Data processed in EU infrastructure.",
   "Data Isolation — Each organization's data is fully isolated. No cross-organization data sharing without explicit consent.",
   "Audit Logging — Complete audit trail of all access, classifications, and exports for compliance purposes.",
-  "Multilingual Support — Full English and Dutch interface. AI-generated content adapts to your organisation's preferred language and institutional voice.",
 ];
 
 export default async function OrganizationsPage({

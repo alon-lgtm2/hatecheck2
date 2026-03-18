@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HateCheck — Swiss Precision</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0A1628;
+            --body: #374151;
+            --muted: #9CA3AF;
+            --border: #E5E7EB;
+            --white: #FFFFFF;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Suisse Intl', 'Inter', -apple-system, sans-serif;
+            font-weight: 400;
+            color: var(--body);
+            background: var(--white);
+            line-height: 1.75;
+        }
+
+        /* LABELS — small caps utility */
+        .label {
+            font-size: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--muted);
+        }
+
+        /* HEADINGS */
+        h1, h2, h3 {
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+        }
+
+        a {
+            color: var(--navy);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
+        }
+
+        a:hover {
+            text-decoration-thickness: 2px;
+        }
+
+        /* FADE-IN ANIMATION */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1),
+                        transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== NAVBAR ========== */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 64px;
+            border-bottom: 1px solid var(--border);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: var(--navy);
+            text-decoration: none;
+        }
+
+        nav .links {
+            display: flex;
+            gap: 48px;
+        }
+
+        nav .links a {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav .links a:hover {
+            color: var(--navy);
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            padding: 240px 64px 160px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 140px);
+            line-height: 0.95;
+            margin-bottom: 48px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--body);
+            max-width: 480px;
+            margin-bottom: 40px;
+        }
+
+        .hero a.cta-link {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--navy);
+            text-decoration: underline;
+            text-underline-offset: 6px;
+            text-decoration-thickness: 1px;
+        }
+
+        /* ========== PROBLEM — Three Columns ========== */
+        .problem {
+            padding: 120px 64px;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border);
+        }
+
+        .problem .section-label {
+            margin-bottom: 64px;
+        }
+
+        .problem .columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 64px;
+        }
+
+        .problem .columns .col-header {
+            font-size: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .problem .columns p {
+            font-size: 15px;
+            color: var(--body);
+            line-height: 1.8;
+        }
+
+        /* ========== PIPELINE ========== */
+        .pipeline {
+            padding: 120px 64px;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border);
+        }
+
+        .pipeline .section-label {
+            margin-bottom: 80px;
+        }
+
+        .pipeline .step {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 0;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pipeline .step:first-of-type {
+            border-top: 1px solid var(--border);
+        }
+
+        .pipeline .step-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+        .pipeline .step-content h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .pipeline .step-content p {
+            font-size: 15px;
+            color: var(--muted);
+            max-width: 560px;
+            line-height: 1.7;
+        }
+
+        /* ========== TIERS TABLE ========== */
+        .tiers {
+            padding: 120px 64px;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border);
+        }
+
+        .tiers .section-label {
+            margin-bottom: 64px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead th {
+            font-size: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--muted);
+            text-align: left;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--navy);
+        }
+
+        tbody td {
+            font-size: 15px;
+            color: var(--body);
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        tbody tr:hover {
+            background: #FAFAFA;
+        }
+
+        tbody td:first-child {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 14px;
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+            width: 120px;
+        }
+
+        tbody td:nth-child(2) {
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        tbody td:last-child {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* ========== CTA ========== */
+        .final-cta {
+            padding: 160px 64px;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .final-cta a {
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--navy);
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            text-decoration-thickness: 1px;
+            transition: text-decoration-thickness 0.2s;
+        }
+
+        .final-cta a:hover {
+            text-decoration-thickness: 2px;
+        }
+
+        .final-cta .arrow {
+            color: var(--muted);
+            margin: 0 8px;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            padding: 40px 64px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer span {
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 900px) {
+            nav {
+                padding: 20px 32px;
+            }
+
+            nav .links {
+                gap: 24px;
+            }
+
+            .hero {
+                padding: 180px 32px 100px;
+            }
+
+            .problem,
+            .pipeline,
+            .tiers,
+            .final-cta {
+                padding: 80px 32px;
+            }
+
+            .problem .columns {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .pipeline .step {
+                grid-template-columns: 80px 1fr;
+            }
+
+            .pipeline .step-number {
+                font-size: 36px;
+            }
+
+            table {
+                font-size: 13px;
+            }
+
+            thead th,
+            tbody td {
+                padding: 14px 12px;
+            }
+
+            footer {
+                padding: 32px;
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav .links {
+                display: none;
+            }
+
+            .hero {
+                padding: 160px 24px 80px;
+            }
+
+            .problem,
+            .pipeline,
+            .tiers,
+            .final-cta {
+                padding: 64px 24px;
+            }
+
+            .pipeline .step {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            /* Horizontal scroll for table on small screens */
+            .table-wrap {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                min-width: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="#" class="logo">HATECHECK</a>
+        <div class="links">
+            <a href="#problem">Problem</a>
+            <a href="#pipeline">Pipeline</a>
+            <a href="#tiers">Tiers</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="reveal">
+            <h1>Detect.<br>Classify.<br>Act.</h1>
+        </div>
+        <div class="reveal" style="transition-delay: 0.15s;">
+            <p>AI-driven content moderation that identifies and classifies online hate speech with clinical precision.</p>
+        </div>
+        <div class="reveal" style="transition-delay: 0.3s;">
+            <a href="#pipeline" class="cta-link">See how it works</a>
+        </div>
+    </section>
+
+    <!-- PROBLEM — Three Columns -->
+    <section class="problem" id="problem">
+        <div class="label section-label reveal">The Problem</div>
+        <div class="columns">
+            <div class="reveal">
+                <div class="col-header">Scale</div>
+                <p>Over 500,000 instances of hate speech are posted online every day. Manual moderation cannot keep pace with the volume, leaving platforms reactive rather than preventive.</p>
+            </div>
+            <div class="reveal" style="transition-delay: 0.1s;">
+                <div class="col-header">Nuance</div>
+                <p>Hate speech evolves constantly. Coded language, dog whistles, and context-dependent slurs evade keyword filters. Detection requires deep contextual understanding, not pattern matching.</p>
+            </div>
+            <div class="reveal" style="transition-delay: 0.2s;">
+                <div class="col-header">Consequence</div>
+                <p>Unmoderated hate speech radicalises individuals, silences vulnerable communities, and erodes democratic discourse. The cost of inaction is measured in real human harm.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIPELINE -->
+    <section class="pipeline" id="pipeline">
+        <div class="label section-label reveal">The Pipeline</div>
+
+        <div class="step reveal">
+            <div class="step-number">01</div>
+            <div class="step-content">
+                <h3>Ingest</h3>
+                <p>Content is ingested in real-time from platform APIs, webhooks, or batch uploads. All text is normalised and stripped of formatting artefacts.</p>
+            </div>
+        </div>
+
+        <div class="step reveal" style="transition-delay: 0.05s;">
+            <div class="step-number">02</div>
+            <div class="step-content">
+                <h3>Analyse</h3>
+                <p>A multi-layer NLP pipeline examines linguistic features, contextual signals, and semantic intent. The model distinguishes genuine threats from protected speech.</p>
+            </div>
+        </div>
+
+        <div class="step reveal" style="transition-delay: 0.1s;">
+            <div class="step-number">03</div>
+            <div class="step-content">
+                <h3>Classify</h3>
+                <p>Each piece of content is assigned a severity tier from 1 to 5, along with category labels and confidence scores. Ambiguous cases are flagged for human review.</p>
+            </div>
+        </div>
+
+        <div class="step reveal" style="transition-delay: 0.15s;">
+            <div class="step-number">04</div>
+            <div class="step-content">
+                <h3>Route</h3>
+                <p>Classified content is routed to the appropriate response queue. Tier 5 triggers immediate escalation. Lower tiers follow configurable policy workflows.</p>
+            </div>
+        </div>
+
+        <div class="step reveal" style="transition-delay: 0.2s;">
+            <div class="step-number">05</div>
+            <div class="step-content">
+                <h3>Report</h3>
+                <p>Comprehensive analytics are generated per cycle. Trend data, false-positive rates, and demographic impact assessments feed back into model refinement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIERS TABLE -->
+    <section class="tiers" id="tiers">
+        <div class="label section-label reveal">Severity Tiers</div>
+        <div class="table-wrap reveal" style="transition-delay: 0.1s;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tier</th>
+                        <th>Classification</th>
+                        <th>Description</th>
+                        <th>Response</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tier 1</td>
+                        <td>Neutral</td>
+                        <td>No hateful content detected</td>
+                        <td>No action required</td>
+                    </tr>
+                    <tr>
+                        <td>Tier 2</td>
+                        <td>Marginal</td>
+                        <td>Potentially insensitive language, low confidence</td>
+                        <td>Log and monitor</td>
+                    </tr>
+                    <tr>
+                        <td>Tier 3</td>
+                        <td>Moderate</td>
+                        <td>Identifiable hate speech, coded or indirect</td>
+                        <td>Flag for review</td>
+                    </tr>
+                    <tr>
+                        <td>Tier 4</td>
+                        <td>Severe</td>
+                        <td>Explicit hate speech targeting protected groups</td>
+                        <td>Auto-remove, notify</td>
+                    </tr>
+                    <tr>
+                        <td>Tier 5</td>
+                        <td>Critical</td>
+                        <td>Direct threats, incitement to violence</td>
+                        <td>Immediate escalation</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="final-cta" id="contact">
+        <div class="reveal">
+            <span class="label" style="display: block; margin-bottom: 24px;">Next Step</span>
+            <a href="mailto:hello@hatecheck.ai">Interested? <span class="arrow">&rarr;</span> Get in touch</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <span>&copy; 2026 HateCheck</span>
+        <span>Design 2 &mdash; Swiss Precision</span>
+    </footer>
+
+    <!-- INTERSECTION OBSERVER -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elements = document.querySelectorAll('.reveal');
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -40px 0px'
+            });
+            elements.forEach(function (el) { observer.observe(el); });
+        });
+    </script>
+</body>
+</html>

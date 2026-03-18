@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HATECHECK // DESIGN 4: MILITARY INTELLIGENCE</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0C0E10;
+  --panel: #141618;
+  --border: #252830;
+  --amber: #D4A017;
+  --green: #3B8A3E;
+  --red: #C23B22;
+  --dark-red: #8B1A1A;
+  --text: #D4D4D8;
+  --text-muted: #9CA3AF;
+  --font: 'Share Tech Mono', 'IBM Plex Mono', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Scan-line overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  animation: scanlines 8s linear infinite;
+}
+
+@keyframes scanlines {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100px; }
+}
+
+/* Grid overlay */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    linear-gradient(rgba(37, 40, 48, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 40, 48, 0.15) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Utility */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.amber-rule {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--amber), transparent);
+  margin: 0;
+}
+
+.section-label {
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.section-title {
+  font-size: 22px;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.section-desc {
+  color: var(--text-muted);
+  font-size: 13px;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== HEADER ========== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(12, 14, 16, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.classification-bar {
+  background: var(--amber);
+  color: #0C0E10;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 3px;
+  padding: 4px 0;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--amber);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--amber);
+  font-weight: 700;
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.logo-sub {
+  font-size: 9px;
+  color: var(--text-muted);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav a:hover {
+  color: var(--amber);
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--amber);
+  transition: width 0.3s;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.header-accent {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--amber) 20%, var(--amber) 80%, transparent);
+}
+
+/* ========== HERO ========== */
+.hero {
+  padding: 100px 0 80px;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero-prefix {
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 4px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.hero-prefix span {
+  display: inline-block;
+  background: rgba(212, 160, 23, 0.1);
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  padding: 4px 12px;
+  border-radius: 2px;
+}
+
+.hero-lines {
+  margin-bottom: 32px;
+}
+
+.hero-line {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.hero-line .slash {
+  color: var(--amber);
+  margin: 0 8px;
+}
+
+.hero-line:nth-child(2) {
+  color: var(--amber);
+}
+
+.hero-line:nth-child(3) {
+  color: var(--text-muted);
+  font-size: 28px;
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--amber);
+  margin-left: 4px;
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero-body {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  max-width: 600px;
+  border-left: 2px solid var(--border);
+  padding-left: 20px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 64px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--amber);
+  color: #0C0E10;
+  padding: 14px 32px;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  background: #E8B41A;
+  box-shadow: 0 0 20px rgba(212, 160, 23, 0.3);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-secondary {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-bottom: 1px dashed var(--border);
+  padding-bottom: 2px;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+/* Stat counters */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.stat-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 24px;
+  position: relative;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--amber);
+  opacity: 0.5;
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--amber);
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.stat-bar {
+  margin-top: 12px;
+  height: 3px;
+  background: var(--border);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  background: var(--amber);
+  border-radius: 1px;
+  width: 0;
+  transition: width 1.5s ease;
+}
+
+/* ========== OPERATIONAL PIPELINE ========== */
+.pipeline-section {
+  padding: 100px 0;
+}
+
+.pipeline-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.pipeline-header .section-desc {
+  margin: 0 auto;
+}
+
+.pipeline {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.pipeline::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 48px;
+  bottom: 48px;
+  width: 1px;
+  border-left: 2px dashed var(--border);
+}
+
+.pipeline-step {
+  display: flex;
+  gap: 32px;
+  padding: 24px 0;
+  position: relative;
+}
+
+.step-number {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--amber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--amber);
+  background: var(--bg);
+  z-index: 2;
+  transition: all 0.3s;
+}
+
+.pipeline-step:hover .step-number {
+  background: var(--amber);
+  color: var(--bg);
+  box-shadow: 0 0 15px rgba(212, 160, 23, 0.3);
+}
+
+.step-content {
+  flex: 1;
+  padding-top: 4px;
+}
+
+.step-code {
+  font-size: 10px;
+  color: var(--amber);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.step-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.step-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.step-tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.step-tag {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--text-muted);
+}
+
+/* ========== THREAT LEVEL MATRIX ========== */
+.matrix-section {
+  padding: 100px 0;
+}
+
+.matrix-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.matrix-header .section-desc {
+  margin: 0 auto;
+}
+
+.matrix {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.matrix-row {
+  display: grid;
+  grid-template-columns: 140px 80px 1fr 80px;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+
+.matrix-row:hover {
+  background: rgba(212, 160, 23, 0.03);
+}
+
+.matrix-tier {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.matrix-level {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 2px;
+}
+
+.matrix-bar-wrap {
+  height: 24px;
+  background: rgba(37, 40, 48, 0.5);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.matrix-bar {
+  height: 100%;
+  border-radius: 2px;
+  width: 0;
+  transition: width 1.5s ease;
+  position: relative;
+}
+
+.matrix-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 8px,
+    rgba(0,0,0,0.15) 8px,
+    rgba(0,0,0,0.15) 10px
+  );
+}
+
+.matrix-pct {
+  font-size: 12px;
+  font-weight: 700;
+  text-align: right;
+  letter-spacing: 1px;
+}
+
+.severity-1 { color: var(--green); }
+.severity-1 .matrix-level { background: rgba(59, 138, 62, 0.15); color: var(--green); border: 1px solid rgba(59, 138, 62, 0.3); }
+.severity-1 .matrix-bar { background: var(--green); }
+
+.severity-2 { color: #7AAC2D; }
+.severity-2 .matrix-level { background: rgba(122, 172, 45, 0.15); color: #7AAC2D; border: 1px solid rgba(122, 172, 45, 0.3); }
+.severity-2 .matrix-bar { background: #7AAC2D; }
+
+.severity-3 { color: var(--amber); }
+.severity-3 .matrix-level { background: rgba(212, 160, 23, 0.15); color: var(--amber); border: 1px solid rgba(212, 160, 23, 0.3); }
+.severity-3 .matrix-bar { background: var(--amber); }
+
+.severity-4 { color: var(--red); }
+.severity-4 .matrix-level { background: rgba(194, 59, 34, 0.15); color: var(--red); border: 1px solid rgba(194, 59, 34, 0.3); }
+.severity-4 .matrix-bar { background: var(--red); }
+
+.severity-5 { color: var(--dark-red); }
+.severity-5 .matrix-level { background: rgba(139, 26, 26, 0.15); color: #C44; border: 1px solid rgba(139, 26, 26, 0.3); }
+.severity-5 .matrix-bar { background: var(--dark-red); }
+
+/* ========== INTELLIGENCE SOURCES ========== */
+.sources-section {
+  padding: 100px 0;
+}
+
+.sources-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.sources-header .section-desc {
+  margin: 0 auto;
+}
+
+.sources-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.dossier {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 32px 24px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.dossier:hover {
+  border-color: var(--amber);
+  box-shadow: 0 0 20px rgba(212, 160, 23, 0.05);
+}
+
+/* Corner brackets */
+.dossier::before,
+.dossier::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--amber);
+  border-style: solid;
+  transition: all 0.3s;
+  opacity: 0.5;
+}
+
+.dossier::before {
+  top: 6px;
+  left: 6px;
+  border-width: 2px 0 0 2px;
+}
+
+.dossier::after {
+  top: 6px;
+  right: 6px;
+  border-width: 2px 2px 0 0;
+}
+
+.dossier .corner-bl,
+.dossier .corner-br {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--amber);
+  border-style: solid;
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.dossier .corner-bl {
+  bottom: 6px;
+  left: 6px;
+  border-width: 0 0 2px 2px;
+}
+
+.dossier .corner-br {
+  bottom: 6px;
+  right: 6px;
+  border-width: 0 2px 2px 0;
+}
+
+.dossier:hover::before,
+.dossier:hover::after,
+.dossier:hover .corner-bl,
+.dossier:hover .corner-br {
+  opacity: 1;
+}
+
+.dossier-classification {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--border);
+}
+
+.dossier-code {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.dossier-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.dossier-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.dossier-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.dossier-status.verified {
+  color: var(--green);
+}
+
+.dossier-status .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse-dot 2s ease infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(59, 138, 62, 0.5); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 4px rgba(59, 138, 62, 0); }
+}
+
+/* ========== CTA ========== */
+.cta-section {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.cta-box {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 64px 48px;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.cta-box::before,
+.cta-box::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: var(--amber);
+  border-style: solid;
+}
+
+.cta-box::before {
+  top: 12px;
+  left: 12px;
+  border-width: 2px 0 0 2px;
+}
+
+.cta-box::after {
+  bottom: 12px;
+  right: 12px;
+  border-width: 0 2px 2px 0;
+}
+
+.cta-classification {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--amber);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.cta-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.cta-desc {
+  color: var(--text-muted);
+  font-size: 13px;
+  max-width: 500px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--amber);
+  padding: 16px 40px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid var(--amber);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-cta:hover {
+  background: var(--amber);
+  color: var(--bg);
+  box-shadow: 0 0 30px rgba(212, 160, 23, 0.2);
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.footer-classification {
+  font-size: 10px;
+  color: var(--amber);
+  letter-spacing: 3px;
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .sources-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-line {
+    font-size: 24px;
+  }
+  .hero-line:nth-child(3) {
+    font-size: 20px;
+  }
+  .nav {
+    display: none;
+  }
+  .matrix-row {
+    grid-template-columns: 100px 60px 1fr 60px;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sources-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-line {
+    font-size: 18px;
+    letter-spacing: 3px;
+  }
+  .matrix-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .matrix-bar-wrap {
+    height: 16px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="header">
+  <div class="classification-bar">
+    [UNCLASSIFIED // FOR OFFICIAL USE ONLY]
+  </div>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">HC</div>
+      <div>
+        <div class="logo-text">HATECHECK</div>
+        <div class="logo-sub">Threat Analysis Platform</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="#pipeline">Operations</a>
+      <a href="#matrix">Threat Matrix</a>
+      <a href="#sources">Intelligence</a>
+      <a href="#briefing">Briefing</a>
+    </nav>
+  </div>
+  <div class="header-accent"></div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content fade-in">
+      <div class="hero-prefix">
+        <span>SYS.INIT // HATECHECK v4.0 OPERATIONAL</span>
+      </div>
+
+      <div class="hero-lines">
+        <div class="hero-line">THREAT DETECTION</div>
+        <div class="hero-line">CLASSIFICATION</div>
+        <div class="hero-line">RESPONSE<span class="cursor-blink"></span></div>
+      </div>
+
+      <div class="hero-body">
+        Multi-framework antisemitism detection and classification engine.
+        Cross-referencing IHRA, Nexus, JDA, and Dutch Legal definitions
+        to provide comprehensive threat assessment and severity analysis
+        across digital communication vectors.
+      </div>
+
+      <div class="hero-actions">
+        <a href="#briefing" class="btn-primary">
+          COMMENCE INVESTIGATION &#9654;
+        </a>
+        <a href="#pipeline" class="btn-secondary">VIEW OPERATIONS &darr;</a>
+      </div>
+    </div>
+
+    <div class="stats-grid fade-in">
+      <div class="stat-card">
+        <div class="stat-number" data-target="4" data-suffix="">0</div>
+        <div class="stat-label">FRAMEWORKS ACTIVE</div>
+        <div class="stat-bar"><div class="stat-bar-fill" data-width="100%"></div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="5" data-suffix="">0</div>
+        <div class="stat-label">SEVERITY TIERS</div>
+        <div class="stat-bar"><div class="stat-bar-fill" data-width="85%"></div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="11" data-suffix="">0</div>
+        <div class="stat-label">IHRA EXAMPLES</div>
+        <div class="stat-bar"><div class="stat-bar-fill" data-width="72%"></div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="99" data-suffix=".7%">0</div>
+        <div class="stat-label">CLASSIFICATION ACC.</div>
+        <div class="stat-bar"><div class="stat-bar-fill" data-width="97%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><hr class="amber-rule"></div>
+
+<!-- ========== OPERATIONAL PIPELINE ========== -->
+<section class="pipeline-section" id="pipeline">
+  <div class="container">
+    <div class="pipeline-header fade-in">
+      <div class="section-label">// MISSION PROTOCOL</div>
+      <div class="section-title">OPERATIONAL PIPELINE</div>
+      <div class="section-desc">
+        Five-phase detection and classification protocol for
+        comprehensive antisemitism threat assessment.
+      </div>
+    </div>
+
+    <div class="pipeline">
+      <div class="pipeline-step fade-in">
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <div class="step-code">PHASE ALPHA // INTAKE</div>
+          <div class="step-title">Content Ingestion</div>
+          <div class="step-desc">
+            Input text is received and preprocessed for multi-framework
+            analysis. Language normalization and context extraction
+            protocols are initiated.
+          </div>
+          <div class="step-tags">
+            <span class="step-tag">NLP</span>
+            <span class="step-tag">Preprocessing</span>
+            <span class="step-tag">UTF-8</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pipeline-step fade-in">
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <div class="step-code">PHASE BRAVO // SCAN</div>
+          <div class="step-title">Framework Cross-Reference</div>
+          <div class="step-desc">
+            Content is simultaneously evaluated against all four
+            operational frameworks: IHRA, Nexus, JDA, and Dutch Law
+            definitions for parallel threat assessment.
+          </div>
+          <div class="step-tags">
+            <span class="step-tag">IHRA</span>
+            <span class="step-tag">NEXUS</span>
+            <span class="step-tag">JDA</span>
+            <span class="step-tag">DUTCH LAW</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pipeline-step fade-in">
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <div class="step-code">PHASE CHARLIE // ASSESS</div>
+          <div class="step-title">Severity Classification</div>
+          <div class="step-desc">
+            Detected content is assigned a severity tier (1-5) based
+            on threat level analysis, contextual factors, and
+            cross-framework consensus scoring.
+          </div>
+          <div class="step-tags">
+            <span class="step-tag">Tier 1-5</span>
+            <span class="step-tag">Consensus</span>
+            <span class="step-tag">Weighted</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pipeline-step fade-in">
+        <div class="step-number">04</div>
+        <div class="step-content">
+          <div class="step-code">PHASE DELTA // COMPILE</div>
+          <div class="step-title">Evidence Compilation</div>
+          <div class="step-desc">
+            Matched patterns, framework citations, and contextual
+            analysis are compiled into a structured intelligence
+            report with actionable findings.
+          </div>
+          <div class="step-tags">
+            <span class="step-tag">Citations</span>
+            <span class="step-tag">Patterns</span>
+            <span class="step-tag">Report</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pipeline-step fade-in">
+        <div class="step-number">05</div>
+        <div class="step-content">
+          <div class="step-code">PHASE ECHO // DELIVER</div>
+          <div class="step-title">Briefing Delivery</div>
+          <div class="step-desc">
+            Final assessment is delivered with severity rating,
+            framework-specific analysis, educational context,
+            and recommended response protocols.
+          </div>
+          <div class="step-tags">
+            <span class="step-tag">Briefing</span>
+            <span class="step-tag">Education</span>
+            <span class="step-tag">Response</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><hr class="amber-rule"></div>
+
+<!-- ========== THREAT LEVEL MATRIX ========== -->
+<section class="matrix-section" id="matrix">
+  <div class="container">
+    <div class="matrix-header fade-in">
+      <div class="section-label">// CLASSIFICATION SCHEMA</div>
+      <div class="section-title">THREAT LEVEL MATRIX</div>
+      <div class="section-desc">
+        Five-tier severity classification system for grading
+        detected antisemitic content by threat level.
+      </div>
+    </div>
+
+    <div class="matrix fade-in">
+      <div class="matrix-row severity-1">
+        <div class="matrix-tier">TIER 1</div>
+        <div class="matrix-level">LOW</div>
+        <div class="matrix-bar-wrap">
+          <div class="matrix-bar" data-width="25%"></div>
+        </div>
+        <div class="matrix-pct">MICROAGG.</div>
+      </div>
+
+      <div class="matrix-row severity-2">
+        <div class="matrix-tier">TIER 2</div>
+        <div class="matrix-level">GUARDED</div>
+        <div class="matrix-bar-wrap">
+          <div class="matrix-bar" data-width="45%"></div>
+        </div>
+        <div class="matrix-pct">STEREO.</div>
+      </div>
+
+      <div class="matrix-row severity-3">
+        <div class="matrix-tier">TIER 3</div>
+        <div class="matrix-level">ELEVATED</div>
+        <div class="matrix-bar-wrap">
+          <div class="matrix-bar" data-width="60%"></div>
+        </div>
+        <div class="matrix-pct">CONSPIR.</div>
+      </div>
+
+      <div class="matrix-row severity-4">
+        <div class="matrix-tier">TIER 4</div>
+        <div class="matrix-level">HIGH</div>
+        <div class="matrix-bar-wrap">
+          <div class="matrix-bar" data-width="80%"></div>
+        </div>
+        <div class="matrix-pct">DEHUMAN.</div>
+      </div>
+
+      <div class="matrix-row severity-5">
+        <div class="matrix-tier">TIER 5</div>
+        <div class="matrix-level">SEVERE</div>
+        <div class="matrix-bar-wrap">
+          <div class="matrix-bar" data-width="100%"></div>
+        </div>
+        <div class="matrix-pct">INCITEM.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><hr class="amber-rule"></div>
+
+<!-- ========== INTELLIGENCE SOURCES ========== -->
+<section class="sources-section" id="sources">
+  <div class="container">
+    <div class="sources-header fade-in">
+      <div class="section-label">// SOURCE FRAMEWORKS</div>
+      <div class="section-title">INTELLIGENCE SOURCES</div>
+      <div class="section-desc">
+        Four internationally recognized frameworks form the
+        analytical foundation of all threat assessments.
+      </div>
+    </div>
+
+    <div class="sources-grid">
+      <div class="dossier fade-in">
+        <span class="corner-bl"></span>
+        <span class="corner-br"></span>
+        <div class="dossier-classification">DOSSIER // SRC-001</div>
+        <div class="dossier-code">FRAMEWORK: IHRA</div>
+        <div class="dossier-title">IHRA Working Definition</div>
+        <div class="dossier-desc">
+          International Holocaust Remembrance Alliance definition
+          with 11 contemporary examples. Widely adopted by
+          governments and institutions globally.
+        </div>
+        <div class="dossier-status verified">
+          <span class="dot"></span>
+          VERIFIED // ACTIVE
+        </div>
+      </div>
+
+      <div class="dossier fade-in">
+        <span class="corner-bl"></span>
+        <span class="corner-br"></span>
+        <div class="dossier-classification">DOSSIER // SRC-002</div>
+        <div class="dossier-code">FRAMEWORK: NEXUS</div>
+        <div class="dossier-title">Nexus Document</div>
+        <div class="dossier-desc">
+          Academic framework bridging antisemitism and Israel
+          criticism analysis. Provides contextual assessment
+          methodology for complex speech patterns.
+        </div>
+        <div class="dossier-status verified">
+          <span class="dot"></span>
+          VERIFIED // ACTIVE
+        </div>
+      </div>
+
+      <div class="dossier fade-in">
+        <span class="corner-bl"></span>
+        <span class="corner-br"></span>
+        <div class="dossier-classification">DOSSIER // SRC-003</div>
+        <div class="dossier-code">FRAMEWORK: JDA</div>
+        <div class="dossier-title">Jerusalem Declaration</div>
+        <div class="dossier-desc">
+          Scholar-developed guidelines with nuanced approach to
+          distinguishing antisemitism from legitimate political
+          criticism and discourse.
+        </div>
+        <div class="dossier-status verified">
+          <span class="dot"></span>
+          VERIFIED // ACTIVE
+        </div>
+      </div>
+
+      <div class="dossier fade-in">
+        <span class="corner-bl"></span>
+        <span class="corner-br"></span>
+        <div class="dossier-classification">DOSSIER // SRC-004</div>
+        <div class="dossier-code">FRAMEWORK: DUTCH LAW</div>
+        <div class="dossier-title">Dutch Legal Standard</div>
+        <div class="dossier-desc">
+          Netherlands legal framework for hate speech prosecution
+          providing enforceable definitions and precedent-based
+          classification criteria.
+        </div>
+        <div class="dossier-status verified">
+          <span class="dot"></span>
+          VERIFIED // ACTIVE
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><hr class="amber-rule"></div>
+
+<!-- ========== CTA ========== -->
+<section class="cta-section" id="briefing">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <div class="cta-classification">// SECURE CHANNEL</div>
+      <div class="cta-title">REQUEST SECURE BRIEFING</div>
+      <div class="cta-desc">
+        Initiate a classified assessment session. All communications
+        are processed through encrypted channels with full
+        audit trail compliance.
+      </div>
+      <a href="#" class="btn-cta">
+        REQUEST SECURE BRIEFING &#9654;
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-text">
+      HATECHECK // THREAT ANALYSIS PLATFORM // DESIGN 4: MILITARY INTELLIGENCE
+    </div>
+    <div class="footer-classification">
+      [UNCLASSIFIED // FOR OFFICIAL USE ONLY]
+    </div>
+  </div>
+</footer>
+
+<script>
+// Intersection Observer for fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, index * 100);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Counter animation
+function animateCounters() {
+  document.querySelectorAll('.stat-number').forEach(el => {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1500;
+    const start = performance.now();
+
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(eased * target);
+      el.textContent = current + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  });
+}
+
+// Bar animations
+function animateBars() {
+  document.querySelectorAll('.stat-bar-fill').forEach(el => {
+    el.style.width = el.dataset.width;
+  });
+  document.querySelectorAll('.matrix-bar').forEach(el => {
+    el.style.width = el.dataset.width;
+  });
+}
+
+// Trigger on scroll
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounters();
+      animateBars();
+      statsObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+const statsGrid = document.querySelector('.stats-grid');
+if (statsGrid) statsObserver.observe(statsGrid);
+
+const matrixSection = document.querySelector('.matrix');
+if (matrixSection) {
+  const matrixObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateBars();
+        matrixObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  matrixObserver.observe(matrixSection);
+}
+</script>
+
+</body>
+</html>
