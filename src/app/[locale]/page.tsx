@@ -11,7 +11,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "home.hero" });
   return {
-    title: "HateCheck — AI-Powered Antisemitism Detection Platform",
+    title: "HateCheck - AI-Powered Antisemitism Detection Platform",
     description: t("subtitle"),
   };
 }
@@ -113,32 +113,72 @@ export default async function HomePage({
     },
     {
       title: "Dutch Penal Code",
-      role: "Articles 137c, 137d, and 137e — the legal basis for criminal hate speech prosecution in the Netherlands.",
+      role: "Articles 137c, 137d, and 137e - the legal basis for criminal hate speech prosecution in the Netherlands.",
     },
   ];
 
   const platformCards = [
     {
       num: "01",
-      title: "Assess Incidents",
-      desc: "Helps users assess incidents such as posts, statements and events against recognised standards for antisemitism and hate.",
+      title: t("platform.card1Title"),
+      desc: t("platform.card1Desc"),
     },
     {
       num: "02",
-      title: "Organise Evidence",
-      desc: "Organises evidence and patterns so that concerns can be raised with employers, institutions, regulators, platforms and authorities in a structured way.",
+      title: t("platform.card2Title"),
+      desc: t("platform.card2Desc"),
     },
     {
       num: "03",
-      title: "Draft Responses",
-      desc: "Drafts careful, lawful letters and memos that users can adapt and send themselves, always under human control.",
+      title: t("platform.card3Title"),
+      desc: t("platform.card3Desc"),
+    },
+    {
+      num: "04",
+      title: t("platform.card4Title"),
+      desc: t("platform.card4Desc"),
     },
   ];
 
-  const crisisData = [
-    { source: "CIDI (Verified)", y2022: "155", y2023: "379", change: "+145%" },
-    { source: "Dutch Police", y2022: "549", y2023: "880", change: "+60%" },
-    { source: "Prosecution (OM)", y2022: "94", y2023: "181", change: "+93%" },
+  const cidiYearlyData = [
+    { year: "2012-22", incidents: 138, label: "138/yr avg.", change: "", context: "Ten-year baseline", isAvg: true },
+    { year: "2022", incidents: 155, label: "155", change: "", context: "Pre-October 7 baseline", isAvg: false },
+    { year: "2023", incidents: 379, label: "379", change: "+145%", context: "October 7 aftermath; 60% of incidents occurred Oct-Dec", isAvg: false },
+    { year: "2024", incidents: 421, label: "421", change: "+11%", context: "All-time record; highest in 40 years of CIDI monitoring", isAvg: false },
+    { year: "2025 Q1", incidents: 440, label: "Trend continuing", change: "", context: "CIDI warns 2025 will likely break the record again", isAvg: false },
+  ];
+
+  const policeData = [
+    { source: "Police-registered antisemitism cases", y2022: "549", y2023: "880", change: "+60%" },
+    { source: "Cases involving violence", y2022: "28", y2023: "43", change: "+54%" },
+    { source: "Cases involving threats", y2022: "54", y2023: "80", change: "+48%" },
+    { source: "Cases advanced to prosecution (OM)", y2022: "94", y2023: "181", change: "+93%" },
+  ];
+
+  const broaderMetrics = [
+    { metric: "Rise in public-space antisemitism (2024 vs. 2023)", figure: "+45%", source: "CIDI 2024 Monitor" },
+    { metric: "Rise in vandalism against Jewish targets", figure: "+44%", source: "CIDI 2024 Monitor" },
+    { metric: "Two-year increase above 10-year average", figure: "+305%", source: "CIDI 2024 Monitor" },
+    { metric: "Jewish Europeans who encountered antisemitism in past year", figure: "96%", source: "EU FRA Survey, 2024" },
+    { metric: "Victims who do not report antisemitic harassment", figure: "~72%", source: "EU FRA Survey, 2024" },
+    { metric: "Jewish Dutch who considered emigrating (past 5 years)", figure: "30%", source: "EU FRA Netherlands, 2018" },
+  ];
+
+  const timelineEvents = [
+    { date: "October 7, 2023", title: "The Inflection Point", color: "#EF4444", desc: "Hamas attacks trigger a global surge in antisemitism. In the Netherlands, 60% of the year's incidents occur in the final three months alone. The NCTV raises the national terrorist threat level from 3 to 4 (Substantial) - the first time since 2019." },
+    { date: "March 10, 2024", title: "Holocaust Museum Opening", color: "#F97316", desc: "The opening of the Dutch National Holocaust Museum in Amsterdam is disrupted by approximately 2,000 protesters. Antisemitic chants are audible from the ceremony. Israeli President Isaac Herzog is in attendance." },
+    { date: "November 7-8, 2024", title: "The Amsterdam Pogrom", color: "#991B1B", desc: "After a Europa League match between Ajax and Maccabi Tel Aviv, coordinated attacks target Israeli and Jewish citizens across Amsterdam. Organized via Telegram, groups conduct what participants openly call a \"Jodenjacht\" - a Jew hunt. Dozens are injured. More than 60 arrests are made." },
+    { date: "2024", title: "The Record Year", color: "#EF4444", desc: "CIDI registers 421 verified antisemitic incidents - the highest number in the 40-year history of its monitoring. Mezuzahs are torn from doorposts. Jewish cemeteries and monuments are defaced. Jewish students increasingly avoid university lectures." },
+    { date: "March 13, 2026", title: "Rotterdam Synagogue Arson", color: "#991B1B", desc: "An explosive device detonates at a synagogue on A.B.N. Davidsplein in Rotterdam at 3:40 AM. Four suspects (ages 17-19) are arrested near a second synagogue. The Rotterdam Public Prosecution Service alleges terrorist intent." },
+    { date: "March 14, 2026", title: "Amsterdam Jewish School Bombing", color: "#991B1B", desc: "One day after the Rotterdam attack, an explosive device detonates against the outer wall of the Cheider - the Netherlands' only Orthodox Jewish school. Justice Minister David van Weel: \"Two nights in a row, a cowardly attack with an explosive at a Jewish building.\"" },
+    { date: "March 2026", title: "A European Pattern", color: "#EF4444", desc: "The Dutch attacks are part of a broader wave: a synagogue bombing in Liege (Belgium), a synagogue shooting and ramming in Detroit, gunfire at synagogues in Toronto, and attacks in Norway and Greece. Security experts describe the most elevated threat environment for Jewish communities in recent memory." },
+  ];
+
+  const actionGapPoints = [
+    { title: "Detection is slow", desc: "Signals of antisemitism are scattered across platforms, languages, and jurisdictions. Patterns that should trigger institutional response go unnoticed until they escalate." },
+    { title: "Classification is uncertain", desc: "Without structured frameworks, every incident becomes a debate. Is it hateful speech or criminal incitement? Who decides? Against which standard?" },
+    { title: "Action stalls", desc: "Even when an incident is clearly antisemitic, the path to the right authority - platform, police, municipality, prosecution, CIDI - is unclear, bureaucratic, and slow." },
+    { title: "Documentation is lost", desc: "Without systematic record-keeping, patterns never surface. Repeat offenders go undetected. Institutional memory evaporates between cases." },
   ];
 
   const ecosystemCategories = [
@@ -223,24 +263,24 @@ export default async function HomePage({
               lineHeight: 1.3,
             }}
           >
-            Turn Online Hate into Enforceable Action
+            {t("hero.title")}
           </h1>
           <p
             style={{
-              fontSize: "16px",
-              color: "rgba(255,255,255,0.8)",
-              maxWidth: "640px",
-              margin: "0 auto 16px",
-              lineHeight: 1.7,
+              fontSize: "18px",
+              color: "rgba(255,255,255,0.95)",
+              maxWidth: "700px",
+              margin: "0 auto 20px",
+              lineHeight: 1.8,
+              fontWeight: 500,
             }}
           >
-            Antisemitic incidents in the Netherlands surged 305% above the decade
-            average.
+            {t("hero.whatItDoes")}
           </p>
           <p
             style={{
-              fontSize: "17px",
-              color: "rgba(255,255,255,0.8)",
+              fontSize: "15px",
+              color: "rgba(255,255,255,0.7)",
               maxWidth: "640px",
               margin: "0 auto 40px",
               lineHeight: 1.7,
@@ -266,170 +306,209 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* ── SECTION 2: ABOUT / CRISIS (Airspace two-column) ── */}
+      {/* ── SECTION 2: THE CRISIS (Intelligence Briefing) ── */}
       <section
         id="crisis"
-        className="section"
-        style={{ background: "#FFFFFF" }}
+        style={{ background: "#0F0E1A", paddingTop: "100px" }}
       >
-        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
-          <div className="spotlight">
-            <div className="content" style={{ flex: "0 0 58.33%", maxWidth: "58.33%" }}>
-              <div style={{ textAlign: "left", marginBottom: "32px" }}>
-                <h2
-                  style={{
-                    fontSize: "clamp(28px, 4vw, 36px)",
-                    fontWeight: 700,
-                    color: "#222",
-                    marginBottom: "16px",
-                  }}
-                >
-                  The Crisis
-                </h2>
-                <p
-                  style={{
-                    fontSize: "16px",
-                    color: "#666",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  Antisemitism is surging across the Netherlands and Europe, with incidents reaching historic levels.
-                </p>
+        {/* 2A: Opening */}
+        <div style={{ maxWidth: "760px", margin: "0 auto", padding: "0 24px 80px", textAlign: "center" }}>
+          <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#EF4444", marginBottom: "24px" }}>
+            THE CRISIS
+          </p>
+          <h2 style={{ fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 700, color: "rgba(255,255,255,0.95)", lineHeight: 1.35, marginBottom: "32px" }}>
+            Antisemitism in the Netherlands has reached crisis levels. The data is unambiguous.
+          </h2>
+          <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.65)", lineHeight: 1.8, marginBottom: "20px" }}>
+            The Netherlands is experiencing the worst surge in antisemitism since the Second World War. What was once measured in dozens of incidents per year is now measured in hundreds - and the trajectory is still climbing.
+          </p>
+          <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.65)", lineHeight: 1.8 }}>
+            For a decade, antisemitic incidents held at an average of 138 per year. In two years, that number has risen by 305%. The national threat level has been raised to its second-highest setting. Synagogues are being firebombed. Jewish students are skipping lectures out of fear. And the vast majority of incidents are never reported at all.
+          </p>
+        </div>
+
+        {/* 2B: Bar Chart - CIDI Data */}
+        <div style={{ maxWidth: "900px", margin: "0 auto", padding: "0 24px 80px" }}>
+          <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: "32px" }}>
+            CIDI VERIFIED ANTISEMITIC INCIDENTS (NETHERLANDS)
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            {cidiYearlyData.map((d) => (
+              <div key={d.year} style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+                <span style={{ fontSize: "13px", fontWeight: 600, color: "rgba(255,255,255,0.5)", width: "80px", textAlign: "right", flexShrink: 0 }}>
+                  {d.year}
+                </span>
+                <div style={{ flex: 1, position: "relative", height: "36px", background: "rgba(255,255,255,0.04)", borderRadius: "4px", overflow: "hidden" }}>
+                  {/* Average baseline */}
+                  <div style={{ position: "absolute", left: `${(138 / 450) * 100}%`, top: 0, bottom: 0, width: "1px", borderLeft: "2px dashed rgba(255,255,255,0.15)", zIndex: 2 }} />
+                  {/* Bar */}
+                  <div style={{
+                    height: "100%",
+                    width: `${(d.incidents / 450) * 100}%`,
+                    background: d.isAvg ? "rgba(255,255,255,0.15)" : d.incidents >= 400 ? "#DC2626" : d.incidents >= 300 ? "#EF4444" : "rgba(255,255,255,0.2)",
+                    borderRadius: "4px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-end",
+                    paddingRight: "12px",
+                    transition: "width 0.3s",
+                  }}>
+                    <span style={{ fontSize: "13px", fontWeight: 700, color: "#FFFFFF", whiteSpace: "nowrap" }}>
+                      {d.label}
+                    </span>
+                  </div>
+                </div>
+                {d.change && (
+                  <span style={{ fontSize: "12px", fontWeight: 700, color: "#EF4444", width: "60px", flexShrink: 0 }}>
+                    {d.change}
+                  </span>
+                )}
               </div>
-              <p
-                style={{
-                  fontSize: "16px",
-                  color: "#555",
-                  lineHeight: 1.8,
-                  marginBottom: "20px",
-                }}
-              >
-                In 2023, antisemitic incidents in the Netherlands surged by 145%
-                — from 155 to 379 verified cases. By 2024, the number hit 421, a
-                historic high and a 305% increase above the previous ten-year
-                average.
-              </p>
-              <p
-                style={{
-                  fontSize: "16px",
-                  color: "#555",
-                  lineHeight: 1.8,
-                  marginBottom: "20px",
-                }}
-              >
-                The November 2024 Amsterdam riots saw coordinated physical
-                attacks on Jewish citizens, organised via Telegram. In March
-                2026, a synagogue in Rotterdam was targeted in an arson attack.
-                The NCTV maintains the national threat level at Level 4
-                (Substantial).
-              </p>
-              <p
-                style={{
-                  fontSize: "16px",
-                  color: "#555",
-                  lineHeight: 1.8,
-                }}
-              >
-                Meanwhile, 74% of Jewish Dutch citizens who experience an
-                antisemitic incident do not report it. Of the 880 cases police
-                recorded in 2023, only 181 were advanced to prosecution. This is
-                the Action Gap — and it is why HateCheck exists.
-              </p>
-            </div>
-            <div className="image" style={{ flex: "0 0 41.67%", maxWidth: "41.67%" }}>
-              <div className="glass-card" style={{ padding: "28px" }}>
-                <table
-                  style={{
-                    width: "100%",
-                    borderCollapse: "collapse",
-                  }}
-                >
-                  <thead>
-                    <tr>
-                      {["Source", "2022", "2023", "Change"].map((h) => (
-                        <th
-                          key={h}
-                          style={{
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            color: "#999",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.05em",
-                            textAlign: h === "Source" ? "left" : "right",
-                            paddingBottom: "12px",
-                            borderBottom: "1px solid #eee",
-                          }}
-                        >
-                          {h}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {crisisData.map((row, i) => (
-                      <tr key={i}>
-                        <td
-                          style={{
-                            fontSize: "14px",
-                            color: "#333",
-                            padding: "14px 0",
-                            borderBottom:
-                              i < crisisData.length - 1
-                                ? "1px solid #eee"
-                                : "none",
-                          }}
-                        >
-                          {row.source}
-                        </td>
-                        <td
-                          style={{
-                            fontSize: "14px",
-                            color: "#333",
-                            textAlign: "right",
-                            padding: "14px 0",
-                            borderBottom:
-                              i < crisisData.length - 1
-                                ? "1px solid #eee"
-                                : "none",
-                          }}
-                        >
-                          {row.y2022}
-                        </td>
-                        <td
-                          style={{
-                            fontSize: "14px",
-                            color: "#333",
-                            textAlign: "right",
-                            padding: "14px 0",
-                            borderBottom:
-                              i < crisisData.length - 1
-                                ? "1px solid #eee"
-                                : "none",
-                          }}
-                        >
-                          {row.y2023}
-                        </td>
-                        <td
-                          style={{
-                            fontSize: "14px",
-                            color: "#333",
-                            fontWeight: 700,
-                            textAlign: "right",
-                            padding: "14px 0",
-                            borderBottom:
-                              i < crisisData.length - 1
-                                ? "1px solid #eee"
-                                : "none",
-                          }}
-                        >
-                          {row.change}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+            ))}
+          </div>
+          <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)", marginTop: "16px", lineHeight: 1.6 }}>
+            Dashed line = 138/yr ten-year average (2012-2022). Source: CIDI Monitor Antisemitische Incidenten. Social media incidents tracked separately and not included in these figures.
+          </p>
+        </div>
+
+        {/* 2C: Police & Prosecution Table */}
+        <div style={{ maxWidth: "900px", margin: "0 auto", padding: "0 24px 80px" }}>
+          <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: "24px" }}>
+            DUTCH POLICE &amp; PROSECUTION DATA
+          </p>
+          <div style={{ overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+              <thead>
+                <tr>
+                  {["", "2022", "2023", "Change"].map((h) => (
+                    <th key={h} style={{ fontSize: "11px", fontWeight: 600, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.1em", textAlign: h === "" ? "left" : "right", padding: "12px 16px 12px 0", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {policeData.map((row, i) => (
+                  <tr key={i}>
+                    <td style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", padding: "14px 16px 14px 0", borderBottom: i < policeData.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none" }}>{row.source}</td>
+                    <td style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", textAlign: "right", padding: "14px 16px 14px 0", borderBottom: i < policeData.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none" }}>{row.y2022}</td>
+                    <td style={{ fontSize: "14px", color: "rgba(255,255,255,0.8)", fontWeight: 600, textAlign: "right", padding: "14px 16px 14px 0", borderBottom: i < policeData.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none" }}>{row.y2023}</td>
+                    <td style={{ fontSize: "14px", color: "#EF4444", fontWeight: 700, textAlign: "right", padding: "14px 0", borderBottom: i < policeData.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none" }}>{row.change}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)", marginTop: "16px" }}>
+            Source: Dutch Public Prosecution Service (OM) and Netherlands Police (ECAD-P), as reported in the U.S. State Department 2024 Country Report.
+          </p>
+        </div>
+
+        {/* 2D: Broader Picture - Stat Cards */}
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px 100px" }}>
+          <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: "32px", textAlign: "center" }}>
+            THE BROADER PICTURE
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px" }}>
+            {broaderMetrics.map((m) => (
+              <div key={m.metric} style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "8px", padding: "24px" }}>
+                <p style={{ fontSize: "28px", fontWeight: 700, color: "#EF4444", marginBottom: "8px" }}>{m.figure}</p>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", lineHeight: 1.5, marginBottom: "8px" }}>{m.metric}</p>
+                <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.3)" }}>{m.source}</p>
               </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 2E: Timeline of Escalation */}
+        <div style={{ background: "#13121F", padding: "100px 0" }}>
+          <div style={{ maxWidth: "760px", margin: "0 auto", padding: "0 24px" }}>
+            <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: "48px", textAlign: "center" }}>
+              TIMELINE OF ESCALATION
+            </p>
+            <div style={{ position: "relative", paddingLeft: "40px" }}>
+              {/* Vertical line */}
+              <div style={{ position: "absolute", left: "11px", top: "8px", bottom: "8px", width: "2px", background: "rgba(255,255,255,0.08)" }} />
+              {timelineEvents.map((ev, i) => (
+                <div key={i} style={{ position: "relative", marginBottom: i < timelineEvents.length - 1 ? "48px" : "0" }}>
+                  {/* Dot */}
+                  <div style={{ position: "absolute", left: "-34px", top: "6px", width: "14px", height: "14px", borderRadius: "50%", background: ev.color, border: "3px solid #13121F" }} />
+                  <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.1em", color: ev.color, textTransform: "uppercase", marginBottom: "6px" }}>
+                    {ev.date}
+                  </p>
+                  <h4 style={{ fontSize: "18px", fontWeight: 700, color: "rgba(255,255,255,0.95)", marginBottom: "10px" }}>
+                    {ev.title}
+                  </h4>
+                  <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.6)", lineHeight: 1.7 }}>
+                    {ev.desc}
+                  </p>
+                </div>
+              ))}
             </div>
+          </div>
+        </div>
+
+        {/* 2F: The Action Gap */}
+        <div style={{ background: "#0F0E1A", padding: "100px 0" }}>
+          <div style={{ maxWidth: "760px", margin: "0 auto", padding: "0 24px" }}>
+            <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: "24px", textAlign: "center" }}>
+              THE ACTION GAP
+            </p>
+            <p style={{ fontSize: "17px", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, textAlign: "center", marginBottom: "16px" }}>
+              The numbers tell only part of the story. Behind every recorded incident are dozens more that never enter any system.
+            </p>
+            <p style={{ fontSize: "17px", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, textAlign: "center", marginBottom: "48px" }}>
+              According to the EU Agency for Fundamental Rights, only about 28% of Jewish Europeans who experience antisemitic harassment report it to any authority. The primary reason? They believe nothing will happen.
+            </p>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "20px", marginBottom: "48px" }}>
+              {actionGapPoints.map((p) => (
+                <div key={p.title} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "8px", padding: "28px" }}>
+                  <h4 style={{ fontSize: "16px", fontWeight: 700, color: "rgba(255,255,255,0.9)", marginBottom: "10px" }}>
+                    {p.title}
+                  </h4>
+                  <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", lineHeight: 1.7 }}>
+                    {p.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.5)", textAlign: "center" }}>
+              This is the gap HateCheck was built to close.
+            </p>
+          </div>
+        </div>
+
+        {/* 2G: Closing Line */}
+        <div style={{ background: "#0F0E1A", padding: "0 0 60px", textAlign: "center" }}>
+          <div style={{ maxWidth: "700px", margin: "0 auto", padding: "0 24px" }}>
+            <p style={{ fontSize: "clamp(18px, 3vw, 22px)", fontWeight: 600, color: "rgba(255,255,255,0.85)", lineHeight: 1.6, fontStyle: "italic" }}>
+              &ldquo;The tools to fight antisemitism should be as structured, as fast, and as persistent as the hatred they confront.&rdquo;
+            </p>
+          </div>
+        </div>
+
+        {/* 2H: Sources */}
+        <div style={{ background: "#0F0E1A", padding: "0 0 100px" }}>
+          <div style={{ maxWidth: "760px", margin: "0 auto", padding: "0 24px" }}>
+            <details style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "24px" }}>
+              <summary style={{ fontSize: "12px", fontWeight: 600, color: "rgba(255,255,255,0.35)", letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer", listStyle: "none" }}>
+                Sources &amp; Attribution
+              </summary>
+              <ol style={{ marginTop: "20px", paddingLeft: "20px", display: "flex", flexDirection: "column", gap: "12px" }}>
+                {[
+                  "CIDI - Monitor Antisemitische Incidenten 2023, 2024. Centrum Informatie en Documentatie Israel, The Hague. cidi.nl",
+                  "EU Agency for Fundamental Rights (FRA) - \"Jewish People's Experiences and Perceptions of Antisemitism,\" Third EU Survey (2024). fra.europa.eu",
+                  "U.S. Department of State - 2024 Country Reports on Human Rights Practices: Netherlands. state.gov",
+                  "NCTV - Dreigingsbeeld Terrorisme Nederland (DTN). National Coordinator for Counterterrorism and Security. english.nctv.nl",
+                  "Dutch Police / Openbaar Ministerie - Discrimination case statistics, 2022-2023.",
+                  "NL Times, Washington Post, JTA, Times of Israel - News reporting on Rotterdam synagogue arson (March 13, 2026) and Amsterdam Cheider school attack (March 14, 2026).",
+                ].map((src, i) => (
+                  <li key={i} style={{ fontSize: "13px", color: "rgba(255,255,255,0.35)", lineHeight: 1.6 }}>
+                    {src}
+                  </li>
+                ))}
+              </ol>
+            </details>
           </div>
         </div>
       </section>
@@ -670,7 +749,7 @@ export default async function HomePage({
               <div className="screenshot-frame">
                 <Image
                   src="/images/protocol.png"
-                  alt="HateCheck Protocol Analysis — IHRA, Nexus, JDA applied"
+                  alt="HateCheck Protocol Analysis - IHRA, Nexus, JDA applied"
                   width={640}
                   height={400}
                   style={{ width: "100%", height: "auto", display: "block" }}
@@ -711,7 +790,7 @@ export default async function HomePage({
               <div className="screenshot-frame">
                 <Image
                   src="/images/assessment.png"
-                  alt="HateCheck Tier 3 Classification Report — 75% confidence"
+                  alt="HateCheck Tier 3 Classification Report - 75% confidence"
                   width={640}
                   height={400}
                   style={{ width: "100%", height: "auto", display: "block" }}
@@ -744,7 +823,7 @@ export default async function HomePage({
                 }}
               >
                 Prioritized next steps with one-click letter drafting for every
-                relevant authority — from platform abuse teams to Dutch law
+                relevant authority - from platform abuse teams to Dutch law
                 enforcement and the public prosecutor.
               </p>
             </div>
@@ -752,7 +831,7 @@ export default async function HomePage({
               <div className="screenshot-frame">
                 <Image
                   src="/images/action.png"
-                  alt="HateCheck Action Engine — Report to Local Authorities"
+                  alt="HateCheck Action Engine - Report to Local Authorities"
                   width={640}
                   height={400}
                   style={{ width: "100%", height: "auto", display: "block" }}
@@ -834,7 +913,7 @@ export default async function HomePage({
               }}
             >
               The HateCheck Index provides a structured framework for triaging
-              threats — from lawful speech to urgent risk. Each tier maps to
+              threats - from lawful speech to urgent risk. Each tier maps to
               specific institutional and legal response mechanisms, ensuring
               proportionate action. The index bridges the gap between raw
               detection and structured enforcement.
@@ -843,7 +922,7 @@ export default async function HomePage({
               <div className="screenshot-frame" style={{ maxWidth: "360px", margin: "0 auto" }}>
                 <Image
                   src="/images/scale.png"
-                  alt="The HateCheck Index — Tiers 1 to 5 severity scale"
+                  alt="The HateCheck Index - Tiers 1 to 5 severity scale"
                   width={360}
                   height={280}
                   style={{ width: "100%", height: "auto", display: "block" }}
@@ -974,7 +1053,7 @@ export default async function HomePage({
               and safety. Without clear standards, real threats are missed,
               legitimate speech is mislabelled, and actions taken on weak analysis
               don&apos;t hold up. HateCheck relies on a layered set of well-known
-              external frameworks — not to replace human judgment, but to support
+              external frameworks - not to replace human judgment, but to support
               it with consistent, explainable structure.
             </p>
           </div>
@@ -1133,6 +1212,77 @@ export default async function HomePage({
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── ACADEMY TEASER ── */}
+      <section
+        style={{
+          padding: "100px 0",
+          background: "#FFFFFF",
+          borderBottom: "1px solid #E5E7EB",
+        }}
+      >
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
+          <div style={{ textAlign: "center", marginBottom: "48px" }}>
+            <p className="section-label" style={{ marginBottom: "12px" }}>
+              OPEN KNOWLEDGE
+            </p>
+            <h2
+              className="section-title"
+              style={{ marginBottom: "16px" }}
+            >
+              HateCheck Academy
+            </h2>
+            <p style={{ fontSize: "16px", color: "#666", maxWidth: "600px", margin: "0 auto" }}>
+              Free educational resources for recognizing, documenting, and responding to antisemitism. For everyone.
+            </p>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gap: "24px",
+              marginBottom: "40px",
+            }}
+          >
+            {[
+              { num: "01", title: "Recognizing Antisemitism", desc: "From ancient tropes to modern coded language - learn to identify the full spectrum." },
+              { num: "02", title: "OSINT Basics", desc: "How public, verifiable information from the open web can document hate responsibly." },
+              { num: "03", title: "Platform Reporting", desc: "Step-by-step guides for reporting hate speech on every major platform." },
+            ].map((t) => (
+              <div
+                key={t.num}
+                className="glass-card"
+                style={{ padding: "32px", position: "relative" }}
+              >
+                <span style={{ position: "absolute", top: "16px", right: "20px", fontSize: "11px", fontWeight: 700, color: "#D1D5DB", letterSpacing: "0.15em" }}>
+                  {t.num}
+                </span>
+                <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#222", marginBottom: "10px" }}>
+                  {t.title}
+                </h3>
+                <p style={{ fontSize: "14px", color: "#666", lineHeight: 1.6 }}>
+                  {t.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: "center" }}>
+            <Link
+              href={`/${locale}/academy`}
+              style={{
+                fontSize: "14px",
+                fontWeight: 600,
+                color: "#3B82F6",
+                textDecoration: "none",
+                textTransform: "uppercase",
+                letterSpacing: "1px",
+              }}
+            >
+              Explore All Tracks &rarr;
+            </Link>
+          </div>
         </div>
       </section>
 

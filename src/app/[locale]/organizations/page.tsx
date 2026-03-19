@@ -4,7 +4,7 @@ import PageHeader from "@/components/sections/Hero";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Organizations — HateCheck for Institutions",
+    title: "Organizations - HateCheck for Institutions",
     description:
       "How Jewish community organizations, civil society groups, academic institutions, and media outlets use HateCheck.",
   };

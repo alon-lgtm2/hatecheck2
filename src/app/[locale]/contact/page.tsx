@@ -5,7 +5,7 @@ import PageHeader from "@/components/sections/Hero";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Contact — HateCheck",
+    title: "Contact - HateCheck",
     description:
       "Get in touch with HateCheck for demos, partnerships, research inquiries, or general questions.",
   };
@@ -31,15 +31,6 @@ export default async function ContactPage({
       <section style={{ padding: "100px 0", borderBottom: "1px solid #E5E7EB" }}>
         <div style={{ maxWidth: "680px", margin: "0 auto", padding: "0 24px" }}>
           <ContactForm />
-          <p style={{ fontSize: "13px", color: "#9CA3AF", marginTop: "48px" }}>
-            You can also reach us directly at{" "}
-            <a
-              href="mailto:info@hatecheck.eu"
-              style={{ color: "#2563EB", textDecoration: "none", transition: "color 0.2s" }}
-            >
-              info@hatecheck.eu
-            </a>
-          </p>
         </div>
       </section>
 

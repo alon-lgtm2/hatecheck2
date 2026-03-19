@@ -6,6 +6,7 @@
     "organizations": "Organisaties",
     "resources": "Bronnen",
     "reports": "Rapporten",
+    "academy": "Academie",
     "about": "Over ons",
     "contact": "Contact"
   },
@@ -24,8 +25,9 @@
   "home": {
     "hero": {
       "badge": "AI-Gedreven Intelligentieplatform",
-      "title": "Detecteer. Classificeer. Handel.",
-      "subtitle": "HateCheck is Europa's toonaangevend intelligentieplatform voor het detecteren, classificeren en aanpakken van antisemitisme en online haatboodschappen — gebouwd op IHRA-normen, Nederlands recht en geavanceerde AI.",
+      "title": "Van Online Haat naar Handhavbare Actie",
+      "whatItDoes": "Plak een bericht, artikel of link. HateCheck gebruikt OSINT en erkende normen om de inhoud te verifieren, te classificeren op een schaal van 1-5, en kant-en-klare klachten, memo's en doorverwijzingen naar de juiste Nederlandse autoriteiten te genereren - in minuten, niet dagen.",
+      "subtitle": "Gebouwd op IHRA, Nexus, JDA en het Nederlandse Wetboek van Strafrecht. Gebruikt door Joodse organisaties, gemeenten, politie, onderwijsinstellingen en burgers in heel Nederland.",
       "cta1": "Verken het Platform",
       "cta2": "Neem Contact Op",
       "stat1Label": "Detectienauwkeurigheid",
@@ -36,7 +38,7 @@
     "problem": {
       "label": "Het Probleem",
       "col1Title": "Schaal & Volume",
-      "col1Desc": "Dagelijks vinden duizenden incidenten plaats op sociale media, nieuwssites en berichtenplatforms — ver boven de capaciteit voor handmatige beoordeling. Het volume maakt handmatige monitoring onmogelijk.",
+      "col1Desc": "Dagelijks vinden duizenden incidenten plaats op sociale media, nieuwssites en berichtenplatforms - ver boven de capaciteit voor handmatige beoordeling. Het volume maakt handmatige monitoring onmogelijk.",
       "col2Title": "Ambiguïteit & Context",
       "col2Desc": "Veel haatboodschappen verbergen zich achter satire, gecodeerde taal en aannemelijke ontkenning. Classificatie is moeilijk, inconsistent en verschilt per rechtsgebied.",
       "col3Title": "Onderrapportage",
@@ -83,7 +85,17 @@
     },
     "quote": {
       "text": "Als er een grondbeginselen is waaraan de Eerste Amendement ten grondslag ligt, is het dat de overheid de uitdrukking van een idee niet mag verbieden simpelweg omdat de samenleving het idee aanstootgevend of onacceptabel vindt.",
-      "attribution": "Rechter Louis D. Brandeis — minderheidsmening in Whitney v. California (1927)"
+      "attribution": "Rechter Louis D. Brandeis - minderheidsmening in Whitney v. California (1927)"
+    },
+    "platform": {
+      "card1Title": "Incident Controleren",
+      "card1Desc": "Plak een tweet, bericht, artikel of flyer. HateCheck verifieert feiten met Nederlandse bronnen, past IHRA/Nexus/JDA-normen toe, kent een duidelijk Tier (1-5) toe en stelt specifieke acties voor.",
+      "card2Title": "Incidenten Vinden",
+      "card2Desc": "Voer een begeleide OSINT-zoekactie uit over betrouwbare Nederlandse bronnen - politieregisters, CIDI-rapporten, grote media, gemeentelijke verklaringen - om gerelateerde incidenten en patronen te ontdekken.",
+      "card3Title": "Opstellen en Routeren",
+      "card3Desc": "Genereert automatisch klachten, juridische memo's en gespreksnotities met bijgevoegd bewijs. Slimme routering naar de juiste autoriteit - platforms, gemeenten, politie - afgestemd op het ernstniveau.",
+      "card4Title": "Volgen en Opvolgen",
+      "card4Desc": "Houdt een dossier bij van elke zaak met statusregistratie, herinneringen en escalatielogica. Koppelt herhaaldaders over incidenten heen om systemische patronen zichtbaar te maken."
     },
     "cta": {
       "label": "Volgende Stap",
@@ -155,6 +167,43 @@
     "tier": "Niveau",
     "date": "Datum",
     "platform": "Platform"
+  },
+  "academy": {
+    "title": "HateCheck Academie",
+    "subtitle": "Open kennis voor het herkennen, documenteren en bestrijden van antisemitisme. Gratis. Voor iedereen.",
+    "intro": "Kennis is de eerste verdedigingslijn. HateCheck gelooft dat iedereen - van burgers tot instellingen - toegang moet hebben tot de tools en kaders die nodig zijn om te handelen. Geen login. Geen betaalmuur. Geen drempels.",
+    "whyTitle": "Waarom dit ertoe doet",
+    "whyText": "De kloof tussen de omvang van online antisemitisme en het vermogen van het publiek om het te herkennen en erop te reageren wordt groter. Duizenden incidenten worden elk jaar niet herkend, niet gedocumenteerd of niet gemeld - niet omdat mensen het niet belangrijk vinden, maar omdat ze de kennis en tools missen om te handelen.",
+    "whoTitle": "Voor wie",
+    "whoProfessionals": "Professionals - gemeenteambtenaren, politie, docenten",
+    "whoStudents": "Studenten & onderzoekers",
+    "whoCitizens": "Elke betrokken burger",
+    "tracksTitle": "Leertrajecten",
+    "track1Title": "Antisemitisme herkennen",
+    "track1Desc": "Leer antisemitisme te identificeren in al zijn vormen - van oude stereotypen tot modern gecodeerd taalgebruik.",
+    "track1Guides": "5 gidsen",
+    "track1Time": "45 min totaal",
+    "track2Title": "OSINT - Open Source Intelligence Basis",
+    "track2Desc": "Begrijp hoe openbare, verifieerbare informatie van het open web verantwoord kan worden gebruikt om haat te documenteren.",
+    "track2Guides": "5 gidsen",
+    "track2Time": "40 min totaal",
+    "track3Title": "Platformmeldingen",
+    "track3Desc": "Stapsgewijze handleidingen voor het melden van antisemitisme en haatspraak op elk groot platform.",
+    "track3Guides": "7 gidsen",
+    "track3Time": "35 min totaal",
+    "track4Title": "Institutionele respons",
+    "track4Desc": "Wat gemeenten, universiteiten, werkgevers en organisaties moeten doen wanneer antisemitisme wordt gemeld.",
+    "track4Guides": "6 gidsen",
+    "track4Time": "50 min totaal",
+    "track5Title": "Geschiedenis & Context",
+    "track5Desc": "Waarom antisemitisme voortbestaat, hoe het evolueert en wat het onderscheidt van andere vormen van haat.",
+    "track5Guides": "6 gidsen",
+    "track5Time": "55 min totaal",
+    "startLearning": "Begin met leren",
+    "comingSoon": "Binnenkort beschikbaar",
+    "comingSoonDesc": "HateCheck Academie is momenteel in ontwikkeling. Schrijf je in om op de hoogte te worden gebracht wanneer de eerste modules worden gelanceerd.",
+    "notify": "Houd mij op de hoogte",
+    "homeTeaser": "HateCheck Academie: Open Kennis voor Iedereen"
   },
   "contact": {
     "title": "Neem Contact Op",

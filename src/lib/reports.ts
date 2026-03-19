@@ -20,7 +20,7 @@ export interface Report {
 export const reports: Report[] = [
   {
     id: "HC-2025-001",
-    title: "Social Media Post — Conspiracy Content re: Jewish Financial Control",
+    title: "Social Media Post - Conspiracy Content re: Jewish Financial Control",
     date: "2025-01-28",
     platform: "Facebook",
     tier: 3,
@@ -31,12 +31,12 @@ export const reports: Report[] = [
       summary:
         "A post shared publicly on Facebook in the Netherlands contained imagery and text evoking classical antisemitic tropes about Jewish financial domination. The content was accompanied by a meme format with derogatory characterization. Total reach estimated at approximately 1,200 views before being flagged.",
       incidentDescription:
-        "The incident involves a public post combining an image of a caricatured figure with text stating that 'they control everything from Frankfurt to Wall Street.' The combination of the image — visually evoking historical antisemitic caricatures — with explicit references to financial institutions and a winking emoji constitutes a recognizable deployment of the Rothschild/international banking conspiracy trope.",
+        "The incident involves a public post combining an image of a caricatured figure with text stating that 'they control everything from Frankfurt to Wall Street.' The combination of the image - visually evoking historical antisemitic caricatures - with explicit references to financial institutions and a winking emoji constitutes a recognizable deployment of the Rothschild/international banking conspiracy trope.",
       analysisNotes:
         "The content was analyzed across three dimensions: visual (image resemblance to known antisemitic caricatures), linguistic (coded references to financial institutions), and contextual (poster's history of similar content). All three vectors converge on antisemitic classification. The plausible deniability claim that the image is 'just a cartoon' is not persuasive given the linguistic context.",
       applicableStandards: [
-        "IHRA Example 7: Making mendacious, dehumanizing, demonizing, or stereotypical allegations about Jews as such or the power of Jews as collective — such as, especially but not exclusively, the myth about a world Jewish conspiracy or of Jews controlling the media, economy, government or other societal institutions.",
-        "JDA: Clearly antisemitic — repeats conspiratorial canards about Jewish power over finance.",
+        "IHRA Example 7: Making mendacious, dehumanizing, demonizing, or stereotypical allegations about Jews as such or the power of Jews as collective - such as, especially but not exclusively, the myth about a world Jewish conspiracy or of Jews controlling the media, economy, government or other societal institutions.",
+        "JDA: Clearly antisemitic - repeats conspiratorial canards about Jewish power over finance.",
       ],
       legalAssessment:
         "This content likely meets the threshold for Group Defamation under Article 137c WvSr (deliberately insulting a group of persons based on race/religion). However, prosecution under 137c requires intentionality, which may be contested. A formal legal opinion and police consultation would be required to assess prosecutorial viability. The content does not appear to reach the incitement threshold of Article 137d. Classified as Tier 3.",
@@ -58,7 +58,7 @@ export const reports: Report[] = [
   },
   {
     id: "HC-2025-002",
-    title: "Forum Post — Direct Incitement with Threatening Language",
+    title: "Forum Post - Direct Incitement with Threatening Language",
     date: "2025-02-14",
     platform: "Telegram Channel",
     tier: 4,
@@ -79,7 +79,7 @@ export const reports: Report[] = [
         "Article 285 WvSr: Threat/intimidation (may also apply given specific target identification).",
       ],
       legalAssessment:
-        "This content potentially violates Articles 137c and 137d of the Dutch Penal Code. The specific targeting of named institutions may additionally trigger Article 285 (threat). The threshold for Article 137d prosecution — that the expression be likely to provoke hostile action — appears met given the channel's audience and established intent. Urgent referral to Politie (Dutch Police) is recommended. Classified as Tier 4.",
+        "This content potentially violates Articles 137c and 137d of the Dutch Penal Code. The specific targeting of named institutions may additionally trigger Article 285 (threat). The threshold for Article 137d prosecution - that the expression be likely to provoke hostile action - appears met given the channel's audience and established intent. Urgent referral to Politie (Dutch Police) is recommended. Classified as Tier 4.",
       recommendedActions: [
         "URGENT: Report to Politie via M. (anonymous reporting) or direct complaint",
         "Report to Telegram through official channel with evidence package",
@@ -101,7 +101,7 @@ export const reports: Report[] = [
   },
   {
     id: "HC-2025-003",
-    title: "News Comment Section — Borderline Israel-Related Content",
+    title: "News Comment Section - Borderline Israel-Related Content",
     date: "2025-03-01",
     platform: "Online News Platform (Comments)",
     tier: 2,
@@ -119,15 +119,15 @@ export const reports: Report[] = [
         "IHRA Example 5: Accusation that Jews collectively bear responsibility for Israeli state actions.",
         "IHRA Example 7: Myth of Jews controlling political institutions.",
         "JDA Section H: Allowing criticism of specific Jewish political organizations while prohibiting conspiratorial framing.",
-        "Nexus Document: The 'because it is Jewish' test — is Israel being criticized for specific policies, or because of its alleged connection to global Jewish control?",
+        "Nexus Document: The 'because it is Jewish' test - is Israel being criticized for specific policies, or because of its alleged connection to global Jewish control?",
       ],
       legalAssessment:
-        "This content is unlikely to meet the criminal threshold under Articles 137c or 137d. The language, while antisemitic in our assessment, does not rise to the level of deliberate group defamation or incitement that Dutch courts have required for prosecution. This is precisely the type of content that occupies the grey zone that the law does not resolve — antisemitic in substance, protected in expression. Classified as Tier 2: Borderline — Context Needed.",
+        "This content is unlikely to meet the criminal threshold under Articles 137c or 137d. The language, while antisemitic in our assessment, does not rise to the level of deliberate group defamation or incitement that Dutch courts have required for prosecution. This is precisely the type of content that occupies the grey zone that the law does not resolve - antisemitic in substance, protected in expression. Classified as Tier 2: Borderline - Context Needed.",
       recommendedActions: [
-        "Document the comment for trend analysis — Israel-related conspiracy content is significant in volume",
-        "Consider whether to report to platform — outcome uncertain but worth attempting",
+        "Document the comment for trend analysis - Israel-related conspiracy content is significant in volume",
+        "Consider whether to report to platform - outcome uncertain but worth attempting",
         "Use as a case study for training moderators on Israel-adjacent antisemitism",
-        "Do not recommend criminal complaint — would likely be unsuccessful and could discredit future legitimate complaints",
+        "Do not recommend criminal complaint - would likely be unsuccessful and could discredit future legitimate complaints",
         "Monitor poster for pattern of escalating content",
       ],
       keywords: [

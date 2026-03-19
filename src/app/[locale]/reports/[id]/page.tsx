@@ -16,7 +16,7 @@ export async function generateMetadata({
   const report = getReportById(id);
   if (!report) return { title: "Report Not Found" };
   return {
-    title: `${report.id} — ${report.title}`,
+    title: `${report.id} - ${report.title}`,
     description: report.excerpt,
   };
 }
@@ -50,7 +50,7 @@ export default async function ReportDetailPage({
             <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <span className={`tier-bg-${report.tier}`} style={{ width: "12px", height: "12px", borderRadius: "50%", display: "inline-block" }} />
               <span className={`tier-${report.tier}`} style={{ fontSize: "13px", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.15em" }}>
-                TIER {report.tier} — {config.label.toUpperCase()}
+                TIER {report.tier} - {config.label.toUpperCase()}
               </span>
             </span>
             <span style={{ fontSize: "13px", color: "#9CA3AF" }}>
@@ -82,7 +82,7 @@ export default async function ReportDetailPage({
         {/* Disclaimer */}
         <div style={{ borderBottom: "1px solid #E5E7EB", paddingBottom: "40px", marginBottom: "40px" }}>
           <p style={{ fontSize: "13px", color: "#9CA3AF", lineHeight: 1.7 }}>
-            This is an anonymized case study for educational and methodological illustration purposes. All identifying information — including names, locations, specific platform URLs, and any personal data — has been removed or altered. This report should not be relied upon as legal advice.
+            This is an anonymized case study for educational and methodological illustration purposes. All identifying information - including names, locations, specific platform URLs, and any personal data - has been removed or altered. This report should not be relied upon as legal advice.
           </p>
         </div>
 

@@ -9,7 +9,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   return {
-    title: "Standards — Legal & Definitional Frameworks",
+    title: "Standards - Legal & Definitional Frameworks",
     description:
       "HateCheck's classification methodology integrates IHRA, JDA, Nexus, and Dutch Penal Code frameworks.",
   };
@@ -25,7 +25,7 @@ const dutchArticles = [
       "Deliberate (opzettelijk) intention required",
       "Must be made publicly",
       "Group defined by protected characteristic",
-      "Insult threshold — not all offensive speech qualifies",
+      "Insult threshold - not all offensive speech qualifies",
     ],
   },
   {
@@ -46,7 +46,7 @@ const dutchArticles = [
     description:
       "Addresses distribution, public exhibition, or possession for distribution of materials containing group defamation (137c) or incitement (137d). Critical for social media sharing.",
     elements: [
-      "Covers sharing/reposting — not just creation",
+      "Covers sharing/reposting - not just creation",
       "Hosting hateful content may trigger liability",
       "Platform-level obligations under DSA intersect here",
       "Intent to distribute required",
@@ -129,7 +129,7 @@ export default async function StandardsPage({
         <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
           <div style={{ maxWidth: "768px" }}>
             <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7, marginBottom: "20px" }}>
-              HateCheck does not rely on a single definition of antisemitism or hate speech. Each of the primary international frameworks has strengths and limitations. Rather than choosing one and discarding others, our methodology applies all applicable frameworks in a layered approach — surfacing the most defensible classification for each piece of content.
+              HateCheck does not rely on a single definition of antisemitism or hate speech. Each of the primary international frameworks has strengths and limitations. Rather than choosing one and discarding others, our methodology applies all applicable frameworks in a layered approach - surfacing the most defensible classification for each piece of content.
             </p>
             <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>
               For Dutch-specific cases, we apply the Dutch Penal Code frameworks on top of the international standards to assess criminal liability thresholds. This layered approach produces Tier 4 and Tier 5 classifications for content that not only meets antisemitism definitions but may also constitute criminal speech under Dutch law.
@@ -147,7 +147,7 @@ export default async function StandardsPage({
               {t("ihra.title")}
             </h2>
             <p style={{ fontSize: "13px", color: "#9CA3AF", marginBottom: "24px" }}>
-              International Holocaust Remembrance Alliance — Adopted 2016. Endorsed by 35+ countries including the Netherlands.
+              International Holocaust Remembrance Alliance - Adopted 2016. Endorsed by 35+ countries including the Netherlands.
             </p>
             <a href="https://www.holocaustremembrance.com/resources/working-definitions-charters/working-definition-antisemitism" target="_blank" rel="noopener noreferrer" style={{ fontSize: "13px", color: "#2563EB" }}>
               Official Source
@@ -196,7 +196,7 @@ export default async function StandardsPage({
               {t("nexus.title")}
             </h2>
             <p style={{ fontSize: "13px", color: "#9CA3AF", marginBottom: "24px" }}>
-              Nexus Task Force — 2021. Focuses specifically on Israel-Palestine discourse and the antisemitism boundary.
+              Nexus Task Force - 2021. Focuses specifically on Israel-Palestine discourse and the antisemitism boundary.
             </p>
             <a href="https://israelandantisemitism.com/" target="_blank" rel="noopener noreferrer" style={{ fontSize: "13px", color: "#2563EB" }}>
               Official Source
@@ -210,7 +210,7 @@ export default async function StandardsPage({
                 <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                   <div style={{ fontSize: "15px", color: "#6B7280" }}>
                     <span style={{ color: "#9CA3AF", marginRight: "8px" }}>A.</span>
-                    Targets Israel <em>because it is Jewish</em> — i.e., applies standards not required of other states due to Jewish identity
+                    Targets Israel <em>because it is Jewish</em> - i.e., applies standards not required of other states due to Jewish identity
                   </div>
                   <div style={{ fontSize: "15px", color: "#6B7280" }}>
                     <span style={{ color: "#9CA3AF", marginRight: "8px" }}>B.</span>
@@ -221,7 +221,7 @@ export default async function StandardsPage({
               <div style={{ borderBottom: "1px solid #E5E7EB", paddingBottom: "32px", marginBottom: "32px" }}>
                 <h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>Explicitly Protected Speech</h3>
                 <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>
-                  The Nexus Document explicitly states that criticism of Israeli government policies, support for Palestinian rights, and opposition to occupation are not antisemitic — even when strongly stated. The &ldquo;because it is Jewish&rdquo; test separates political discourse from hatred.
+                  The Nexus Document explicitly states that criticism of Israeli government policies, support for Palestinian rights, and opposition to occupation are not antisemitic - even when strongly stated. The &ldquo;because it is Jewish&rdquo; test separates political discourse from hatred.
                 </p>
               </div>
               <div style={{ marginBottom: "32px" }}>
@@ -250,7 +250,7 @@ export default async function StandardsPage({
               {t("jda.title")}
             </h2>
             <p style={{ fontSize: "13px", color: "#9CA3AF", marginBottom: "24px" }}>
-              Jerusalem Declaration — 2021. Developed by 200+ international scholars. Provides academic rigor and Israel-specific nuance.
+              Jerusalem Declaration - 2021. Developed by 200+ international scholars. Provides academic rigor and Israel-specific nuance.
             </p>
             <a href="https://jerusalemdeclaration.org/" target="_blank" rel="noopener noreferrer" style={{ fontSize: "13px", color: "#2563EB" }}>
               Official Source

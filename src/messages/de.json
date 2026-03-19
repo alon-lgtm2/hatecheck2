@@ -1,0 +1,222 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "product": "Produkt",
+    "standards": "Standards",
+    "organizations": "Organisationen",
+    "resources": "Ressourcen",
+    "reports": "Berichte",
+    "academy": "Akademie",
+    "about": "Uber uns",
+    "contact": "Kontakt"
+  },
+  "footer": {
+    "tagline": "Verifizieren. Klassifizieren. Schutzen.",
+    "quickLinks": "Schnelllinks",
+    "platform": "Plattform",
+    "legal": "Rechtliches",
+    "contactUs": "Kontakt",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen",
+    "copyright": "© 2025 HateCheck. Eine gemeinnutzige Initiative",
+    "location": "Niederlande",
+    "description": "HateCheck ist eine KI-gestutzte Nachrichtenplattform, die Antisemitismus und Hassrede in den Niederlanden und Europa erkennt und klassifiziert."
+  },
+  "home": {
+    "hero": {
+      "badge": "KI-gestutzte Nachrichtenplattform",
+      "title": "Online-Hass in durchsetzbare Massnahmen umwandeln",
+      "whatItDoes": "Fugen Sie einen Beitrag, Artikel oder Link ein. HateCheck nutzt OSINT und anerkannte Standards, um den Inhalt zu verifizieren, ihn auf einer Skala von 1-5 zu klassifizieren und fertige Beschwerden, Memos und Verweisungen an die zustandigen niederlandischen Behorden zu erstellen - in Minuten, nicht Tagen.",
+      "subtitle": "Basierend auf IHRA, Nexus, JDA und dem niederlandischen Strafgesetzbuch. Genutzt von judischen Organisationen, Gemeinden, Strafverfolgungsbehorden, Padagogen und Burgern in den Niederlanden.",
+      "cta1": "Plattform entdecken",
+      "cta2": "Kontakt aufnehmen",
+      "stat1Label": "Erkennungsgenauigkeit",
+      "stat2Label": "Analysierte Vorfalle",
+      "stat3Label": "Unterstutzte Sprachen",
+      "stat4Label": "Europaische Lander"
+    },
+    "problem": {
+      "label": "Das Problem",
+      "col1Title": "Umfang & Volumen",
+      "col1Desc": "Taglich ereignen sich Tausende von Vorfallen in sozialen Medien, auf Nachrichtenseiten und Messaging-Plattformen - weit uber die Kapazitat manueller Uberprufung hinaus. Das schiere Volumen macht manuelle Uberwachung unmoglich.",
+      "col2Title": "Mehrdeutigkeit & Kontext",
+      "col2Desc": "Viel Hassrede verbirgt sich hinter Satire, codierter Sprache und plausibler Abstreitbarkeit. Die Klassifizierung ist schwierig, inkonsistent und variiert je nach Rechtsordnung.",
+      "col3Title": "Unterberichterstattung",
+      "col3Desc": "Gemeinschaften fehlen zugangliche Werkzeuge, um Vorfalle zu dokumentieren, zu klassifizieren und so zu melden, dass Behorden und Organisationen handeln konnen."
+    },
+    "howItWorks": {
+      "label": "Methodik",
+      "step1Title": "Quellenaufnahme",
+      "step1Desc": "URLs, Texte, Bilder oder Live-Feeds werden zur Analyse uber 20+ Plattformen und Formate eingereicht.",
+      "step2Title": "Verifizieren & Fokussieren",
+      "step2Desc": "Inhalte werden auf Authentizitat und Relevanz uberpruft, bevor sie in die Analysepipeline gelangen.",
+      "step3Title": "Protokollanalyse",
+      "step3Desc": "Multi-Modell-KI wendet semantische, kontextuelle und visuelle Analyse gegen etablierte Rahmenwerke an.",
+      "step4Title": "Klassifizierung",
+      "step4Desc": "Funf-Stufen-Schweregrad basierend auf IHRA, JDA, Nexus und niederlandischen Rechtsstandards.",
+      "step5Title": "Durchsetzungsmassnahme",
+      "step5Desc": "Erstellt Verweisungspakete, Berichte und Dokumentation fur Behorden und Organisationen."
+    },
+    "tiers": {
+      "label": "Klassifizierungssystem",
+      "colTier": "Stufe",
+      "colClassification": "Klassifizierung",
+      "colDescription": "Beschreibung",
+      "colResponse": "Reaktion",
+      "tier1Class": "Nicht antisemitisch",
+      "tier1Desc": "Inhalt, der die Schwelle fur Antisemitismus unter keinem anwendbaren Standard erreicht.",
+      "tier1Response": "Keine Massnahme erforderlich. Zur Referenz archivieren.",
+      "tier2Class": "Kontext erforderlich",
+      "tier2Desc": "Grenzwertiger Inhalt, der je nach Kontext, Absicht und Publikum antisemitisch sein kann.",
+      "tier2Response": "Zur menschlichen Uberprufung und Kontextanalyse markieren.",
+      "tier3Class": "Antisemitisch",
+      "tier3Desc": "Inhalt, der unter IHRA/JDA-Definitionen als antisemitisch gilt, aber keine strafrechtlichen Schwellen uberschreitet.",
+      "tier3Response": "Dokumentieren, bei Plattform melden, Uberwachungsstellen benachrichtigen.",
+      "tier4Class": "Potenziell strafbar",
+      "tier4Desc": "Inhalt, der moglicherweise gegen die Artikel 137c, 137d oder 137e des niederlandischen Strafgesetzbuchs verstosst.",
+      "tier4Response": "Formelle Verweisung an Strafverfolgungsbehorden mit Beweispaket.",
+      "tier5Class": "Dringendes Risiko",
+      "tier5Desc": "Unmittelbare Bedrohungsindikatoren, die eine dringende Verweisung an Strafverfolgungsbehorden erfordern.",
+      "tier5Response": "Notfallverweisung. Ziele und Behorden sofort benachrichtigen."
+    },
+    "credibility": {
+      "label": "Standards & Rahmenwerke",
+      "description": "Basierend auf etablierten internationalen Rahmenwerken und niederlandischen Rechtsstandards."
+    },
+    "quote": {
+      "text": "Wenn es ein Grundprinzip gibt, das dem Ersten Verfassungszusatz zugrunde liegt, dann ist es, dass die Regierung den Ausdruck einer Idee nicht verbieten darf, nur weil die Gesellschaft die Idee als anstossig oder missfallend empfindet.",
+      "attribution": "Richter Louis D. Brandeis - Minderheitsmeinung in Whitney v. California (1927)"
+    },
+    "platform": {
+      "card1Title": "Vorfall prufen",
+      "card1Desc": "Fugen Sie einen Tweet, Beitrag, Artikel oder Flyer ein. HateCheck bestatigt Fakten mit niederlandischen Quellen, wendet IHRA/Nexus/JDA-Standards an, weist eine klare Stufe (1-5) zu und schlagt spezifische Massnahmen vor.",
+      "card2Title": "Vorfalle finden",
+      "card2Desc": "Fuhren Sie einen gefuhrten OSINT-Rechercheprozess uber vertrauenswurdige niederlandische Quellen durch - Polizeiakten, CIDI-Berichte, grosse Medien, kommunale Erklarungen - um verwandte Vorfalle und Muster aufzudecken.",
+      "card3Title": "Entwerfen und Weiterleiten",
+      "card3Desc": "Erstellt automatisch Beschwerden, juristische Memos und Gesprachsnotizen mit beigelgten Beweisen. Intelligente Weiterleitung schlagt die richtige Behorde vor - Plattformen, Gemeinden, Polizei - abgestimmt auf die Schweregrad-Stufe.",
+      "card4Title": "Verfolgen und Nachfassen",
+      "card4Desc": "Fuhrt ein Dossier uber jeden Fall mit Statusverfolgung, Erinnerungen und Eskalationslogik. Verknupft Wiederholungstater uber Vorfalle hinweg, um systemische Muster sichtbar zu machen."
+    },
+    "cta": {
+      "label": "Nachster Schritt",
+      "text": "Interessiert? Nehmen Sie Kontakt auf"
+    }
+  },
+  "product": {
+    "title": "Die HateCheck-Plattform",
+    "subtitle": "Ein umfassendes Nachrichtensystem zur Erkennung, Klassifizierung und Bekampfung von Antisemitismus und Hassrede.",
+    "step1Title": "Inhaltsaufnahme",
+    "step1Desc": "Reichen Sie URLs, Texte, Bilder ein oder verbinden Sie Datenstrrome. Unterstutzt 20+ Plattformen und Formate.",
+    "step2Title": "KI-Analyse",
+    "step2Desc": "Multi-Modell-KI analysiert Inhalte auf antisemitische Tropen, codierte Sprache und expliziten Hass.",
+    "step3Title": "Rechtliche Zuordnung",
+    "step3Desc": "Automatische Zuordnung zu IHRA, JDA, Nexus und niederlandischem Strafgesetzbuch (137c, 137d, 137e).",
+    "step4Title": "Stufenklassifizierung",
+    "step4Desc": "Weist eine von 5 Stufen basierend auf Schwere, Kontext und Anwendbarkeit des Rechtsrahmens zu.",
+    "step5Title": "Aktionsmodul",
+    "step5Desc": "Erstellt Verweisungspakete, Berichte und Dokumentation fur Behorden und Organisationen."
+  },
+  "standards": {
+    "title": "Rechtliche & Definitionsstandards",
+    "subtitle": "Die Klassifizierungsmethodik von HateCheck basiert auf international anerkannten Definitionen und niederlandischem Recht.",
+    "ihra": {
+      "title": "IHRA-Arbeitsdefinition",
+      "badge": "Internationaler Standard"
+    },
+    "nexus": {
+      "title": "Das Nexus-Dokument",
+      "badge": "Kritik vs. Antisemitismus"
+    },
+    "jda": {
+      "title": "Jerusalemer Erklarung zum Antisemitismus",
+      "badge": "Akademischer Rahmen"
+    },
+    "dutch": {
+      "title": "Niederlandisches Strafgesetzbuch",
+      "badge": "Rechtsrahmen"
+    }
+  },
+  "about": {
+    "title": "Uber HateCheck",
+    "subtitle": "Wir haben HateCheck entwickelt, weil das Problem eine ernsthafte Antwort erforderte.",
+    "mission": "Unsere Mission",
+    "origin": "Entstehungsgeschichte",
+    "values": "Unsere Werte",
+    "roadmap": "Fahrplan",
+    "notForProfit": "Gemeinnutzige Verpflichtung"
+  },
+  "organizations": {
+    "title": "Fur Organisationen",
+    "subtitle": "HateCheck befahigt Institutionen, Hassrede in grossem Massstab zu erkennen, zu klassifizieren und darauf zu reagieren.",
+    "why": "Warum Organisationen HateCheck nutzen",
+    "useCases": "Anwendungsfalle",
+    "security": "Daten & Sicherheit",
+    "cta": "Demo anfordern"
+  },
+  "resources": {
+    "title": "Ressourcen & Forschung",
+    "subtitle": "Analysen, Leitfaden und Forschung zu Antisemitismus, Hassrede und digitaler Aufklarung.",
+    "readMore": "Artikel lesen",
+    "allArticles": "Alle Artikel",
+    "filter": "Nach Kategorie filtern"
+  },
+  "reports": {
+    "title": "Vorfallsberichte",
+    "subtitle": "Anonymisierte Fallstudien, die die HateCheck-Klassifizierung in Aktion zeigen.",
+    "viewReport": "Vollstandigen Bericht ansehen",
+    "tier": "Stufe",
+    "date": "Datum",
+    "platform": "Plattform"
+  },
+  "academy": {
+    "title": "HateCheck Akademie",
+    "subtitle": "Offenes Wissen zum Erkennen, Dokumentieren und Reagieren auf Antisemitismus. Kostenlos. Fur alle.",
+    "intro": "Wissen ist die erste Verteidigungslinie. HateCheck glaubt, dass jeder - vom Burger bis zur Institution - Zugang zu den Werkzeugen und Rahmenwerken haben sollte, die zum Handeln benotigt werden. Kein Login. Keine Paywall. Keine Barrieren.",
+    "whyTitle": "Warum das wichtig ist",
+    "whyText": "Die Kluft zwischen dem Ausmass des Online-Antisemitismus und der Fahigkeit der Offentlichkeit, ihn zu erkennen und darauf zu reagieren, wird grosser. Tausende von Vorfallen werden jedes Jahr nicht erkannt, nicht dokumentiert oder nicht gemeldet - nicht weil es den Menschen egal ist, sondern weil ihnen das Wissen und die Werkzeuge zum Handeln fehlen.",
+    "whoTitle": "Fur wen",
+    "whoProfessionals": "Fachleute - Gemeindebeamte, Polizei, Padagogen",
+    "whoStudents": "Studenten & Forscher",
+    "whoCitizens": "Jeder engagierte Burger",
+    "tracksTitle": "Lernpfade",
+    "track1Title": "Antisemitismus erkennen",
+    "track1Desc": "Lernen Sie, Antisemitismus in seinen vielen Formen zu erkennen - von alten Stereotypen bis zu moderner codierter Sprache.",
+    "track1Guides": "5 Leitfaden",
+    "track1Time": "45 Min. gesamt",
+    "track2Title": "OSINT - Open Source Intelligence Grundlagen",
+    "track2Desc": "Verstehen Sie, wie offentliche, uberprufbare Informationen aus dem offenen Web verantwortungsvoll zur Dokumentation von Hass genutzt werden konnen.",
+    "track2Guides": "5 Leitfaden",
+    "track2Time": "40 Min. gesamt",
+    "track3Title": "Plattform-Meldungen",
+    "track3Desc": "Schritt-fur-Schritt-Anleitungen zur Meldung von Antisemitismus und Hassrede auf allen grossen Plattformen.",
+    "track3Guides": "7 Leitfaden",
+    "track3Time": "35 Min. gesamt",
+    "track4Title": "Institutionelle Reaktion",
+    "track4Desc": "Was Gemeinden, Universitaten, Arbeitgeber und Organisationen tun sollten, wenn Antisemitismus gemeldet wird.",
+    "track4Guides": "6 Leitfaden",
+    "track4Time": "50 Min. gesamt",
+    "track5Title": "Geschichte & Kontext",
+    "track5Desc": "Warum Antisemitismus fortbesteht, wie er sich entwickelt und was ihn von anderen Formen des Hasses unterscheidet.",
+    "track5Guides": "6 Leitfaden",
+    "track5Time": "55 Min. gesamt",
+    "startLearning": "Lernen beginnen",
+    "comingSoon": "Demnachst verfugbar",
+    "comingSoonDesc": "Die HateCheck Akademie befindet sich derzeit in der Entwicklung. Melden Sie sich an, um benachrichtigt zu werden, wenn die ersten Module starten.",
+    "notify": "Benachrichtigen Sie mich",
+    "homeTeaser": "HateCheck Akademie: Offenes Wissen fur alle"
+  },
+  "contact": {
+    "title": "Kontakt aufnehmen",
+    "subtitle": "Kontaktieren Sie uns fur Demos, Partnerschaften, Forschungsanfragen oder allgemeine Fragen.",
+    "nameLabel": "Vollstandiger Name",
+    "emailLabel": "E-Mail-Adresse",
+    "orgLabel": "Organisation",
+    "roleLabel": "Rolle / Titel",
+    "subjectLabel": "Betreff",
+    "messageLabel": "Nachricht",
+    "submit": "Nachricht senden",
+    "sending": "Wird gesendet...",
+    "success": "Nachricht erfolgreich gesendet. Wir melden uns in Kurze.",
+    "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+  }
+}

@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "HateCheck — AI-Powered Antisemitism Detection Platform",
+    default: "HateCheck - AI-Powered Antisemitism Detection Platform",
     template: "%s | HateCheck",
   },
   description:

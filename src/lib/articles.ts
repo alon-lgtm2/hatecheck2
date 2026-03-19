@@ -14,7 +14,7 @@ export const articles: Article[] = [
     slug: "understanding-ihra-definition",
     title: "Understanding the IHRA Working Definition of Antisemitism",
     excerpt:
-      "A practical guide to applying the International Holocaust Remembrance Alliance working definition — its scope, its examples, and why it matters for digital monitoring.",
+      "A practical guide to applying the International Holocaust Remembrance Alliance working definition - its scope, its examples, and why it matters for digital monitoring.",
     category: "Standards",
     date: "2025-01-15",
     readTime: "8 min read",
@@ -26,7 +26,7 @@ The IHRA (International Holocaust Remembrance Alliance) Working Definition of An
 
 At its core, the IHRA definition states: "Antisemitism is a certain perception of Jews, which may be expressed as hatred toward Jews. Rhetorical and physical manifestations of antisemitism are directed toward Jewish or non-Jewish individuals and/or their property, toward Jewish community institutions and religious facilities."
 
-This deliberately broad framing is not a weakness — it is designed to capture the protean nature of modern antisemitism, which constantly mutates to evade simple pattern-matching.
+This deliberately broad framing is not a weakness - it is designed to capture the protean nature of modern antisemitism, which constantly mutates to evade simple pattern-matching.
 
 ## The Contemporary Examples
 
@@ -55,13 +55,13 @@ HateCheck's methodology integrates all three frameworks alongside Dutch legal st
     slug: "coded-language-detection",
     title: "Coded Language and Dog Whistles: The Challenge for AI Detection",
     excerpt:
-      "How antisemitism hides in plain sight using historical codes, memes, and plausible deniability — and what modern AI systems must do to detect it effectively.",
+      "How antisemitism hides in plain sight using historical codes, memes, and plausible deniability - and what modern AI systems must do to detect it effectively.",
     category: "Technology",
     date: "2025-02-08",
     readTime: "10 min read",
     tags: ["AI", "Detection", "Coded Language", "Methodology"],
     content: `
-One of the most persistent challenges in automated hate speech detection is the use of coded language — expressions that carry recognizable meaning to their intended audience while remaining opaque or plausibly innocent to outsiders. This deniability is not accidental; it is by design.
+One of the most persistent challenges in automated hate speech detection is the use of coded language - expressions that carry recognizable meaning to their intended audience while remaining opaque or plausibly innocent to outsiders. This deniability is not accidental; it is by design.
 
 ## The Architecture of Plausible Deniability
 
@@ -90,14 +90,14 @@ Modern detection systems must combine multiple approaches: contextual embeddings
 
 HateCheck's approach layers these methods, using large language models for initial classification, specialized fine-tuned models for antisemitism-specific trope detection, and legal framework mapping to produce tier assignments that are both technically grounded and legally defensible.
 
-The goal is not to produce a perfect automated classifier — no such thing exists. The goal is to produce a reliable triage system that surfaces the cases most in need of human review while providing structured, documented reasoning for every classification decision.
+The goal is not to produce a perfect automated classifier - no such thing exists. The goal is to produce a reliable triage system that surfaces the cases most in need of human review while providing structured, documented reasoning for every classification decision.
     `.trim(),
   },
   {
     slug: "dutch-penal-code-hate-speech",
     title: "Dutch Penal Code and Hate Speech: Articles 137c, 137d, and 137e Explained",
     excerpt:
-      "A practical legal guide to the Dutch criminal provisions that govern hate speech — how they work, what they cover, and where the enforcement challenges lie.",
+      "A practical legal guide to the Dutch criminal provisions that govern hate speech - how they work, what they cover, and where the enforcement challenges lie.",
     category: "Legal",
     date: "2025-02-22",
     readTime: "12 min read",
@@ -113,7 +113,7 @@ Several elements require careful analysis in any potential 137c case:
 
 **Intentionality**: The insult must be deliberate (opzettelijk). Reckless or negligent speech generally falls outside the provision's scope.
 
-**Public context**: The statement must be made publicly — in a public space, via media, or in print. Private communications are not covered.
+**Public context**: The statement must be made publicly - in a public space, via media, or in print. Private communications are not covered.
 
 **Group identity**: The group must be defined by one of the listed protected characteristics. Antisemitic speech targeting Jews as a religious or ethnic group clearly falls within scope.
 
@@ -127,7 +127,7 @@ The incitement element requires that the expression be likely to provoke hostile
 
 ## Article 137e: Distribution of Hate Materials
 
-Article 137e addresses the distribution, publicly exhibited, or having in possession for distribution of objects containing expressions that group-defame (137c) or incite (137d). This provision is particularly relevant in the digital context — sharing, reposting, or hosting hateful content can trigger liability even if the sharer did not create the content.
+Article 137e addresses the distribution, publicly exhibited, or having in possession for distribution of objects containing expressions that group-defame (137c) or incite (137d). This provision is particularly relevant in the digital context - sharing, reposting, or hosting hateful content can trigger liability even if the sharer did not create the content.
 
 ## Enforcement Challenges
 
@@ -139,7 +139,7 @@ Additionally, the Netherlands' commitment to freedom of expression, enshrined in
 
 For HateCheck's tier system, the Dutch Penal Code thresholds inform Tiers 4 and 5. Tier 4 content potentially meets the threshold for one or more of Articles 137c-137e and should be evaluated with professional legal judgment. Tier 5 content involves immediate threats or incitement to imminent violence requiring urgent referral to law enforcement.
 
-Tiers 1-3 involve content below the criminal threshold — but this does not mean it is unimportant. Antisemitic content that does not meet criminal standards may still warrant institutional responses including platform reporting, documentation, and community notification.
+Tiers 1-3 involve content below the criminal threshold - but this does not mean it is unimportant. Antisemitic content that does not meet criminal standards may still warrant institutional responses including platform reporting, documentation, and community notification.
     `.trim(),
   },
   {
@@ -152,7 +152,7 @@ Tiers 1-3 involve content below the criminal threshold — but this does not mea
     readTime: "9 min read",
     tags: ["JDA", "Nexus", "IHRA", "Analysis", "Methodology"],
     content: `
-The debate over how to define antisemitism — particularly in the context of Israel-related discourse — has produced three major frameworks that differ significantly in their approach, scope, and political reception. Understanding the differences between them is essential for anyone designing a classification methodology that must be both accurate and defensible.
+The debate over how to define antisemitism - particularly in the context of Israel-related discourse - has produced three major frameworks that differ significantly in their approach, scope, and political reception. Understanding the differences between them is essential for anyone designing a classification methodology that must be both accurate and defensible.
 
 ## The Three Frameworks at a Glance
 
@@ -178,11 +178,11 @@ Rather than selecting one framework and discarding others, HateCheck's methodolo
 2. **JDA guidance** is applied as a secondary check for Israel-related content
 3. **Nexus** analysis is applied specifically to cases where the Israel-antisemitism boundary is contested
 
-This approach produces more defensible classifications, particularly for Tier 2 (borderline/context-needed) cases. A piece of content might meet IHRA's threshold under one example while falling into JDA's explicitly protected category — this nuance is precisely what Tier 2 is designed to capture.
+This approach produces more defensible classifications, particularly for Tier 2 (borderline/context-needed) cases. A piece of content might meet IHRA's threshold under one example while falling into JDA's explicitly protected category - this nuance is precisely what Tier 2 is designed to capture.
 
 ## Practical Implications
 
-For institutions adopting one of these frameworks as policy, the choice carries significant implications. Organizations bound by Dutch law should note that none of these frameworks directly maps to legal standards — criminal liability under Articles 137c-e requires separate analysis.
+For institutions adopting one of these frameworks as policy, the choice carries significant implications. Organizations bound by Dutch law should note that none of these frameworks directly maps to legal standards - criminal liability under Articles 137c-e requires separate analysis.
 
 For HateCheck users, tier assignments always specify which frameworks were applied and how, creating an auditable, contestable record rather than a black-box verdict.
     `.trim(),
@@ -191,13 +191,13 @@ For HateCheck users, tier assignments always specify which frameworks were appli
     slug: "building-incident-database",
     title: "Building an Incident Database: Best Practices for Antisemitism Monitoring Organizations",
     excerpt:
-      "Practical guidance for organizations documenting antisemitic incidents — from initial intake to database architecture, legal considerations, and reporting standards.",
+      "Practical guidance for organizations documenting antisemitic incidents - from initial intake to database architecture, legal considerations, and reporting standards.",
     category: "Guides",
     date: "2025-03-12",
     readTime: "11 min read",
     tags: ["Documentation", "Organizations", "Best Practices", "Database"],
     content: `
-For organizations tasked with monitoring and documenting antisemitic incidents — whether Jewish community organizations, civil society groups, academic researchers, or government bodies — establishing a rigorous, consistent incident database is foundational to effective advocacy, research, and policy intervention.
+For organizations tasked with monitoring and documenting antisemitic incidents - whether Jewish community organizations, civil society groups, academic researchers, or government bodies - establishing a rigorous, consistent incident database is foundational to effective advocacy, research, and policy intervention.
 
 ## Why Consistency Matters
 
@@ -229,13 +229,13 @@ For online incident documentation, intellectual property and evidence integrity 
 
 ## Integration with Classification Standards
 
-Organizations should adopt a consistent classification taxonomy aligned with recognized standards — ideally the IHRA framework for antisemitism specifically, supplemented by the national legal framework (in the Netherlands, Articles 137c-e). HateCheck's five-tier system provides a ready-made, internationally grounded taxonomy that organizations can adopt directly.
+Organizations should adopt a consistent classification taxonomy aligned with recognized standards - ideally the IHRA framework for antisemitism specifically, supplemented by the national legal framework (in the Netherlands, Articles 137c-e). HateCheck's five-tier system provides a ready-made, internationally grounded taxonomy that organizations can adopt directly.
 
 Adopting a shared taxonomy enables cross-organizational data sharing and aggregation, which is particularly valuable for small organizations that individually lack the data volume for meaningful trend analysis.
 
 ## Reporting and Accountability
 
-Raw data must be translated into actionable intelligence. Regular internal review of incident data — monthly or quarterly — enables organizations to identify emerging trends, assess whether response protocols are effective, and adapt monitoring strategies accordingly.
+Raw data must be translated into actionable intelligence. Regular internal review of incident data - monthly or quarterly - enables organizations to identify emerging trends, assess whether response protocols are effective, and adapt monitoring strategies accordingly.
 
 Annual public reports, even if high-level, build credibility with funders, policymakers, and media, and contribute to the collective knowledge base on antisemitism trends.
     `.trim(),
@@ -337,7 +337,7 @@ A core driver of institutional paralysis is the complexity of classifying incide
 
 **The IHRA Definition** is indispensable for identifying broad biases, but it is not legally binding and risks generating false positives that could chill academic freedom and legitimate advocacy. It was primarily designed as a census and data-collection tool.
 
-**The Jerusalem Declaration (JDA) and Nexus Document** act as filtering mechanisms, explicitly protecting severe political critique of Israel — anti-Zionism, divestment demands, criticism of specific policies — to avoid false positives and preserve analytical bandwidth for genuine threats.
+**The Jerusalem Declaration (JDA) and Nexus Document** act as filtering mechanisms, explicitly protecting severe political critique of Israel - anti-Zionism, divestment demands, criticism of specific policies - to avoid false positives and preserve analytical bandwidth for genuine threats.
 
 **The Dutch Penal Code** sets the ultimate bar. To be prosecutable, incidents must meet strict statutory requirements of intent (mens rea) to target a protected demographic, requiring rigorous legal mapping.
 
@@ -345,7 +345,7 @@ The consequence of this layered complexity: the same incident may be antisemitic
 
 ## The Action Gap and Institutional Paralysis
 
-The intersection of immense incident volume and legal complexity has created an "Action Gap" characterized by handelingsverlegenheid — a deep-seated hesitation or inability to act by universities, municipalities, and police. Local authorities struggle to assess real-time violations during protests, shifting response from proactive mitigation to reactive damage control.
+The intersection of immense incident volume and legal complexity has created an "Action Gap" characterized by handelingsverlegenheid - a deep-seated hesitation or inability to act by universities, municipalities, and police. Local authorities struggle to assess real-time violations during protests, shifting response from proactive mitigation to reactive damage control.
 
 A severe reporting paradox compounds the crisis: 74% of Jewish Dutch citizens do not report serious incidents, driven by a belief that nothing will be done. The FRA data confirms: 59% dissatisfied with police handling of online antisemitism, 68% for harassment, 78% for violence.
 
@@ -355,7 +355,7 @@ The justice system is equally bottlenecked. Of the 880 police-recorded incidents
 
 The report concludes that manual tracking and moderation methodologies are obsolete. A 305% increase in incidents relative to the previous decade, the normalization of extreme violence, and chronic institutional paralysis prove this conclusively.
 
-Overcoming the Action Gap necessitates deployment of an AI-powered, legally calibrated OSINT infrastructure. This system must automatically detect semantic drift and coded language, filter out legitimate political critique using the JDA framework, and map verified Tier 4 incidents directly to Articles 137c, 137d, and 137e of the Dutch Penal Code — generating structured, evidentiary dossiers that restore the efficacy of law enforcement and institutional decision-makers.
+Overcoming the Action Gap necessitates deployment of an AI-powered, legally calibrated OSINT infrastructure. This system must automatically detect semantic drift and coded language, filter out legitimate political critique using the JDA framework, and map verified Tier 4 incidents directly to Articles 137c, 137d, and 137e of the Dutch Penal Code - generating structured, evidentiary dossiers that restore the efficacy of law enforcement and institutional decision-makers.
 
 The question is no longer whether this infrastructure is needed. The data is unambiguous. The question is how fast institutions can deploy it.
     `.trim(),

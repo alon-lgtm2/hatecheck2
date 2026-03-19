@@ -6,6 +6,7 @@
     "organizations": "Organizations",
     "resources": "Resources",
     "reports": "Reports",
+    "academy": "Academy",
     "about": "About",
     "contact": "Contact"
   },
@@ -24,8 +25,9 @@
   "home": {
     "hero": {
       "badge": "AI-Powered Intelligence Platform",
-      "title": "Detect. Classify. Act.",
-      "subtitle": "HateCheck is Europe's leading intelligence platform for detecting, classifying, and responding to antisemitism and online hate speech — built on IHRA standards, Dutch law, and cutting-edge AI.",
+      "title": "Turn Online Hate into Enforceable Action",
+      "whatItDoes": "Paste a post, article, or link. HateCheck uses OSINT and trusted standards to verify the content, classify it on a 1-5 severity scale, and generate ready-to-send complaints, memos, and referrals to the right Dutch authorities - in minutes, not days.",
+      "subtitle": "Built on IHRA, Nexus, JDA, and Dutch Penal Code. Used by Jewish organizations, municipalities, law enforcement, educators, and citizens across the Netherlands.",
       "cta1": "Explore the Platform",
       "cta2": "Get in Touch",
       "stat1Label": "Detection Accuracy",
@@ -36,7 +38,7 @@
     "problem": {
       "label": "The Problem",
       "col1Title": "Scale & Volume",
-      "col1Desc": "Thousands of incidents occur daily across social media, news sites, and messaging platforms — far beyond manual review capacity. The sheer volume makes manual monitoring impossible.",
+      "col1Desc": "Thousands of incidents occur daily across social media, news sites, and messaging platforms - far beyond manual review capacity. The sheer volume makes manual monitoring impossible.",
       "col2Title": "Ambiguity & Context",
       "col2Desc": "Much hate speech hides behind satire, coded language, and plausible deniability. Classification is difficult, inconsistent, and varies across legal jurisdictions.",
       "col3Title": "Underreporting",
@@ -83,7 +85,17 @@
     },
     "quote": {
       "text": "If there is a bedrock principle underlying the First Amendment, it is that government may not prohibit the expression of an idea simply because society finds the idea offensive or disagreeable.",
-      "attribution": "Justice Louis D. Brandeis — dissent in Whitney v. California (1927)"
+      "attribution": "Justice Louis D. Brandeis - dissent in Whitney v. California (1927)"
+    },
+    "platform": {
+      "card1Title": "Check an Incident",
+      "card1Desc": "Paste a tweet, post, article, or flyer. HateCheck confirms facts with Dutch sources, applies IHRA/Nexus/JDA standards, assigns a clear Tier (1-5), and proposes specific actions.",
+      "card2Title": "Find Incidents",
+      "card2Desc": "Run a guided OSINT research process across high-trust Dutch sources - police records, CIDI reports, major outlets, municipal statements - to uncover related incidents and patterns.",
+      "card3Title": "Draft and Route",
+      "card3Desc": "Auto-generates complaints, legal memos, and talking points with evidence packaged. Smart routing suggests the right authority - platforms, municipalities, police - matched to the severity tier.",
+      "card4Title": "Track and Follow Up",
+      "card4Desc": "Maintains a record of every case with status tracking, reminder prompts, and escalation logic. Links repeat offenders across incidents to surface systemic patterns."
     },
     "cta": {
       "label": "Next Step",
@@ -155,6 +167,43 @@
     "tier": "Tier",
     "date": "Date",
     "platform": "Platform"
+  },
+  "academy": {
+    "title": "HateCheck Academy",
+    "subtitle": "Open knowledge for recognizing, documenting, and responding to antisemitism. Free. For everyone.",
+    "intro": "Knowledge is the first line of defense. HateCheck believes everyone - from citizens to institutions - should have access to the tools and frameworks needed to act. No login. No paywall. No gating.",
+    "whyTitle": "Why This Matters",
+    "whyText": "The gap between the scale of online antisemitism and the public's ability to recognize and respond to it is widening. Thousands of incidents go unrecognized, undocumented, or unreported every year - not because people don't care, but because they lack the knowledge and tools to act.",
+    "whoTitle": "Who It's For",
+    "whoProfessionals": "Professionals - municipal staff, law enforcement, educators",
+    "whoStudents": "Students & researchers",
+    "whoCitizens": "Any engaged citizen",
+    "tracksTitle": "Learning Tracks",
+    "track1Title": "Recognizing Antisemitism",
+    "track1Desc": "Learn to identify antisemitism in its many forms - from ancient tropes to modern coded language.",
+    "track1Guides": "5 guides",
+    "track1Time": "45 min total",
+    "track2Title": "OSINT - Open Source Intelligence Basics",
+    "track2Desc": "Understand how public, verifiable information from the open web can be used responsibly to document hate.",
+    "track2Guides": "5 guides",
+    "track2Time": "40 min total",
+    "track3Title": "Platform Reporting",
+    "track3Desc": "Step-by-step guides for reporting antisemitism and hate speech on every major platform.",
+    "track3Guides": "7 guides",
+    "track3Time": "35 min total",
+    "track4Title": "Institutional Response",
+    "track4Desc": "What municipalities, universities, employers, and organizations should do when antisemitism is reported.",
+    "track4Guides": "6 guides",
+    "track4Time": "50 min total",
+    "track5Title": "History & Context",
+    "track5Desc": "Why antisemitism persists, how it evolves, and what makes it different from other forms of hatred.",
+    "track5Guides": "6 guides",
+    "track5Time": "55 min total",
+    "startLearning": "Start Learning",
+    "comingSoon": "Coming Soon",
+    "comingSoonDesc": "HateCheck Academy is currently in development. Sign up to be notified when the first modules launch.",
+    "notify": "Notify Me",
+    "homeTeaser": "HateCheck Academy: Open Knowledge for Everyone"
   },
   "contact": {
     "title": "Get in Touch",

@@ -15,7 +15,7 @@ function LanguageSwitcher() {
 
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
-      {["en", "nl"].map((l, i) => (
+      {["en", "nl", "de", "he", "fr"].map((l, i) => (
         <span key={l} style={{ display: "flex", alignItems: "center" }}>
           {i > 0 && (
             <span
@@ -231,6 +231,7 @@ export default function Header() {
     home: t("home"),
     product: t("product"),
     standards: t("standards"),
+    academy: t("academy"),
     about: t("about"),
     contact: t("contact"),
   };

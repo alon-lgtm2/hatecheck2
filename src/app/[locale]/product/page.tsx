@@ -5,7 +5,7 @@ import PageHeader from "@/components/sections/Hero";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Platform — The HateCheck Investigation Workflow",
+    title: "Platform - The HateCheck Investigation Workflow",
     description:
       "A structured 5-step intelligence workflow: source intake, verification, protocol analysis, tier classification, and enforcement action.",
   };
@@ -17,9 +17,9 @@ const screenshotSteps = [
     label: "SOURCE",
     title: "Paste Any URL",
     description:
-      "Submit a link to any online content — a tweet, article, social post, or statement. HateCheck scans, verifies, and cross-references it against Dutch and European sources in seconds.",
+      "Submit a link to any online content - a tweet, article, social post, or statement. HateCheck scans, verifies, and cross-references it against Dutch and European sources in seconds.",
     image: "/images/screenshot6.png",
-    alt: "Step 1: URL intake screen — investigation start",
+    alt: "Step 1: URL intake screen - investigation start",
     caption: "Real-time OSINT scanning: domain verification, source corroboration, entity extraction, and legal protocol loading.",
   },
   {
@@ -29,7 +29,7 @@ const screenshotSteps = [
     description:
       "Multiple sources are corroborated automatically. Review the extracted intelligence, refine the analytical scope, then lock in the analysis with a deliberate human checkpoint.",
     image: "/images/screenshot4.png",
-    alt: "Step 2: Verify screen — intercepted sources and extracted intelligence",
+    alt: "Step 2: Verify screen - intercepted sources and extracted intelligence",
     caption: "Human-in-the-loop checkpoint: inspect all corroborated sources and extracted evidence before proceeding.",
   },
   {
@@ -37,9 +37,9 @@ const screenshotSteps = [
     label: "PROTOCOL",
     title: "Four Standards Applied",
     description:
-      "The content passes sequentially through IHRA, Nexus Document, Jerusalem Declaration, and Dutch Penal Code — each adding precision to the analysis.",
+      "The content passes sequentially through IHRA, Nexus Document, Jerusalem Declaration, and Dutch Penal Code - each adding precision to the analysis.",
     image: "/images/protocol.png",
-    alt: "Step 3: Protocol analysis — IHRA, Nexus, JDA, Dutch Penal Code applied to incident",
+    alt: "Step 3: Protocol analysis - IHRA, Nexus, JDA, Dutch Penal Code applied to incident",
     caption: "Sequential cascade: IHRA anchors, Nexus checks Israel/Zionism, JDA refines grey zones, Dutch law maps criminal thresholds.",
   },
   {
@@ -47,9 +47,9 @@ const screenshotSteps = [
     label: "CLASSIFY",
     title: "Forensic Classification Report",
     description:
-      "A complete forensic report: tier assignment, confidence score with reasoning, evidence-to-standard mapping, and executive summary — ready for institutional use.",
+      "A complete forensic report: tier assignment, confidence score with reasoning, evidence-to-standard mapping, and executive summary - ready for institutional use.",
     image: "/images/assessment.png",
-    alt: "Step 4: Classification report — Tier 3, 75% confidence with forensic analysis",
+    alt: "Step 4: Classification report - Tier 3, 75% confidence with forensic analysis",
     caption: "Every classification backed by three complementary frameworks plus Dutch criminal law.",
   },
   {
@@ -57,9 +57,9 @@ const screenshotSteps = [
     label: "ACT",
     title: "Prioritised Action Engine",
     description:
-      "Structured next steps generated from the tier classification. One-click letter drafting for every relevant authority — police, CIDI, municipality, legal counsel.",
+      "Structured next steps generated from the tier classification. One-click letter drafting for every relevant authority - police, CIDI, municipality, legal counsel.",
     image: "/images/action.png",
-    alt: "Step 5: Action engine — Report to Local Authorities with Draft Letter",
+    alt: "Step 5: Action engine - Report to Local Authorities with Draft Letter",
     caption: "AI drafts, humans decide. Every action letter is editable before sending and archived automatically.",
   },
 ];
@@ -83,7 +83,7 @@ const moduleFeatures = [
   {
     title: "Correspondence Archive",
     description:
-      "All generated letters — Dutch and English — stored with draft/sent/archived status. Full editing capability. Formatted for police submission, CIDI notification, and municipal correspondence.",
+      "All generated letters - Dutch and English - stored with draft/sent/archived status. Full editing capability. Formatted for police submission, CIDI notification, and municipal correspondence.",
   },
   {
     title: "Organisation Workspaces",
@@ -93,14 +93,14 @@ const moduleFeatures = [
   {
     title: "Profiles & Pattern Tracking",
     description:
-      "Track individuals and organisations of interest with assigned risk levels. Link multiple incidents to a single profile — critical for identifying repeat offenders and systemic patterns.",
+      "Track individuals and organisations of interest with assigned risk levels. Link multiple incidents to a single profile - critical for identifying repeat offenders and systemic patterns.",
   },
 ];
 
 const principles = [
   { label: "Human control at every step", detail: "AI drafts and suggests. Humans review, decide, and act. Nothing is sent automatically." },
   { label: "Full transparency", detail: "Users see the exact AI prompts used in Deep Research. Every classification includes full reasoning." },
-  { label: "Legal precision", detail: "The platform says \"potentially criminal\" — never \"this is a crime\". A reference tool, not a prosecutor." },
+  { label: "Legal precision", detail: "The platform says \"potentially criminal\" - never \"this is a crime\". A reference tool, not a prosecutor." },
   { label: "Defensibility", detail: "Three complementary frameworks plus Dutch law. Layered approach reduces false positives." },
   { label: "Privacy by design", detail: "No user tracking or analytics. Session-only data. Optional PII redaction. Data isolation between organisations." },
   { label: "Proportionate response", detail: "The tier system ensures response matches severity. The right channel for the right situation." },
@@ -118,7 +118,7 @@ export default async function ProductPage({
       <PageHeader
         label="PLATFORM"
         title="The Investigation Workflow"
-        subtitle="HateCheck compresses the full chain from &ldquo;that feels wrong&rdquo; to &ldquo;something is being done about it&rdquo; into a single guided workflow — backed by AI, grounded in recognised international standards, and calibrated to Dutch legal thresholds."
+        subtitle="HateCheck compresses the full chain from &ldquo;that feels wrong&rdquo; to &ldquo;something is being done about it&rdquo; into a single guided workflow - backed by AI, grounded in recognised international standards, and calibrated to Dutch legal thresholds."
       />
 
       {/* 5-Step Pipeline with Real Screenshots */}
@@ -202,7 +202,7 @@ export default async function ProductPage({
               Real-Time OSINT Scanning
             </h2>
             <p style={{ fontSize: "15px", color: "#6B7280", maxWidth: "640px", lineHeight: 1.7 }}>
-              When a URL is submitted, a terminal-style panel shows live scanning activity — domain
+              When a URL is submitted, a terminal-style panel shows live scanning activity - domain
               authority verification, entity extraction, Dutch source cross-referencing, and legal
               protocol loading.
             </p>
@@ -210,7 +210,7 @@ export default async function ProductPage({
           <div style={{ maxWidth: "768px", border: "1px solid #E5E7EB", borderRadius: "8px", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}>
             <Image
               src="/images/screenshot5.png"
-              alt="Real-time OSINT scanning panel — terminal-style activity display"
+              alt="Real-time OSINT scanning panel - terminal-style activity display"
               width={1200}
               height={800}
               className="w-full h-auto block"
@@ -254,7 +254,7 @@ export default async function ProductPage({
               Beyond Classification
             </h2>
             <p style={{ fontSize: "15px", color: "#6B7280", maxWidth: "640px", lineHeight: 1.7 }}>
-              HateCheck is a complete intelligence platform — not just a classifier.
+              HateCheck is a complete intelligence platform - not just a classifier.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
@@ -289,7 +289,7 @@ export default async function ProductPage({
             Request a Demonstration
           </h2>
           <p style={{ fontSize: "15px", color: "#6B7280", marginBottom: "40px", maxWidth: "560px", margin: "0 auto 40px", lineHeight: 1.7 }}>
-            Contact us to discuss how HateCheck can serve your organisation — or access the live platform directly.
+            Contact us to discuss how HateCheck can serve your organisation - or access the live platform directly.
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "16px", flexWrap: "wrap" }}>
             <Link href={`/${locale}/contact`} className="btn-main">
