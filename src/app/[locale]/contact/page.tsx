@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import ContactForm from "@/components/ui/ContactForm";
+import PageHeader from "@/components/sections/Hero";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -19,34 +20,22 @@ export default async function ContactPage({
   const t = await getTranslations({ locale, namespace: "contact" });
 
   return (
-    <div className="pt-32">
-      {/* Page Header */}
-      <section className="pt-40 pb-16 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="max-w-3xl">
-            <p className="section-label mb-4">CONTACT</p>
-            <h1
-              className="font-bold text-white mb-6"
-              style={{ fontSize: "48px", lineHeight: 1.1 }}
-            >
-              {t("title")}
-            </h1>
-            <p className="text-[17px] text-[rgba(255,255,255,0.65)] leading-relaxed">
-              {t("subtitle")}
-            </p>
-          </div>
-        </div>
-      </section>
+    <div>
+      <PageHeader
+        label="CONTACT"
+        title={t("title")}
+        subtitle={t("subtitle")}
+      />
 
       {/* Form */}
-      <section className="py-24 px-16 border-b border-white/10">
-        <div className="max-w-[680px] mx-auto">
+      <section style={{ padding: "100px 0", borderBottom: "1px solid #E5E7EB" }}>
+        <div style={{ maxWidth: "680px", margin: "0 auto", padding: "0 24px" }}>
           <ContactForm />
-          <p className="text-[13px] text-[rgba(255,255,255,0.4)] mt-12">
+          <p style={{ fontSize: "13px", color: "#9CA3AF", marginTop: "48px" }}>
             You can also reach us directly at{" "}
             <a
               href="mailto:info@hatecheck.eu"
-              className="text-white hover:text-[#3B82F6] transition-colors"
+              style={{ color: "#2563EB", textDecoration: "none", transition: "color 0.2s" }}
             >
               info@hatecheck.eu
             </a>
@@ -55,21 +44,21 @@ export default async function ContactPage({
       </section>
 
       {/* Urgency notice */}
-      <section className="py-24 px-16">
-        <div className="max-w-[680px] mx-auto">
-          <p className="section-label mb-4">URGENT MATTERS</p>
-          <h2 className="text-[24px] font-bold text-white mb-6">
+      <section style={{ padding: "100px 0", backgroundColor: "#F8F9FA" }}>
+        <div style={{ maxWidth: "680px", margin: "0 auto", padding: "0 24px" }}>
+          <p className="section-label" style={{ marginBottom: "16px" }}>URGENT MATTERS</p>
+          <h2 style={{ fontSize: "24px", fontWeight: 400, color: "#1B1A2B", marginBottom: "24px" }}>
             Urgent Threat or Criminal Incident?
           </h2>
-          <div className="space-y-4">
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>
               If you are aware of an immediate threat to physical safety, contact Dutch emergency services (112) or the Politie directly. For serious antisemitic threats that may constitute criminal speech under Art. 137c-e, contact the Politie via{" "}
-              <a href="https://www.politie.nl" className="text-white hover:text-[#3B82F6]" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.politie.nl" style={{ color: "#2563EB", textDecoration: "none" }} target="_blank" rel="noopener noreferrer">
                 politie.nl
               </a>{" "}
               or call 0900-8844.
             </p>
-            <p className="text-[13px] text-[rgba(255,255,255,0.4)] leading-relaxed">
+            <p style={{ fontSize: "13px", color: "#9CA3AF", lineHeight: 1.7 }}>
               HateCheck can assist with documentation and evidence packaging for law enforcement referrals. Contact us via the form above and mark the subject as &quot;Urgent.&quot;
             </p>
           </div>

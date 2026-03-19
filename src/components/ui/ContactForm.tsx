@@ -45,17 +45,34 @@ export default function ContactForm() {
     }
   };
 
-  const inputClass =
-    "w-full py-3 px-4 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-lg text-[15px] text-white placeholder-[rgba(255,255,255,0.3)] focus:outline-none focus:border-[#2563EB] transition-colors";
+  const inputStyle: React.CSSProperties = {
+    width: "100%",
+    padding: "12px 16px",
+    backgroundColor: "#FFFFFF",
+    border: "1px solid #E5E7EB",
+    borderRadius: "8px",
+    fontSize: "15px",
+    color: "#1B1A2B",
+    outline: "none",
+    transition: "border-color 0.2s",
+    boxSizing: "border-box",
+  };
 
-  const labelClass =
-    "text-[11px] font-semibold uppercase tracking-[0.2em] text-[rgba(255,255,255,0.4)] block mb-3";
+  const labelStyle: React.CSSProperties = {
+    fontSize: "11px",
+    fontWeight: 600,
+    textTransform: "uppercase",
+    letterSpacing: "0.2em",
+    color: "#9CA3AF",
+    display: "block",
+    marginBottom: "12px",
+  };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+    <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }}>
         <div>
-          <label htmlFor="name" className={labelClass}>
+          <label htmlFor="name" style={labelStyle}>
             {t("nameLabel").toUpperCase()} *
           </label>
           <input
@@ -65,12 +82,14 @@ export default function ContactForm() {
             required
             value={formData.name}
             onChange={handleChange}
-            className={inputClass}
+            style={inputStyle}
             placeholder="Jan de Vries"
+            onFocus={(e) => { e.currentTarget.style.borderColor = "#2563EB"; }}
+            onBlur={(e) => { e.currentTarget.style.borderColor = "#E5E7EB"; }}
           />
         </div>
         <div>
-          <label htmlFor="email" className={labelClass}>
+          <label htmlFor="email" style={labelStyle}>
             {t("emailLabel").toUpperCase()} *
           </label>
           <input
@@ -80,15 +99,17 @@ export default function ContactForm() {
             required
             value={formData.email}
             onChange={handleChange}
-            className={inputClass}
+            style={inputStyle}
             placeholder="jan@example.nl"
+            onFocus={(e) => { e.currentTarget.style.borderColor = "#2563EB"; }}
+            onBlur={(e) => { e.currentTarget.style.borderColor = "#E5E7EB"; }}
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }}>
         <div>
-          <label htmlFor="organization" className={labelClass}>
+          <label htmlFor="organization" style={labelStyle}>
             {t("orgLabel").toUpperCase()}
           </label>
           <input
@@ -97,12 +118,14 @@ export default function ContactForm() {
             type="text"
             value={formData.organization}
             onChange={handleChange}
-            className={inputClass}
+            style={inputStyle}
             placeholder="Organization name"
+            onFocus={(e) => { e.currentTarget.style.borderColor = "#2563EB"; }}
+            onBlur={(e) => { e.currentTarget.style.borderColor = "#E5E7EB"; }}
           />
         </div>
         <div>
-          <label htmlFor="role" className={labelClass}>
+          <label htmlFor="role" style={labelStyle}>
             {t("roleLabel").toUpperCase()}
           </label>
           <input
@@ -111,14 +134,16 @@ export default function ContactForm() {
             type="text"
             value={formData.role}
             onChange={handleChange}
-            className={inputClass}
+            style={inputStyle}
             placeholder="Director / Researcher / etc."
+            onFocus={(e) => { e.currentTarget.style.borderColor = "#2563EB"; }}
+            onBlur={(e) => { e.currentTarget.style.borderColor = "#E5E7EB"; }}
           />
         </div>
       </div>
 
       <div>
-        <label htmlFor="subject" className={labelClass}>
+        <label htmlFor="subject" style={labelStyle}>
           {t("subjectLabel").toUpperCase()} *
         </label>
         <select
@@ -127,8 +152,9 @@ export default function ContactForm() {
           required
           value={formData.subject}
           onChange={handleChange}
-          className={inputClass}
-          style={{ cursor: "pointer" }}
+          style={{ ...inputStyle, cursor: "pointer" }}
+          onFocus={(e) => { e.currentTarget.style.borderColor = "#2563EB"; }}
+          onBlur={(e) => { e.currentTarget.style.borderColor = "#E5E7EB"; }}
         >
           <option value="" disabled>Select a subject...</option>
           <option value="demo">Request a Demo</option>
@@ -141,7 +167,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className={labelClass}>
+        <label htmlFor="message" style={labelStyle}>
           {t("messageLabel").toUpperCase()} *
         </label>
         <textarea
@@ -151,28 +177,30 @@ export default function ContactForm() {
           rows={6}
           value={formData.message}
           onChange={handleChange}
-          className={inputClass}
+          style={{ ...inputStyle, resize: "vertical" }}
           placeholder="Describe your inquiry..."
-          style={{ resize: "vertical" }}
+          onFocus={(e) => { e.currentTarget.style.borderColor = "#2563EB"; }}
+          onBlur={(e) => { e.currentTarget.style.borderColor = "#E5E7EB"; }}
         />
       </div>
 
       {/* Status Messages */}
       {status === "success" && (
-        <div className="glass-card p-4">
-          <p className="text-[15px] text-[#10B981]">{t("success")}</p>
+        <div className="glass-card" style={{ padding: "16px" }}>
+          <p style={{ fontSize: "15px", color: "#10B981" }}>{t("success")}</p>
         </div>
       )}
       {status === "error" && (
-        <div className="glass-card p-4">
-          <p className="text-[15px] text-[#EF4444]">{t("error")}</p>
+        <div className="glass-card" style={{ padding: "16px" }}>
+          <p style={{ fontSize: "15px", color: "#EF4444" }}>{t("error")}</p>
         </div>
       )}
 
       <button
         type="submit"
         disabled={status === "sending"}
-        className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+        className="btn-main"
+        style={{ opacity: status === "sending" ? 0.5 : 1, cursor: status === "sending" ? "not-allowed" : "pointer" }}
       >
         {status === "sending" ? t("sending") : "Send Message"}
       </button>
