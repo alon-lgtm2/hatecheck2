@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://hatecheck.eu"),
   title: {
     default: "HateCheck - AI-Powered Antisemitism Detection Platform",
     template: "%s | HateCheck",
@@ -19,14 +20,16 @@ export const metadata: Metadata = {
     title: "HateCheck - AI-Powered Antisemitism Detection Platform",
     description:
       "AI-powered detection, classification, and enforcement of antisemitism and hate speech. Four legal standards. One structured workflow.",
+    url: "https://hatecheck.eu",
     images: [
       {
         url: "/images/oglogo.png",
         width: 1200,
         height: 630,
-        alt: "HateCheck",
+        alt: "HateCheck - AI-Powered Antisemitism Detection Platform",
       },
     ],
+    locale: "en_US",
     type: "website",
     siteName: "HateCheck",
   },
@@ -35,7 +38,14 @@ export const metadata: Metadata = {
     title: "HateCheck - AI-Powered Antisemitism Detection Platform",
     description:
       "AI-powered detection, classification, and enforcement of antisemitism and hate speech.",
-    images: ["/images/oglogo.png"],
+    images: [
+      {
+        url: "/images/oglogo.png",
+        width: 1200,
+        height: 630,
+        alt: "HateCheck - AI-Powered Antisemitism Detection Platform",
+      },
+    ],
   },
 };
 
