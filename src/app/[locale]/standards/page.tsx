@@ -106,92 +106,16 @@ export default async function StandardsPage({
           <p className="section-label" style={{ marginBottom: "16px" }}>
             WHY STANDARDS MATTER
           </p>
-          <h2
-            style={{
-              fontSize: "36px",
-              fontWeight: 400,
-              color: "#1B1A2B",
-              marginBottom: "40px",
-            }}
-          >
+          <h2 style={{ fontSize: "36px", fontWeight: 400, color: "#1B1A2B", marginBottom: "40px" }}>
             Without Clear Standards, Three Things Go Wrong
           </h2>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gap: "24px",
-            }}
-          >
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
             {whyStandardsCards.map((card, i) => (
               <div key={i} className="glass-card" style={{ padding: "32px" }}>
-                <h3
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: 400,
-                    color: "#1B1A2B",
-                    marginBottom: "8px",
-                  }}
-                >
+                <h3 style={{ fontSize: "18px", fontWeight: 400, color: "#1B1A2B", marginBottom: "8px" }}>
                   {card.title}
                 </h3>
-                <p
-                  style={{
-                    fontSize: "15px",
-                    color: "#6B7280",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  {card.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Standards Matter */}
-      <section style={{ padding: "96px 64px" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
-          <p className="section-label" style={{ marginBottom: "16px" }}>
-            WHY STANDARDS MATTER
-          </p>
-          <h2
-            style={{
-              fontSize: "36px",
-              fontWeight: 700,
-              color: "#FFFFFF",
-              marginBottom: "40px",
-            }}
-          >
-            Without Clear Standards, Three Things Go Wrong
-          </h2>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gap: "24px",
-            }}
-          >
-            {whyStandardsCards.map((card, i) => (
-              <div key={i} className="glass-card" style={{ padding: "32px" }}>
-                <h3
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: 700,
-                    color: "#FFFFFF",
-                    marginBottom: "8px",
-                  }}
-                >
-                  {card.title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: "15px",
-                    color: "rgba(255,255,255,0.65)",
-                    lineHeight: 1.7,
-                  }}
-                >
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>
                   {card.desc}
                 </p>
               </div>
@@ -225,12 +149,7 @@ export default async function StandardsPage({
             <p style={{ fontSize: "13px", color: "#9CA3AF", marginBottom: "24px" }}>
               International Holocaust Remembrance Alliance — Adopted 2016. Endorsed by 35+ countries including the Netherlands.
             </p>
-            <a
-              href="https://www.holocaustremembrance.com/resources/working-definitions-charters/working-definition-antisemitism"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ fontSize: "13px", color: "#2563EB" }}
-            >
+            <a href="https://www.holocaustremembrance.com/resources/working-definitions-charters/working-definition-antisemitism" target="_blank" rel="noopener noreferrer" style={{ fontSize: "13px", color: "#2563EB" }}>
               Official Source
             </a>
             <div style={{ marginTop: "40px" }}>
@@ -243,23 +162,9 @@ export default async function StandardsPage({
               <div style={{ marginBottom: "32px" }}>
                 <h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1B1A2B", marginBottom: "16px" }}>Contemporary Examples (11 Total)</h3>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "12px" }}>
-                  {[
-                    "Calling for harm to Jews",
-                    "Making mendacious, dehumanizing allegations about Jews",
-                    "Accusing Jews of being responsible for Israeli state actions",
-                    "Denying the Holocaust",
-                    "Accusing Jews of dual loyalty",
-                    "Applying double standards to Israel",
-                    "Drawing comparisons to Nazi policy",
-                    "Holding Jews collectively responsible",
-                    "Calling Jewish self-determination racist",
-                    "Dehumanizing stereotypes",
-                    "Targeting Jewish community institutions",
-                  ].map((ex, i) => (
+                  {["Calling for harm to Jews", "Making mendacious, dehumanizing allegations about Jews", "Accusing Jews of being responsible for Israeli state actions", "Denying the Holocaust", "Accusing Jews of dual loyalty", "Applying double standards to Israel", "Drawing comparisons to Nazi policy", "Holding Jews collectively responsible", "Calling Jewish self-determination racist", "Dehumanizing stereotypes", "Targeting Jewish community institutions"].map((ex, i) => (
                     <div key={i} style={{ fontSize: "13px", color: "#6B7280" }}>
-                      <span style={{ color: "#9CA3AF", marginRight: "8px" }}>
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
+                      <span style={{ color: "#9CA3AF", marginRight: "8px" }}>{String(i + 1).padStart(2, "0")}</span>
                       {ex}
                     </div>
                   ))}
@@ -271,31 +176,9 @@ export default async function StandardsPage({
                   IHRA serves as the primary framework for all cases not directly related to Israel. Its broad adoption makes it the most institutionally recognized baseline for classification.
                 </p>
               </div>
-              {/* How HateCheck Uses This */}
-              <div
-                className="glass-card"
-                style={{
-                  padding: "24px",
-                  backgroundColor: "#F8F9FA",
-                }}
-              >
-                <h4
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: 400,
-                    color: "#1B1A2B",
-                    marginBottom: "8px",
-                  }}
-                >
-                  How HateCheck Uses This
-                </h4>
-                <p
-                  style={{
-                    fontSize: "15px",
-                    color: "#6B7280",
-                    lineHeight: 1.7,
-                  }}
-                >
+              <div className="glass-card" style={{ padding: "24px", backgroundColor: "#F8F9FA" }}>
+                <h4 style={{ fontSize: "16px", fontWeight: 400, color: "#1B1A2B", marginBottom: "8px" }}>How HateCheck Uses This</h4>
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>
                   Provides the primary test for whether content is antisemitic at all. Reasoning logs reference IHRA-style patterns (demonisation, dehumanisation) for Tier 3&ndash;5 classifications.
                 </p>
               </div>
@@ -315,12 +198,7 @@ export default async function StandardsPage({
             <p style={{ fontSize: "13px", color: "#9CA3AF", marginBottom: "24px" }}>
               Nexus Task Force — 2021. Focuses specifically on Israel-Palestine discourse and the antisemitism boundary.
             </p>
-            <a
-              href="https://israelandantisemitism.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ fontSize: "13px", color: "#2563EB" }}
-            >
+            <a href="https://israelandantisemitism.com/" target="_blank" rel="noopener noreferrer" style={{ fontSize: "13px", color: "#2563EB" }}>
               Official Source
             </a>
             <div style={{ marginTop: "40px" }}>
@@ -352,31 +230,9 @@ export default async function StandardsPage({
                   Nexus analysis is applied specifically to cases where the Israel-antisemitism boundary is contested, providing a structured test for distinguishing political criticism from antisemitic speech.
                 </p>
               </div>
-              {/* How HateCheck Uses This */}
-              <div
-                className="glass-card"
-                style={{
-                  padding: "24px",
-                  backgroundColor: "#F8F9FA",
-                }}
-              >
-                <h4
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: 400,
-                    color: "#1B1A2B",
-                    marginBottom: "8px",
-                  }}
-                >
-                  How HateCheck Uses This
-                </h4>
-                <p
-                  style={{
-                    fontSize: "15px",
-                    color: "#6B7280",
-                    lineHeight: 1.7,
-                  }}
-                >
+              <div className="glass-card" style={{ padding: "24px", backgroundColor: "#F8F9FA" }}>
+                <h4 style={{ fontSize: "16px", fontWeight: 400, color: "#1B1A2B", marginBottom: "8px" }}>How HateCheck Uses This</h4>
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>
                   When an incident involves Israel/Palestine, Zionism or boycotts, HateCheck asks: Is the content relying on classic antisemitic myths? Is it blaming Jews as Jews for actions of Israel? Is Israel being singled out by standards not applied to any other state?
                 </p>
               </div>
@@ -396,43 +252,23 @@ export default async function StandardsPage({
             <p style={{ fontSize: "13px", color: "#9CA3AF", marginBottom: "24px" }}>
               Jerusalem Declaration — 2021. Developed by 200+ international scholars. Provides academic rigor and Israel-specific nuance.
             </p>
-            <a
-              href="https://jerusalemdeclaration.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ fontSize: "13px", color: "#2563EB" }}
-            >
+            <a href="https://jerusalemdeclaration.org/" target="_blank" rel="noopener noreferrer" style={{ fontSize: "13px", color: "#2563EB" }}>
               Official Source
             </a>
             <div style={{ marginTop: "40px" }}>
               <div style={{ borderBottom: "1px solid #E5E7EB", paddingBottom: "32px", marginBottom: "32px" }}>
                 <h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>What is Antisemitic (JDA)</h3>
                 <ul style={{ display: "flex", flexDirection: "column", gap: "8px", listStyle: "none", padding: 0 }}>
-                  {[
-                    "Calling for harm to Jews or treating them as less than human",
-                    "Conspiracy theories (Jewish control of media, finance, government)",
-                    "Denying or trivializing the Holocaust",
-                    "Discriminatory double standards applied to Jews",
-                    "Attributing Israeli conduct to Jewish identity globally",
-                  ].map((item, i) => (
-                    <li key={i} style={{ fontSize: "14px", color: "#6B7280" }}>
-                      {item}
-                    </li>
+                  {["Calling for harm to Jews or treating them as less than human", "Conspiracy theories (Jewish control of media, finance, government)", "Denying or trivializing the Holocaust", "Discriminatory double standards applied to Jews", "Attributing Israeli conduct to Jewish identity globally"].map((item, i) => (
+                    <li key={i} style={{ fontSize: "14px", color: "#6B7280" }}>{item}</li>
                   ))}
                 </ul>
               </div>
               <div style={{ borderBottom: "1px solid #E5E7EB", paddingBottom: "32px", marginBottom: "32px" }}>
                 <h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>What is Not Antisemitic (JDA)</h3>
                 <ul style={{ display: "flex", flexDirection: "column", gap: "8px", listStyle: "none", padding: 0 }}>
-                  {[
-                    "Criticism of Israeli policies comparable to criticism of other states",
-                    "Holding that Israel's founding involved ethnic displacement",
-                    "Boycott, divestment, sanctions (BDS) advocacy",
-                    "Comparing Israeli policies to other historical examples (context-dependent)",
-                  ].map((item, i) => (
-                    <li key={i} style={{ fontSize: "14px", color: "#6B7280" }}>
-                      {item}
-                    </li>
+                  {["Criticism of Israeli policies comparable to criticism of other states", "Holding that Israel's founding involved ethnic displacement", "Boycott, divestment, sanctions (BDS) advocacy", "Comparing Israeli policies to other historical examples (context-dependent)"].map((item, i) => (
+                    <li key={i} style={{ fontSize: "14px", color: "#6B7280" }}>{item}</li>
                   ))}
                 </ul>
               </div>
@@ -442,31 +278,9 @@ export default async function StandardsPage({
                   JDA guidance is applied as a secondary check for Israel-related content, providing more granular boundaries for grey-zone cases that IHRA alone cannot resolve.
                 </p>
               </div>
-              {/* How HateCheck Uses This */}
-              <div
-                className="glass-card"
-                style={{
-                  padding: "24px",
-                  backgroundColor: "#F8F9FA",
-                }}
-              >
-                <h4
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: 400,
-                    color: "#1B1A2B",
-                    marginBottom: "8px",
-                  }}
-                >
-                  How HateCheck Uses This
-                </h4>
-                <p
-                  style={{
-                    fontSize: "15px",
-                    color: "#6B7280",
-                    lineHeight: 1.7,
-                  }}
-                >
+              <div className="glass-card" style={{ padding: "24px", backgroundColor: "#F8F9FA" }}>
+                <h4 style={{ fontSize: "16px", fontWeight: 400, color: "#1B1A2B", marginBottom: "8px" }}>How HateCheck Uses This</h4>
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>
                   Useful for borderline cases in campus debates or academic speech. Helps avoid over-classification when criticism is sharp but not antisemitic.
                 </p>
               </div>
@@ -486,67 +300,29 @@ export default async function StandardsPage({
             <p style={{ fontSize: "15px", color: "#6B7280", marginBottom: "40px", maxWidth: "640px", lineHeight: 1.7 }}>
               The Netherlands&apos; criminal provisions governing hate speech are concentrated in Articles 137c-e of the Wetboek van Strafrecht (WvSr). These are the legal thresholds that determine Tier 4 and 5 classifications.
             </p>
-
             <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
               {dutchArticles.map((article, idx) => (
-                <div
-                  key={article.code}
-                  style={{
-                    borderBottom: idx < dutchArticles.length - 1 ? "1px solid #E5E7EB" : "none",
-                    paddingBottom: idx < dutchArticles.length - 1 ? "40px" : "0",
-                  }}
-                >
+                <div key={article.code} style={{ borderBottom: idx < dutchArticles.length - 1 ? "1px solid #E5E7EB" : "none", paddingBottom: idx < dutchArticles.length - 1 ? "40px" : "0" }}>
                   <p className="section-label" style={{ marginBottom: "8px" }}>{article.code.toUpperCase()}</p>
-                  <h3 style={{ fontSize: "18px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>
-                    {article.title}
-                  </h3>
-                  <p style={{ fontSize: "15px", color: "#6B7280", marginBottom: "16px", lineHeight: 1.7 }}>
-                    {article.description}
-                  </p>
+                  <h3 style={{ fontSize: "18px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>{article.title}</h3>
+                  <p style={{ fontSize: "15px", color: "#6B7280", marginBottom: "16px", lineHeight: 1.7 }}>{article.description}</p>
                   <ul style={{ display: "flex", flexDirection: "column", gap: "4px", listStyle: "none", padding: 0 }}>
                     {article.elements.map((el, i) => (
-                      <li key={i} style={{ fontSize: "13px", color: "#9CA3AF" }}>
-                        {el}
-                      </li>
+                      <li key={i} style={{ fontSize: "13px", color: "#9CA3AF" }}>{el}</li>
                     ))}
                   </ul>
                 </div>
               ))}
             </div>
-
             <div style={{ marginTop: "40px", paddingTop: "32px", borderTop: "1px solid #E5E7EB" }}>
               <p className="section-label" style={{ marginBottom: "8px" }}>ROLE IN HATECHECK</p>
               <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>
                 Dutch law is applied on top of international standards to assess criminal liability thresholds, producing Tier 4 and Tier 5 classifications for content that may constitute criminal speech.
               </p>
             </div>
-
-            {/* How HateCheck Uses This */}
-            <div
-              className="glass-card"
-              style={{
-                padding: "24px",
-                backgroundColor: "#F8F9FA",
-                marginTop: "32px",
-              }}
-            >
-              <h4
-                style={{
-                  fontSize: "16px",
-                  fontWeight: 400,
-                  color: "#1B1A2B",
-                  marginBottom: "8px",
-                }}
-              >
-                How HateCheck Uses This
-              </h4>
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "#6B7280",
-                  lineHeight: 1.7,
-                }}
-              >
+            <div className="glass-card" style={{ padding: "24px", backgroundColor: "#F8F9FA", marginTop: "32px" }}>
+              <h4 style={{ fontSize: "16px", fontWeight: 400, color: "#1B1A2B", marginBottom: "8px" }}>How HateCheck Uses This</h4>
+              <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>
                 Maps verified incidents to the specific statutory requirements of Articles 137c, 137d, and 137e. Generates structured evidentiary dossiers for the Public Prosecution Service.
               </p>
             </div>
@@ -559,51 +335,24 @@ export default async function StandardsPage({
         <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
           <div style={{ marginBottom: "64px" }}>
             <p className="section-label" style={{ marginBottom: "16px" }}>INTEGRATED METHODOLOGY</p>
-            <h2 style={{ fontSize: "36px", fontWeight: 400, color: "#1B1A2B", marginBottom: "16px" }}>
-              How They Work Together
-            </h2>
+            <h2 style={{ fontSize: "36px", fontWeight: 400, color: "#1B1A2B", marginBottom: "16px" }}>How They Work Together</h2>
             <p style={{ fontSize: "15px", color: "#6B7280", maxWidth: "640px", lineHeight: 1.7 }}>
               The layered methodology integrates all frameworks at the appropriate analytical stage.
             </p>
           </div>
-
           <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
             {[
-              {
-                label: "Layer 1: International Definitions",
-                frameworks: "IHRA, JDA, NEXUS",
-                desc: "Applied first to determine whether content meets any antisemitism threshold.",
-              },
-              {
-                label: "Layer 2: Context Analysis",
-                frameworks: "Satire Check, Intent Signals, Audience Context",
-                desc: "Contextual modifiers that can affect tier assignment in borderline cases.",
-              },
-              {
-                label: "Layer 3: Dutch Legal Assessment",
-                frameworks: "Art. 137c, Art. 137d, Art. 137e",
-                desc: "Applied to determine criminal law applicability for Tier 4/5 assignments.",
-              },
-              {
-                label: "Layer 4: Tier Assignment",
-                frameworks: "Tier 1, Tier 2, Tier 3, Tier 4, Tier 5",
-                desc: "Final classification produced with full reasoning chain.",
-              },
+              { label: "Layer 1: International Definitions", frameworks: "IHRA, JDA, NEXUS", desc: "Applied first to determine whether content meets any antisemitism threshold." },
+              { label: "Layer 2: Context Analysis", frameworks: "Satire Check, Intent Signals, Audience Context", desc: "Contextual modifiers that can affect tier assignment in borderline cases." },
+              { label: "Layer 3: Dutch Legal Assessment", frameworks: "Art. 137c, Art. 137d, Art. 137e", desc: "Applied to determine criminal law applicability for Tier 4/5 assignments." },
+              { label: "Layer 4: Tier Assignment", frameworks: "Tier 1, Tier 2, Tier 3, Tier 4, Tier 5", desc: "Final classification produced with full reasoning chain." },
             ].map((layer, i, arr) => (
-              <div
-                key={i}
-                className="glass-card"
-                style={{ padding: "32px", position: "relative" }}
-              >
-                <h3 style={{ fontSize: "18px", fontWeight: 400, color: "#1B1A2B", marginBottom: "8px" }}>
-                  {layer.label}
-                </h3>
+              <div key={i} className="glass-card" style={{ padding: "32px", position: "relative" }}>
+                <h3 style={{ fontSize: "18px", fontWeight: 400, color: "#1B1A2B", marginBottom: "8px" }}>{layer.label}</h3>
                 <p className="section-label" style={{ marginBottom: "8px" }}>{layer.frameworks}</p>
                 <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>{layer.desc}</p>
                 {i < arr.length - 1 && (
-                  <div style={{ position: "absolute", bottom: "-16px", left: "50%", transform: "translateX(-50%)", color: "#2563EB", fontSize: "24px", zIndex: 10 }}>
-                    &#x2193;
-                  </div>
+                  <div style={{ position: "absolute", bottom: "-16px", left: "50%", transform: "translateX(-50%)", color: "#2563EB", fontSize: "24px", zIndex: 10 }}>&#x2193;</div>
                 )}
               </div>
             ))}
@@ -611,50 +360,18 @@ export default async function StandardsPage({
         </div>
       </section>
 
-      {/* Safety, Privacy & Governance */}
+      {/* Governance */}
       <section style={{ padding: "100px 0" }}>
         <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
-          <p className="section-label" style={{ marginBottom: "16px" }}>
-            GOVERNANCE
-          </p>
-          <h2
-            style={{
-              fontSize: "36px",
-              fontWeight: 400,
-              color: "#1B1A2B",
-              marginBottom: "40px",
-            }}
-          >
+          <p className="section-label" style={{ marginBottom: "16px" }}>GOVERNANCE</p>
+          <h2 style={{ fontSize: "36px", fontWeight: 400, color: "#1B1A2B", marginBottom: "40px" }}>
             Safety, Privacy &amp; Governance
           </h2>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gap: "24px",
-            }}
-          >
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
             {governanceCards.map((card, i) => (
               <div key={i} className="glass-card" style={{ padding: "32px" }}>
-                <h3
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: 400,
-                    color: "#1B1A2B",
-                    marginBottom: "8px",
-                  }}
-                >
-                  {card.title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: "15px",
-                    color: "#6B7280",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  {card.desc}
-                </p>
+                <h3 style={{ fontSize: "18px", fontWeight: 400, color: "#1B1A2B", marginBottom: "8px" }}>{card.title}</h3>
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>{card.desc}</p>
               </div>
             ))}
           </div>
@@ -670,10 +387,7 @@ export default async function StandardsPage({
           <p style={{ fontSize: "15px", color: "#6B7280", marginBottom: "40px" }}>
             Review our anonymized case studies to see how these frameworks are applied.
           </p>
-          <Link
-            href={`/${locale}/reports`}
-            className="btn-main"
-          >
+          <Link href={`/${locale}/reports`} className="btn-main">
             View case studies
           </Link>
         </div>
