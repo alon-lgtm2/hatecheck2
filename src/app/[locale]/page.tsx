@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "@/components/ui/ContactForm";
+import { tracks as academyTracks } from "@/lib/academy";
 
 export async function generateMetadata({
   params,
@@ -1304,8 +1305,9 @@ export default async function HomePage({
               }}
             >
               {[1, 2, 3, 4, 5].map((num) => (
-                <div
+                <Link
                   key={num}
+                  href={`/${locale}/academy/${academyTracks[num - 1].slug}`}
                   style={{
                     background: "#FFFFFF",
                     border: "1px solid #E5E7EB",
@@ -1313,6 +1315,8 @@ export default async function HomePage({
                     padding: "36px 32px",
                     position: "relative",
                     transition: "box-shadow 0.2s",
+                    textDecoration: "none",
+                    display: "block",
                   }}
                 >
                   <span
@@ -1383,7 +1387,7 @@ export default async function HomePage({
                   >
                     {ta("startLearning")} &rarr;
                   </span>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -1401,7 +1405,7 @@ export default async function HomePage({
           </div>
         </div>
 
-        {/* Coming Soon CTA */}
+        {/* Academy CTA */}
         <div
           style={{
             padding: "100px 0",
@@ -1414,7 +1418,7 @@ export default async function HomePage({
               className="section-label"
               style={{ marginBottom: "16px", color: "rgba(255,255,255,0.6)" }}
             >
-              {ta("comingSoon").toUpperCase()}
+              FREE &amp; OPEN
             </p>
             <h2
               style={{
@@ -1424,10 +1428,10 @@ export default async function HomePage({
                 marginBottom: "24px",
               }}
             >
-              {ta("comingSoonDesc")}
+              All Academy content is available now. No login. No paywall.
             </h2>
-            <Link href={`/${locale}/contact`} className="btn-white">
-              {ta("notify")}
+            <Link href={`/${locale}/academy`} className="btn-white">
+              {ta("startLearning")} &rarr;
             </Link>
           </div>
         </div>

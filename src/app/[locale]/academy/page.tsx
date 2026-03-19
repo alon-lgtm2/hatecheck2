@@ -85,8 +85,9 @@ export default async function AcademyPage({
             }}
           >
             {tracks.map((track) => (
-              <div
+              <Link
                 key={track.num}
+                href={`/${locale}/academy/${track.slug}`}
                 style={{
                   background: "#FFFFFF",
                   border: "1px solid #E5E7EB",
@@ -94,6 +95,8 @@ export default async function AcademyPage({
                   padding: "36px 32px",
                   position: "relative",
                   transition: "box-shadow 0.2s",
+                  textDecoration: "none",
+                  display: "block",
                 }}
               >
                 <span
@@ -164,7 +167,7 @@ export default async function AcademyPage({
                 >
                   {t("startLearning")} &rarr;
                 </span>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -182,7 +185,7 @@ export default async function AcademyPage({
         </div>
       </section>
 
-      {/* Coming Soon CTA */}
+      {/* CTA */}
       <section
         style={{
           padding: "100px 0",
@@ -195,7 +198,7 @@ export default async function AcademyPage({
             className="section-label"
             style={{ marginBottom: "16px", color: "rgba(255,255,255,0.6)" }}
           >
-            {t("comingSoon").toUpperCase()}
+            GET STARTED
           </p>
           <h2
             style={{
@@ -205,7 +208,7 @@ export default async function AcademyPage({
               marginBottom: "24px",
             }}
           >
-            {t("comingSoonDesc")}
+            Choose a track above to begin learning. All content is free and open.
           </h2>
           <Link
             href={`/${locale}/contact`}
