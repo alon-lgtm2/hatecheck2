@@ -1,0 +1,222 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "product": "Produit",
+    "standards": "Normes",
+    "organizations": "Organisations",
+    "resources": "Ressources",
+    "reports": "Rapports",
+    "academy": "Academie",
+    "about": "A propos",
+    "contact": "Contact"
+  },
+  "footer": {
+    "tagline": "Verifier. Classifier. Proteger.",
+    "quickLinks": "Liens rapides",
+    "platform": "Plateforme",
+    "legal": "Mentions legales",
+    "contactUs": "Contact",
+    "privacy": "Politique de confidentialite",
+    "terms": "Conditions d'utilisation",
+    "copyright": "© 2025 HateCheck. Une initiative a but non lucratif",
+    "location": "Pays-Bas",
+    "description": "HateCheck est une plateforme de renseignement alimentee par l'IA qui detecte et classifie l'antisemitisme et les discours de haine aux Pays-Bas et en Europe."
+  },
+  "home": {
+    "hero": {
+      "badge": "Plateforme de renseignement alimentee par l'IA",
+      "title": "Transformez la haine en ligne en action executoire",
+      "whatItDoes": "Collez un post, un article ou un lien. HateCheck utilise l'OSINT et des normes reconnues pour verifier le contenu, le classifier sur une echelle de gravite de 1 a 5, et generer des plaintes, memos et signalements prets a envoyer aux autorites neerlandaises competentes - en minutes, pas en jours.",
+      "subtitle": "Basee sur l'IHRA, Nexus, JDA et le Code penal neerlandais. Utilisee par des organisations juives, des municipalites, les forces de l'ordre, des educateurs et des citoyens a travers les Pays-Bas.",
+      "cta1": "Decouvrir la plateforme",
+      "cta2": "Nous contacter",
+      "stat1Label": "Precision de detection",
+      "stat2Label": "Incidents analyses",
+      "stat3Label": "Langues prises en charge",
+      "stat4Label": "Pays europeens"
+    },
+    "problem": {
+      "label": "Le probleme",
+      "col1Title": "Echelle et volume",
+      "col1Desc": "Des milliers d'incidents se produisent quotidiennement sur les reseaux sociaux, les sites d'information et les plateformes de messagerie - bien au-dela de la capacite d'examen manuel. Le volume rend la surveillance manuelle impossible.",
+      "col2Title": "Ambiguite et contexte",
+      "col2Desc": "De nombreux discours de haine se cachent derriere la satire, le langage code et le deni plausible. La classification est difficile, incoherente et varie selon les juridictions.",
+      "col3Title": "Sous-declaration",
+      "col3Desc": "Les communautes manquent d'outils accessibles pour documenter, classifier et signaler les incidents de maniere exploitable par les autorites et les organisations."
+    },
+    "howItWorks": {
+      "label": "Methodologie",
+      "step1Title": "Collecte des sources",
+      "step1Desc": "URLs, textes, images ou flux en direct soumis pour analyse sur plus de 20 plateformes et formats.",
+      "step2Title": "Verification et ciblage",
+      "step2Desc": "Le contenu est verifie pour son authenticite et sa pertinence avant d'entrer dans le pipeline d'analyse.",
+      "step3Title": "Analyse protocolaire",
+      "step3Desc": "L'IA multi-modele applique une analyse semantique, contextuelle et visuelle selon les cadres etablis.",
+      "step4Title": "Classification",
+      "step4Desc": "Attribution de gravite en cinq niveaux basee sur l'IHRA, la JDA, Nexus et les normes juridiques neerlandaises.",
+      "step5Title": "Action d'application",
+      "step5Desc": "Genere des dossiers de signalement, des rapports et de la documentation pour les autorites et les organisations."
+    },
+    "tiers": {
+      "label": "Systeme de classification",
+      "colTier": "Niveau",
+      "colClassification": "Classification",
+      "colDescription": "Description",
+      "colResponse": "Reponse",
+      "tier1Class": "Non antisemite",
+      "tier1Desc": "Contenu qui n'atteint le seuil d'antisemitisme sous aucune norme applicable.",
+      "tier1Response": "Aucune action requise. Archiver pour reference.",
+      "tier2Class": "Contexte necessaire",
+      "tier2Desc": "Contenu limite qui peut etre antisemite selon le contexte, l'intention et le public.",
+      "tier2Response": "Signaler pour examen humain et analyse contextuelle.",
+      "tier3Class": "Antisemite",
+      "tier3Desc": "Contenu qualifie d'antisemite selon les definitions IHRA/JDA mais ne franchissant pas les seuils penaux.",
+      "tier3Response": "Documenter, signaler a la plateforme, notifier les organismes de surveillance.",
+      "tier4Class": "Potentiellement criminel",
+      "tier4Desc": "Contenu pouvant violer les articles 137c, 137d ou 137e du Code penal neerlandais.",
+      "tier4Response": "Signalement formel aux forces de l'ordre avec dossier de preuves.",
+      "tier5Class": "Risque urgent",
+      "tier5Desc": "Indicateurs de menace immediate necessitant un signalement urgent aux forces de l'ordre.",
+      "tier5Response": "Signalement d'urgence. Notifier les cibles et les autorites immediatement."
+    },
+    "credibility": {
+      "label": "Normes et cadres",
+      "description": "Fondee sur des cadres internationaux etablis et des normes juridiques neerlandaises."
+    },
+    "quote": {
+      "text": "S'il existe un principe fondamental sous-jacent au Premier Amendement, c'est que le gouvernement ne peut interdire l'expression d'une idee simplement parce que la societe trouve cette idee offensante ou desagreable.",
+      "attribution": "Juge Louis D. Brandeis - opinion dissidente dans Whitney v. California (1927)"
+    },
+    "platform": {
+      "card1Title": "Verifier un incident",
+      "card1Desc": "Collez un tweet, post, article ou tract. HateCheck confirme les faits avec des sources neerlandaises, applique les normes IHRA/Nexus/JDA, attribue un niveau clair (1-5) et propose des actions specifiques.",
+      "card2Title": "Trouver des incidents",
+      "card2Desc": "Lancez un processus de recherche OSINT guide sur des sources neerlandaises fiables - archives policieres, rapports CIDI, grands medias, declarations municipales - pour decouvrir des incidents et des tendances liees.",
+      "card3Title": "Rediger et orienter",
+      "card3Desc": "Genere automatiquement des plaintes, memos juridiques et points de discussion avec preuves jointes. L'orientation intelligente suggere l'autorite appropriee - plateformes, municipalites, police - adaptee au niveau de gravite.",
+      "card4Title": "Suivre et relancer",
+      "card4Desc": "Tient un dossier de chaque cas avec suivi de statut, rappels et logique d'escalade. Relie les recidivistes entre les incidents pour reveler des tendances systemiques."
+    },
+    "cta": {
+      "label": "Etape suivante",
+      "text": "Interesse ? Contactez-nous"
+    }
+  },
+  "product": {
+    "title": "La plateforme HateCheck",
+    "subtitle": "Un systeme de renseignement complet pour detecter, classifier et agir contre l'antisemitisme et les discours de haine.",
+    "step1Title": "Ingestion de contenu",
+    "step1Desc": "Soumettez des URLs, textes, images ou connectez des flux de donnees. Prend en charge 20+ plateformes et formats.",
+    "step2Title": "Analyse IA",
+    "step2Desc": "L'IA multi-modele analyse le contenu pour detecter les tropes antisemites, le langage code et la haine explicite.",
+    "step3Title": "Mapping juridique",
+    "step3Desc": "Mapping automatique vers IHRA, JDA, Nexus et le Code penal neerlandais (137c, 137d, 137e).",
+    "step4Title": "Classification par niveau",
+    "step4Desc": "Attribue l'un des 5 niveaux selon la gravite, le contexte et l'applicabilite du cadre juridique.",
+    "step5Title": "Moteur d'action",
+    "step5Desc": "Genere des dossiers de signalement, rapports et documentation pour les autorites et les organisations."
+  },
+  "standards": {
+    "title": "Normes juridiques et definitionnelles",
+    "subtitle": "La methodologie de classification de HateCheck repose sur des definitions internationalement reconnues et le droit neerlandais.",
+    "ihra": {
+      "title": "Definition de travail de l'IHRA",
+      "badge": "Norme internationale"
+    },
+    "nexus": {
+      "title": "Le document Nexus",
+      "badge": "Critique vs. Antisemitisme"
+    },
+    "jda": {
+      "title": "Declaration de Jerusalem sur l'antisemitisme",
+      "badge": "Cadre academique"
+    },
+    "dutch": {
+      "title": "Code penal neerlandais",
+      "badge": "Cadre juridique"
+    }
+  },
+  "about": {
+    "title": "A propos de HateCheck",
+    "subtitle": "Nous avons cree HateCheck parce que le probleme exigeait une reponse serieuse.",
+    "mission": "Notre mission",
+    "origin": "Histoire d'origine",
+    "values": "Nos valeurs",
+    "roadmap": "Feuille de route",
+    "notForProfit": "Engagement a but non lucratif"
+  },
+  "organizations": {
+    "title": "Pour les organisations",
+    "subtitle": "HateCheck permet aux institutions de detecter, classifier et repondre aux discours de haine a grande echelle.",
+    "why": "Pourquoi les organisations utilisent HateCheck",
+    "useCases": "Cas d'utilisation",
+    "security": "Donnees et securite",
+    "cta": "Demander une demo"
+  },
+  "resources": {
+    "title": "Ressources et recherche",
+    "subtitle": "Analyses, guides et recherches sur l'antisemitisme, les discours de haine et le renseignement numerique.",
+    "readMore": "Lire l'article",
+    "allArticles": "Tous les articles",
+    "filter": "Filtrer par categorie"
+  },
+  "reports": {
+    "title": "Rapports d'incidents",
+    "subtitle": "Etudes de cas anonymisees demontrant la classification HateCheck en action.",
+    "viewReport": "Voir le rapport complet",
+    "tier": "Niveau",
+    "date": "Date",
+    "platform": "Plateforme"
+  },
+  "academy": {
+    "title": "Academie HateCheck",
+    "subtitle": "Connaissances ouvertes pour reconnaitre, documenter et repondre a l'antisemitisme. Gratuit. Pour tous.",
+    "intro": "La connaissance est la premiere ligne de defense. HateCheck estime que chacun - des citoyens aux institutions - devrait avoir acces aux outils et cadres necessaires pour agir. Pas de connexion. Pas de paywall. Pas de barriere.",
+    "whyTitle": "Pourquoi c'est important",
+    "whyText": "L'ecart entre l'ampleur de l'antisemitisme en ligne et la capacite du public a le reconnaitre et y repondre se creuse. Des milliers d'incidents ne sont pas reconnus, documentes ou signales chaque annee - non pas parce que les gens s'en moquent, mais parce qu'ils manquent de connaissances et d'outils pour agir.",
+    "whoTitle": "Pour qui",
+    "whoProfessionals": "Professionnels - personnel municipal, forces de l'ordre, educateurs",
+    "whoStudents": "Etudiants et chercheurs",
+    "whoCitizens": "Tout citoyen engage",
+    "tracksTitle": "Parcours d'apprentissage",
+    "track1Title": "Reconnaitre l'antisemitisme",
+    "track1Desc": "Apprenez a identifier l'antisemitisme sous ses nombreuses formes - des stereotypes anciens au langage code moderne.",
+    "track1Guides": "5 guides",
+    "track1Time": "45 min au total",
+    "track2Title": "OSINT - Bases du renseignement open source",
+    "track2Desc": "Comprenez comment les informations publiques et verifiables du web ouvert peuvent etre utilisees de maniere responsable pour documenter la haine.",
+    "track2Guides": "5 guides",
+    "track2Time": "40 min au total",
+    "track3Title": "Signalement sur les plateformes",
+    "track3Desc": "Guides etape par etape pour signaler l'antisemitisme et les discours de haine sur chaque grande plateforme.",
+    "track3Guides": "7 guides",
+    "track3Time": "35 min au total",
+    "track4Title": "Reponse institutionnelle",
+    "track4Desc": "Ce que les municipalites, universites, employeurs et organisations devraient faire lorsque l'antisemitisme est signale.",
+    "track4Guides": "6 guides",
+    "track4Time": "50 min au total",
+    "track5Title": "Histoire et contexte",
+    "track5Desc": "Pourquoi l'antisemitisme persiste, comment il evolue et ce qui le distingue des autres formes de haine.",
+    "track5Guides": "6 guides",
+    "track5Time": "55 min au total",
+    "startLearning": "Commencer a apprendre",
+    "comingSoon": "Prochainement",
+    "comingSoonDesc": "L'Academie HateCheck est actuellement en developpement. Inscrivez-vous pour etre prevenu du lancement des premiers modules.",
+    "notify": "Me prevenir",
+    "homeTeaser": "Academie HateCheck : Connaissances ouvertes pour tous"
+  },
+  "contact": {
+    "title": "Nous contacter",
+    "subtitle": "Contactez-nous pour des demos, des partenariats, des questions de recherche ou des questions generales.",
+    "nameLabel": "Nom complet",
+    "emailLabel": "Adresse e-mail",
+    "orgLabel": "Organisation",
+    "roleLabel": "Role / Titre",
+    "subjectLabel": "Sujet",
+    "messageLabel": "Message",
+    "submit": "Envoyer le message",
+    "sending": "Envoi en cours...",
+    "success": "Message envoye avec succes. Nous vous recontacterons sous peu.",
+    "error": "Une erreur s'est produite. Veuillez reessayer."
+  }
+}

@@ -1,5 +1,5 @@
 /**
- * Reusable sub-page header component — Airspace style.
+ * Reusable sub-page header component - Airspace style.
  * Dark background with overlay, centered white text.
  * Used by product, standards, about, contact, etc. pages.
  * The homepage builds its own hero inline.

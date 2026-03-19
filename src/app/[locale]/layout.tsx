@@ -16,7 +16,7 @@ export async function generateMetadata({
 
   return {
     title: {
-      default: "HateCheck — AI-Powered Antisemitism Detection Platform",
+      default: "HateCheck - AI-Powered Antisemitism Detection Platform",
       template: "%s | HateCheck",
     },
     description: t("subtitle"),
@@ -24,6 +24,9 @@ export async function generateMetadata({
       languages: {
         en: "/en",
         nl: "/nl",
+        de: "/de",
+        he: "/he",
+        fr: "/fr",
       },
     },
   };
@@ -42,15 +45,16 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
 
-  if (!routing.locales.includes(locale as "en" | "nl")) {
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
     notFound();
   }
 
   const messages = await getMessages();
+  const dir = locale === "he" ? "rtl" : "ltr";
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen" dir={dir}>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

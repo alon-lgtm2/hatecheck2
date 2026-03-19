@@ -4,7 +4,7 @@ import PageHeader from "@/components/sections/Hero";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "About — HateCheck",
+    title: "About - HateCheck",
     description:
       "Learn about HateCheck's mission, origin, and commitment to fighting antisemitism as a not-for-profit initiative.",
   };

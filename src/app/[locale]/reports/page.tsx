@@ -7,7 +7,7 @@ import PageHeader from "@/components/sections/Hero";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Reports — Anonymized Case Studies",
+    title: "Reports - Anonymized Case Studies",
     description:
       "Anonymized incident reports demonstrating HateCheck's five-tier classification system in action.",
   };
@@ -55,7 +55,7 @@ export default async function ReportsPage({
                     <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                       <span className={`tier-bg-${report.tier}`} style={{ width: "10px", height: "10px", borderRadius: "50%", display: "inline-block" }} />
                       <span className={`tier-${report.tier}`} style={{ fontSize: "11px", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.15em" }}>
-                        TIER {report.tier} — {config.label.toUpperCase()}
+                        TIER {report.tier} - {config.label.toUpperCase()}
                       </span>
                     </span>
                     <span style={{ fontSize: "13px", color: "#9CA3AF" }}>
