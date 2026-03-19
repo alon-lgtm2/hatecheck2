@@ -26,8 +26,9 @@
     "hero": {
       "badge": "KI-gestutzte Nachrichtenplattform",
       "title": "Online-Hass in durchsetzbare Massnahmen umwandeln",
-      "whatItDoes": "Fugen Sie einen Beitrag, Artikel oder Link ein. HateCheck nutzt OSINT und anerkannte Standards, um den Inhalt zu verifizieren, ihn auf einer Skala von 1-5 zu klassifizieren und fertige Beschwerden, Memos und Verweisungen an die zustandigen niederlandischen Behorden zu erstellen - in Minuten, nicht Tagen.",
+      "whatItDoes": "HateCheck ist eine KI-gestutzte Ermittlungsplattform fur Antisemitismus und Hassrede in den Niederlanden. Reichen Sie beliebige Online-Inhalte ein — einen Beitrag, Artikel oder Link — und erhalten Sie einen verifizierten, rechtlich fundierten Klassifizierungsbericht mit Schweregradbewertung, Beweiskartierung und versandfertigen Verweisungen an niederlandische Behorden. Vier internationale Standards. Ein strukturierter Arbeitsablauf. Minuten, nicht Tage.",
       "subtitle": "Basierend auf IHRA, Nexus, JDA und dem niederlandischen Strafgesetzbuch. Genutzt von judischen Organisationen, Gemeinden, Strafverfolgungsbehorden, Padagogen und Burgern in den Niederlanden.",
+      "global": "Entwickelt fur die Niederlande. Konzipiert fur internationale Skalierung.",
       "cta1": "Plattform entdecken",
       "cta2": "Kontakt aufnehmen",
       "stat1Label": "Erkennungsgenauigkeit",

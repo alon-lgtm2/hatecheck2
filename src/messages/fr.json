@@ -26,8 +26,9 @@
     "hero": {
       "badge": "Plateforme de renseignement alimentee par l'IA",
       "title": "Transformez la haine en ligne en action executoire",
-      "whatItDoes": "Collez un post, un article ou un lien. HateCheck utilise l'OSINT et des normes reconnues pour verifier le contenu, le classifier sur une echelle de gravite de 1 a 5, et generer des plaintes, memos et signalements prets a envoyer aux autorites neerlandaises competentes - en minutes, pas en jours.",
+      "whatItDoes": "HateCheck est une plateforme d'investigation alimentee par l'IA pour l'antisemitisme et les discours de haine aux Pays-Bas. Soumettez n'importe quel contenu en ligne — un post, un article ou un lien — et recevez un rapport de classification verifie et juridiquement fonde, avec evaluation de gravite, cartographie des preuves et signalements prets a envoyer aux autorites neerlandaises. Quatre normes internationales. Un flux de travail structure. Des minutes, pas des jours.",
       "subtitle": "Basee sur l'IHRA, Nexus, JDA et le Code penal neerlandais. Utilisee par des organisations juives, des municipalites, les forces de l'ordre, des educateurs et des citoyens a travers les Pays-Bas.",
+      "global": "Concu pour les Pays-Bas. Pense pour une expansion internationale.",
       "cta1": "Decouvrir la plateforme",
       "cta2": "Nous contacter",
       "stat1Label": "Precision de detection",

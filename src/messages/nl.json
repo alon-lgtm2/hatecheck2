@@ -26,8 +26,9 @@
     "hero": {
       "badge": "AI-Gedreven Intelligentieplatform",
       "title": "Van Online Haat naar Handhavbare Actie",
-      "whatItDoes": "Plak een bericht, artikel of link. HateCheck gebruikt OSINT en erkende normen om de inhoud te verifieren, te classificeren op een schaal van 1-5, en kant-en-klare klachten, memo's en doorverwijzingen naar de juiste Nederlandse autoriteiten te genereren - in minuten, niet dagen.",
+      "whatItDoes": "HateCheck is een AI-gestuurd onderzoeksplatform voor antisemitisme en haatzaaien in Nederland. Dien elke online inhoud in — een bericht, artikel of link — en ontvang een geverifieerd, juridisch onderbouwd classificatierapport met ernstscores, bewijsmapping en kant-en-klare doorverwijzingen naar Nederlandse autoriteiten. Vier internationale standaarden. Een gestructureerde workflow. Minuten, geen dagen.",
       "subtitle": "Gebouwd op IHRA, Nexus, JDA en het Nederlandse Wetboek van Strafrecht. Gebruikt door Joodse organisaties, gemeenten, politie, onderwijsinstellingen en burgers in heel Nederland.",
+      "global": "Gebouwd voor Nederland. Ontworpen om internationaal op te schalen.",
       "cta1": "Verken het Platform",
       "cta2": "Neem Contact Op",
       "stat1Label": "Detectienauwkeurigheid",

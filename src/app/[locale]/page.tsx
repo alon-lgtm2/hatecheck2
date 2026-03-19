@@ -24,6 +24,7 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "home" });
+  const ta = await getTranslations({ locale, namespace: "academy" });
 
   const features = [
     {
@@ -184,40 +185,40 @@ export default async function HomePage({
     {
       label: "Central Institutional",
       orgs: [
-        { name: "ENMA", desc: "Internationally comparable incident data across Europe" },
-        { name: "EU FRA", desc: "Definitive antisemitism surveys and rights monitoring" },
-        { name: "European Commission", desc: "EU Strategy coordinator, led by Katharina von Schnurbein" },
-        { name: "OSCE ODIHR", desc: "Comprehensive hate crime database for 57 states" },
+        { name: "ENMA", desc: "Internationally comparable incident data across Europe", url: "https://www.european-network-against-antisemitism.eu/" },
+        { name: "EU FRA", desc: "Definitive antisemitism surveys and rights monitoring", url: "https://fra.europa.eu/en/themes/antisemitism" },
+        { name: "European Commission", desc: "EU Strategy coordinator, led by Katharina von Schnurbein", url: "https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/combatting-discrimination/racism-and-xenophobia/combating-antisemitism_en" },
+        { name: "OSCE ODIHR", desc: "Comprehensive hate crime database for 57 states", url: "https://hatecrime.osce.org/" },
       ],
     },
     {
       label: "Technical & AI Monitoring",
       orgs: [
-        { name: "TEV (Hungary)", desc: "AI-based web scraping across France, Germany, Sweden" },
-        { name: "Decoding Antisemitism", desc: "AI research on implicit antisemitism across platforms" },
-        { name: "FOA", desc: "Proprietary AI algorithm detecting thousands of instances in real-time" },
-        { name: "INACH", desc: "Global network for systematic cyber-hate reporting and removal" },
+        { name: "TEV (Hungary)", desc: "AI-based web scraping across France, Germany, Sweden", url: "https://tyveszelyeztetett.hu/en/" },
+        { name: "Decoding Antisemitism", desc: "AI research on implicit antisemitism across platforms", url: "https://decoding-antisemitism.eu/" },
+        { name: "FOA", desc: "Proprietary AI algorithm detecting thousands of instances in real-time", url: "https://www.combatantisemitism.org/" },
+        { name: "INACH", desc: "Global network for systematic cyber-hate reporting and removal", url: "https://www.inach.net/" },
       ],
     },
     {
       label: "National Documentation",
       orgs: [
-        { name: "RIAS (Germany)", desc: "Standardized IHRA-aligned nationwide database" },
-        { name: "CST (UK)", desc: "Global leader in incident documentation and communal security" },
-        { name: "CIDI (Netherlands)", desc: "Central Dutch documentation and reporting body" },
-        { name: "CDEC (Italy)", desc: "Primary Italian antisemitism observatory" },
-        { name: "IKG Wien (Austria)", desc: "Institutional reporting point with granular annual reports" },
-        { name: "AKVAH (Denmark)", desc: "Systematic mapping of antisemitic incidents" },
+        { name: "RIAS (Germany)", desc: "Standardized IHRA-aligned nationwide database", url: "https://report-antisemitism.de/en/" },
+        { name: "CST (UK)", desc: "Global leader in incident documentation and communal security", url: "https://cst.org.uk/" },
+        { name: "CIDI (Netherlands)", desc: "Central Dutch documentation and reporting body", url: "https://www.cidi.nl/" },
+        { name: "CDEC (Italy)", desc: "Primary Italian antisemitism observatory", url: "https://www.cdec.it/" },
+        { name: "IKG Wien (Austria)", desc: "Institutional reporting point with granular annual reports", url: "https://www.ikg-wien.at/" },
+        { name: "AKVAH (Denmark)", desc: "Systematic mapping of antisemitic incidents", url: "https://telefonraadgivningen.dk/" },
       ],
     },
     {
       label: "Policy & Legal",
       orgs: [
-        { name: "CEJI (Belgium)", desc: "NOA project producing National Report Cards" },
-        { name: "Antisemitism Policy Trust (UK)", desc: "Evidence-based research for parliamentarians" },
-        { name: "CRIF (France)", desc: "Main representative body for French Jews" },
-        { name: "World Jewish Congress", desc: "Global institutional coordination" },
-        { name: "NEVER AGAIN (Poland)", desc: "Independent watchdog monitoring Eastern European extremism" },
+        { name: "CEJI (Belgium)", desc: "NOA project producing National Report Cards", url: "https://www.ceji.org/" },
+        { name: "Antisemitism Policy Trust (UK)", desc: "Evidence-based research for parliamentarians", url: "https://antisemitism.org.uk/" },
+        { name: "CRIF (France)", desc: "Main representative body for French Jews", url: "https://www.crif.org/" },
+        { name: "World Jewish Congress", desc: "Global institutional coordination", url: "https://www.worldjewishcongress.org/" },
+        { name: "NEVER AGAIN (Poland)", desc: "Independent watchdog monitoring Eastern European extremism", url: "https://www.nigdywiecej.org/" },
       ],
     },
   ];
@@ -281,11 +282,23 @@ export default async function HomePage({
               fontSize: "15px",
               color: "rgba(255,255,255,0.7)",
               maxWidth: "640px",
-              margin: "0 auto 40px",
+              margin: "0 auto 20px",
               lineHeight: 1.7,
             }}
           >
             {t("hero.subtitle")}
+          </p>
+          <p
+            style={{
+              fontSize: "14px",
+              fontWeight: 600,
+              color: "rgba(255,255,255,0.5)",
+              textTransform: "uppercase",
+              letterSpacing: "2px",
+              margin: "0 auto 40px",
+            }}
+          >
+            {t("hero.global")}
           </p>
           <div
             style={{
@@ -530,10 +543,20 @@ export default async function HomePage({
             margin: "0 auto",
             padding: "0 24px",
             display: "flex",
-            justifyContent: "flex-end",
+            alignItems: "center",
+            gap: "48px",
           }}
         >
-          <div style={{ maxWidth: "600px" }}>
+          <div style={{ flex: "1 1 0%", display: "flex", justifyContent: "center" }}>
+            <Image
+              src="/images/scan2.png"
+              alt="HateCheck platform scan"
+              width={500}
+              height={500}
+              style={{ maxWidth: "100%", height: "auto" }}
+            />
+          </div>
+          <div style={{ flex: "1 1 0%", maxWidth: "600px" }}>
             <p className="section-label" style={{ marginBottom: "12px" }}>
               THE PLATFORM
             </p>
@@ -1182,10 +1205,13 @@ export default async function HomePage({
                 }}
               >
                 {cat.orgs.map((org) => (
-                  <div
+                  <a
                     key={org.name}
+                    href={org.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="glass-card"
-                    style={{ padding: "20px" }}
+                    style={{ padding: "20px", textDecoration: "none", display: "block", transition: "box-shadow 0.2s" }}
                   >
                     <div
                       style={{
@@ -1193,9 +1219,13 @@ export default async function HomePage({
                         fontWeight: 700,
                         color: "#222",
                         marginBottom: "6px",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "6px",
                       }}
                     >
                       {org.name}
+                      <span style={{ fontSize: "12px", color: "#9CA3AF" }}>{"\u2197"}</span>
                     </div>
                     <div
                       style={{
@@ -1206,7 +1236,7 @@ export default async function HomePage({
                     >
                       {org.desc}
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
@@ -1214,72 +1244,190 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* ── ACADEMY TEASER ── */}
+      {/* ── ACADEMY (FULL) ── */}
       <section
+        id="academy"
         style={{
-          padding: "100px 0",
+          padding: "100px 0 0",
           background: "#FFFFFF",
           borderBottom: "1px solid #E5E7EB",
         }}
       >
         <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
-          <div style={{ textAlign: "center", marginBottom: "48px" }}>
+          <div style={{ textAlign: "center", marginBottom: "32px" }}>
             <p className="section-label" style={{ marginBottom: "12px" }}>
               OPEN KNOWLEDGE
             </p>
-            <h2
-              className="section-title"
-              style={{ marginBottom: "16px" }}
-            >
-              HateCheck Academy
+            <h2 className="section-title" style={{ marginBottom: "16px" }}>
+              {ta("title")}
             </h2>
             <p style={{ fontSize: "16px", color: "#666", maxWidth: "600px", margin: "0 auto" }}>
-              Free educational resources for recognizing, documenting, and responding to antisemitism. For everyone.
+              {ta("subtitle")}
             </p>
           </div>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "24px",
-              marginBottom: "40px",
-            }}
-          >
+
+          {/* Intro */}
+          <div style={{ maxWidth: "760px", margin: "0 auto 40px", textAlign: "center" }}>
+            <p style={{ fontSize: "17px", color: "#555", lineHeight: 1.8 }}>
+              {ta("intro")}
+            </p>
+          </div>
+
+          {/* Who It's For */}
+          <div style={{ display: "flex", justifyContent: "center", gap: "48px", flexWrap: "wrap", marginBottom: "56px" }}>
             {[
-              { num: "01", title: "Recognizing Antisemitism", desc: "From ancient tropes to modern coded language - learn to identify the full spectrum." },
-              { num: "02", title: "OSINT Basics", desc: "How public, verifiable information from the open web can document hate responsibly." },
-              { num: "03", title: "Platform Reporting", desc: "Step-by-step guides for reporting hate speech on every major platform." },
-            ].map((t) => (
-              <div
-                key={t.num}
-                className="glass-card"
-                style={{ padding: "32px", position: "relative" }}
-              >
-                <span style={{ position: "absolute", top: "16px", right: "20px", fontSize: "11px", fontWeight: 700, color: "#D1D5DB", letterSpacing: "0.15em" }}>
-                  {t.num}
-                </span>
-                <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#222", marginBottom: "10px" }}>
-                  {t.title}
-                </h3>
-                <p style={{ fontSize: "14px", color: "#666", lineHeight: 1.6 }}>
-                  {t.desc}
-                </p>
+              { emoji: "\uD83C\uDFDB", key: "whoProfessionals" },
+              { emoji: "\uD83C\uDF93", key: "whoStudents" },
+              { emoji: "\uD83D\uDC64", key: "whoCitizens" },
+            ].map((a) => (
+              <div key={a.key} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                <span style={{ fontSize: "20px" }}>{a.emoji}</span>
+                <span style={{ fontSize: "14px", color: "#6B7280", fontWeight: 500 }}>{ta(a.key)}</span>
               </div>
             ))}
           </div>
-          <div style={{ textAlign: "center" }}>
-            <Link
-              href={`/${locale}/academy`}
+        </div>
+
+        {/* Learning Tracks Grid */}
+        <div style={{ padding: "80px 0 100px", background: "#F8F9FA" }}>
+          <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
+            <div style={{ textAlign: "center", marginBottom: "56px" }}>
+              <p className="section-label" style={{ marginBottom: "12px" }}>
+                {ta("tracksTitle").toUpperCase()}
+              </p>
+            </div>
+            <div
               style={{
-                fontSize: "14px",
-                fontWeight: 600,
-                color: "#3B82F6",
-                textDecoration: "none",
-                textTransform: "uppercase",
-                letterSpacing: "1px",
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))",
+                gap: "28px",
               }}
             >
-              Explore All Tracks &rarr;
+              {[1, 2, 3, 4, 5].map((num) => (
+                <div
+                  key={num}
+                  style={{
+                    background: "#FFFFFF",
+                    border: "1px solid #E5E7EB",
+                    borderRadius: "12px",
+                    padding: "36px 32px",
+                    position: "relative",
+                    transition: "box-shadow 0.2s",
+                  }}
+                >
+                  <span
+                    style={{
+                      position: "absolute",
+                      top: "16px",
+                      right: "20px",
+                      fontSize: "11px",
+                      fontWeight: 700,
+                      letterSpacing: "0.15em",
+                      color: "#D1D5DB",
+                    }}
+                  >
+                    {String(num).padStart(2, "0")}
+                  </span>
+                  <div
+                    style={{
+                      display: "inline-block",
+                      padding: "4px 12px",
+                      background: "#EFF6FF",
+                      borderRadius: "4px",
+                      fontSize: "10px",
+                      fontWeight: 700,
+                      color: "#2563EB",
+                      letterSpacing: "0.15em",
+                      textTransform: "uppercase",
+                      marginBottom: "20px",
+                    }}
+                  >
+                    TRACK {num}
+                  </div>
+                  <h3
+                    style={{
+                      fontSize: "20px",
+                      fontWeight: 700,
+                      color: "#1B1A2B",
+                      marginBottom: "12px",
+                    }}
+                  >
+                    {ta(`track${num}Title`)}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "15px",
+                      color: "#6B7280",
+                      lineHeight: 1.7,
+                      marginBottom: "20px",
+                    }}
+                  >
+                    {ta(`track${num}Desc`)}
+                  </p>
+                  <div style={{ display: "flex", gap: "16px", alignItems: "center", marginBottom: "24px" }}>
+                    <span style={{ fontSize: "12px", color: "#9CA3AF", fontWeight: 600 }}>
+                      {ta(`track${num}Guides`)}
+                    </span>
+                    <span style={{ fontSize: "12px", color: "#D1D5DB" }}>|</span>
+                    <span style={{ fontSize: "12px", color: "#9CA3AF", fontWeight: 600 }}>
+                      {ta(`track${num}Time`)}
+                    </span>
+                  </div>
+                  <span
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: 600,
+                      color: "#2563EB",
+                      letterSpacing: "0.05em",
+                    }}
+                  >
+                    {ta("startLearning")} &rarr;
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Why This Matters */}
+        <div style={{ padding: "80px 0", background: "#FFFFFF" }}>
+          <div style={{ maxWidth: "760px", margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
+            <p className="section-label" style={{ marginBottom: "16px" }}>
+              {ta("whyTitle").toUpperCase()}
+            </p>
+            <p style={{ fontSize: "17px", color: "#555", lineHeight: 1.8 }}>
+              {ta("whyText")}
+            </p>
+          </div>
+        </div>
+
+        {/* Coming Soon CTA */}
+        <div
+          style={{
+            padding: "100px 0",
+            background: "linear-gradient(135deg, #1B1A2B 0%, #2D2B3E 50%, #1B1A2B 100%)",
+            textAlign: "center",
+          }}
+        >
+          <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
+            <p
+              className="section-label"
+              style={{ marginBottom: "16px", color: "rgba(255,255,255,0.6)" }}
+            >
+              {ta("comingSoon").toUpperCase()}
+            </p>
+            <h2
+              style={{
+                fontSize: "28px",
+                fontWeight: 700,
+                color: "#FFFFFF",
+                marginBottom: "24px",
+              }}
+            >
+              {ta("comingSoonDesc")}
+            </h2>
+            <Link href={`/${locale}/contact`} className="btn-white">
+              {ta("notify")}
             </Link>
           </div>
         </div>
