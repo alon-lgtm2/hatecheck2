@@ -53,6 +53,36 @@ const dutchArticles = [
   },
 ];
 
+const whyStandardsCards = [
+  {
+    title: "Real threats are missed",
+    desc: "Coded language, dog whistles, and semantic drift evade keyword filters. Without structured frameworks, dangerous content slips through.",
+  },
+  {
+    title: "Legitimate speech is mislabelled",
+    desc: "Sharp political critique is not the same as antisemitism. Over-classification erodes trust and chills academic freedom.",
+  },
+  {
+    title: "Actions don\u2019t hold up",
+    desc: "Reports built on weak analysis fail in courts, boardrooms, and public discourse. Defensibility requires rigorous methodology.",
+  },
+];
+
+const governanceCards = [
+  {
+    title: "No automatic external actions",
+    desc: "HateCheck never sends emails or forms to authorities automatically. AI drafts text; humans control the send button.",
+  },
+  {
+    title: "Careful legal language",
+    desc: "We say \u2018Potentially criminal\u2019, never \u2018This is a crime\u2019. The app is a reference tool, not a court.",
+  },
+  {
+    title: "Data isolation",
+    desc: "Every organisation\u2019s data is siloed. No organisation can see another\u2019s incidents. No tracking or analytics.",
+  },
+];
+
 export default async function StandardsPage({
   params,
 }: {
@@ -77,6 +107,56 @@ export default async function StandardsPage({
             <p className="text-[17px] text-[rgba(255,255,255,0.65)] leading-relaxed max-w-3xl">
               {t("subtitle")}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Standards Matter */}
+      <section style={{ padding: "96px 64px" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+          <p className="section-label" style={{ marginBottom: "16px" }}>
+            WHY STANDARDS MATTER
+          </p>
+          <h2
+            style={{
+              fontSize: "36px",
+              fontWeight: 700,
+              color: "#FFFFFF",
+              marginBottom: "40px",
+            }}
+          >
+            Without Clear Standards, Three Things Go Wrong
+          </h2>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "24px",
+            }}
+          >
+            {whyStandardsCards.map((card, i) => (
+              <div key={i} className="glass-card" style={{ padding: "32px" }}>
+                <h3
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: 700,
+                    color: "#FFFFFF",
+                    marginBottom: "8px",
+                  }}
+                >
+                  {card.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "15px",
+                    color: "rgba(255,255,255,0.65)",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  {card.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -152,6 +232,34 @@ export default async function StandardsPage({
                   IHRA serves as the primary framework for all cases not directly related to Israel. Its broad adoption makes it the most institutionally recognized baseline for classification.
                 </p>
               </div>
+              {/* How HateCheck Uses This */}
+              <div
+                className="glass-card"
+                style={{
+                  padding: "24px",
+                  backgroundColor: "rgba(255,255,255,0.03)",
+                }}
+              >
+                <h4
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: 700,
+                    color: "#FFFFFF",
+                    marginBottom: "8px",
+                  }}
+                >
+                  How HateCheck Uses This
+                </h4>
+                <p
+                  style={{
+                    fontSize: "15px",
+                    color: "rgba(255,255,255,0.65)",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  Provides the primary test for whether content is antisemitic at all. Reasoning logs reference IHRA-style patterns (demonisation, dehumanisation) for Tier 3&ndash;5 classifications.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -203,6 +311,34 @@ export default async function StandardsPage({
                 <p className="section-label mb-2">ROLE IN HATECHECK</p>
                 <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
                   Nexus analysis is applied specifically to cases where the Israel-antisemitism boundary is contested, providing a structured test for distinguishing political criticism from antisemitic speech.
+                </p>
+              </div>
+              {/* How HateCheck Uses This */}
+              <div
+                className="glass-card"
+                style={{
+                  padding: "24px",
+                  backgroundColor: "rgba(255,255,255,0.03)",
+                }}
+              >
+                <h4
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: 700,
+                    color: "#FFFFFF",
+                    marginBottom: "8px",
+                  }}
+                >
+                  How HateCheck Uses This
+                </h4>
+                <p
+                  style={{
+                    fontSize: "15px",
+                    color: "rgba(255,255,255,0.65)",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  When an incident involves Israel/Palestine, Zionism or boycotts, HateCheck asks: Is the content relying on classic antisemitic myths? Is it blaming Jews as Jews for actions of Israel? Is Israel being singled out by standards not applied to any other state?
                 </p>
               </div>
             </div>
@@ -267,6 +403,34 @@ export default async function StandardsPage({
                   JDA guidance is applied as a secondary check for Israel-related content, providing more granular boundaries for grey-zone cases that IHRA alone cannot resolve.
                 </p>
               </div>
+              {/* How HateCheck Uses This */}
+              <div
+                className="glass-card"
+                style={{
+                  padding: "24px",
+                  backgroundColor: "rgba(255,255,255,0.03)",
+                }}
+              >
+                <h4
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: 700,
+                    color: "#FFFFFF",
+                    marginBottom: "8px",
+                  }}
+                >
+                  How HateCheck Uses This
+                </h4>
+                <p
+                  style={{
+                    fontSize: "15px",
+                    color: "rgba(255,255,255,0.65)",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  Useful for borderline cases in campus debates or academic speech. Helps avoid over-classification when criticism is sharp but not antisemitic.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -312,6 +476,36 @@ export default async function StandardsPage({
               <p className="section-label mb-2">ROLE IN HATECHECK</p>
               <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
                 Dutch law is applied on top of international standards to assess criminal liability thresholds, producing Tier 4 and Tier 5 classifications for content that may constitute criminal speech.
+              </p>
+            </div>
+
+            {/* How HateCheck Uses This */}
+            <div
+              className="glass-card"
+              style={{
+                padding: "24px",
+                backgroundColor: "rgba(255,255,255,0.03)",
+                marginTop: "32px",
+              }}
+            >
+              <h4
+                style={{
+                  fontSize: "16px",
+                  fontWeight: 700,
+                  color: "#FFFFFF",
+                  marginBottom: "8px",
+                }}
+              >
+                How HateCheck Uses This
+              </h4>
+              <p
+                style={{
+                  fontSize: "15px",
+                  color: "rgba(255,255,255,0.65)",
+                  lineHeight: 1.7,
+                }}
+              >
+                Maps verified incidents to the specific statutory requirements of Articles 137c, 137d, and 137e. Generates structured evidentiary dossiers for the Public Prosecution Service.
               </p>
             </div>
           </div>
@@ -368,6 +562,56 @@ export default async function StandardsPage({
                     &#x2193;
                   </div>
                 )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Safety, Privacy & Governance */}
+      <section style={{ padding: "96px 64px" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+          <p className="section-label" style={{ marginBottom: "16px" }}>
+            GOVERNANCE
+          </p>
+          <h2
+            style={{
+              fontSize: "36px",
+              fontWeight: 700,
+              color: "#FFFFFF",
+              marginBottom: "40px",
+            }}
+          >
+            Safety, Privacy &amp; Governance
+          </h2>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "24px",
+            }}
+          >
+            {governanceCards.map((card, i) => (
+              <div key={i} className="glass-card" style={{ padding: "32px" }}>
+                <h3
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: 700,
+                    color: "#FFFFFF",
+                    marginBottom: "8px",
+                  }}
+                >
+                  {card.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "15px",
+                    color: "rgba(255,255,255,0.65)",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  {card.desc}
+                </p>
               </div>
             ))}
           </div>

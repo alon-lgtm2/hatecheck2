@@ -1,6 +1,6 @@
-import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageHeader from "@/components/sections/Hero";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -10,69 +10,63 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const values = [
+const platformCards = [
   {
-    title: "Evidence-Based",
-    desc: "Every classification is grounded in documented methodology. No black boxes — full reasoning chains for every decision.",
+    title: "Assess Incidents",
+    desc: "Helps users assess incidents such as posts, statements and events against recognised standards for antisemitism and hate.",
   },
   {
-    title: "Legally Grounded",
-    desc: "We work within legal frameworks, not around them. Criminal speech thresholds are assessed seriously and cautiously.",
+    title: "Organise Evidence",
+    desc: "Organises evidence and patterns so that concerns can be raised with employers, institutions, regulators, platforms and authorities in a structured way.",
   },
   {
-    title: "Transparent",
-    desc: "Our methodology is publicly documented. We welcome scrutiny, academic critique, and methodological debate.",
-  },
-  {
-    title: "Community-Centered",
-    desc: "Built for the communities most affected by antisemitism. We listen to lived experience alongside academic analysis.",
-  },
-  {
-    title: "Precise",
-    desc: "Over-classification harms free expression. Under-classification harms communities. We work hard to get this right.",
-  },
-  {
-    title: "Not-for-Profit",
-    desc: "No commercial incentive to maximize flags or inflate severity. Our only incentive is accuracy and impact.",
+    title: "Draft Responses",
+    desc: "Drafts careful, lawful letters and memos that users can adapt and send themselves, always under human control.",
   },
 ];
 
 const phases = [
   {
     phase: "Phase 1",
-    title: "Foundation",
-    status: "Active",
-    items: [
-      "Core classification platform (5-tier system)",
-      "Integration with IHRA, JDA, Nexus, Dutch law",
-      "Beta partnerships with 3 Dutch Jewish community organizations",
-      "Incident database and reporting module",
-      "Public-facing resources and standards documentation",
-    ],
+    title: "Netherlands",
+    desc: "Foundation. Active. Full Dutch legal framework, OSINT sources, bilingual platform.",
   },
   {
     phase: "Phase 2",
-    title: "Scale",
-    status: "2025-2026",
-    items: [
-      "API access for external organizations",
-      "Expanded language support (Arabic, Russian, German, French)",
-      "Integration with EU DSA reporting obligations",
-      "Academic research partnerships",
-      "Belgian and German market adaptation",
-    ],
+    title: "Europe",
+    desc: "2025\u20132026. Expansion across EU member states. Multi-jurisdiction legal mapping.",
   },
   {
     phase: "Phase 3",
-    title: "European Network",
-    status: "2026+",
-    items: [
-      "Pan-European incident tracking network",
-      "Policy advocacy intelligence product",
-      "Law enforcement liaison program",
-      "Open-source methodology publication",
-      "EU FRA (Fundamental Rights Agency) collaboration",
-    ],
+    title: "Global",
+    desc: "2026+. Worldwide deployment. Additional languages, legal frameworks, and monitoring networks.",
+  },
+];
+
+const values = [
+  {
+    title: "Evidence-Based",
+    desc: "Every classification backed by verifiable sources and documented reasoning.",
+  },
+  {
+    title: "Legally Grounded",
+    desc: "Mapped to Dutch Penal Code and international frameworks. Careful language always.",
+  },
+  {
+    title: "Transparent",
+    desc: "Users see the AI prompts. Every classification includes full reasoning chain.",
+  },
+  {
+    title: "Human Control",
+    desc: "AI drafts, humans decide. Nothing is sent or published automatically.",
+  },
+  {
+    title: "Privacy by Design",
+    desc: "No tracking, no analytics. Session-only data. Data isolation between organisations.",
+  },
+  {
+    title: "Not-for-Profit",
+    desc: "Open to institutional partnerships and sponsorship. No commercial agenda.",
   },
 ];
 
@@ -82,99 +76,254 @@ export default async function AboutPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "about" });
 
   return (
-    <div className="pt-32">
-      {/* Page Header */}
-      <section className="pt-40 pb-16 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="max-w-3xl">
-            <p className="section-label mb-4">ABOUT</p>
-            <h1
-              className="font-bold text-white mb-6"
-              style={{ fontSize: "48px", lineHeight: 1.1 }}
-            >
-              {t("title")}
-            </h1>
-            <p className="text-[17px] text-[rgba(255,255,255,0.65)] leading-relaxed">
-              {t("subtitle")}
-            </p>
-          </div>
-        </div>
-      </section>
+    <div>
+      <PageHeader
+        label="ABOUT"
+        title="About HateCheck"
+        subtitle="An independent initiative to democratise the fight against antisemitism using legal, legitimate, and transparent means."
+      />
 
       {/* Mission */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <p className="section-label mb-4">MISSION</p>
-          <h2 className="text-[36px] font-bold text-white mb-10">
-            {t("mission")}
+      <section style={{ padding: "96px 64px" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+          <p className="section-label" style={{ marginBottom: "16px" }}>
+            OUR MISSION
+          </p>
+          <h2
+            style={{
+              fontSize: "36px",
+              fontWeight: 700,
+              color: "#FFFFFF",
+              marginBottom: "40px",
+            }}
+          >
+            Turn Sunlight and Clarity into Action
           </h2>
-          <div className="max-w-3xl space-y-5">
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
-              HateCheck exists to make antisemitism and hate speech detection rigorous, consistent, and actionable. We believe that communities, institutions, and authorities deserve better tools than keyword filters and gut feelings.
-            </p>
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
-              Our mission is to provide a trusted, evidence-based classification system that integrates international standards and Dutch law — enabling organizations to respond to hate speech with confidence, documentation, and legal defensibility.
-            </p>
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
-              We operate as a not-for-profit initiative because we believe that commercial incentives are incompatible with the precision this work requires.
+          <div style={{ maxWidth: "768px" }}>
+            <p
+              style={{
+                fontSize: "15px",
+                color: "rgba(255,255,255,0.65)",
+                lineHeight: 1.7,
+              }}
+            >
+              Make it easy for anyone to recognise antisemitism, document it
+              properly, and respond through the right channels. HateCheck
+              leverages Open Source Intelligence and AI to fight hatred, bigotry,
+              and antisemitism. We believe that light is the best disinfectant
+              &mdash; bringing hidden threats into view to stop them.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Origin Story */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <p className="section-label mb-4">ORIGIN</p>
-          <h2 className="text-[36px] font-bold text-white mb-10">
-            {t("origin")}
+      {/* What the Platform Does */}
+      <section style={{ padding: "96px 64px" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+          <p className="section-label" style={{ marginBottom: "16px" }}>
+            WHAT THE PLATFORM DOES
+          </p>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "24px",
+              marginBottom: "40px",
+            }}
+          >
+            {platformCards.map((card, i) => (
+              <div key={i} className="glass-card" style={{ padding: "32px" }}>
+                <h3
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: 700,
+                    color: "#FFFFFF",
+                    marginBottom: "8px",
+                  }}
+                >
+                  {card.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "15px",
+                    color: "rgba(255,255,255,0.65)",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  {card.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p
+            style={{
+              fontSize: "15px",
+              color: "rgba(255,255,255,0.65)",
+              lineHeight: 1.7,
+              maxWidth: "768px",
+            }}
+          >
+            HateCheck runs in the browser and works on both desktop and mobile,
+            so people and organisations can use it wherever they are.
+          </p>
+        </div>
+      </section>
+
+      {/* Why This Matters */}
+      <section style={{ padding: "96px 64px" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+          <p className="section-label" style={{ marginBottom: "16px" }}>
+            THE IMPERATIVE
+          </p>
+          <h2
+            style={{
+              fontSize: "36px",
+              fontWeight: 700,
+              color: "#FFFFFF",
+              marginBottom: "40px",
+            }}
+          >
+            Why This Matters
           </h2>
-          <div className="max-w-3xl space-y-5">
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
-              HateCheck was born from a documented failure. In 2023, a series of antisemitic incidents in Amsterdam — incidents that were minimized, misclassified, or ignored by the platforms on which they occurred — illustrated the gap between what organizations knew was happening and what they could prove, document, and act upon.
+          <div style={{ maxWidth: "768px" }}>
+            <p
+              style={{
+                fontSize: "15px",
+                color: "rgba(255,255,255,0.65)",
+                lineHeight: 1.7,
+                marginBottom: "20px",
+              }}
+            >
+              The operational environment regarding antisemitic threats in the
+              Netherlands has undergone a fundamental transformation. Antisemitic
+              incidents surged 145% in 2023 and hit a historic high of 421 in
+              2024 &mdash; a 305% increase above the decade average. The
+              November 2024 Amsterdam riots saw coordinated physical attacks
+              organised via Telegram. In March 2026, a synagogue in Rotterdam
+              was targeted in an arson attack. The NCTV maintains the national
+              threat level at Level 4.
             </p>
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
-              The pattern was clear: without a consistent, authoritative classification methodology, organizations were reporting the same incidents differently, platforms were applying inconsistent standards, and authorities lacked the structured documentation needed to justify enforcement action.
-            </p>
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
-              HateCheck was designed to address this directly — not by replacing human judgment, but by providing the infrastructure that makes human judgment consistent, documented, and legally defensible.
-            </p>
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
-              We launched in beta in early 2024 in partnership with three Dutch Jewish community organizations. Their real-world feedback shaped every aspect of the platform&apos;s design — from the five-tier classification system to the report output formats.
+            <p
+              style={{
+                fontSize: "15px",
+                color: "rgba(255,255,255,0.65)",
+                lineHeight: 1.7,
+              }}
+            >
+              Meanwhile, 74% of Jewish Dutch citizens who experience
+              antisemitism do not report it. Of the 880 police cases in 2023,
+              only 181 advanced to prosecution. Manual methodologies are
+              fundamentally inadequate. The resolution requires AI-powered,
+              legally calibrated intelligence infrastructure.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Vision / Roadmap */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <p className="section-label mb-4">VISION</p>
-          <h2 className="text-[36px] font-bold text-white mb-10">
-            {t("roadmap")}
+      {/* Who We Are */}
+      <section style={{ padding: "96px 64px" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+          <p className="section-label" style={{ marginBottom: "16px" }}>
+            ORIGIN
+          </p>
+          <h2
+            style={{
+              fontSize: "36px",
+              fontWeight: 700,
+              color: "#FFFFFF",
+              marginBottom: "40px",
+            }}
+          >
+            Who We Are
           </h2>
-          {/* Horizontal timeline */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div style={{ maxWidth: "768px" }}>
+            <p
+              style={{
+                fontSize: "15px",
+                color: "rgba(255,255,255,0.65)",
+                lineHeight: 1.7,
+              }}
+            >
+              HateCheck was created by Dutch and Israeli entrepreneurs as a
+              not-for-profit effort to support the wider community: giving
+              communities and institutions better tools, keeping the response
+              within democratic and legal boundaries, and helping more people
+              participate in keeping public life free from bigotry and
+              incitement.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Vision */}
+      <section style={{ padding: "96px 64px" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+          <p className="section-label" style={{ marginBottom: "16px" }}>
+            VISION
+          </p>
+          <h2
+            style={{
+              fontSize: "36px",
+              fontWeight: 700,
+              color: "#FFFFFF",
+              marginBottom: "40px",
+            }}
+          >
+            Roadmap
+          </h2>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "24px",
+            }}
+          >
             {phases.map((phase, i) => (
-              <div key={i} className="glass-card p-8 relative">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="w-3 h-3 rounded-full bg-[#2563EB]" />
+              <div
+                key={i}
+                className="glass-card"
+                style={{ padding: "32px", position: "relative" }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                    marginBottom: "24px",
+                  }}
+                >
+                  <span
+                    style={{
+                      width: "12px",
+                      height: "12px",
+                      borderRadius: "50%",
+                      backgroundColor: "#2563EB",
+                      display: "inline-block",
+                    }}
+                  />
                   <p className="section-label">{phase.phase}</p>
-                  <span className="text-[13px] text-[rgba(255,255,255,0.4)]">{phase.status}</span>
                 </div>
-                <h3 className="text-[20px] font-bold text-white mb-4">
+                <h3
+                  style={{
+                    fontSize: "20px",
+                    fontWeight: 700,
+                    color: "#FFFFFF",
+                    marginBottom: "16px",
+                  }}
+                >
                   {phase.title}
                 </h3>
-                <ul className="space-y-2">
-                  {phase.items.map((item, j) => (
-                    <li key={j} className="text-[15px] text-[rgba(255,255,255,0.65)]">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <p
+                  style={{
+                    fontSize: "15px",
+                    color: "rgba(255,255,255,0.65)",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  {phase.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -182,59 +331,79 @@ export default async function AboutPage({
       </section>
 
       {/* Values */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <p className="section-label mb-4">VALUES</p>
-          <h2 className="text-[36px] font-bold text-white mb-16">
-            {t("values")}
+      <section style={{ padding: "96px 64px" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+          <p className="section-label" style={{ marginBottom: "16px" }}>
+            VALUES
+          </p>
+          <h2
+            style={{
+              fontSize: "36px",
+              fontWeight: 700,
+              color: "#FFFFFF",
+              marginBottom: "64px",
+            }}
+          >
+            What We Stand For
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(2, 1fr)",
+              gap: "24px",
+            }}
+          >
             {values.map((v, i) => (
-              <div key={i} className="glass-card p-8">
-                <h3 className="text-[18px] font-bold text-white mb-2">
+              <div key={i} className="glass-card" style={{ padding: "32px" }}>
+                <h3
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: 700,
+                    color: "#FFFFFF",
+                    marginBottom: "8px",
+                  }}
+                >
                   {v.title}
                 </h3>
-                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">{v.desc}</p>
+                <p
+                  style={{
+                    fontSize: "15px",
+                    color: "rgba(255,255,255,0.65)",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  {v.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Not-for-Profit */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <p className="section-label mb-4">STRUCTURE</p>
-          <h2 className="text-[36px] font-bold text-white mb-10">
-            {t("notForProfit")}
-          </h2>
-          <div className="max-w-3xl space-y-5">
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
-              HateCheck operates as a not-for-profit initiative. This is not incidental — it is fundamental to our credibility and methodology.
-            </p>
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
-              Commercial content moderation platforms have a structural incentive to over-classify: more flags mean more apparent value. We reject this incentive. Our only metric is whether our classifications are accurate, defensible, and useful to the communities and organizations we serve.
-            </p>
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
-              We are funded through grants from Jewish community foundations, civil society organizations, and research institutions. All platform access for community organizations is provided at cost or free of charge.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto text-center">
-          <h2 className="text-[36px] font-bold text-white mb-4">
+      <section style={{ padding: "96px 64px" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto", textAlign: "center" }}>
+          <h2
+            style={{
+              fontSize: "36px",
+              fontWeight: 700,
+              color: "#FFFFFF",
+              marginBottom: "16px",
+            }}
+          >
             Work With Us
           </h2>
-          <p className="text-[15px] text-[rgba(255,255,255,0.65)] mb-10">
-            Partner organizations, researchers, and funders — we want to hear from you.
-          </p>
-          <Link
-            href={`/${locale}/contact`}
-            className="btn-primary"
+          <p
+            style={{
+              fontSize: "15px",
+              color: "rgba(255,255,255,0.65)",
+              marginBottom: "40px",
+            }}
           >
+            Partner organizations, researchers, and funders &mdash; we want to
+            hear from you.
+          </p>
+          <Link href={`/${locale}/contact`} className="btn-primary">
             Get in touch
           </Link>
         </div>
