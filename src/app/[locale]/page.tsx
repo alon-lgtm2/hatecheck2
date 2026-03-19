@@ -91,11 +91,11 @@ export default async function HomePage({
   ];
 
   const stats = [
-    { value: "97.3%", label: t("hero.stat1Label") },
-    { value: "84,000+", label: t("hero.stat2Label") },
-    { value: "4", label: "Legal Standards" },
-    { value: "5", label: "Severity Tiers" },
-    { value: "2", label: t("hero.stat3Label") },
+    { value: "421", label: "INCIDENTS IN 2024" },
+    { value: "305%", label: "ABOVE DECADE AVG" },
+    { value: "4", label: "LEGAL STANDARDS" },
+    { value: "5", label: "SEVERITY TIERS" },
+    { value: "20+", label: "PARTNER ORGS" },
   ];
 
   const frameworks = [
@@ -114,6 +114,72 @@ export default async function HomePage({
     {
       title: "Dutch Penal Code",
       role: "Articles 137c, 137d, and 137e — the legal basis for criminal hate speech prosecution in the Netherlands.",
+    },
+  ];
+
+  const platformCards = [
+    {
+      num: "01",
+      title: "Assess Incidents",
+      desc: "Helps users assess incidents such as posts, statements and events against recognised standards for antisemitism and hate.",
+    },
+    {
+      num: "02",
+      title: "Organise Evidence",
+      desc: "Organises evidence and patterns so that concerns can be raised with employers, institutions, regulators, platforms and authorities in a structured way.",
+    },
+    {
+      num: "03",
+      title: "Draft Responses",
+      desc: "Drafts careful, lawful letters and memos that users can adapt and send themselves, always under human control.",
+    },
+  ];
+
+  const crisisData = [
+    { source: "CIDI (Verified)", y2022: "155", y2023: "379", change: "+145%" },
+    { source: "Dutch Police", y2022: "549", y2023: "880", change: "+60%" },
+    { source: "Prosecution (OM)", y2022: "94", y2023: "181", change: "+93%" },
+  ];
+
+  const ecosystemCategories = [
+    {
+      label: "Central Institutional",
+      orgs: [
+        { name: "ENMA", desc: "Internationally comparable incident data across Europe" },
+        { name: "EU FRA", desc: "Definitive antisemitism surveys and rights monitoring" },
+        { name: "European Commission", desc: "EU Strategy coordinator, led by Katharina von Schnurbein" },
+        { name: "OSCE ODIHR", desc: "Comprehensive hate crime database for 57 states" },
+      ],
+    },
+    {
+      label: "Technical & AI Monitoring",
+      orgs: [
+        { name: "TEV (Hungary)", desc: "AI-based web scraping across France, Germany, Sweden" },
+        { name: "Decoding Antisemitism", desc: "AI research on implicit antisemitism across platforms" },
+        { name: "FOA", desc: "Proprietary AI algorithm detecting thousands of instances in real-time" },
+        { name: "INACH", desc: "Global network for systematic cyber-hate reporting and removal" },
+      ],
+    },
+    {
+      label: "National Documentation",
+      orgs: [
+        { name: "RIAS (Germany)", desc: "Standardized IHRA-aligned nationwide database" },
+        { name: "CST (UK)", desc: "Global leader in incident documentation and communal security" },
+        { name: "CIDI (Netherlands)", desc: "Central Dutch documentation and reporting body" },
+        { name: "CDEC (Italy)", desc: "Primary Italian antisemitism observatory" },
+        { name: "IKG Wien (Austria)", desc: "Institutional reporting point with granular annual reports" },
+        { name: "AKVAH (Denmark)", desc: "Systematic mapping of antisemitic incidents" },
+      ],
+    },
+    {
+      label: "Policy & Legal",
+      orgs: [
+        { name: "CEJI (Belgium)", desc: "NOA project producing National Report Cards" },
+        { name: "Antisemitism Policy Trust (UK)", desc: "Evidence-based research for parliamentarians" },
+        { name: "CRIF (France)", desc: "Main representative body for French Jews" },
+        { name: "World Jewish Congress", desc: "Global institutional coordination" },
+        { name: "NEVER AGAIN (Poland)", desc: "Independent watchdog monitoring Eastern European extremism" },
+      ],
     },
   ];
 
@@ -147,16 +213,28 @@ export default async function HomePage({
         />
         <h1
           style={{
-            fontSize: "clamp(32px, 5vw, 48px)",
+            fontSize: "clamp(32px, 5vw, 56px)",
             fontWeight: 300,
             color: "#FFFFFF",
             maxWidth: "800px",
             lineHeight: 1.3,
-            marginBottom: "24px",
+            marginBottom: "20px",
           }}
         >
           Turn Online Hate into Enforceable Action
         </h1>
+        <p
+          style={{
+            fontSize: "15px",
+            color: "rgba(255,255,255,0.5)",
+            maxWidth: "640px",
+            lineHeight: 1.6,
+            marginBottom: "24px",
+          }}
+        >
+          Antisemitic incidents in the Netherlands surged 305% above the decade
+          average. Manual methods can&apos;t keep up.
+        </p>
         <p
           style={{
             fontSize: "17px",
@@ -178,10 +256,10 @@ export default async function HomePage({
           }}
         >
           <a href="#platform" className="btn-primary">
-            {t("hero.cta1")}
+            Explore the Platform
           </a>
           <Link href={`/${locale}/contact`} className="btn-outline">
-            {t("hero.cta2")}
+            Get in Touch
           </Link>
         </div>
         <div
@@ -195,31 +273,279 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* ── SECTION 2: INTRODUCTION SPOTLIGHT ── */}
+      {/* ── SECTION 2: THE CRISIS ── */}
       <section
-        id="intro-detail"
+        id="crisis"
         style={{
           padding: "120px 24px",
           maxWidth: "1280px",
           margin: "0 auto",
         }}
       >
+        <div style={{ textAlign: "center", marginBottom: "64px" }}>
+          <p className="section-label" style={{ marginBottom: "16px" }}>
+            THE CRISIS
+          </p>
+          <h2
+            style={{
+              fontSize: "clamp(28px, 4vw, 36px)",
+              fontWeight: 700,
+              color: "#FFFFFF",
+            }}
+          >
+            Antisemitism Is Surging Across the Netherlands
+          </h2>
+        </div>
+
+        <div
+          className="crisis-layout"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "48px",
+            alignItems: "start",
+          }}
+        >
+          {/* LEFT: narrative */}
+          <div>
+            <p
+              style={{
+                fontSize: "17px",
+                color: "rgba(255,255,255,0.65)",
+                lineHeight: 1.7,
+                marginBottom: "20px",
+              }}
+            >
+              In 2023, antisemitic incidents in the Netherlands surged by 145%
+              — from 155 to 379 verified cases. By 2024, the number hit 421, a
+              historic high and a 305% increase above the previous ten-year
+              average.
+            </p>
+            <p
+              style={{
+                fontSize: "17px",
+                color: "rgba(255,255,255,0.65)",
+                lineHeight: 1.7,
+                marginBottom: "20px",
+              }}
+            >
+              The November 2024 Amsterdam riots saw coordinated physical
+              attacks on Jewish citizens, organised via Telegram. In March
+              2026, a synagogue in Rotterdam was targeted in an arson attack.
+              The NCTV maintains the national threat level at Level 4
+              (Substantial).
+            </p>
+            <p
+              style={{
+                fontSize: "17px",
+                color: "rgba(255,255,255,0.65)",
+                lineHeight: 1.7,
+              }}
+            >
+              Meanwhile, 74% of Jewish Dutch citizens who experience an
+              antisemitic incident do not report it. Of the 880 cases police
+              recorded in 2023, only 181 were advanced to prosecution. This is
+              the Action Gap — and it is why HateCheck exists.
+            </p>
+          </div>
+
+          {/* RIGHT: data table */}
+          <div className="glass-card" style={{ padding: "28px" }}>
+            <table
+              style={{
+                width: "100%",
+                borderCollapse: "collapse",
+              }}
+            >
+              <thead>
+                <tr>
+                  {["Source", "2022", "2023", "Change"].map((h) => (
+                    <th
+                      key={h}
+                      style={{
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        color: "rgba(255,255,255,0.4)",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.05em",
+                        textAlign: h === "Source" ? "left" : "right",
+                        paddingBottom: "12px",
+                        borderBottom: "1px solid rgba(255,255,255,0.1)",
+                      }}
+                    >
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {crisisData.map((row, i) => (
+                  <tr key={i}>
+                    <td
+                      style={{
+                        fontSize: "14px",
+                        color: "#FFFFFF",
+                        padding: "14px 0",
+                        borderBottom:
+                          i < crisisData.length - 1
+                            ? "1px solid rgba(255,255,255,0.1)"
+                            : "none",
+                      }}
+                    >
+                      {row.source}
+                    </td>
+                    <td
+                      style={{
+                        fontSize: "14px",
+                        color: "#FFFFFF",
+                        textAlign: "right",
+                        padding: "14px 0",
+                        borderBottom:
+                          i < crisisData.length - 1
+                            ? "1px solid rgba(255,255,255,0.1)"
+                            : "none",
+                      }}
+                    >
+                      {row.y2022}
+                    </td>
+                    <td
+                      style={{
+                        fontSize: "14px",
+                        color: "#FFFFFF",
+                        textAlign: "right",
+                        padding: "14px 0",
+                        borderBottom:
+                          i < crisisData.length - 1
+                            ? "1px solid rgba(255,255,255,0.1)"
+                            : "none",
+                      }}
+                    >
+                      {row.y2023}
+                    </td>
+                    <td
+                      style={{
+                        fontSize: "14px",
+                        color: "#FFFFFF",
+                        fontWeight: 700,
+                        textAlign: "right",
+                        padding: "14px 0",
+                        borderBottom:
+                          i < crisisData.length - 1
+                            ? "1px solid rgba(255,255,255,0.1)"
+                            : "none",
+                      }}
+                    >
+                      {row.change}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 3: WHAT HATECHECK DOES ── */}
+      <section
+        id="platform"
+        style={{
+          padding: "120px 24px",
+          maxWidth: "1280px",
+          margin: "0 auto",
+        }}
+      >
+        <div style={{ textAlign: "center", marginBottom: "64px" }}>
+          <p className="section-label" style={{ marginBottom: "16px" }}>
+            THE PLATFORM
+          </p>
+          <h2
+            style={{
+              fontSize: "clamp(28px, 4vw, 36px)",
+              fontWeight: 700,
+              color: "#FFFFFF",
+              marginBottom: "20px",
+            }}
+          >
+            Identify. Assess. Act.
+          </h2>
+          <p
+            style={{
+              fontSize: "17px",
+              color: "rgba(255,255,255,0.65)",
+              maxWidth: "700px",
+              margin: "0 auto",
+              lineHeight: 1.7,
+            }}
+          >
+            HateCheck leverages Open Source Intelligence and AI to fight hatred,
+            bigotry, and antisemitism. We believe that light is the best
+            disinfectant — bringing hidden threats into view to stop them.
+          </p>
+        </div>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "24px",
+            marginBottom: "80px",
+          }}
+        >
+          {platformCards.map((card) => (
+            <div
+              key={card.num}
+              className="glass-card"
+              style={{ padding: "32px" }}
+            >
+              <div
+                style={{
+                  fontSize: "48px",
+                  fontWeight: 200,
+                  color: "rgba(255,255,255,0.15)",
+                  lineHeight: 1,
+                  marginBottom: "16px",
+                }}
+              >
+                {card.num}
+              </div>
+              <h3
+                style={{
+                  fontSize: "18px",
+                  fontWeight: 700,
+                  color: "#FFFFFF",
+                  marginBottom: "12px",
+                }}
+              >
+                {card.title}
+              </h3>
+              <p
+                style={{
+                  fontSize: "14px",
+                  color: "rgba(255,255,255,0.65)",
+                  lineHeight: 1.6,
+                }}
+              >
+                {card.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
         <div className="spotlight">
           <div className="content">
-            <p className="section-label" style={{ marginBottom: "16px" }}>
-              THE PLATFORM
+            <p className="section-label" style={{ marginBottom: "12px" }}>
+              PLATFORM OVERVIEW
             </p>
-            <h2
+            <h3
               style={{
-                fontSize: "clamp(28px, 4vw, 36px)",
+                fontSize: "28px",
                 fontWeight: 700,
                 color: "#FFFFFF",
-                marginBottom: "24px",
-                lineHeight: 1.2,
+                marginBottom: "16px",
               }}
             >
               Detect, Classify, and Act on Antisemitism
-            </h2>
+            </h3>
             <p
               style={{
                 fontSize: "17px",
@@ -238,25 +564,12 @@ export default async function HomePage({
                 fontSize: "17px",
                 color: "rgba(255,255,255,0.65)",
                 lineHeight: 1.7,
-                marginBottom: "32px",
               }}
             >
               Paste any URL. The system scans, verifies, and cross-references
               against Dutch and European sources, then classifies content through
               four international standards.
             </p>
-            <Link
-              href={`/${locale}/product`}
-              style={{
-                fontSize: "14px",
-                fontWeight: 600,
-                color: "#3B82F6",
-                textDecoration: "none",
-                transition: "color 0.2s",
-              }}
-            >
-              Learn More &rarr;
-            </Link>
           </div>
           <div className="image">
             <div className="screenshot-frame">
@@ -272,9 +585,8 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* ── SECTION 3: FEATURES GRID ── */}
+      {/* ── SECTION 4: 5-STEP INVESTIGATION ── */}
       <section
-        id="platform"
         style={{
           padding: "120px 24px",
           maxWidth: "1280px",
@@ -361,7 +673,7 @@ export default async function HomePage({
         </Link>
       </section>
 
-      {/* ── SECTION 4: STATS BAR ── */}
+      {/* ── SECTION 5: STATS BAR ── */}
       <section
         style={{
           background: "rgba(255,255,255,0.03)",
@@ -398,7 +710,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* ── SECTION 5: SCREENSHOT SHOWCASE ── */}
+      {/* ── SECTION 6: SCREENSHOT SHOWCASE ── */}
       <section
         id="showcase"
         style={{
@@ -546,7 +858,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* ── SECTION 6: TIER SYSTEM ── */}
+      {/* ── SECTION 7: THE HATECHECK INDEX ── */}
       <section
         id="tiers"
         style={{
@@ -573,13 +885,16 @@ export default async function HomePage({
             style={{
               fontSize: "17px",
               color: "rgba(255,255,255,0.65)",
-              maxWidth: "640px",
+              maxWidth: "740px",
               margin: "0 auto",
               lineHeight: 1.7,
             }}
           >
-            A 5-tier severity scale. One shared framework for triage,
-            documentation, and response.
+            The HateCheck Index provides a structured framework for triaging
+            threats — from lawful speech to urgent risk. Each tier maps to
+            specific institutional and legal response mechanisms, ensuring
+            proportionate action. The index bridges the gap between raw
+            detection and structured enforcement.
           </p>
         </div>
 
@@ -669,7 +984,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* ── SECTION 7: STANDARDS ── */}
+      {/* ── SECTION 8: STANDARDS ── */}
       <section
         id="standards"
         style={{
@@ -687,10 +1002,27 @@ export default async function HomePage({
               fontSize: "clamp(28px, 4vw, 36px)",
               fontWeight: 700,
               color: "#FFFFFF",
+              marginBottom: "20px",
             }}
           >
             Grounded in International Standards
           </h2>
+          <p
+            style={{
+              fontSize: "17px",
+              color: "rgba(255,255,255,0.65)",
+              maxWidth: "740px",
+              margin: "0 auto",
+              lineHeight: 1.7,
+            }}
+          >
+            Antisemitism often sits at the intersection of law, politics, speech
+            and safety. Without clear standards, real threats are missed,
+            legitimate speech is mislabelled, and actions taken on weak analysis
+            don&apos;t hold up. HateCheck relies on a layered set of well-known
+            external frameworks — not to replace human judgment, but to support
+            it with consistent, explainable structure.
+          </p>
         </div>
 
         <div
@@ -757,7 +1089,99 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* ── SECTION 8: CTA ── */}
+      {/* ── SECTION 9: EUROPEAN ECOSYSTEM ── */}
+      <section
+        id="ecosystem"
+        style={{
+          padding: "120px 24px",
+          maxWidth: "1280px",
+          margin: "0 auto",
+        }}
+      >
+        <div style={{ textAlign: "center", marginBottom: "64px" }}>
+          <p className="section-label" style={{ marginBottom: "16px" }}>
+            ECOSYSTEM
+          </p>
+          <h2
+            style={{
+              fontSize: "clamp(28px, 4vw, 36px)",
+              fontWeight: 700,
+              color: "#FFFFFF",
+              marginBottom: "20px",
+            }}
+          >
+            Part of a European Network
+          </h2>
+          <p
+            style={{
+              fontSize: "17px",
+              color: "rgba(255,255,255,0.65)",
+              maxWidth: "700px",
+              margin: "0 auto",
+              lineHeight: 1.7,
+            }}
+          >
+            HateCheck operates within the established European network of
+            antisemitism monitoring bodies, legal frameworks, and civil society
+            organisations.
+          </p>
+        </div>
+
+        {ecosystemCategories.map((cat) => (
+          <div key={cat.label} style={{ marginBottom: "48px" }}>
+            <p
+              style={{
+                fontSize: "12px",
+                fontWeight: 700,
+                color: "rgba(255,255,255,0.4)",
+                textTransform: "uppercase",
+                letterSpacing: "0.1em",
+                marginBottom: "16px",
+              }}
+            >
+              {cat.label}
+            </p>
+            <div
+              className="ecosystem-grid"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, 1fr)",
+                gap: "16px",
+              }}
+            >
+              {cat.orgs.map((org) => (
+                <div
+                  key={org.name}
+                  className="glass-card"
+                  style={{ padding: "20px" }}
+                >
+                  <div
+                    style={{
+                      fontSize: "15px",
+                      fontWeight: 700,
+                      color: "#FFFFFF",
+                      marginBottom: "6px",
+                    }}
+                  >
+                    {org.name}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: "13px",
+                      color: "rgba(255,255,255,0.65)",
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    {org.desc}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* ── SECTION 10: CTA ── */}
       <section
         id="contact"
         style={{
@@ -812,7 +1236,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* ── SECTION 9: QUOTE ── */}
+      {/* ── SECTION 11: QUOTE ── */}
       <section
         style={{
           padding: "80px 24px",
@@ -845,7 +1269,7 @@ export default async function HomePage({
         </cite>
       </section>
 
-      {/* ── SECTION 10: LEGAL DISCLAIMER ── */}
+      {/* ── SECTION 12: LEGAL DISCLAIMER ── */}
       <section
         style={{
           padding: "40px 24px 80px",
@@ -865,7 +1289,7 @@ export default async function HomePage({
         </p>
       </section>
 
-      {/* Responsive styles for tier rows and stats */}
+      {/* Responsive styles for tier rows, stats, crisis, and ecosystem */}
       <style>{`
         @media (max-width: 768px) {
           .tier-row {
@@ -886,6 +1310,17 @@ export default async function HomePage({
           }
           .stats-bar .stat-item:last-child {
             border-bottom: none;
+          }
+          .crisis-layout {
+            grid-template-columns: 1fr !important;
+          }
+          .ecosystem-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .ecosystem-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
           }
         }
       `}</style>
