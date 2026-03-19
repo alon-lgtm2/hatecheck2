@@ -468,7 +468,7 @@ export default async function HomePage({
               }}
             >
               Identify. Assess. Act.
-            </h2>
+            </h3>
             {platformCards.map((card) => (
               <div key={card.num} style={{ marginBottom: "24px" }}>
                 <h3
@@ -1194,39 +1194,66 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* ── SECTION 12: QUOTE ── */}
+      {/* ── SECTION 12: QUOTE (Prominent Brandeis) ── */}
       <section
-        className="section-sm"
         style={{
-          background: "#FFFFFF",
+          background: "linear-gradient(135deg, #1B1A2B 0%, #2D2B3E 50%, #1B1A2B 100%)",
           textAlign: "center",
-          padding: "80px 24px",
+          padding: "120px 24px",
+          position: "relative",
         }}
       >
-        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-          <blockquote
+        <div style={{ maxWidth: "800px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <div
             style={{
-              fontSize: "20px",
-              fontStyle: "italic",
-              color: "#555",
-              lineHeight: 1.7,
-              marginBottom: "16px",
+              fontSize: "64px",
+              color: "rgba(255,255,255,0.1)",
+              lineHeight: 1,
+              marginBottom: "24px",
+              fontFamily: "Georgia, serif",
             }}
           >
-            &ldquo;{t("quote.text")}&rdquo;
+            &ldquo;
+          </div>
+          <blockquote
+            style={{
+              fontSize: "clamp(22px, 3vw, 30px)",
+              fontStyle: "italic",
+              color: "#FFFFFF",
+              lineHeight: 1.6,
+              marginBottom: "24px",
+              fontWeight: 300,
+            }}
+          >
+            Sunlight is said to be the best of disinfectants; electric light the most efficient policeman.
           </blockquote>
           <cite
             style={{
-              fontSize: "13px",
-              color: "#999",
+              fontSize: "14px",
+              color: "rgba(255,255,255,0.6)",
               fontStyle: "normal",
               fontWeight: 600,
-              letterSpacing: "0.05em",
+              letterSpacing: "0.1em",
               textTransform: "uppercase",
+              display: "block",
+              marginBottom: "32px",
             }}
           >
-            {t("quote.attribution")}
+            Supreme Court Justice Louis D. Brandeis, 1913
           </cite>
+          <p
+            style={{
+              fontSize: "15px",
+              color: "rgba(255,255,255,0.5)",
+              maxWidth: "600px",
+              margin: "0 auto",
+              lineHeight: 1.7,
+            }}
+          >
+            Transparency, publicity, and public exposure are the most effective
+            remedies for corruption and social ills. This is the founding
+            principle behind HateCheck.
+          </p>
         </div>
       </section>
 
