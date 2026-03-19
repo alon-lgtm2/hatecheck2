@@ -150,6 +150,56 @@ export default async function StandardsPage({
         </div>
       </section>
 
+      {/* Why Standards Matter */}
+      <section style={{ padding: "96px 64px" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+          <p className="section-label" style={{ marginBottom: "16px" }}>
+            WHY STANDARDS MATTER
+          </p>
+          <h2
+            style={{
+              fontSize: "36px",
+              fontWeight: 700,
+              color: "#FFFFFF",
+              marginBottom: "40px",
+            }}
+          >
+            Without Clear Standards, Three Things Go Wrong
+          </h2>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "24px",
+            }}
+          >
+            {whyStandardsCards.map((card, i) => (
+              <div key={i} className="glass-card" style={{ padding: "32px" }}>
+                <h3
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: 700,
+                    color: "#FFFFFF",
+                    marginBottom: "8px",
+                  }}
+                >
+                  {card.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "15px",
+                    color: "rgba(255,255,255,0.65)",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  {card.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Intro */}
       <section style={{ padding: "100px 0" }}>
         <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>

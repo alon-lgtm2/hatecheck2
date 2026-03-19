@@ -459,9 +459,9 @@ export default async function HomePage({
             <p className="section-label" style={{ marginBottom: "12px" }}>
               THE PLATFORM
             </p>
-            <h2
+            <h3
               style={{
-                fontSize: "clamp(28px, 4vw, 36px)",
+                fontSize: "28px",
                 fontWeight: 700,
                 color: "#FFFFFF",
                 marginBottom: "24px",
