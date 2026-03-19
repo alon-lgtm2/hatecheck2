@@ -15,7 +15,7 @@ function LanguageSwitcher() {
 
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
-      {["en", "nl", "de", "he", "fr"].map((l, i) => (
+      {["en", "nl", "de", "fr"].map((l, i) => (
         <span key={l} style={{ display: "flex", alignItems: "center" }}>
           {i > 0 && (
             <span

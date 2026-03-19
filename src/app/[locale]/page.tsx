@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import ContactForm from "@/components/ui/ContactForm";
 
 export async function generateMetadata({
   params,
@@ -165,13 +166,11 @@ export default async function HomePage({
   ];
 
   const timelineEvents = [
-    { date: "October 7, 2023", title: "The Inflection Point", color: "#EF4444", desc: "Hamas attacks trigger a global surge in antisemitism. In the Netherlands, 60% of the year's incidents occur in the final three months alone. The NCTV raises the national terrorist threat level from 3 to 4 (Substantial) - the first time since 2019." },
-    { date: "March 10, 2024", title: "Holocaust Museum Opening", color: "#F97316", desc: "The opening of the Dutch National Holocaust Museum in Amsterdam is disrupted by approximately 2,000 protesters. Antisemitic chants are audible from the ceremony. Israeli President Isaac Herzog is in attendance." },
-    { date: "November 7-8, 2024", title: "The Amsterdam Pogrom", color: "#991B1B", desc: "After a Europa League match between Ajax and Maccabi Tel Aviv, coordinated attacks target Israeli and Jewish citizens across Amsterdam. Organized via Telegram, groups conduct what participants openly call a \"Jodenjacht\" - a Jew hunt. Dozens are injured. More than 60 arrests are made." },
-    { date: "2024", title: "The Record Year", color: "#EF4444", desc: "CIDI registers 421 verified antisemitic incidents - the highest number in the 40-year history of its monitoring. Mezuzahs are torn from doorposts. Jewish cemeteries and monuments are defaced. Jewish students increasingly avoid university lectures." },
-    { date: "March 13, 2026", title: "Rotterdam Synagogue Arson", color: "#991B1B", desc: "An explosive device detonates at a synagogue on A.B.N. Davidsplein in Rotterdam at 3:40 AM. Four suspects (ages 17-19) are arrested near a second synagogue. The Rotterdam Public Prosecution Service alleges terrorist intent." },
-    { date: "March 14, 2026", title: "Amsterdam Jewish School Bombing", color: "#991B1B", desc: "One day after the Rotterdam attack, an explosive device detonates against the outer wall of the Cheider - the Netherlands' only Orthodox Jewish school. Justice Minister David van Weel: \"Two nights in a row, a cowardly attack with an explosive at a Jewish building.\"" },
-    { date: "March 2026", title: "A European Pattern", color: "#EF4444", desc: "The Dutch attacks are part of a broader wave: a synagogue bombing in Liege (Belgium), a synagogue shooting and ramming in Detroit, gunfire at synagogues in Toronto, and attacks in Norway and Greece. Security experts describe the most elevated threat environment for Jewish communities in recent memory." },
+    { date: "2022", title: "The Baseline", color: "#F59E0B", desc: "155 verified antisemitic incidents recorded by CIDI - roughly in line with the ten-year average of 138. Police register 549 cases. The threat level sits at 3 (Significant). A deceptive calm before what comes next." },
+    { date: "2023", title: "The Inflection Point", color: "#EF4444", desc: "October 7 triggers a global surge. In the Netherlands, 60% of the year's incidents occur in the final three months alone. CIDI records 379 verified incidents (+145%). Police cases jump to 880 (+60%). The NCTV raises the threat level to 4 (Substantial) for the first time since 2019." },
+    { date: "2024", title: "The Record Year", color: "#991B1B", desc: "CIDI registers 421 verified incidents - the highest in 40 years of monitoring. In March, the opening of the National Holocaust Museum is disrupted by 2,000 protesters. In November, coordinated attacks target Jewish citizens across Amsterdam after an Ajax-Maccabi match - organized via Telegram, openly called a \"Jodenjacht.\" Dozens injured, 60+ arrests." },
+    { date: "2025", title: "No Sign of Slowing", color: "#EF4444", desc: "Preliminary data from CIDI indicates the upward trend is continuing. Public-space antisemitism rose 45% year-on-year. Vandalism against Jewish targets up 44%. CIDI warns that 2025 will likely break the record again." },
+    { date: "2026", title: "Explosives at Synagogues and Schools", color: "#991B1B", desc: "March 13: an explosive device detonates at a Rotterdam synagogue at 3:40 AM. Four suspects arrested near a second synagogue. March 14: a bomb hits the Cheider, the Netherlands' only Orthodox Jewish school. Part of a broader European wave including attacks in Liege, Detroit, Toronto, Norway, and Greece." },
   ];
 
   const actionGapPoints = [
@@ -1298,48 +1297,30 @@ export default async function HomePage({
       >
         <div className="overly" />
         <div style={{ position: "relative", zIndex: 1, maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
-          <h2
-            style={{
-              fontSize: "clamp(28px, 4vw, 36px)",
-              fontWeight: 700,
-              color: "#FFFFFF",
-              marginBottom: "20px",
-            }}
-          >
-            Interested in What HateCheck Can Do?
-          </h2>
-          <p
-            style={{
-              fontSize: "17px",
-              color: "rgba(255,255,255,0.8)",
-              marginBottom: "40px",
-              maxWidth: "580px",
-              margin: "0 auto 40px",
-              lineHeight: 1.7,
-            }}
-          >
-            Request a demo, explore partnership opportunities, or learn more about
-            our approach.
-          </p>
-          <div
-            style={{
-              display: "flex",
-              gap: "16px",
-              justifyContent: "center",
-              flexWrap: "wrap",
-            }}
-          >
-            <Link href={`/${locale}/contact`} className="btn-white">
-              Get in Touch
-            </Link>
-            <a
-              href="https://app.hatecheck.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-white"
+          <div style={{ maxWidth: "680px", margin: "0 auto" }}>
+            <h2
+              style={{
+                fontSize: "clamp(28px, 4vw, 36px)",
+                fontWeight: 700,
+                color: "#FFFFFF",
+                marginBottom: "20px",
+                textAlign: "center",
+              }}
             >
-              Open Live Platform
-            </a>
+              Get in Touch
+            </h2>
+            <p
+              style={{
+                fontSize: "17px",
+                color: "rgba(255,255,255,0.7)",
+                marginBottom: "48px",
+                textAlign: "center",
+                lineHeight: 1.7,
+              }}
+            >
+              Request a demo, explore partnership opportunities, or report an incident.
+            </p>
+            <ContactForm />
           </div>
         </div>
       </section>

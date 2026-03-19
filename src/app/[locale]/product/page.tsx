@@ -289,7 +289,7 @@ export default async function ProductPage({
             Request a Demonstration
           </h2>
           <p style={{ fontSize: "15px", color: "#6B7280", marginBottom: "40px", maxWidth: "560px", margin: "0 auto 40px", lineHeight: 1.7 }}>
-            Contact us to discuss how HateCheck can serve your organisation - or access the live platform directly.
+            Contact us to discuss how HateCheck can serve your organisation.
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "16px", flexWrap: "wrap" }}>
             <Link href={`/${locale}/contact`} className="btn-main">

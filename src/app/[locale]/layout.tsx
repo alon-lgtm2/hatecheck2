@@ -25,7 +25,6 @@ export async function generateMetadata({
         en: "/en",
         nl: "/nl",
         de: "/de",
-        he: "/he",
         fr: "/fr",
       },
     },
@@ -50,11 +49,9 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages();
-  const dir = locale === "he" ? "rtl" : "ltr";
-
   return (
     <NextIntlClientProvider messages={messages}>
-      <div className="flex flex-col min-h-screen" dir={dir}>
+      <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
