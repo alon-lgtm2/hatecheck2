@@ -80,11 +80,11 @@ function EcosystemGrid({ label, items }: { label: string; items: { name: string;
   return (
     <div style={{ marginBottom: "48px" }}>
       <p className="section-label" style={{ marginBottom: "16px" }}>{label}</p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px" }}>
         {items.map((item, i) => (
-          <div key={i} className="glass-card p-6">
-            <h4 className="text-[16px] font-bold text-white mb-2">{item.name}</h4>
-            <p className="text-[14px] text-[rgba(255,255,255,0.65)] leading-relaxed">{item.desc}</p>
+          <div key={i} className="glass-card" style={{ padding: "24px" }}>
+            <h4 style={{ fontSize: "16px", fontWeight: 400, color: "#1B1A2B", marginBottom: "8px" }}>{item.name}</h4>
+            <p style={{ fontSize: "14px", color: "#6B7280", lineHeight: 1.7 }}>{item.desc}</p>
           </div>
         ))}
       </div>
@@ -108,14 +108,14 @@ export default async function OrganizationsPage({
       />
 
       {/* Why Organizations */}
-      <section className="py-24 px-6 md:px-16">
-        <div className="max-w-[1400px] mx-auto">
+      <section style={{ padding: "100px 0" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
           <p className="section-label" style={{ marginBottom: "16px" }}>THE CHALLENGE</p>
-          <h2 className="text-[36px] font-bold text-white mb-10">
+          <h2 style={{ fontSize: "36px", fontWeight: 400, color: "#1B1A2B", marginBottom: "40px" }}>
             Why Organisations Need HateCheck
           </h2>
-          <div className="max-w-3xl space-y-5">
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
+          <div style={{ maxWidth: "768px" }}>
+            <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>
               Institutions across Europe face an unprecedented surge in antisemitic incidents. University administrators, municipal authorities, and NGOs are overwhelmed by the volume and complexity of reports. Manual tracking cannot process the current threat matrix. HateCheck provides the structured intelligence infrastructure to close this gap.
             </p>
           </div>
@@ -123,19 +123,19 @@ export default async function OrganizationsPage({
       </section>
 
       {/* Use Cases */}
-      <section className="py-24 px-6 md:px-16">
-        <div className="max-w-[1400px] mx-auto">
+      <section style={{ padding: "100px 0", backgroundColor: "#F8F9FA" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
           <p className="section-label" style={{ marginBottom: "16px" }}>USE CASES</p>
-          <h2 className="text-[36px] font-bold text-white mb-16">
+          <h2 style={{ fontSize: "36px", fontWeight: 400, color: "#1B1A2B", marginBottom: "64px" }}>
             Who Uses HateCheck
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "24px" }}>
             {useCases.map((uc, i) => (
-              <div key={i} className="glass-card p-8">
-                <h3 className="text-[20px] font-bold text-white mb-3">
+              <div key={i} className="glass-card" style={{ padding: "32px" }}>
+                <h3 style={{ fontSize: "20px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>
                   {uc.title}
                 </h3>
-                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">{uc.desc}</p>
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>{uc.desc}</p>
               </div>
             ))}
           </div>
@@ -143,19 +143,19 @@ export default async function OrganizationsPage({
       </section>
 
       {/* Features */}
-      <section className="py-24 px-6 md:px-16">
-        <div className="max-w-[1400px] mx-auto">
+      <section style={{ padding: "100px 0" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
           <p className="section-label" style={{ marginBottom: "16px" }}>FEATURES</p>
-          <h2 className="text-[36px] font-bold text-white mb-16">
+          <h2 style={{ fontSize: "36px", fontWeight: 400, color: "#1B1A2B", marginBottom: "64px" }}>
             Organisation Features
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
             {features.map((f, i) => (
-              <div key={i} className="glass-card p-8">
-                <h3 className="text-[18px] font-bold text-white mb-3">
+              <div key={i} className="glass-card" style={{ padding: "32px" }}>
+                <h3 style={{ fontSize: "18px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>
                   {f.title}
                 </h3>
-                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">{f.desc}</p>
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>{f.desc}</p>
               </div>
             ))}
           </div>
@@ -163,13 +163,13 @@ export default async function OrganizationsPage({
       </section>
 
       {/* The European Ecosystem */}
-      <section className="py-24 px-6 md:px-16">
-        <div className="max-w-[1400px] mx-auto">
+      <section style={{ padding: "100px 0", backgroundColor: "#F8F9FA" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
           <p className="section-label" style={{ marginBottom: "16px" }}>ECOSYSTEM</p>
-          <h2 className="text-[36px] font-bold text-white mb-4">
+          <h2 style={{ fontSize: "36px", fontWeight: 400, color: "#1B1A2B", marginBottom: "16px" }}>
             Part of a European Network
           </h2>
-          <p className="text-[17px] text-[rgba(255,255,255,0.65)] leading-relaxed mb-16 max-w-3xl">
+          <p style={{ fontSize: "17px", color: "#6B7280", lineHeight: 1.7, marginBottom: "64px", maxWidth: "768px" }}>
             HateCheck operates within the established network of European antisemitism monitoring bodies.
           </p>
 
@@ -181,19 +181,19 @@ export default async function OrganizationsPage({
       </section>
 
       {/* Data & Security */}
-      <section className="py-24 px-6 md:px-16">
-        <div className="max-w-[1400px] mx-auto">
+      <section style={{ padding: "100px 0" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
           <p className="section-label" style={{ marginBottom: "16px" }}>SECURITY</p>
-          <h2 className="text-[36px] font-bold text-white mb-10">
+          <h2 style={{ fontSize: "36px", fontWeight: 400, color: "#1B1A2B", marginBottom: "40px" }}>
             Data &amp; Security
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "24px", maxWidth: "900px" }}>
             {dataSecurity.map((item, i) => (
-              <div key={i} className="glass-card p-8">
-                <h3 className="text-[18px] font-bold text-white mb-3">
+              <div key={i} className="glass-card" style={{ padding: "32px" }}>
+                <h3 style={{ fontSize: "18px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>
                   {item.title}
                 </h3>
-                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">{item.desc}</p>
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -201,14 +201,14 @@ export default async function OrganizationsPage({
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-6 md:px-16">
-        <div className="max-w-[1400px] mx-auto text-center">
-          <h2 className="text-[36px] font-bold text-white mb-10">
+      <section style={{ padding: "100px 0", backgroundColor: "#F8F9FA" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
+          <h2 style={{ fontSize: "36px", fontWeight: 400, color: "#1B1A2B", marginBottom: "40px" }}>
             Bring HateCheck to Your Organisation
           </h2>
           <Link
             href={`/${locale}/contact`}
-            className="btn-primary"
+            className="btn-main"
           >
             Get in touch
           </Link>

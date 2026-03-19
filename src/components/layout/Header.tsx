@@ -21,7 +21,7 @@ function LanguageSwitcher() {
             <span
               style={{
                 margin: "0 8px",
-                color: "rgba(255,255,255,0.3)",
+                color: "#D1D5DB",
                 fontSize: "11px",
               }}
             >
@@ -35,7 +35,7 @@ function LanguageSwitcher() {
               fontWeight: 600,
               letterSpacing: "0.15em",
               textTransform: "uppercase",
-              color: locale === l ? "#FFFFFF" : "rgba(255,255,255,0.65)",
+              color: locale === l ? "#1B1A2B" : "#6B7280",
               background: "none",
               border: "none",
               cursor: "pointer",
@@ -43,11 +43,10 @@ function LanguageSwitcher() {
               transition: "color 0.2s",
             }}
             onMouseEnter={(e) => {
-              if (locale !== l) e.currentTarget.style.color = "#FFFFFF";
+              if (locale !== l) e.currentTarget.style.color = "#2563EB";
             }}
             onMouseLeave={(e) => {
-              if (locale !== l)
-                e.currentTarget.style.color = "rgba(255,255,255,0.65)";
+              if (locale !== l) e.currentTarget.style.color = "#6B7280";
             }}
           >
             {l.toUpperCase()}
@@ -77,20 +76,20 @@ function AnchorLink({ href, label }: AnchorLinkProps) {
       href={href}
       onClick={handleClick}
       style={{
-        fontSize: "11px",
+        fontSize: "12px",
         fontWeight: 600,
-        letterSpacing: "0.15em",
+        letterSpacing: "0.1em",
         textTransform: "uppercase",
-        color: "rgba(255,255,255,0.65)",
+        color: "#6B7280",
         textDecoration: "none",
         padding: "0 16px",
         transition: "color 0.2s",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.color = "#FFFFFF";
+        e.currentTarget.style.color = "#2563EB";
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.color = "rgba(255,255,255,0.65)";
+        e.currentTarget.style.color = "#6B7280";
       }}
     >
       {label.toUpperCase()}
@@ -104,21 +103,20 @@ function NavLink({ href, label }: { href: string; label: string }) {
     <Link
       href={href}
       style={{
-        fontSize: "11px",
+        fontSize: "12px",
         fontWeight: 600,
-        letterSpacing: "0.15em",
+        letterSpacing: "0.1em",
         textTransform: "uppercase",
-        color: isActive ? "#FFFFFF" : "rgba(255,255,255,0.65)",
+        color: isActive ? "#2563EB" : "#6B7280",
         textDecoration: "none",
         padding: "0 16px",
         transition: "color 0.2s",
       }}
       onMouseEnter={(e) => {
-        if (!isActive) e.currentTarget.style.color = "#FFFFFF";
+        if (!isActive) e.currentTarget.style.color = "#2563EB";
       }}
       onMouseLeave={(e) => {
-        if (!isActive)
-          e.currentTarget.style.color = "rgba(255,255,255,0.65)";
+        if (!isActive) e.currentTarget.style.color = "#6B7280";
       }}
     >
       {label.toUpperCase()}
@@ -152,19 +150,19 @@ function MobileAnchorLink({
         display: "block",
         fontSize: "14px",
         fontWeight: 600,
-        letterSpacing: "0.15em",
+        letterSpacing: "0.1em",
         textTransform: "uppercase",
-        color: "rgba(255,255,255,0.65)",
+        color: "#6B7280",
         textDecoration: "none",
         padding: "16px 0",
-        borderBottom: "1px solid rgba(255,255,255,0.1)",
+        borderBottom: "1px solid #E5E7EB",
         transition: "color 0.2s",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.color = "#FFFFFF";
+        e.currentTarget.style.color = "#2563EB";
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.color = "rgba(255,255,255,0.65)";
+        e.currentTarget.style.color = "#6B7280";
       }}
     >
       {label.toUpperCase()}
@@ -190,20 +188,19 @@ function MobileNavLink({
         display: "block",
         fontSize: "14px",
         fontWeight: 600,
-        letterSpacing: "0.15em",
+        letterSpacing: "0.1em",
         textTransform: "uppercase",
-        color: isActive ? "#FFFFFF" : "rgba(255,255,255,0.65)",
+        color: isActive ? "#2563EB" : "#6B7280",
         textDecoration: "none",
         padding: "16px 0",
-        borderBottom: "1px solid rgba(255,255,255,0.1)",
+        borderBottom: "1px solid #E5E7EB",
         transition: "color 0.2s",
       }}
       onMouseEnter={(e) => {
-        if (!isActive) e.currentTarget.style.color = "#FFFFFF";
+        if (!isActive) e.currentTarget.style.color = "#2563EB";
       }}
       onMouseLeave={(e) => {
-        if (!isActive)
-          e.currentTarget.style.color = "rgba(255,255,255,0.65)";
+        if (!isActive) e.currentTarget.style.color = "#6B7280";
       }}
     >
       {label.toUpperCase()}
@@ -263,15 +260,12 @@ export default function Header() {
           left: 0,
           right: 0,
           zIndex: 50,
-          background: scrolled
-            ? "rgba(17, 29, 49, 0.95)"
-            : "transparent",
+          background: scrolled ? "#FFFFFF" : "transparent",
+          boxShadow: scrolled ? "0 2px 10px rgba(0,0,0,0.08)" : "none",
           borderBottom: scrolled
-            ? "1px solid rgba(255,255,255,0.1)"
+            ? "1px solid #E5E7EB"
             : "1px solid transparent",
-          backdropFilter: scrolled ? "blur(12px)" : "none",
-          transition:
-            "background 0.3s, border-color 0.3s, backdrop-filter 0.3s",
+          transition: "background 0.3s, box-shadow 0.3s, border-color 0.3s",
         }}
       >
         <div
@@ -283,17 +277,17 @@ export default function Header() {
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 64px",
-            height: "56px",
+            height: "70px",
           }}
         >
           {/* Logo */}
           <Link
             href={`/${locale}`}
             style={{
-              fontSize: "12px",
+              fontSize: "14px",
               fontWeight: 700,
               letterSpacing: "0.2em",
-              color: "#FFFFFF",
+              color: "#1B1A2B",
               textDecoration: "none",
             }}
           >
@@ -338,7 +332,7 @@ export default function Header() {
               border: "none",
               cursor: "pointer",
               fontSize: "22px",
-              color: "#FFFFFF",
+              color: "#1B1A2B",
               padding: "4px",
             }}
           >
@@ -354,7 +348,7 @@ export default function Header() {
             position: "fixed",
             inset: 0,
             zIndex: 49,
-            background: "rgba(10, 22, 40, 0.98)",
+            background: "#FFFFFF",
             paddingTop: "72px",
           }}
           className="mobile-overlay"

@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageHeader from "@/components/sections/Hero";
 
 export async function generateMetadata({
   params,
@@ -92,36 +93,24 @@ export default async function StandardsPage({
   const t = await getTranslations({ locale, namespace: "standards" });
 
   return (
-    <div className="pt-32">
-      {/* Page Header */}
-      <section className="pt-40 pb-16 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="max-w-3xl">
-            <p className="section-label mb-4">METHODOLOGY</p>
-            <h1
-              className="font-bold text-white mb-6"
-              style={{ fontSize: "48px", lineHeight: 1.1 }}
-            >
-              {t("title")}
-            </h1>
-            <p className="text-[17px] text-[rgba(255,255,255,0.65)] leading-relaxed max-w-3xl">
-              {t("subtitle")}
-            </p>
-          </div>
-        </div>
-      </section>
+    <div>
+      <PageHeader
+        label="METHODOLOGY"
+        title={t("title")}
+        subtitle={t("subtitle")}
+      />
 
       {/* Why Standards Matter */}
-      <section style={{ padding: "96px 64px" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+      <section style={{ padding: "100px 0", backgroundColor: "#F8F9FA" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
           <p className="section-label" style={{ marginBottom: "16px" }}>
             WHY STANDARDS MATTER
           </p>
           <h2
             style={{
               fontSize: "36px",
-              fontWeight: 700,
-              color: "#FFFFFF",
+              fontWeight: 400,
+              color: "#1B1A2B",
               marginBottom: "40px",
             }}
           >
@@ -139,8 +128,8 @@ export default async function StandardsPage({
                 <h3
                   style={{
                     fontSize: "18px",
-                    fontWeight: 700,
-                    color: "#FFFFFF",
+                    fontWeight: 400,
+                    color: "#1B1A2B",
                     marginBottom: "8px",
                   }}
                 >
@@ -149,7 +138,7 @@ export default async function StandardsPage({
                 <p
                   style={{
                     fontSize: "15px",
-                    color: "rgba(255,255,255,0.65)",
+                    color: "#6B7280",
                     lineHeight: 1.7,
                   }}
                 >
@@ -162,13 +151,13 @@ export default async function StandardsPage({
       </section>
 
       {/* Intro */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="max-w-3xl space-y-5">
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
+      <section style={{ padding: "100px 0" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
+          <div style={{ maxWidth: "768px" }}>
+            <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7, marginBottom: "20px" }}>
               HateCheck does not rely on a single definition of antisemitism or hate speech. Each of the primary international frameworks has strengths and limitations. Rather than choosing one and discarding others, our methodology applies all applicable frameworks in a layered approach — surfacing the most defensible classification for each piece of content.
             </p>
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
+            <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>
               For Dutch-specific cases, we apply the Dutch Penal Code frameworks on top of the international standards to assess criminal liability thresholds. This layered approach produces Tier 4 and Tier 5 classifications for content that not only meets antisemitism definitions but may also constitute criminal speech under Dutch law.
             </p>
           </div>
@@ -176,34 +165,34 @@ export default async function StandardsPage({
       </section>
 
       {/* IHRA */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="glass-card p-12">
-            <p className="section-label mb-3">{t("ihra.badge").toUpperCase()}</p>
-            <h2 className="text-[32px] font-bold text-white mb-3">
+      <section style={{ padding: "100px 0", backgroundColor: "#F8F9FA" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
+          <div className="glass-card" style={{ padding: "48px" }}>
+            <p className="section-label" style={{ marginBottom: "12px" }}>{t("ihra.badge").toUpperCase()}</p>
+            <h2 style={{ fontSize: "32px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>
               {t("ihra.title")}
             </h2>
-            <p className="text-[13px] text-[rgba(255,255,255,0.4)] mb-6">
+            <p style={{ fontSize: "13px", color: "#9CA3AF", marginBottom: "24px" }}>
               International Holocaust Remembrance Alliance — Adopted 2016. Endorsed by 35+ countries including the Netherlands.
             </p>
             <a
               href="https://www.holocaustremembrance.com/resources/working-definitions-charters/working-definition-antisemitism"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[13px] text-white hover:text-[#3B82F6] transition-colors"
+              style={{ fontSize: "13px", color: "#2563EB" }}
             >
               Official Source
             </a>
-            <div className="mt-10 space-y-8">
-              <div className="border-b border-white/10 pb-8">
-                <h3 className="text-[16px] font-bold text-white mb-3">Core Definition</h3>
-                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed italic">
+            <div style={{ marginTop: "40px" }}>
+              <div style={{ borderBottom: "1px solid #E5E7EB", paddingBottom: "32px", marginBottom: "32px" }}>
+                <h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>Core Definition</h3>
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7, fontStyle: "italic" }}>
                   &ldquo;Antisemitism is a certain perception of Jews, which may be expressed as hatred toward Jews. Rhetorical and physical manifestations of antisemitism are directed toward Jewish or non-Jewish individuals and/or their property, toward Jewish community institutions and religious facilities.&rdquo;
                 </p>
               </div>
-              <div>
-                <h3 className="text-[16px] font-bold text-white mb-4">Contemporary Examples (11 Total)</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div style={{ marginBottom: "32px" }}>
+                <h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1B1A2B", marginBottom: "16px" }}>Contemporary Examples (11 Total)</h3>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "12px" }}>
                   {[
                     "Calling for harm to Jews",
                     "Making mendacious, dehumanizing allegations about Jews",
@@ -217,8 +206,8 @@ export default async function StandardsPage({
                     "Dehumanizing stereotypes",
                     "Targeting Jewish community institutions",
                   ].map((ex, i) => (
-                    <div key={i} className="text-[13px] text-[rgba(255,255,255,0.65)]">
-                      <span className="text-[rgba(255,255,255,0.4)] mr-2">
+                    <div key={i} style={{ fontSize: "13px", color: "#6B7280" }}>
+                      <span style={{ color: "#9CA3AF", marginRight: "8px" }}>
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       {ex}
@@ -226,9 +215,9 @@ export default async function StandardsPage({
                   ))}
                 </div>
               </div>
-              <div className="border-t border-white/10 pt-8">
-                <p className="section-label mb-2">ROLE IN HATECHECK</p>
-                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
+              <div style={{ borderTop: "1px solid #E5E7EB", paddingTop: "32px", marginBottom: "32px" }}>
+                <p className="section-label" style={{ marginBottom: "8px" }}>ROLE IN HATECHECK</p>
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>
                   IHRA serves as the primary framework for all cases not directly related to Israel. Its broad adoption makes it the most institutionally recognized baseline for classification.
                 </p>
               </div>
@@ -237,14 +226,14 @@ export default async function StandardsPage({
                 className="glass-card"
                 style={{
                   padding: "24px",
-                  backgroundColor: "rgba(255,255,255,0.03)",
+                  backgroundColor: "#F8F9FA",
                 }}
               >
                 <h4
                   style={{
                     fontSize: "16px",
-                    fontWeight: 700,
-                    color: "#FFFFFF",
+                    fontWeight: 400,
+                    color: "#1B1A2B",
                     marginBottom: "8px",
                   }}
                 >
@@ -253,7 +242,7 @@ export default async function StandardsPage({
                 <p
                   style={{
                     fontSize: "15px",
-                    color: "rgba(255,255,255,0.65)",
+                    color: "#6B7280",
                     lineHeight: 1.7,
                   }}
                 >
@@ -266,50 +255,50 @@ export default async function StandardsPage({
       </section>
 
       {/* Nexus Document */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="glass-card p-12">
-            <p className="section-label mb-3">{t("nexus.badge").toUpperCase()}</p>
-            <h2 className="text-[32px] font-bold text-white mb-3">
+      <section style={{ padding: "100px 0" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
+          <div className="glass-card" style={{ padding: "48px" }}>
+            <p className="section-label" style={{ marginBottom: "12px" }}>{t("nexus.badge").toUpperCase()}</p>
+            <h2 style={{ fontSize: "32px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>
               {t("nexus.title")}
             </h2>
-            <p className="text-[13px] text-[rgba(255,255,255,0.4)] mb-6">
+            <p style={{ fontSize: "13px", color: "#9CA3AF", marginBottom: "24px" }}>
               Nexus Task Force — 2021. Focuses specifically on Israel-Palestine discourse and the antisemitism boundary.
             </p>
             <a
               href="https://israelandantisemitism.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[13px] text-white hover:text-[#3B82F6] transition-colors"
+              style={{ fontSize: "13px", color: "#2563EB" }}
             >
               Official Source
             </a>
-            <div className="mt-10 space-y-8">
-              <div className="border-b border-white/10 pb-8">
-                <h3 className="text-[16px] font-bold text-white mb-3">The Two-Part Nexus Test</h3>
-                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed mb-4">
+            <div style={{ marginTop: "40px" }}>
+              <div style={{ borderBottom: "1px solid #E5E7EB", paddingBottom: "32px", marginBottom: "32px" }}>
+                <h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>The Two-Part Nexus Test</h3>
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7, marginBottom: "16px" }}>
                   Speech about Israel is antisemitic when it:
                 </p>
-                <div className="space-y-3">
-                  <div className="text-[15px] text-[rgba(255,255,255,0.65)]">
-                    <span className="text-[rgba(255,255,255,0.4)] mr-2">A.</span>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  <div style={{ fontSize: "15px", color: "#6B7280" }}>
+                    <span style={{ color: "#9CA3AF", marginRight: "8px" }}>A.</span>
                     Targets Israel <em>because it is Jewish</em> — i.e., applies standards not required of other states due to Jewish identity
                   </div>
-                  <div className="text-[15px] text-[rgba(255,255,255,0.65)]">
-                    <span className="text-[rgba(255,255,255,0.4)] mr-2">B.</span>
+                  <div style={{ fontSize: "15px", color: "#6B7280" }}>
+                    <span style={{ color: "#9CA3AF", marginRight: "8px" }}>B.</span>
                     Applies classic antisemitic tropes (conspiracy, dual loyalty, dehumanization) to Israeli or Jewish conduct
                   </div>
                 </div>
               </div>
-              <div className="border-b border-white/10 pb-8">
-                <h3 className="text-[16px] font-bold text-white mb-3">Explicitly Protected Speech</h3>
-                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
+              <div style={{ borderBottom: "1px solid #E5E7EB", paddingBottom: "32px", marginBottom: "32px" }}>
+                <h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>Explicitly Protected Speech</h3>
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>
                   The Nexus Document explicitly states that criticism of Israeli government policies, support for Palestinian rights, and opposition to occupation are not antisemitic — even when strongly stated. The &ldquo;because it is Jewish&rdquo; test separates political discourse from hatred.
                 </p>
               </div>
-              <div>
-                <p className="section-label mb-2">ROLE IN HATECHECK</p>
-                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
+              <div style={{ marginBottom: "32px" }}>
+                <p className="section-label" style={{ marginBottom: "8px" }}>ROLE IN HATECHECK</p>
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>
                   Nexus analysis is applied specifically to cases where the Israel-antisemitism boundary is contested, providing a structured test for distinguishing political criticism from antisemitic speech.
                 </p>
               </div>
@@ -318,14 +307,14 @@ export default async function StandardsPage({
                 className="glass-card"
                 style={{
                   padding: "24px",
-                  backgroundColor: "rgba(255,255,255,0.03)",
+                  backgroundColor: "#F8F9FA",
                 }}
               >
                 <h4
                   style={{
                     fontSize: "16px",
-                    fontWeight: 700,
-                    color: "#FFFFFF",
+                    fontWeight: 400,
+                    color: "#1B1A2B",
                     marginBottom: "8px",
                   }}
                 >
@@ -334,7 +323,7 @@ export default async function StandardsPage({
                 <p
                   style={{
                     fontSize: "15px",
-                    color: "rgba(255,255,255,0.65)",
+                    color: "#6B7280",
                     lineHeight: 1.7,
                   }}
                 >
@@ -347,28 +336,28 @@ export default async function StandardsPage({
       </section>
 
       {/* JDA */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="glass-card p-12">
-            <p className="section-label mb-3">{t("jda.badge").toUpperCase()}</p>
-            <h2 className="text-[32px] font-bold text-white mb-3">
+      <section style={{ padding: "100px 0", backgroundColor: "#F8F9FA" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
+          <div className="glass-card" style={{ padding: "48px" }}>
+            <p className="section-label" style={{ marginBottom: "12px" }}>{t("jda.badge").toUpperCase()}</p>
+            <h2 style={{ fontSize: "32px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>
               {t("jda.title")}
             </h2>
-            <p className="text-[13px] text-[rgba(255,255,255,0.4)] mb-6">
+            <p style={{ fontSize: "13px", color: "#9CA3AF", marginBottom: "24px" }}>
               Jerusalem Declaration — 2021. Developed by 200+ international scholars. Provides academic rigor and Israel-specific nuance.
             </p>
             <a
               href="https://jerusalemdeclaration.org/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[13px] text-white hover:text-[#3B82F6] transition-colors"
+              style={{ fontSize: "13px", color: "#2563EB" }}
             >
               Official Source
             </a>
-            <div className="mt-10 space-y-8">
-              <div className="border-b border-white/10 pb-8">
-                <h3 className="text-[16px] font-bold text-white mb-3">What is Antisemitic (JDA)</h3>
-                <ul className="space-y-2">
+            <div style={{ marginTop: "40px" }}>
+              <div style={{ borderBottom: "1px solid #E5E7EB", paddingBottom: "32px", marginBottom: "32px" }}>
+                <h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>What is Antisemitic (JDA)</h3>
+                <ul style={{ display: "flex", flexDirection: "column", gap: "8px", listStyle: "none", padding: 0 }}>
                   {[
                     "Calling for harm to Jews or treating them as less than human",
                     "Conspiracy theories (Jewish control of media, finance, government)",
@@ -376,30 +365,30 @@ export default async function StandardsPage({
                     "Discriminatory double standards applied to Jews",
                     "Attributing Israeli conduct to Jewish identity globally",
                   ].map((item, i) => (
-                    <li key={i} className="text-[14px] text-[rgba(255,255,255,0.65)]">
+                    <li key={i} style={{ fontSize: "14px", color: "#6B7280" }}>
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="border-b border-white/10 pb-8">
-                <h3 className="text-[16px] font-bold text-white mb-3">What is Not Antisemitic (JDA)</h3>
-                <ul className="space-y-2">
+              <div style={{ borderBottom: "1px solid #E5E7EB", paddingBottom: "32px", marginBottom: "32px" }}>
+                <h3 style={{ fontSize: "16px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>What is Not Antisemitic (JDA)</h3>
+                <ul style={{ display: "flex", flexDirection: "column", gap: "8px", listStyle: "none", padding: 0 }}>
                   {[
                     "Criticism of Israeli policies comparable to criticism of other states",
                     "Holding that Israel's founding involved ethnic displacement",
                     "Boycott, divestment, sanctions (BDS) advocacy",
                     "Comparing Israeli policies to other historical examples (context-dependent)",
                   ].map((item, i) => (
-                    <li key={i} className="text-[14px] text-[rgba(255,255,255,0.65)]">
+                    <li key={i} style={{ fontSize: "14px", color: "#6B7280" }}>
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
-              <div>
-                <p className="section-label mb-2">ROLE IN HATECHECK</p>
-                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
+              <div style={{ marginBottom: "32px" }}>
+                <p className="section-label" style={{ marginBottom: "8px" }}>ROLE IN HATECHECK</p>
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>
                   JDA guidance is applied as a secondary check for Israel-related content, providing more granular boundaries for grey-zone cases that IHRA alone cannot resolve.
                 </p>
               </div>
@@ -408,14 +397,14 @@ export default async function StandardsPage({
                 className="glass-card"
                 style={{
                   padding: "24px",
-                  backgroundColor: "rgba(255,255,255,0.03)",
+                  backgroundColor: "#F8F9FA",
                 }}
               >
                 <h4
                   style={{
                     fontSize: "16px",
-                    fontWeight: 700,
-                    color: "#FFFFFF",
+                    fontWeight: 400,
+                    color: "#1B1A2B",
                     marginBottom: "8px",
                   }}
                 >
@@ -424,7 +413,7 @@ export default async function StandardsPage({
                 <p
                   style={{
                     fontSize: "15px",
-                    color: "rgba(255,255,255,0.65)",
+                    color: "#6B7280",
                     lineHeight: 1.7,
                   }}
                 >
@@ -437,33 +426,36 @@ export default async function StandardsPage({
       </section>
 
       {/* Dutch Penal Code */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="glass-card p-12">
-            <p className="section-label mb-3">{t("dutch.badge").toUpperCase()}</p>
-            <h2 className="text-[32px] font-bold text-white mb-3">
+      <section style={{ padding: "100px 0" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
+          <div className="glass-card" style={{ padding: "48px" }}>
+            <p className="section-label" style={{ marginBottom: "12px" }}>{t("dutch.badge").toUpperCase()}</p>
+            <h2 style={{ fontSize: "32px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>
               {t("dutch.title")}
             </h2>
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] mb-10 max-w-2xl leading-relaxed">
+            <p style={{ fontSize: "15px", color: "#6B7280", marginBottom: "40px", maxWidth: "640px", lineHeight: 1.7 }}>
               The Netherlands&apos; criminal provisions governing hate speech are concentrated in Articles 137c-e of the Wetboek van Strafrecht (WvSr). These are the legal thresholds that determine Tier 4 and 5 classifications.
             </p>
 
-            <div className="space-y-10">
-              {dutchArticles.map((article) => (
+            <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+              {dutchArticles.map((article, idx) => (
                 <div
                   key={article.code}
-                  className="border-b border-white/10 pb-10 last:border-b-0 last:pb-0"
+                  style={{
+                    borderBottom: idx < dutchArticles.length - 1 ? "1px solid #E5E7EB" : "none",
+                    paddingBottom: idx < dutchArticles.length - 1 ? "40px" : "0",
+                  }}
                 >
-                  <p className="section-label mb-2">{article.code.toUpperCase()}</p>
-                  <h3 className="text-[18px] font-bold text-white mb-3">
+                  <p className="section-label" style={{ marginBottom: "8px" }}>{article.code.toUpperCase()}</p>
+                  <h3 style={{ fontSize: "18px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px" }}>
                     {article.title}
                   </h3>
-                  <p className="text-[15px] text-[rgba(255,255,255,0.65)] mb-4 leading-relaxed">
+                  <p style={{ fontSize: "15px", color: "#6B7280", marginBottom: "16px", lineHeight: 1.7 }}>
                     {article.description}
                   </p>
-                  <ul className="space-y-1">
+                  <ul style={{ display: "flex", flexDirection: "column", gap: "4px", listStyle: "none", padding: 0 }}>
                     {article.elements.map((el, i) => (
-                      <li key={i} className="text-[13px] text-[rgba(255,255,255,0.4)]">
+                      <li key={i} style={{ fontSize: "13px", color: "#9CA3AF" }}>
                         {el}
                       </li>
                     ))}
@@ -472,9 +464,9 @@ export default async function StandardsPage({
               ))}
             </div>
 
-            <div className="mt-10 pt-8 border-t border-white/10">
-              <p className="section-label mb-2">ROLE IN HATECHECK</p>
-              <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">
+            <div style={{ marginTop: "40px", paddingTop: "32px", borderTop: "1px solid #E5E7EB" }}>
+              <p className="section-label" style={{ marginBottom: "8px" }}>ROLE IN HATECHECK</p>
+              <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>
                 Dutch law is applied on top of international standards to assess criminal liability thresholds, producing Tier 4 and Tier 5 classifications for content that may constitute criminal speech.
               </p>
             </div>
@@ -484,15 +476,15 @@ export default async function StandardsPage({
               className="glass-card"
               style={{
                 padding: "24px",
-                backgroundColor: "rgba(255,255,255,0.03)",
+                backgroundColor: "#F8F9FA",
                 marginTop: "32px",
               }}
             >
               <h4
                 style={{
                   fontSize: "16px",
-                  fontWeight: 700,
-                  color: "#FFFFFF",
+                  fontWeight: 400,
+                  color: "#1B1A2B",
                   marginBottom: "8px",
                 }}
               >
@@ -501,7 +493,7 @@ export default async function StandardsPage({
               <p
                 style={{
                   fontSize: "15px",
-                  color: "rgba(255,255,255,0.65)",
+                  color: "#6B7280",
                   lineHeight: 1.7,
                 }}
               >
@@ -513,19 +505,19 @@ export default async function StandardsPage({
       </section>
 
       {/* How They Work Together */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="mb-16">
-            <p className="section-label mb-4">INTEGRATED METHODOLOGY</p>
-            <h2 className="text-[36px] font-bold text-white mb-4">
+      <section style={{ padding: "100px 0", backgroundColor: "#F8F9FA" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
+          <div style={{ marginBottom: "64px" }}>
+            <p className="section-label" style={{ marginBottom: "16px" }}>INTEGRATED METHODOLOGY</p>
+            <h2 style={{ fontSize: "36px", fontWeight: 400, color: "#1B1A2B", marginBottom: "16px" }}>
               How They Work Together
             </h2>
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] max-w-2xl leading-relaxed">
+            <p style={{ fontSize: "15px", color: "#6B7280", maxWidth: "640px", lineHeight: 1.7 }}>
               The layered methodology integrates all frameworks at the appropriate analytical stage.
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
             {[
               {
                 label: "Layer 1: International Definitions",
@@ -550,15 +542,16 @@ export default async function StandardsPage({
             ].map((layer, i, arr) => (
               <div
                 key={i}
-                className="glass-card p-8 relative"
+                className="glass-card"
+                style={{ padding: "32px", position: "relative" }}
               >
-                <h3 className="text-[18px] font-bold text-white mb-2">
+                <h3 style={{ fontSize: "18px", fontWeight: 400, color: "#1B1A2B", marginBottom: "8px" }}>
                   {layer.label}
                 </h3>
-                <p className="section-label mb-2">{layer.frameworks}</p>
-                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">{layer.desc}</p>
+                <p className="section-label" style={{ marginBottom: "8px" }}>{layer.frameworks}</p>
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>{layer.desc}</p>
                 {i < arr.length - 1 && (
-                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[#3B82F6] text-2xl z-10">
+                  <div style={{ position: "absolute", bottom: "-16px", left: "50%", transform: "translateX(-50%)", color: "#2563EB", fontSize: "24px", zIndex: 10 }}>
                     &#x2193;
                   </div>
                 )}
@@ -569,16 +562,16 @@ export default async function StandardsPage({
       </section>
 
       {/* Safety, Privacy & Governance */}
-      <section style={{ padding: "96px 64px" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+      <section style={{ padding: "100px 0" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
           <p className="section-label" style={{ marginBottom: "16px" }}>
             GOVERNANCE
           </p>
           <h2
             style={{
               fontSize: "36px",
-              fontWeight: 700,
-              color: "#FFFFFF",
+              fontWeight: 400,
+              color: "#1B1A2B",
               marginBottom: "40px",
             }}
           >
@@ -596,8 +589,8 @@ export default async function StandardsPage({
                 <h3
                   style={{
                     fontSize: "18px",
-                    fontWeight: 700,
-                    color: "#FFFFFF",
+                    fontWeight: 400,
+                    color: "#1B1A2B",
                     marginBottom: "8px",
                   }}
                 >
@@ -606,7 +599,7 @@ export default async function StandardsPage({
                 <p
                   style={{
                     fontSize: "15px",
-                    color: "rgba(255,255,255,0.65)",
+                    color: "#6B7280",
                     lineHeight: 1.7,
                   }}
                 >
@@ -619,17 +612,17 @@ export default async function StandardsPage({
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto text-center">
-          <h2 className="text-[36px] font-bold text-white mb-4">
+      <section style={{ padding: "100px 0", backgroundColor: "#F8F9FA" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
+          <h2 style={{ fontSize: "36px", fontWeight: 400, color: "#1B1A2B", marginBottom: "16px" }}>
             See the Standards in Practice
           </h2>
-          <p className="text-[15px] text-[rgba(255,255,255,0.65)] mb-10">
+          <p style={{ fontSize: "15px", color: "#6B7280", marginBottom: "40px" }}>
             Review our anonymized case studies to see how these frameworks are applied.
           </p>
           <Link
             href={`/${locale}/reports`}
-            className="btn-primary"
+            className="btn-main"
           >
             View case studies
           </Link>

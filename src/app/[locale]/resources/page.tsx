@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { articles, articleCategories } from "@/lib/articles";
+import PageHeader from "@/components/sections/Hero";
 
 export default function ResourcesPage() {
   const t = useTranslations("resources");
@@ -16,39 +17,35 @@ export default function ResourcesPage() {
       : articles.filter((a) => a.category === activeCategory);
 
   return (
-    <div className="pt-32">
-      {/* Page Header */}
-      <section className="pt-40 pb-16 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="max-w-3xl">
-            <p className="section-label mb-4">RESOURCES</p>
-            <h1
-              className="font-bold text-white mb-6"
-              style={{ fontSize: "48px", lineHeight: 1.1 }}
-            >
-              {t("title")}
-            </h1>
-            <p className="text-[17px] text-[rgba(255,255,255,0.65)] leading-relaxed">
-              {t("subtitle")}
-            </p>
-          </div>
-        </div>
-      </section>
+    <div>
+      <PageHeader
+        label="RESOURCES"
+        title={t("title")}
+        subtitle={t("subtitle")}
+      />
 
       {/* Filter + Articles */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto">
+      <section style={{ padding: "100px 0" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
           {/* Category filter */}
-          <div className="flex flex-wrap gap-3 mb-16 pb-8 border-b border-white/10">
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "64px", paddingBottom: "32px", borderBottom: "1px solid #E5E7EB" }}>
             {articleCategories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded text-[11px] font-semibold uppercase tracking-[0.15em] transition-colors cursor-pointer border ${
-                  activeCategory === cat
-                    ? "bg-[#2563EB] text-white border-[#2563EB]"
-                    : "bg-[rgba(255,255,255,0.1)] text-[rgba(255,255,255,0.65)] border-transparent hover:bg-[#2563EB]/20 hover:text-white"
-                }`}
+                style={{
+                  padding: "8px 16px",
+                  borderRadius: "4px",
+                  fontSize: "11px",
+                  fontWeight: 600,
+                  textTransform: "uppercase" as const,
+                  letterSpacing: "0.15em",
+                  cursor: "pointer",
+                  border: activeCategory === cat ? "1px solid #2563EB" : "1px solid #E5E7EB",
+                  backgroundColor: activeCategory === cat ? "#2563EB" : "#FFFFFF",
+                  color: activeCategory === cat ? "#FFFFFF" : "#6B7280",
+                  transition: "all 0.2s",
+                }}
               >
                 {cat.toUpperCase()}
               </button>
@@ -56,21 +53,22 @@ export default function ResourcesPage() {
           </div>
 
           {/* Article grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
             {filtered.map((article) => (
               <Link
                 key={article.slug}
                 href={`/${locale}/resources/${article.slug}`}
-                className="glass-card block p-8 hover:border-white/20 transition-colors"
+                className="glass-card"
+                style={{ display: "block", padding: "32px", transition: "box-shadow 0.2s" }}
               >
-                <h3 className="text-[20px] font-bold text-white mb-3 leading-tight">
+                <h3 style={{ fontSize: "20px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px", lineHeight: 1.3 }}>
                   {article.title}
                 </h3>
-                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed mb-6">
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7, marginBottom: "24px" }}>
                   {article.excerpt}
                 </p>
-                <div className="flex items-center gap-4">
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[rgba(255,255,255,0.4)]">
+                <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+                  <span style={{ fontSize: "11px", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.15em", color: "#9CA3AF" }}>
                     {new Date(article.date).toLocaleDateString("en-GB", {
                       day: "numeric",
                       month: "short",
@@ -86,7 +84,7 @@ export default function ResourcesPage() {
           </div>
 
           {filtered.length === 0 && (
-            <div className="text-center py-20 text-[rgba(255,255,255,0.4)] text-[15px]">
+            <div style={{ textAlign: "center", padding: "80px 0", color: "#9CA3AF", fontSize: "15px" }}>
               No articles found in this category.
             </div>
           )}

@@ -86,16 +86,16 @@ export default async function AboutPage({
       />
 
       {/* Mission */}
-      <section style={{ padding: "96px 64px" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+      <section style={{ padding: "100px 0" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
           <p className="section-label" style={{ marginBottom: "16px" }}>
             OUR MISSION
           </p>
           <h2
             style={{
               fontSize: "36px",
-              fontWeight: 700,
-              color: "#FFFFFF",
+              fontWeight: 400,
+              color: "#1B1A2B",
               marginBottom: "40px",
             }}
           >
@@ -105,7 +105,7 @@ export default async function AboutPage({
             <p
               style={{
                 fontSize: "15px",
-                color: "rgba(255,255,255,0.65)",
+                color: "#6B7280",
                 lineHeight: 1.7,
               }}
             >
@@ -120,8 +120,8 @@ export default async function AboutPage({
       </section>
 
       {/* What the Platform Does */}
-      <section style={{ padding: "96px 64px" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+      <section style={{ padding: "100px 0", backgroundColor: "#F8F9FA" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
           <p className="section-label" style={{ marginBottom: "16px" }}>
             WHAT THE PLATFORM DOES
           </p>
@@ -138,8 +138,8 @@ export default async function AboutPage({
                 <h3
                   style={{
                     fontSize: "18px",
-                    fontWeight: 700,
-                    color: "#FFFFFF",
+                    fontWeight: 400,
+                    color: "#1B1A2B",
                     marginBottom: "8px",
                   }}
                 >
@@ -148,7 +148,7 @@ export default async function AboutPage({
                 <p
                   style={{
                     fontSize: "15px",
-                    color: "rgba(255,255,255,0.65)",
+                    color: "#6B7280",
                     lineHeight: 1.7,
                   }}
                 >
@@ -160,7 +160,7 @@ export default async function AboutPage({
           <p
             style={{
               fontSize: "15px",
-              color: "rgba(255,255,255,0.65)",
+              color: "#6B7280",
               lineHeight: 1.7,
               maxWidth: "768px",
             }}
@@ -172,16 +172,16 @@ export default async function AboutPage({
       </section>
 
       {/* Why This Matters */}
-      <section style={{ padding: "96px 64px" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+      <section style={{ padding: "100px 0" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
           <p className="section-label" style={{ marginBottom: "16px" }}>
             THE IMPERATIVE
           </p>
           <h2
             style={{
               fontSize: "36px",
-              fontWeight: 700,
-              color: "#FFFFFF",
+              fontWeight: 400,
+              color: "#1B1A2B",
               marginBottom: "40px",
             }}
           >
@@ -191,7 +191,7 @@ export default async function AboutPage({
             <p
               style={{
                 fontSize: "15px",
-                color: "rgba(255,255,255,0.65)",
+                color: "#6B7280",
                 lineHeight: 1.7,
                 marginBottom: "20px",
               }}
@@ -208,7 +208,7 @@ export default async function AboutPage({
             <p
               style={{
                 fontSize: "15px",
-                color: "rgba(255,255,255,0.65)",
+                color: "#6B7280",
                 lineHeight: 1.7,
               }}
             >
@@ -223,16 +223,16 @@ export default async function AboutPage({
       </section>
 
       {/* Who We Are */}
-      <section style={{ padding: "96px 64px" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+      <section style={{ padding: "100px 0", backgroundColor: "#F8F9FA" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
           <p className="section-label" style={{ marginBottom: "16px" }}>
             ORIGIN
           </p>
           <h2
             style={{
               fontSize: "36px",
-              fontWeight: 700,
-              color: "#FFFFFF",
+              fontWeight: 400,
+              color: "#1B1A2B",
               marginBottom: "40px",
             }}
           >
@@ -242,7 +242,7 @@ export default async function AboutPage({
             <p
               style={{
                 fontSize: "15px",
-                color: "rgba(255,255,255,0.65)",
+                color: "#6B7280",
                 lineHeight: 1.7,
               }}
             >
@@ -258,16 +258,16 @@ export default async function AboutPage({
       </section>
 
       {/* Vision */}
-      <section style={{ padding: "96px 64px" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+      <section style={{ padding: "100px 0" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
           <p className="section-label" style={{ marginBottom: "16px" }}>
             VISION
           </p>
           <h2
             style={{
               fontSize: "36px",
-              fontWeight: 700,
-              color: "#FFFFFF",
+              fontWeight: 400,
+              color: "#1B1A2B",
               marginBottom: "40px",
             }}
           >
@@ -308,8 +308,8 @@ export default async function AboutPage({
                 <h3
                   style={{
                     fontSize: "20px",
-                    fontWeight: 700,
-                    color: "#FFFFFF",
+                    fontWeight: 400,
+                    color: "#1B1A2B",
                     marginBottom: "16px",
                   }}
                 >
@@ -318,7 +318,7 @@ export default async function AboutPage({
                 <p
                   style={{
                     fontSize: "15px",
-                    color: "rgba(255,255,255,0.65)",
+                    color: "#6B7280",
                     lineHeight: 1.7,
                   }}
                 >
@@ -331,16 +331,16 @@ export default async function AboutPage({
       </section>
 
       {/* Values */}
-      <section style={{ padding: "96px 64px" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+      <section style={{ padding: "100px 0", backgroundColor: "#F8F9FA" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
           <p className="section-label" style={{ marginBottom: "16px" }}>
             VALUES
           </p>
           <h2
             style={{
               fontSize: "36px",
-              fontWeight: 700,
-              color: "#FFFFFF",
+              fontWeight: 400,
+              color: "#1B1A2B",
               marginBottom: "64px",
             }}
           >
@@ -358,8 +358,8 @@ export default async function AboutPage({
                 <h3
                   style={{
                     fontSize: "18px",
-                    fontWeight: 700,
-                    color: "#FFFFFF",
+                    fontWeight: 400,
+                    color: "#1B1A2B",
                     marginBottom: "8px",
                   }}
                 >
@@ -368,7 +368,7 @@ export default async function AboutPage({
                 <p
                   style={{
                     fontSize: "15px",
-                    color: "rgba(255,255,255,0.65)",
+                    color: "#6B7280",
                     lineHeight: 1.7,
                   }}
                 >
@@ -381,13 +381,13 @@ export default async function AboutPage({
       </section>
 
       {/* CTA */}
-      <section style={{ padding: "96px 64px" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto", textAlign: "center" }}>
+      <section style={{ padding: "100px 0" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
           <h2
             style={{
               fontSize: "36px",
-              fontWeight: 700,
-              color: "#FFFFFF",
+              fontWeight: 400,
+              color: "#1B1A2B",
               marginBottom: "16px",
             }}
           >
@@ -396,14 +396,14 @@ export default async function AboutPage({
           <p
             style={{
               fontSize: "15px",
-              color: "rgba(255,255,255,0.65)",
+              color: "#6B7280",
               marginBottom: "40px",
             }}
           >
             Partner organizations, researchers, and funders &mdash; we want to
             hear from you.
           </p>
-          <Link href={`/${locale}/contact`} className="btn-primary">
+          <Link href={`/${locale}/contact`} className="btn-main">
             Get in touch
           </Link>
         </div>

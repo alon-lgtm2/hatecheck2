@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { reports } from "@/lib/reports";
 import { tierConfig } from "@/lib/reports";
+import PageHeader from "@/components/sections/Hero";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -21,66 +22,61 @@ export default async function ReportsPage({
   const t = await getTranslations({ locale, namespace: "reports" });
 
   return (
-    <div className="pt-32">
-      {/* Page Header */}
-      <section className="pt-40 pb-16 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="max-w-3xl">
-            <p className="section-label mb-4">CASE STUDIES</p>
-            <h1
-              className="font-bold text-white mb-6"
-              style={{ fontSize: "48px", lineHeight: 1.1 }}
-            >
-              {t("title")}
-            </h1>
-            <p className="text-[17px] text-[rgba(255,255,255,0.65)] leading-relaxed mb-6">
-              {t("subtitle")}
-            </p>
-            <p className="text-[13px] text-[rgba(255,255,255,0.4)]">
-              All reports are fully anonymized. No identifying information about individuals or specific organizations is included.
-            </p>
-          </div>
+    <div>
+      <PageHeader
+        label="CASE STUDIES"
+        title={t("title")}
+        subtitle={t("subtitle")}
+      />
+
+      {/* Disclaimer */}
+      <section style={{ padding: "40px 0 0" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
+          <p style={{ fontSize: "13px", color: "#9CA3AF" }}>
+            All reports are fully anonymized. No identifying information about individuals or specific organizations is included.
+          </p>
         </div>
       </section>
 
       {/* Reports Grid */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section style={{ padding: "100px 0" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
             {reports.map((report) => {
               const config = tierConfig[report.tier];
               return (
                 <Link
                   key={report.id}
                   href={`/${locale}/reports/${report.id}`}
-                  className="glass-card block p-8 hover:border-white/20 transition-colors"
+                  className="glass-card"
+                  style={{ display: "block", padding: "32px", transition: "box-shadow 0.2s", textDecoration: "none" }}
                 >
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="flex items-center gap-2">
-                      <span className={`w-2.5 h-2.5 rounded-full tier-bg-${report.tier}`} />
-                      <span className={`text-[11px] font-semibold uppercase tracking-[0.15em] tier-${report.tier}`}>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "16px" }}>
+                    <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      <span className={`tier-bg-${report.tier}`} style={{ width: "10px", height: "10px", borderRadius: "50%", display: "inline-block" }} />
+                      <span className={`tier-${report.tier}`} style={{ fontSize: "11px", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.15em" }}>
                         TIER {report.tier} — {config.label.toUpperCase()}
                       </span>
                     </span>
-                    <span className="text-[13px] text-[rgba(255,255,255,0.4)]">
+                    <span style={{ fontSize: "13px", color: "#9CA3AF" }}>
                       {report.id}
                     </span>
                   </div>
-                  <h3 className="text-[18px] font-bold text-white mb-3 leading-tight">
+                  <h3 style={{ fontSize: "18px", fontWeight: 400, color: "#1B1A2B", marginBottom: "12px", lineHeight: 1.3 }}>
                     {report.title}
                   </h3>
-                  <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed mb-6">
+                  <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7, marginBottom: "24px" }}>
                     {report.excerpt}
                   </p>
-                  <div className="flex items-center gap-4">
-                    <span className="text-[13px] text-[rgba(255,255,255,0.4)]">
+                  <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+                    <span style={{ fontSize: "13px", color: "#9CA3AF" }}>
                       {new Date(report.date).toLocaleDateString("en-GB", {
                         day: "numeric",
                         month: "short",
                         year: "numeric",
                       })}
                     </span>
-                    <span className="text-[13px] text-[rgba(255,255,255,0.4)]">
+                    <span style={{ fontSize: "13px", color: "#9CA3AF" }}>
                       {report.platform}
                     </span>
                   </div>

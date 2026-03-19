@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import PageHeader from "@/components/sections/Hero";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -37,8 +38,8 @@ const screenshotSteps = [
     title: "Four Standards Applied",
     description:
       "The content passes sequentially through IHRA, Nexus Document, Jerusalem Declaration, and Dutch Penal Code — each adding precision to the analysis.",
-    image: "/images/screenshot3.png",
-    alt: "Step 3: Protocol analysis — IHRA, Nexus, JDA, Dutch Penal Code",
+    image: "/images/protocol.png",
+    alt: "Step 3: Protocol analysis — IHRA, Nexus, JDA, Dutch Penal Code applied to incident",
     caption: "Sequential cascade: IHRA anchors, Nexus checks Israel/Zionism, JDA refines grey zones, Dutch law maps criminal thresholds.",
   },
   {
@@ -47,8 +48,8 @@ const screenshotSteps = [
     title: "Forensic Classification Report",
     description:
       "A complete forensic report: tier assignment, confidence score with reasoning, evidence-to-standard mapping, and executive summary — ready for institutional use.",
-    image: "/images/screenshot2.png",
-    alt: "Step 4: Classification report — Tier 4, 95% confidence",
+    image: "/images/assessment.png",
+    alt: "Step 4: Classification report — Tier 3, 75% confidence with forensic analysis",
     caption: "Every classification backed by three complementary frameworks plus Dutch criminal law.",
   },
   {
@@ -57,8 +58,8 @@ const screenshotSteps = [
     title: "Prioritised Action Engine",
     description:
       "Structured next steps generated from the tier classification. One-click letter drafting for every relevant authority — police, CIDI, municipality, legal counsel.",
-    image: "/images/screenshot1.png",
-    alt: "Step 5: Action engine — prioritised cards with Draft Letter",
+    image: "/images/action.png",
+    alt: "Step 5: Action engine — Report to Local Authorities with Draft Letter",
     caption: "AI drafts, humans decide. Every action letter is editable before sending and archived automatically.",
   },
 ];
@@ -113,36 +114,21 @@ export default async function ProductPage({
   const { locale } = await params;
 
   return (
-    <div className="pt-32">
-
-      {/* Page Header */}
-      <section className="pt-40 pb-16 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="max-w-3xl">
-            <p className="section-label mb-4">PLATFORM</p>
-            <h1
-              className="font-bold text-white mb-6"
-              style={{ fontSize: "48px", lineHeight: 1.1 }}
-            >
-              The Investigation Workflow
-            </h1>
-            <p className="text-[17px] text-[rgba(255,255,255,0.65)] leading-relaxed max-w-2xl">
-              HateCheck compresses the full chain from &ldquo;that feels wrong&rdquo; to &ldquo;something is
-              being done about it&rdquo; into a single guided workflow — backed by AI, grounded in recognised
-              international standards, and calibrated to Dutch legal thresholds.
-            </p>
-          </div>
-        </div>
-      </section>
+    <div>
+      <PageHeader
+        label="PLATFORM"
+        title="The Investigation Workflow"
+        subtitle="HateCheck compresses the full chain from &ldquo;that feels wrong&rdquo; to &ldquo;something is being done about it&rdquo; into a single guided workflow — backed by AI, grounded in recognised international standards, and calibrated to Dutch legal thresholds."
+      />
 
       {/* 5-Step Pipeline with Real Screenshots */}
-      <section>
-        <div className="max-w-[1400px] mx-auto">
+      <section style={{ padding: "100px 0", backgroundColor: "#F8F9FA" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
 
           {/* Section header */}
-          <div className="px-16 pt-24 pb-16 border-b border-white/10">
-            <p className="section-label mb-4">5-STEP INVESTIGATION PIPELINE</p>
-            <h2 className="text-[36px] font-bold text-white">
+          <div style={{ marginBottom: "64px", paddingBottom: "32px", borderBottom: "1px solid #E5E7EB" }}>
+            <p className="section-label" style={{ marginBottom: "16px" }}>5-STEP INVESTIGATION PIPELINE</p>
+            <h2 style={{ fontSize: "36px", fontWeight: 400, color: "#1B1A2B" }}>
               From Source to Action
             </h2>
           </div>
@@ -151,28 +137,47 @@ export default async function ProductPage({
           {screenshotSteps.map((step, index) => (
             <div
               key={step.number}
-              className={`spotlight ${index % 2 !== 0 ? "reverse" : ""} py-20 px-16 border-b border-white/10`}
+              style={{
+                display: "grid",
+                gridTemplateColumns: index % 2 !== 0 ? "1fr 1fr" : "1fr 1fr",
+                gap: "48px",
+                alignItems: "center",
+                paddingTop: "48px",
+                paddingBottom: "48px",
+                borderBottom: index < screenshotSteps.length - 1 ? "1px solid #E5E7EB" : "none",
+              }}
             >
               {/* Text side */}
-              <div className="content glass-card p-10">
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="w-12 h-12 rounded-full bg-[#2563EB] flex items-center justify-center text-white font-bold text-lg">
+              <div className="glass-card" style={{ padding: "40px", order: index % 2 !== 0 ? 2 : 1 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "24px" }}>
+                  <span style={{
+                    width: "48px",
+                    height: "48px",
+                    borderRadius: "50%",
+                    backgroundColor: "#2563EB",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#FFFFFF",
+                    fontWeight: 700,
+                    fontSize: "18px",
+                  }}>
                     {step.number}
                   </span>
                   <p className="section-label">{step.label}</p>
                 </div>
-                <h3 className="text-[28px] font-bold text-white mb-4">
+                <h3 style={{ fontSize: "28px", fontWeight: 400, color: "#1B1A2B", marginBottom: "16px" }}>
                   {step.title}
                 </h3>
-                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed mb-6">{step.description}</p>
-                <p className="text-[13px] text-[rgba(255,255,255,0.4)] leading-relaxed">
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7, marginBottom: "24px" }}>{step.description}</p>
+                <p style={{ fontSize: "13px", color: "#9CA3AF", lineHeight: 1.7 }}>
                   {step.caption}
                 </p>
               </div>
 
               {/* Screenshot side */}
-              <div className="image">
-                <div className="screenshot-frame">
+              <div style={{ order: index % 2 !== 0 ? 1 : 2 }}>
+                <div style={{ border: "1px solid #E5E7EB", borderRadius: "8px", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}>
                   <Image
                     src={step.image}
                     alt={step.alt}
@@ -189,20 +194,20 @@ export default async function ProductPage({
       </section>
 
       {/* Intelligence Gathering screenshot */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="mb-12">
-            <p className="section-label mb-4">INTELLIGENCE GATHERING</p>
-            <h2 className="text-[36px] font-bold text-white mb-4">
+      <section style={{ padding: "100px 0" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
+          <div style={{ marginBottom: "48px" }}>
+            <p className="section-label" style={{ marginBottom: "16px" }}>INTELLIGENCE GATHERING</p>
+            <h2 style={{ fontSize: "36px", fontWeight: 400, color: "#1B1A2B", marginBottom: "16px" }}>
               Real-Time OSINT Scanning
             </h2>
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] max-w-2xl leading-relaxed">
+            <p style={{ fontSize: "15px", color: "#6B7280", maxWidth: "640px", lineHeight: 1.7 }}>
               When a URL is submitted, a terminal-style panel shows live scanning activity — domain
               authority verification, entity extraction, Dutch source cross-referencing, and legal
               protocol loading.
             </p>
           </div>
-          <div className="screenshot-frame max-w-3xl">
+          <div style={{ maxWidth: "768px", border: "1px solid #E5E7EB", borderRadius: "8px", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}>
             <Image
               src="/images/screenshot5.png"
               alt="Real-time OSINT scanning panel — terminal-style activity display"
@@ -212,28 +217,28 @@ export default async function ProductPage({
               quality={90}
             />
           </div>
-          <p className="text-[13px] text-[rgba(255,255,255,0.4)] mt-4 max-w-xl">
+          <p style={{ fontSize: "13px", color: "#9CA3AF", marginTop: "16px", maxWidth: "560px" }}>
             The scanning interface signals both Dutch Legal Standards compliance and AI model sophistication.
           </p>
         </div>
       </section>
 
       {/* Design Principles */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="mb-16">
-            <p className="section-label mb-4">DESIGN PRINCIPLES</p>
-            <h2 className="text-[36px] font-bold text-white">
+      <section style={{ padding: "100px 0", backgroundColor: "#F8F9FA" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
+          <div style={{ marginBottom: "64px" }}>
+            <p className="section-label" style={{ marginBottom: "16px" }}>DESIGN PRINCIPLES</p>
+            <h2 style={{ fontSize: "36px", fontWeight: 400, color: "#1B1A2B" }}>
               What Sets HateCheck Apart
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "24px" }}>
             {principles.map((p, i) => (
-              <div key={i} className="glass-card p-8">
-                <h3 className="text-[18px] font-bold text-white mb-2">
+              <div key={i} className="glass-card" style={{ padding: "32px" }}>
+                <h3 style={{ fontSize: "18px", fontWeight: 400, color: "#1B1A2B", marginBottom: "8px" }}>
                   {p.label}
                 </h3>
-                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">{p.detail}</p>
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>{p.detail}</p>
               </div>
             ))}
           </div>
@@ -241,24 +246,24 @@ export default async function ProductPage({
       </section>
 
       {/* Platform Modules */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="mb-16">
-            <p className="section-label mb-4">PLATFORM MODULES</p>
-            <h2 className="text-[36px] font-bold text-white mb-4">
+      <section style={{ padding: "100px 0" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
+          <div style={{ marginBottom: "64px" }}>
+            <p className="section-label" style={{ marginBottom: "16px" }}>PLATFORM MODULES</p>
+            <h2 style={{ fontSize: "36px", fontWeight: 400, color: "#1B1A2B", marginBottom: "16px" }}>
               Beyond Classification
             </h2>
-            <p className="text-[15px] text-[rgba(255,255,255,0.65)] max-w-2xl leading-relaxed">
+            <p style={{ fontSize: "15px", color: "#6B7280", maxWidth: "640px", lineHeight: 1.7 }}>
               HateCheck is a complete intelligence platform — not just a classifier.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
             {moduleFeatures.map((f, i) => (
-              <div key={i} className="glass-card p-8">
-                <h3 className="text-[18px] font-bold text-white mb-2">
+              <div key={i} className="glass-card" style={{ padding: "32px" }}>
+                <h3 style={{ fontSize: "18px", fontWeight: 400, color: "#1B1A2B", marginBottom: "8px" }}>
                   {f.title}
                 </h3>
-                <p className="text-[15px] text-[rgba(255,255,255,0.65)] leading-relaxed">{f.description}</p>
+                <p style={{ fontSize: "15px", color: "#6B7280", lineHeight: 1.7 }}>{f.description}</p>
               </div>
             ))}
           </div>
@@ -266,10 +271,10 @@ export default async function ProductPage({
       </section>
 
       {/* Legal Disclaimer */}
-      <div className="px-16 py-8 border-t border-white/10">
-        <div className="max-w-[1400px] mx-auto">
-          <p className="text-[13px] text-[rgba(255,255,255,0.4)] leading-relaxed max-w-3xl">
-            <strong className="text-[rgba(255,255,255,0.65)] font-medium">Disclaimer:</strong> HateCheck provides general information
+      <div style={{ padding: "32px 0", borderTop: "1px solid #E5E7EB" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
+          <p style={{ fontSize: "13px", color: "#9CA3AF", lineHeight: 1.7, maxWidth: "768px" }}>
+            <strong style={{ color: "#6B7280", fontWeight: 500 }}>Disclaimer:</strong> HateCheck provides general information
             and is not a substitute for legal advice. Classification results reflect AI analysis against
             published standards and should be reviewed by qualified professionals before any legal action.
           </p>
@@ -277,17 +282,17 @@ export default async function ProductPage({
       </div>
 
       {/* CTA */}
-      <section className="py-24 px-16">
-        <div className="max-w-[1400px] mx-auto text-center">
-          <p className="section-label mb-4">NEXT STEPS</p>
-          <h2 className="text-[36px] font-bold text-white mb-4">
+      <section style={{ padding: "100px 0", backgroundColor: "#F8F9FA" }}>
+        <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
+          <p className="section-label" style={{ marginBottom: "16px" }}>NEXT STEPS</p>
+          <h2 style={{ fontSize: "36px", fontWeight: 400, color: "#1B1A2B", marginBottom: "16px" }}>
             Request a Demonstration
           </h2>
-          <p className="text-[15px] text-[rgba(255,255,255,0.65)] mb-10 max-w-xl mx-auto leading-relaxed">
+          <p style={{ fontSize: "15px", color: "#6B7280", marginBottom: "40px", maxWidth: "560px", margin: "0 auto 40px", lineHeight: 1.7 }}>
             Contact us to discuss how HateCheck can serve your organisation — or access the live platform directly.
           </p>
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <Link href={`/${locale}/contact`} className="btn-primary">
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "16px", flexWrap: "wrap" }}>
+            <Link href={`/${locale}/contact`} className="btn-main">
               Get in touch
             </Link>
             <Link href={`/${locale}/organizations`} className="btn-outline">
