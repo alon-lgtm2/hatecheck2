@@ -76,13 +76,13 @@ function AnchorLink({ href, label }: AnchorLinkProps) {
       href={href}
       onClick={handleClick}
       style={{
-        fontSize: "12px",
+        fontSize: "11px",
         fontWeight: 600,
-        letterSpacing: "0.1em",
+        letterSpacing: "0.08em",
         textTransform: "uppercase",
         color: "#6B7280",
         textDecoration: "none",
-        padding: "0 16px",
+        padding: "0 10px",
         transition: "color 0.2s",
       }}
       onMouseEnter={(e) => {
@@ -220,10 +220,14 @@ export default function Header() {
     pathname === `/${locale}` || pathname === `/${locale}/`;
 
   const anchorLinks = [
-    { href: "#intro", label: "Introduction" },
+    { href: "#intro", label: "Home" },
+    { href: "#crisis", label: "Crisis" },
     { href: "#platform", label: "Platform" },
+    { href: "#showcase", label: "Showcase" },
     { href: "#tiers", label: "Tiers" },
     { href: "#standards", label: "Standards" },
+    { href: "#ecosystem", label: "Ecosystem" },
+    { href: "#academy", label: "Academy" },
     { href: "#contact", label: "Contact" },
   ];
 
@@ -285,11 +289,12 @@ export default function Header() {
           <Link
             href={`/${locale}`}
             style={{
-              fontSize: "14px",
+              fontSize: "20px",
               fontWeight: 700,
-              letterSpacing: "0.2em",
+              letterSpacing: "0.25em",
               color: "#1B1A2B",
               textDecoration: "none",
+              flexShrink: 0,
             }}
           >
             HATECHECK
@@ -394,7 +399,7 @@ export default function Header() {
           display: block;
         }
 
-        @media (max-width: 1023px) {
+        @media (max-width: 1199px) {
           .desktop-nav {
             display: none !important;
           }
