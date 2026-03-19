@@ -232,71 +232,47 @@ export default async function HomePage({
         className="slider"
         style={{
           background: "linear-gradient(135deg, #1B1A2B 0%, #2D2B3E 50%, #1B1A2B 100%)",
-          padding: "200px 24px 180px",
+          padding: "160px 24px 80px",
           textAlign: "center",
           position: "relative",
         }}
       >
         <div className="overly" />
         <div style={{ position: "relative", zIndex: 1, maxWidth: "1140px", margin: "0 auto" }}>
-          <Image
-            src="/hatecheck-logo.svg"
-            alt="HateCheck"
-            width={200}
-            height={67}
-            priority
-            style={{
-              filter: "brightness(0) invert(1)",
-              marginBottom: "40px",
-              width: "200px",
-              height: "auto",
-            }}
-          />
           <h1
             style={{
-              fontSize: "clamp(32px, 5vw, 48px)",
+              fontSize: "clamp(36px, 5.5vw, 56px)",
               fontWeight: 700,
               color: "#FFFFFF",
               textTransform: "uppercase",
               letterSpacing: "3px",
-              maxWidth: "800px",
+              maxWidth: "900px",
               margin: "0 auto 24px",
-              lineHeight: 1.3,
+              lineHeight: 1.2,
             }}
           >
             {t("hero.title")}
           </h1>
           <p
             style={{
-              fontSize: "18px",
-              color: "rgba(255,255,255,0.95)",
-              maxWidth: "700px",
-              margin: "0 auto 20px",
-              lineHeight: 1.8,
-              fontWeight: 500,
-            }}
-          >
-            {t("hero.whatItDoes")}
-          </p>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "rgba(255,255,255,0.7)",
+              fontSize: "clamp(16px, 2vw, 20px)",
+              color: "rgba(255,255,255,0.85)",
               maxWidth: "640px",
-              margin: "0 auto 20px",
+              margin: "0 auto 16px",
               lineHeight: 1.7,
+              fontWeight: 400,
             }}
           >
-            {t("hero.subtitle")}
+            AI-powered detection, classification, and enforcement of antisemitism and hate speech. Four legal standards. One structured workflow.
           </p>
           <p
             style={{
-              fontSize: "14px",
+              fontSize: "13px",
               fontWeight: 600,
-              color: "rgba(255,255,255,0.5)",
+              color: "rgba(255,255,255,0.45)",
               textTransform: "uppercase",
               letterSpacing: "2px",
-              margin: "0 auto 40px",
+              margin: "0 auto 36px",
             }}
           >
             {t("hero.global")}
@@ -307,6 +283,7 @@ export default async function HomePage({
               gap: "16px",
               flexWrap: "wrap",
               justifyContent: "center",
+              marginBottom: "64px",
             }}
           >
             <a href="#platform" className="btn-white">
@@ -315,6 +292,27 @@ export default async function HomePage({
             <Link href={`/${locale}/contact`} className="btn-white">
               Get in Touch
             </Link>
+          </div>
+
+          {/* App Screenshot Showcase */}
+          <div
+            className="hero-screenshot"
+            style={{
+              maxWidth: "960px",
+              margin: "0 auto",
+              borderRadius: "12px",
+              overflow: "hidden",
+              boxShadow: "0 25px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1)",
+            }}
+          >
+            <Image
+              src="/images/screenshot-hero.png"
+              alt="HateCheck platform interface"
+              width={1920}
+              height={1080}
+              priority
+              style={{ width: "100%", height: "auto", display: "block" }}
+            />
           </div>
         </div>
       </section>
@@ -537,6 +535,7 @@ export default async function HomePage({
       >
         <div className="overly" />
         <div
+          className="platform-flex"
           style={{
             position: "relative",
             zIndex: 1,
@@ -549,13 +548,15 @@ export default async function HomePage({
           }}
         >
           <div style={{ flex: "1 1 0%", display: "flex", justifyContent: "center" }}>
-            <Image
-              src="/images/scan2.png"
-              alt="HateCheck platform scan"
-              width={500}
-              height={500}
-              style={{ maxWidth: "100%", height: "auto" }}
-            />
+            <div style={{ borderRadius: "8px", overflow: "hidden", boxShadow: "0 15px 50px rgba(0,0,0,0.3)" }}>
+              <Image
+                src="/images/homepage-newsbar.png"
+                alt="HateCheck platform - Identify. Assess. Act."
+                width={600}
+                height={500}
+                style={{ maxWidth: "100%", height: "auto", display: "block" }}
+              />
+            </div>
           </div>
           <div style={{ flex: "1 1 0%", maxWidth: "600px" }}>
             <p className="section-label" style={{ marginBottom: "12px" }}>
@@ -1589,6 +1590,10 @@ export default async function HomePage({
           .services-grid {
             grid-template-columns: 1fr !important;
           }
+          .platform-flex {
+            flex-direction: column !important;
+            gap: 32px !important;
+          }
         }
         @media (min-width: 769px) and (max-width: 1024px) {
           .ecosystem-grid {
@@ -1596,6 +1601,10 @@ export default async function HomePage({
           }
           .services-grid {
             grid-template-columns: repeat(3, 1fr) !important;
+          }
+          .platform-flex {
+            flex-direction: column !important;
+            gap: 40px !important;
           }
         }
       `}</style>

@@ -15,6 +15,28 @@ export const metadata: Metadata = {
     "IHRA",
     "content moderation",
   ],
+  openGraph: {
+    title: "HateCheck - AI-Powered Antisemitism Detection Platform",
+    description:
+      "AI-powered detection, classification, and enforcement of antisemitism and hate speech. Four legal standards. One structured workflow.",
+    images: [
+      {
+        url: "/images/oglogo.png",
+        width: 1200,
+        height: 630,
+        alt: "HateCheck",
+      },
+    ],
+    type: "website",
+    siteName: "HateCheck",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HateCheck - AI-Powered Antisemitism Detection Platform",
+    description:
+      "AI-powered detection, classification, and enforcement of antisemitism and hate speech.",
+    images: ["/images/oglogo.png"],
+  },
 };
 
 export default function RootLayout({
